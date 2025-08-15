@@ -580,8 +580,7 @@ nav {
 /* デフォルト背景 */
 .hero-slide:nth-child(1) {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="waterfall" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23001a0d"/><stop offset="50%" style="stop-color:%23003d1a"/><stop offset="100%" style="stop-color:%230d1f0d"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23waterfall)"/><path d="M0 600 Q200 550 400 580 T800 570 Q1000 560 1200 580 L1200 800 L0 800 Z" fill="%23001a0d" opacity="0.8"/><ellipse cx="600" cy="400" rx="50" ry="200" fill="%23ffffff" opacity="0.6"/><rect x="580" y="200" width="40" height="400" fill="%23ffffff" opacity="0.8"/><circle cx="300" cy="200" r="2" fill="%23d4af37" opacity="0.7"/><circle cx="900" cy="250" r="1.5" fill="%23d4af37" opacity="0.6"/></svg>')
-      center/cover;
+    url("images/index-hero/slide1.jpeg") center/cover;
 }
 
 .hero-slide:nth-child(2) {
@@ -598,8 +597,7 @@ nav {
 
 .hero-slide:nth-child(4) {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="autumn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23cc4400"/><stop offset="50%" style="stop-color:%23ff6600"/><stop offset="100%" style="stop-color:%23990000"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23autumn)"/><circle cx="200" cy="100" r="20" fill="%23ff9900" opacity="0.8"/><circle cx="800" cy="150" r="15" fill="%23ffaa00" opacity="0.9"/><circle cx="1000" cy="200" r="25" fill="%23cc5500" opacity="0.7"/></svg>')
-      center/cover;
+    url("images/index-hero/slide4.jpeg") center/cover;
 }
 
 .slideshow-controls {
