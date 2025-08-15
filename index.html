@@ -1,1107 +1,718 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>堂島フロント企画 - 日本の心を映す自然</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        --primary-gold: #d4af37;
-        --deep-green: #0f2027;
-        --forest-green: #203a43;
-        --light-green: #2c5530;
-        --accent-red: #8b1538;
-        --soft-white: #f8f9fa;
-        --glass-bg: rgba(255, 255, 255, 0.1);
-        --glass-border: rgba(255, 255, 255, 0.2);
-      }
-
-      body {
-        font-family: "Noto Serif JP", serif;
-        line-height: 1.8;
-        color: #333;
-        background: linear-gradient(
-          135deg,
-          var(--deep-green),
-          var(--forest-green)
-        );
-        overflow-x: hidden;
-      }
-
-      /* パーティクルアニメーション */
-      .particles {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      .particle {
-        position: absolute;
-        width: 3px;
-        height: 3px;
-        background: var(--primary-gold);
-        border-radius: 50%;
-        opacity: 0.6;
-        animation: float 6s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px) translateX(0px) rotate(0deg);
-        }
-        33% {
-          transform: translateY(-30px) translateX(30px) rotate(120deg);
-        }
-        66% {
-          transform: translateY(30px) translateX(-30px) rotate(240deg);
-        }
-      }
-
-      /* ヘッダー - グラスモーフィズム */
-      header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(15, 32, 39, 0.85);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--glass-border);
-        z-index: 1000;
-        padding: 1.5rem 0;
-        transition: all 0.3s ease;
-      }
-
-      header.scrolled {
-        background: rgba(15, 32, 39, 0.95);
-        backdrop-filter: blur(30px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 3rem;
-      }
-
-      .logo {
-        color: var(--primary-gold);
-        font-size: 2rem;
-        font-weight: 300;
-        letter-spacing: 4px;
-        text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-        position: relative;
-      }
-
-      .logo::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, var(--primary-gold), transparent);
-      }
-
-      .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 3rem;
-      }
-
-      .nav-links a {
-        color: rgba(255, 255, 255, 0.9);
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 300;
-        letter-spacing: 2px;
-        position: relative;
-        transition: all 0.3s ease;
-        padding: 0.5rem 0;
-      }
-
-      .nav-links a::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary-gold);
-        transition: width 0.3s ease;
-      }
-
-      .nav-links a:hover {
-        color: var(--primary-gold);
-        text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-      }
-
-      .nav-links a:hover::before {
-        width: 100%;
-      }
-
-      /* ヒーローセクション - 3D効果 */
-      .hero {
-        height: 100vh;
-        background: linear-gradient(
-            135deg,
-            rgba(15, 32, 39, 0.8),
-            rgba(32, 58, 67, 0.6),
-            rgba(44, 85, 48, 0.4)
-          ),
-          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="mountainGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23203a43;stop-opacity:0.9"/><stop offset="50%" style="stop-color:%232c5530;stop-opacity:0.7"/><stop offset="100%" style="stop-color:%230f2027;stop-opacity:0.8"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="3"/><feColorMatrix values="1 0 0 0 0.83 0 1 0 0 0.69 0 0 1 0 0.22 0 0 0 1 0"/></filter></defs><rect width="100%" height="100%" fill="url(%23mountainGrad)"/><path d="M0 600 Q200 500 400 550 T800 520 Q1000 500 1200 540 L1200 800 L0 800 Z" fill="%23000000" opacity="0.3"/><path d="M0 650 Q300 580 600 620 T1200 600 L1200 800 L0 800 Z" fill="%23000000" opacity="0.2"/><circle cx="200" cy="200" r="2" fill="%23d4af37" filter="url(%23glow)" opacity="0.8"/><circle cx="800" cy="150" r="1.5" fill="%23d4af37" filter="url(%23glow)" opacity="0.6"/><circle cx="1000" cy="300" r="1" fill="%23d4af37" filter="url(%23glow)" opacity="0.9"/></svg>')
-            center/cover;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(
-            circle at 30% 70%,
-            rgba(212, 175, 55, 0.1) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 20%,
-            rgba(139, 21, 56, 0.1) 0%,
-            transparent 50%
-          );
-        animation: heroGlow 8s ease-in-out infinite alternate;
-      }
-
-      @keyframes heroGlow {
-        0% {
-          opacity: 0.5;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 10;
-        color: white;
-        max-width: 800px;
-        padding: 3rem;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(15px);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        transform: perspective(1000px) rotateX(2deg);
-        transition: all 0.3s ease;
-      }
-
-      .hero-content:hover {
-        transform: perspective(1000px) rotateX(0deg) translateY(-10px);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      }
-
-      .hero h1 {
-        font-size: 4.5rem;
-        margin-bottom: 2rem;
-        font-weight: 200;
-        letter-spacing: 6px;
-        background: linear-gradient(
-          135deg,
-          var(--primary-gold),
-          #ffffff,
-          var(--primary-gold)
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-        animation: titleGlow 3s ease-in-out infinite alternate;
-      }
-
-      @keyframes titleGlow {
-        0% {
-          filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
-        }
-        100% {
-          filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.8));
-        }
-      }
-
-      .hero .subtitle {
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
-        opacity: 0.9;
-        letter-spacing: 3px;
-        color: var(--primary-gold);
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 3rem;
-        opacity: 0.85;
-        letter-spacing: 2px;
-        line-height: 2;
-      }
-
-      .cta-button {
-        display: inline-block;
-        padding: 1.5rem 3rem;
-        background: linear-gradient(135deg, var(--primary-gold), #f4e97a);
-        color: var(--deep-green);
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 500;
-        letter-spacing: 2px;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .cta-button::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.3),
-          transparent
-        );
-        transition: left 0.5s;
-      }
-
-      .cta-button:hover {
-        transform: translateY(-5px) scale(1.05);
-        box-shadow: 0 20px 50px rgba(212, 175, 55, 0.5);
-      }
-
-      .cta-button:hover::before {
-        left: 100%;
-      }
-
-      /* メインコンテンツ */
-      main {
-        background: linear-gradient(
-          180deg,
-          rgba(248, 249, 250, 0.95),
-          rgba(255, 255, 255, 0.98)
-        );
-        position: relative;
-        z-index: 5;
-      }
-
-      .section {
-        padding: 8rem 3rem;
-        max-width: 1400px;
-        margin: 0 auto;
-        position: relative;
-      }
-
-      .section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 200px;
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--primary-gold),
-          transparent
-        );
-        animation: sectionGlow 4s ease-in-out infinite alternate;
-      }
-
-      @keyframes sectionGlow {
-        0% {
-          opacity: 0.5;
-          width: 200px;
-        }
-        100% {
-          opacity: 1;
-          width: 400px;
-        }
-      }
-
-      .section-title {
-        font-size: 3.5rem;
-        text-align: center;
-        margin-bottom: 4rem;
-        font-weight: 200;
-        letter-spacing: 4px;
-        background: linear-gradient(
-          135deg,
-          var(--deep-green),
-          var(--accent-red)
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        position: relative;
-        padding-bottom: 2rem;
-      }
-
-      .section-title::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: var(--primary-gold);
-        border-radius: 2px;
-      }
-
-      .section-intro {
-        text-align: center;
-        max-width: 800px;
-        margin: 0 auto 4rem;
-        font-size: 1.2rem;
-        color: #555;
-        line-height: 2;
-        letter-spacing: 1px;
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-        padding: 2rem;
-        border-radius: 15px;
-        border: 1px solid rgba(212, 175, 55, 0.2);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      /* 高級カードグリッド */
-      .card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-        gap: 3rem;
-        margin-top: 4rem;
-      }
-
-      .card {
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(20px);
-        border-radius: 25px;
-        overflow: hidden;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        position: relative;
-        border: 1px solid rgba(212, 175, 55, 0.2);
-      }
-
-      .card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(212, 175, 55, 0.1) 0%,
-          transparent 50%,
-          rgba(139, 21, 56, 0.1) 100%
-        );
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-      }
-
-      .card:hover {
-        transform: translateY(-20px) rotateX(5deg);
-        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
-      }
-
-      .card:hover::before {
-        opacity: 1;
-      }
-
-      .card-image {
-        height: 280px;
-        background: linear-gradient(
-          135deg,
-          var(--forest-green),
-          var(--light-green)
-        );
-        position: relative;
-        overflow: hidden;
-      }
-
-      .card-image::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><radialGradient id="cardGrad"><stop offset="0%" style="stop-color:%23d4af37;stop-opacity:0.3"/><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:0.1"/></radialGradient></defs><circle cx="40" cy="60" r="6" fill="url(%23cardGrad)"/><circle cx="160" cy="40" r="4" fill="url(%23cardGrad)"/><circle cx="120" cy="140" r="3" fill="url(%23cardGrad)"/><path d="M20 140 Q60 120 100 140 T180 150" fill="none" stroke="%23ffffff" stroke-width="2" opacity="0.3"/><path d="M10 160 Q50 150 90 155 T170 160" fill="none" stroke="%23d4af37" stroke-width="1" opacity="0.4"/></svg>');
-        animation: cardPattern 10s linear infinite;
-      }
-
-      @keyframes cardPattern {
-        0% {
-          transform: translateX(-10px);
-        }
-        50% {
-          transform: translateX(10px);
-        }
-        100% {
-          transform: translateX(-10px);
-        }
-      }
-
-      .card-icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 4rem;
-        color: rgba(255, 255, 255, 0.8);
-        text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-      }
-
-      .card-content {
-        padding: 2.5rem;
-        position: relative;
-        z-index: 2;
-      }
-
-      .card h3 {
-        font-size: 1.6rem;
-        margin-bottom: 1.5rem;
-        font-weight: 400;
-        color: var(--deep-green);
-        letter-spacing: 2px;
-      }
-
-      .card p {
-        color: #666;
-        font-size: 1rem;
-        line-height: 1.8;
-        letter-spacing: 0.5px;
-      }
-
-      /* 特別な引用セクション */
-      .quote-section {
-        background: linear-gradient(
-          135deg,
-          rgba(15, 32, 39, 0.95),
-          rgba(32, 58, 67, 0.9),
-          rgba(139, 21, 56, 0.8)
-        );
-        color: white;
-        text-align: center;
-        padding: 8rem 3rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .quote-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><linearGradient id="quoteGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23d4af37;stop-opacity:0.1"/><stop offset="50%" style="stop-color:%23ffffff;stop-opacity:0.05"/><stop offset="100%" style="stop-color:%23d4af37;stop-opacity:0.1"/></linearGradient></defs><path d="M0 200 Q300 100 600 200 T1200 180" fill="none" stroke="url(%23quoteGrad)" stroke-width="2"/><path d="M0 250 Q400 150 800 250 T1200 230" fill="none" stroke="url(%23quoteGrad)" stroke-width="1.5"/><circle cx="200" cy="150" r="3" fill="%23d4af37" opacity="0.4"/><circle cx="800" cy="120" r="2" fill="%23d4af37" opacity="0.6"/><circle cx="1000" cy="200" r="1.5" fill="%23d4af37" opacity="0.5"/></svg>');
-        animation: quoteBg 15s ease-in-out infinite alternate;
-      }
-
-      @keyframes quoteBg {
-        0% {
-          opacity: 0.3;
-        }
-        100% {
-          opacity: 0.8;
-        }
-      }
-
-      .quote-content {
-        max-width: 1000px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(15px);
-        padding: 4rem;
-        border-radius: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .quote-section blockquote {
-        font-size: 2.2rem;
-        font-style: italic;
-        margin-bottom: 2rem;
-        letter-spacing: 2px;
-        line-height: 1.6;
-        color: var(--primary-gold);
-        text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-      }
-
-      .quote-section cite {
-        font-size: 1.2rem;
-        opacity: 0.9;
-        letter-spacing: 1px;
-      }
-
-      /* フッター */
-      footer {
-        background: linear-gradient(135deg, var(--deep-green), #000);
-        color: white;
-        text-align: center;
-        padding: 5rem 3rem 3rem;
-        position: relative;
-      }
-
-      .social-links {
-        margin-bottom: 3rem;
-      }
-
-      .social-links a {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 2rem;
-        margin: 0 1.5rem;
-        transition: all 0.3s ease;
-        display: inline-block;
-      }
-
-      .social-links a:hover {
-        color: var(--primary-gold);
-        transform: translateY(-5px) scale(1.2);
-        text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-      }
-
-      /* パララックス効果 */
-      .parallax-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 120%;
-        z-index: -1;
-        background: linear-gradient(
-          135deg,
-          var(--deep-green),
-          var(--forest-green)
-        );
-        will-change: transform;
-      }
-
-      /* レスポンシブ */
-      @media (max-width: 768px) {
-        nav {
-          padding: 0 1.5rem;
-        }
-
-        .nav-links {
-          display: none;
-        }
-
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-
-        .section {
-          padding: 4rem 1.5rem;
-        }
-
-        .section-title {
-          font-size: 2.5rem;
-        }
-
-        .card-grid {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-
-        .quote-section blockquote {
-          font-size: 1.5rem;
-        }
-
-        .quote-content {
-          padding: 2rem;
-        }
-      }
-
-      /* カスタムスクロールバー */
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: var(--deep-green);
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: linear-gradient(45deg, var(--primary-gold), #f4e97a);
-        border-radius: 5px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(45deg, #f4e97a, var(--primary-gold));
-      }
-
-      /* ローディングアニメーション */
-      .loading-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          var(--deep-green),
-          var(--forest-green)
-        );
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        opacity: 1;
-        transition: opacity 1s ease-out;
-      }
-
-      .loading-overlay.fade-out {
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .loader {
-        width: 60px;
-        height: 60px;
-        border: 3px solid rgba(212, 175, 55, 0.3);
-        border-top: 3px solid var(--primary-gold);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Loading Screen -->
-    <div class="loading-overlay" id="loading">
-      <div class="loader"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四国遍路 - 心を清める八十八ヶ所巡礼の道</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- パララックス背景レイヤー -->
+    <div class="parallax-container" id="parallaxContainer">
+        <div class="parallax-layer mountains-far" id="mountainsFar"></div>
+        <div class="parallax-layer mountains-mid" id="mountainsMid"></div>
+        <div class="parallax-layer mountains-near" id="mountainsNear"></div>
+        <div class="parallax-layer fog-layer" id="fogLayer"></div>
+        <div class="parallax-layer light-rays" id="lightRays"></div>
+        <div class="parallax-layer floating-particles" id="floatingParticles"></div>
+        <div class="parallax-layer time-overlay" id="timeOverlay"></div>
     </div>
 
-    <!-- Parallax Background -->
-    <div class="parallax-bg" id="parallaxBg"></div>
-
-    <!-- Particles -->
-    <div class="particles" id="particles"></div>
-
-    <header id="header">
-      <nav>
-        <div class="logo">堂島フロント企画</div>
-        <ul class="nav-links">
-          <li><a href="#home">ホーム</a></li>
-          <li><a href="#nature">自然</a></li>
-          <li><a href="#culture">文化</a></li>
-          <li><a href="#journey">心の旅</a></li>
-          <li><a href="#contact">お問い合わせ</a></li>
-        </ul>
-      </nav>
+    <header>
+        <nav>
+            <div class="logo">堂島フロント企画</div>
+            <ul class="nav-links">
+                <li>
+                    <a href="#home">ホーム</a>
+                </li>
+                <li>
+                    <a href="#about">四国遍路とは</a>
+                    <div class="dropdown">
+                        <a href="#history">歴史と由来</a>
+                        <a href="#spirit">巡礼の精神</a>
+                        <a href="#meaning">同行二人の意味</a>
+                        <a href="#benefits">巡礼の効果</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="shikoku.html">各霊場のご案内</a>
+                    <div class="dropdown">
+                        <a href="shikoku.html#tokushima">発心の道場（徳島県）</a>
+                        <a href="shikoku.html#kouchi">修行の道場（高知県）</a>
+                        <a href="shikoku.html#ehime">菩提の道場（愛媛県）</a>
+                        <a href="shikoku.html#kagawa">涅槃の道場（香川県）</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#journey">巡礼体験</a>
+                    <div class="dropdown">
+                        <a href="#preparation">巡礼の準備</a>
+                        <a href="#etiquette">参拝作法</a>
+                        <a href="#accommodation">宿泊施設</a>
+                        <a href="#support">サポート情報</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#contact">お問い合わせ</a>
+                    <div class="dropdown">
+                        <a href="#inquiry">一般お問い合わせ</a>
+                        <a href="#booking">宿泊予約</a>
+                        <a href="#guide">ガイド依頼</a>
+                        <a href="#emergency">緊急サポート</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </header>
 
+    <!-- 縦書きナビゲーション -->
+    <div class="vertical-nav" id="verticalNav">
+        <div class="vertical-nav-container">
+            <a href="#home">ホーム</a>
+            <a href="#about">四国遍路</a>
+            <a href="#temples">霊場</a>
+            <a href="#journey">巡礼</a>
+            <a href="#contact">問合</a>
+        </div>
+    </div>
+
+    <!-- ナビゲーション表示トリガーエリア -->
+    <div class="nav-trigger-area" id="navTrigger"></div>
+
+    <!-- ナビゲーション表示インジケーター -->
+    <div class="nav-indicator" id="navIndicator">メニュー</div>
+
+    <!-- ヒーローセクション -->
     <section class="hero" id="home">
-      <div class="hero-content">
-        <div class="subtitle">日本の心を映す</div>
-        <h1>堂島フロント企画</h1>
-        <p>
-          四季の移ろいと共に息づく自然の調べ<br />古来より受け継がれし美意識の真髄
-        </p>
-        <a href="#nature" class="cta-button">美の世界へ</a>
-      </div>
+        <div class="hero-slideshow">
+            <div class="hero-slide active" data-info="清流と岩肌の調和"></div>
+            <div class="hero-slide" data-info="朱色に染まる古刹"></div>
+            <div class="hero-slide" data-info="白装束の巡礼者"></div>
+            <div class="hero-slide" data-info="秋の遍路道"></div>
+        </div>
+
+        <div class="slide-progress"></div>
+
+        <div class="hero-content">
+            <div class="hero-subtitle">八十八ヶ所霊場巡礼</div>
+            <h1>四国お遍路</h1>
+            <p class="hero-description">
+                弘法大師の足跡を辿る<br>
+                千二百年の歴史を持つ<br>
+                心の巡礼路
+            </p>
+        </div>
+
+        <div class="slide-info active" id="slideInfo">清流と岩肌の調和</div>
+
+        <div class="slideshow-controls">
+            <div class="slide-dot active" data-slide="0"></div>
+            <div class="slide-dot" data-slide="1"></div>
+            <div class="slide-dot" data-slide="2"></div>
+            <div class="slide-dot" data-slide="3"></div>
+        </div>
     </section>
 
-    <main>
-      <section class="section" id="nature">
-        <h2 class="section-title">自然との共鳴</h2>
-        <div class="section-intro">
-          山間に響く清流の音、風に揺れる竹葉の囁き、霧に包まれた森の静寂。
-          日本の自然は私たちの心に深く語りかけ、古より培われた美意識を呼び覚まします。
-          季節ごとに表情を変えるその姿は、まさに生きた芸術作品です。
+    <!-- 四国遍路について -->
+    <section class="section" id="about">
+        <div class="section-content">
+            <h2 class="section-title">四国遍路とは</h2>
+            <p class="section-intro">
+                四国八十八ヶ所霊場巡礼は、弘法大師（空海）ゆかりの寺院を巡る日本最古の巡礼路です。
+                「同行二人」の精神で歩き、心の浄化と精神的な成長を求める神聖な旅。
+                困ったことがあれば、いつでもサポートいたします。
+            </p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3>発心の道場（阿波）</h3>
+                        <p>徳島県の霊場群。第1番霊山寺から第23番薬王寺まで。巡礼の始まりとして菩提心を発起し、修行への決意を新たにする道場です。道に迷った時はすぐにご連絡ください。</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3>修行の道場（土佐）</h3>
+                        <p>高知県の厳しい修行の道。第24番最御崎寺から第39番延光寺まで。太平洋の荒波と向き合う最も過酷な行程。体調管理のサポートも承ります。</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3>菩提の道場（伊予）</h3>
+                        <p>愛媛県の悟りを求める道。第40番観自在寺から第65番三角寺まで。石鎚山など霊峰を仰ぎ見ながら、仏の教えを深く理解します。宿泊先の手配もお任せください。</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3>涅槃の道場（讃岐）</h3>
+                        <p>香川県の最終段階。第66番雲辺寺から第88番大窪寺まで。弘法大師生誕の地で巡礼の集大成となる悟りの境地を目指します。</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="card-grid">
-          <div class="card luxury-card">
-            <div class="card-image">
-              <div class="card-icon"><i class="fas fa-mountain"></i></div>
-            </div>
-            <div class="card-content">
-              <h3>山水の調べ</h3>
-              <p>
-                峻厳なる山々に囲まれた渓谷に、清らかな水が岩肌を縫って流れ落ちる。その音色は心の奥底に響き、都市の喧騒を忘れさせてくれる自然の楽章です。一滴一滴に込められた大地の恵みを感じながら、静寂の中で真の安らぎを見つけることができるでしょう。
-              </p>
-            </div>
-          </div>
-
-          <div class="card luxury-card">
-            <div
-              class="card-image"
-              style="
-                background: linear-gradient(135deg, #1b5e20, #2e7d32, #4caf50);
-              "
-            >
-              <div class="card-icon"><i class="fas fa-seedling"></i></div>
-            </div>
-            <div class="card-content">
-              <h3>竹林の幽玄</h3>
-              <p>
-                青々とした竹が空へと真っ直ぐ伸び、陽光が葉の間から差し込む竹林の小径。そよ風に揺れる竹葉が奏でる天然の音楽は、心を浄化し精神を研ぎ澄ませてくれます。歩を進めるたびに現れる光と影の美しいコントラストが、まるで別世界へと誘います。
-              </p>
-            </div>
-          </div>
-
-          <div class="card luxury-card">
-            <div
-              class="card-image"
-              style="
-                background: linear-gradient(135deg, #bf360c, #d84315, #ff5722);
-              "
-            >
-              <div class="card-icon"><i class="fas fa-leaf"></i></div>
-            </div>
-            <div class="card-content">
-              <h3>紅葉の錦絵</h3>
-              <p>
-                秋の訪れと共に山々が燃えるような色彩に染まる紅葉の季節。赤、橙、黄金色が織りなす自然の絨毯は、まさに天が描いた芸術作品。一枚一枚の葉に宿る季節の魂を感じながら、日本の美意識の源流に触れる至福のひとときを過ごすことができます。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="quote-section">
+    <!-- 引用セクション -->
+    <section class="quote-section">
         <div class="quote-content">
-          <blockquote>
-            「自然は最高の教師なり。静寂の中にこそ、真の智慧が宿る。」
-          </blockquote>
-          <cite>— 古来より伝わる教え</cite>
+            <div class="quote-text">
+                「歩くことそのものが祈りなり<br>
+                一歩一歩に仏の慈悲を感ず」
+            </div>
+            <div class="quote-author">— 弘法大師の教え</div>
         </div>
-      </section>
-
-      <section class="section" id="culture">
-        <h2 class="section-title">伝統美の継承</h2>
-        <div class="section-intro">
-          千年の時を超えて受け継がれてきた日本の文化と美意識。
-          それは自然との調和から生まれた、繊細で奥深い精神世界を私たちに伝えています。
-          一つ一つの所作に込められた心、形に表れた哲学を通じて、真の豊かさとは何かを学ぶことができます。
-        </div>
-
-        <div class="card-grid">
-          <div class="card luxury-card">
-            <div
-              class="card-image"
-              style="
-                background: linear-gradient(135deg, #4a148c, #6a1b9a, #8e24aa);
-              "
-            >
-              <div class="card-icon"><i class="fas fa-spa"></i></div>
-            </div>
-            <div class="card-content">
-              <h3>茶道の精神</h3>
-              <p>
-                一期一会の心を大切にし、季節の移ろいを感じながら、静寂の中で心を整える茶の湯。亭主と客が織りなす無言の対話、道具一つ一つに込められた美意識、そして何気ない仕草に宿る深い精神性。それは単なる茶を飲む行為を超えた、人生の縮図とも言える崇高な芸術です。
-              </p>
-            </div>
-          </div>
-
-          <div class="card luxury-card">
-            <div
-              class="card-image"
-              style="
-                background: linear-gradient(135deg, #3e2723, #5d4037, #795548);
-              "
-            >
-              <div class="card-icon"><i class="fas fa-feather-alt"></i></div>
-            </div>
-            <div class="card-content">
-              <h3>書の芸術</h3>
-              <p>
-                筆に込めた想いが墨となって紙に踊る書道の世界。一筆一筆に宿る精神性は、書き手の心境や感情を直接的に表現します。文字という記号を超えて、線の太さ、かすれ、余白の美しさが醸し出す空間芸術。それは見る者の心の奥深くに響く、言葉を超えた感動を与えてくれます。
-              </p>
-            </div>
-          </div>
-
-          <div class="card luxury-card">
-            <div
-              class="card-image"
-              style="
-                background: linear-gradient(135deg, #0d47a1, #1565c0, #1976d2);
-              "
-            >
-              <div class="card-icon"><i class="fas fa-yin-yang"></i></div>
-            </div>
-            <div class="card-content">
-              <h3>禅庭の哲学</h3>
-              <p>
-                石と砂、苔と樹木で表現された小宇宙である禅の庭園。シンプルな構成要素の中に込められた深遠な哲学と宇宙観は、見る者の心を静寂の境地へと導きます。変化する光の中で刻々と表情を変える庭の姿は、無常という仏教の教えを体現した、動的な瞑想空間なのです。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="journey">
-        <h2 class="section-title">心の旅路</h2>
-        <div class="section-intro">
-          自然と文化が織りなす日本の美しい風景は、私たちの心に深い感動と気づきをもたらします。
-          忙しい日常を離れ、静寂の中で自分自身と向き合う時間こそが、
-          真の豊かさと生きる意味を見出す旅の始まりなのかもしれません。
-        </div>
-
-        <div class="card-grid">
-          <div class="card luxury-card">
-            <div
-              class="card-image"
-              style="
-                background: linear-gradient(135deg, #880e4f, #ad1457, #c2185b);
-              "
-            >
-              <div class="card-icon"><i class="fas fa-heart"></i></div>
-            </div>
-            <div class="card-content">
-              <h3>感性の覚醒</h3>
-              <p>
-                日々の忙しさに追われる中で忘れがちな、本来私たちが持っている繊細な感性。自然の美しさに触れることで、心の奥底に眠っていた感受性が目覚め、世界がより鮮やかに、より深く感じられるようになります。それは人生をより豊かに彩る、かけがえのない財産となるでしょう。
-              </p>
-            </div>
-          </div>
-
-          <div class="card luxury-card">
-            <div
-              class="card-image"
-              style="
-                background: linear-gradient(135deg, #f57f17, #f9a825, #fbc02d);
-              "
-            >
-              <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-            </div>
-            <div class="card-content">
-              <h3>内省の時間</h3>
-              <p>
-                静寂な環境の中で自分自身と向き合う内省の時間は、現代社会においてますます貴重なものとなっています。外界の雑音から離れ、心の声に耳を澄ませることで、本当に大切なものが何かを見つめ直すことができます。そこから生まれる洞察は、人生の指針となる貴重な智慧です。
-              </p>
-            </div>
-          </div>
-
-          <div class="card luxury-card">
-            <div
-              class="card-image"
-              style="
-                background: linear-gradient(135deg, #1a237e, #303f9f, #3f51b5);
-              "
-            >
-              <div class="card-icon"><i class="fas fa-infinity"></i></div>
-            </div>
-            <div class="card-content">
-              <h3>永遠への憧憬</h3>
-              <p>
-                美しい自然や芸術作品に触れたとき、私たちは時を超えた何かを感じることがあります。それは有限な存在である人間が、無限なるものへの憧れを抱く瞬間。この感覚こそが、芸術や哲学、宗教が生まれる源泉であり、人間の精神性の最も高貴な部分を表しているのです。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer id="contact">
-      <div class="social-links">
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      </div>
-      <p>&copy; 2024 堂島フロント企画. すべての権利を保持します.</p>
-      <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.9rem">
-        自然と心の調和を求めて
-      </p>
-    </footer>
+    </section>
 
     <script>
-      // ローディング画面の制御
-      window.addEventListener("load", function () {
-        setTimeout(() => {
-          document.getElementById("loading").classList.add("fade-out");
-        }, 1000);
-      });
+        // スライドショー機能
+        function initSlideshow() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.slide-dot');
+            const slideInfo = document.getElementById('slideInfo');
+            const totalSlides = slides.length;
 
-      // パーティクル生成
-      function createParticles() {
-        const particlesContainer = document.getElementById("particles");
-        const particleCount = 50;
-
-        for (let i = 0; i < particleCount; i++) {
-          const particle = document.createElement("div");
-          particle.className = "particle";
-          particle.style.left = Math.random() * 100 + "%";
-          particle.style.top = Math.random() * 100 + "%";
-          particle.style.animationDelay = Math.random() * 6 + "s";
-          particle.style.animationDuration = Math.random() * 4 + 4 + "s";
-          particlesContainer.appendChild(particle);
-        }
-      }
-
-      // スムーススクロール
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
-      });
-
-      // パララックス効果
-      function handleParallax() {
-        const scrolled = window.pageYOffset;
-        const parallaxBg = document.getElementById("parallaxBg");
-        const rate = scrolled * -0.5;
-        parallaxBg.style.transform = `translateY(${rate}px)`;
-      }
-
-      // ヘッダースクロール効果
-      function handleHeaderScroll() {
-        const header = document.getElementById("header");
-        const scrollY = window.scrollY;
-
-        if (scrollY > 100) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-      }
-
-      // スクロールアニメーション
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0) scale(1)";
-          }
-        });
-      }, observerOptions);
-
-      // カードアニメーション初期設定
-      function initializeAnimations() {
-        document
-          .querySelectorAll(".card, .section-title, .section-intro")
-          .forEach((el) => {
-            el.style.opacity = "0";
-            el.style.transform = "translateY(50px) scale(0.9)";
-            el.style.transition =
-              "all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
-            observer.observe(el);
-          });
-      }
-
-      // マウス追従効果
-      function addMouseFollowEffect() {
-        document.addEventListener("mousemove", (e) => {
-          const cards = document.querySelectorAll(".card");
-          cards.forEach((card) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-              const xRotation = ((y - rect.height / 2) / rect.height) * 10;
-              const yRotation = ((x - rect.width / 2) / rect.width) * 10;
-              card.style.transform = `translateY(-20px) rotateX(${-xRotation}deg) rotateY(${yRotation}deg)`;
+            if (slides.length === 0) {
+                console.log('No slides found, skipping slideshow initialization');
+                return;
             }
-          });
-        });
-      }
 
-      // カードホバー効果リセット
-      function resetCardTransforms() {
-        document.querySelectorAll(".card").forEach((card) => {
-          card.addEventListener("mouseleave", () => {
-            card.style.transform = "translateY(0) rotateX(0) rotateY(0)";
-          });
-        });
-      }
+            function showSlide(index) {
+                // 全てのスライドを非アクティブに
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
 
-      // スクロールイベントリスナー
-      let ticking = false;
-      function handleScroll() {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            handleParallax();
-            handleHeaderScroll();
-            ticking = false;
-          });
-          ticking = true;
+                // 指定されたスライドをアクティブに
+                if (slides[index]) {
+                    slides[index].classList.add('active');
+                }
+                if (dots[index]) {
+                    dots[index].classList.add('active');
+                }
+
+                // スライド情報を更新
+                if (slideInfo && slides[index]) {
+                    const info = slides[index].getAttribute('data-info');
+                    if (info) {
+                        slideInfo.textContent = info;
+                        slideInfo.classList.remove('active');
+                        setTimeout(() => {
+                            slideInfo.classList.add('active');
+                        }, 100);
+                    }
+                }
+
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                const next = (currentSlide + 1) % totalSlides;
+                showSlide(next);
+            }
+
+            // ドットクリックイベント
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                    resetProgress();
+                });
+            });
+
+            // 自動スライド（6秒間隔）
+            if (totalSlides > 1) {
+                setInterval(nextSlide, 6000);
+            }
+
+            // 進行バーのリセット機能
+            resetProgress();
+
+            function resetProgress() {
+                const progressBar = document.querySelector('.slide-progress');
+                if (progressBar) {
+                    progressBar.style.animation = 'none';
+                    setTimeout(() => {
+                        progressBar.style.animation = 'slideProgress 6s linear infinite';
+                    }, 10);
+                }
+            }
+
+            console.log('Slideshow initialized with', totalSlides, 'slides');
+        }ライドショー機能
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slide-dot');
+        const slideInfo = document.getElementById('slideInfo');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            // 全てのスライドを非アクティブに
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+
+            // 指定されたスライドをアクティブに
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+
+            // スライド情報を更新
+            const info = slides[index].getAttribute('data-info');
+            slideInfo.textContent = info;
+            slideInfo.classList.remove('active');
+            setTimeout(() => {
+                slideInfo.classList.add('active');
+            }, 100);
+
+            currentSlide = index;
         }
-      }
 
-      // 初期化
-      document.addEventListener("DOMContentLoaded", function () {
-        createParticles();
-        initializeAnimations();
-        addMouseFollowEffect();
-        resetCardTransforms();
+        function nextSlide() {
+            const next = (currentSlide + 1) % totalSlides;
+            showSlide(next);
+        }
 
-        window.addEventListener("scroll", handleScroll);
-      });
+        function initSlideshow() {
+            // ドットクリックイベント
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                    resetProgress();
+                });
+            });
 
-      // パフォーマンス最適化
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(() => {
-          // 重い処理をアイドル時間に実行
-          console.log("Site loaded and optimized");
+            // 自動スライド（6秒間隔）
+            setInterval(nextSlide, 6000);
+
+            // 進行バーのリセット機能
+            resetProgress();
+        }
+
+        function resetProgress() {
+            const progressBar = document.querySelector('.slide-progress');
+            progressBar.style.animation = 'none';
+            setTimeout(() => {
+                progressBar.style.animation = 'slideProgress 6s linear infinite';
+            }, 10);
+        }
+
+        // パララックス効果と粒子生成
+        function initParallaxAndDepth() {
+            const parallaxLayers = {
+                mountainsFar: document.getElementById('mountainsFar'),
+                mountainsMid: document.getElementById('mountainsMid'),
+                mountainsNear: document.getElementById('mountainsNear'),
+                fogLayer: document.getElementById('fogLayer'),
+                lightRays: document.getElementById('lightRays')
+            };
+
+            // 浮遊粒子を生成
+            createFloatingParticles();
+
+            // パララックススクロール
+            function handleParallax() {
+                const scrollY = window.pageYOffset;
+                
+                if (parallaxLayers.mountainsFar) {
+                    parallaxLayers.mountainsFar.style.transform = `translateY(${scrollY * 0.1}px)`;
+                }
+                if (parallaxLayers.mountainsMid) {
+                    parallaxLayers.mountainsMid.style.transform = `translateY(${scrollY * 0.3}px)`;
+                }
+                if (parallaxLayers.mountainsNear) {
+                    parallaxLayers.mountainsNear.style.transform = `translateY(${scrollY * 0.6}px)`;
+                }
+                if (parallaxLayers.fogLayer) {
+                    parallaxLayers.fogLayer.style.transform = `translateY(${scrollY * 0.2}px) translateX(${Math.sin(scrollY * 0.001) * 20}px)`;
+                }
+                if (parallaxLayers.lightRays) {
+                    parallaxLayers.lightRays.style.transform = `translateY(${scrollY * 0.1}px) rotate(${scrollY * 0.01}deg)`;
+                }
+            }
+
+            // スクロールイベントにパララックスを追加
+            let ticking = false;
+            function updateParallax() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        handleParallax();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', updateParallax);
+            
+            console.log('Parallax and depth effects initialized');
+        }
+
+        // 浮遊粒子生成
+        function createFloatingParticles() {
+            const container = document.getElementById('floatingParticles');
+            if (!container) return;
+
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle-float';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 12 + 's';
+                particle.style.animationDuration = (Math.random() * 8 + 10) + 's';
+                
+                // ランダムな色調
+                const hue = Math.random() * 60 + 30; // 30-90の範囲で暖色系
+                particle.style.background = `radial-gradient(circle, hsla(${hue}, 70%, 70%, 0.8) 0%, transparent 70%)`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // 改良されたホバーナビゲーション制御（パララックス考慮）
+        function initHoverNavigation() {
+            const nav = document.getElementById('verticalNav');
+            const trigger = document.getElementById('navTrigger');
+            const indicator = document.getElementById('navIndicator');
+            
+            let isNavOpen = false;
+            let hoverTimeout;
+            
+            // トリガーエリアにマウスが入った時
+            trigger.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimeout);
+                isNavOpen = true;
+                nav.classList.add('show');
+                indicator.classList.add('hover');
+            });
+            
+            // トリガーエリアからマウスが離れた時
+            trigger.addEventListener('mouseleave', () => {
+                hoverTimeout = setTimeout(() => {
+                    if (!nav.matches(':hover')) {
+                        closeNavigation();
+                    }
+                }, 150);
+            });
+            
+            // ナビゲーションにマウスが入った時
+            nav.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimeout);
+                isNavOpen = true;
+            });
+            
+            // ナビゲーションからマウスが離れた時
+            nav.addEventListener('mouseleave', () => {
+                closeNavigation();
+            });
+            
+            function closeNavigation() {
+                isNavOpen = false;
+                nav.classList.remove('show');
+                indicator.classList.remove('hover');
+            }
+        }
+
+        // アクティブナビゲーション管理
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.vertical-nav a');
+            
+            let currentSection = '';
+            const scrollPos = window.scrollY + 200;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // スムーススクロール
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // クリック後にナビを閉じる
+                        const nav = document.getElementById('verticalNav');
+                        const indicator = document.getElementById('navIndicator');
+                        setTimeout(() => {
+                            nav.classList.remove('show');
+                            indicator.classList.remove('hover');
+                        }, 300);
+                    }
+                });
+            });
+        }
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // アニメーション要素の初期設定
+        function initializeAnimations() {
+            document.querySelectorAll('.card, .section-title, .section-intro').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.8s ease-out';
+                observer.observe(el);
+            });
+        }
+
+        // 統合スクロールイベント管理
+        window.addEventListener('scroll', () => {
+            // ヘッダー背景変更
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+            
+            // アクティブナビ更新
+            updateActiveNav();
         });
-      }
+
+        // 初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            initSlideshow();
+            initializeAnimations();
+            initSmoothScroll();
+            initHoverNavigation();
+            initParallaxAndDepth(); // パララックスと奥行き効果を初期化
+            updateActiveNav();
+            
+            console.log('Enhanced site with depth effects fully initialized');
+        });クロールイベントの管理
+        window.addEventListener('scroll', () => {
+            // ヘッダー背景変更
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+            
+            // アクティブナビ更新
+            updateActiveNav();
+        });
+
+        // 初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            initSlideshow();
+            initializeAnimations();
+            initSmoothScroll();
+            initHoverNavigation();
+            updateActiveNav();
+            
+            // 初期状態の確認
+            const nav = document.getElementById('verticalNav');
+            console.log('Initial nav position:', window.getComputedStyle(nav).right);
+            console.log('Hover navigation system fully initialized');
+        });
     </script>
-  </body>
+</body>
+
+    <!-- 大きな画像セクション -->
+    <section class="hero-image-section">
+        <div class="hero-image-content">
+            <h2>同行二人</h2>
+            <p>
+                弘法大師と共に歩む聖なる道<br>
+                一歩一歩に込める祈りと感謝<br>
+                困った時にはサポートがあります
+            </p>
+        </div>
+    </section>
+
+    <!-- 引用セクション -->
+    <section class="quote-section">
+        <div class="quote-content">
+            <div class="quote-text">
+                「歩くことそのものが祈りなり<br>
+                一歩一歩に仏の慈悲を感ず」
+            </div>
+            <div class="quote-author">— 弘法大師の教え</div>
+        </div>
+    </section>
+
+    <!-- 主要霊場 -->
+    <section class="section" id="temples">
+        <div class="section-content">
+            <h2 class="section-title">主要霊場</h2>
+            <p class="section-intro">
+                八十八の霊場それぞれに千年を超える歴史と独特の御利益があります。
+                参拝時のお困りごとや作法についてもサポートいたします。
+            </p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3>霊山寺（りょうぜんじ）</h3>
+                        <p>第一番霊場。すべての巡礼者が最初に訪れる聖地。「発願の寺」として多くの人々が人生の新たなスタートを切る場所です。</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3>善通寺（ぜんつうじ）</h3>
+                        <p>弘法大師生誕の地。東院と西院に分かれ、西院の御影堂地下には「戒壇巡り」があります。</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3>大窪寺（おおくぼじ）</h3>
+                        <p>結願寺。すべての巡礼者が最後に訪れる聖地。ここで「結願」を迎える感動は格別です。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 縦書きテキストセクション -->
+    <section class="vertical-text-section">
+        <div class="vertical-text">
+            南無大師遍照金剛<br>
+            心を清める巡礼の道<br>
+            困った時にはサポートあり<br>
+            一期一会の出会いに感謝
+        </div>
+    </section>
+
+    <!-- 巡礼体験 -->
+    <section class="section" id="journey">
+        <div class="section-content">
+            <h2 class="section-title">巡礼体験</h2>
+            <p class="section-intro">
+                お遍路は単なる観光を超えた深い精神的な修行です。
+                歩くことで心が浄化され、日常では得られない気づきと成長を体験できます。
+                巡礼中に困ったことがあれば、24時間サポート体制でお手伝いいたします。
+            </p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>白装束での巡礼</h4>
+                        <p>伝統的な遍路装束で心を清めます</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>納経帳への御朱印</h4>
+                        <p>各霊場での貴重な証となります</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>お接待の心</h4>
+                        <p>地元の方々の温かいもてなし</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>山道での修行</h4>
+                        <p>厳しい道程が心を鍛えます</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- サポート案内 -->
+            <div style="background: rgba(20, 20, 20, 0.8); border-radius: 15px; padding: 3rem; margin-top: 4rem; border: 2px solid rgba(212, 175, 55, 0.3); text-align: center;">
+                <h3 style="color: #d4af37; font-size: 1.8rem; margin-bottom: 2rem; letter-spacing: 2px;">巡礼サポートセンター</h3>
+                <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; line-height: 2; margin-bottom: 2rem;">
+                    道に迷った、体調が悪い、宿が見つからない<br>
+                    巡礼中の様々なお困りごとを24時間体制でサポートします
+                </p>
+                <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(184, 134, 11, 0.3)); border: 2px solid rgba(212, 175, 55, 0.5); color: white; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                    <div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: #d4af37;">巡礼サポートホットライン</div>
+                    <div style="font-size: 2rem; font-weight: bold; color: #ffffff; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);">0120-88-1200</div>
+                    <div style="font-size: 0.9rem; opacity: 0.9; color: rgba(255, 255, 255, 0.8);">24時間・年中無休・通話料無料</div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div style="text-align: center;">
+                        <div style="color: #d4af37; font-size: 1.1rem; margin-bottom: 0.5rem;">道案内・ルート相談</div>
+                        <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">GPS案内で正確にサポート</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #d4af37; font-size: 1.1rem; margin-bottom: 0.5rem;">宿泊先手配・予約</div>
+                        <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">満室時の代替宿探し</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #d4af37; font-size: 1.1rem; margin-bottom: 0.5rem;">健康・医療相談</div>
+                        <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">体調不良時の医療機関案内</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: #d4af37; font-size: 1.1rem; margin-bottom: 0.5rem;">天候・安全情報</div>
+                        <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">悪天候時の避難支援</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="footer-text">&copy; 2024 四国遍路. すべての権利を保持します.</p>
+        <p class="footer-text" style="margin-top: 1rem; opacity: 0.8;">
+            南無大師遍照金剛 - 同行二人の精神で、安全な巡礼をサポートいたします
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
