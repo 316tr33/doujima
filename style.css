@@ -270,10 +270,11 @@ nav {
 }
 
 .logo {
-  color: #d4af37;
-  font-size: 1.5rem;
+  color: #b2932f;
+  font-family: "Shippori Mincho", serif;
+  font-size: 1.3rem;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .nav-links {
@@ -579,25 +580,28 @@ nav {
 
 /* デフォルト背景 */
 .hero-slide:nth-child(1) {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
     url("images/index-hero/slide1.jpeg") center/cover;
 }
 
 .hero-slide:nth-child(2) {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="temple" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23660000"/><stop offset="50%" style="stop-color:%23990000"/><stop offset="100%" style="stop-color:%23330000"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23temple)"/><polygon points="500,200 550,150 650,150 700,200 700,500 500,500" fill="%23cc0000" opacity="0.8"/><polygon points="480,200 520,130 680,130 720,200" fill="%23d4af37" opacity="0.9"/><rect x="570" y="250" width="60" height="120" fill="%23000000" opacity="0.7"/><circle cx="600" cy="180" r="8" fill="%23d4af37"/></svg>')
-      center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
+    url("images/index-hero/slide2.jpeg") center/cover;
 }
 
 .hero-slide:nth-child(3) {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="pilgrim" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23001122"/><stop offset="50%" style="stop-color:%23003344"/><stop offset="100%" style="stop-color:%23001133"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23pilgrim)"/><ellipse cx="600" cy="400" rx="100" ry="300" fill="%23ffffff" opacity="0.8"/><circle cx="600" cy="300" r="30" fill="%23ffffff" opacity="0.9"/><rect x="580" y="350" width="40" height="200" fill="%23ffffff" opacity="0.7"/></svg>')
-      center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("images/index-hero/slide3.jpeg") center/cover;
 }
 
 .hero-slide:nth-child(4) {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("images/index-hero/slide4.jpeg") center/cover;
+}
+
+.hero-slide:nth-child(5) {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("images/index-hero/slide5.jpeg") center/cover;
 }
 
 .slideshow-controls {
