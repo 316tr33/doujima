@@ -1,10 +1,13 @@
+// グローバル変数
+let currentSlide = 0;
+let totalSlides = 0;
+
 // スライドショー機能
 function initSlideshow() {
-  let currentSlide = 0;
   const slides = document.querySelectorAll(".hero-slide");
   const dots = document.querySelectorAll(".slide-dot");
   const slideInfo = document.getElementById("slideInfo");
-  const totalSlides = slides.length;
+  totalSlides = slides.length;
 
   if (slides.length === 0) {
     console.log("No slides found, skipping slideshow initialization");
@@ -28,19 +31,40 @@ function initSlideshow() {
       dots[index].classList.add("active");
     }
 
-    // スライド情報を更新
+    // スライド情報を更新（画像を見てもらってから説明を表示）
     if (slideInfo && slides[index]) {
       const info = slides[index].getAttribute("data-info");
       if (info) {
-        slideInfo.textContent = info;
-        slideInfo.classList.remove("active");
+        // 少し遅れてフェードアウト（現在の文字をもう少し読める時間を確保）
         setTimeout(() => {
+          // フェードアウト用のトランジション時間を設定
+          slideInfo.style.transition = "opacity 1s ease-in-out";
+          slideInfo.classList.remove("active");
+        }, 300);
+
+        // 画像をじっくり見てもらってからテキストを更新・表示
+        setTimeout(() => {
+          slideInfo.textContent = info;
+          // フェードイン用のトランジション時間を設定
+          slideInfo.style.transition = "opacity 1.6s ease-in-out";
           slideInfo.classList.add("active");
-        }, 100);
+        }, 1400);
       }
     }
 
+    // 水平プログレスバーを更新
+    updateHorizontalProgress(index + 1, totalSlides);
+
     currentSlide = index;
+  }
+
+  function updateHorizontalProgress(current, total) {
+    const progressFill = document.querySelector(".progress-line-fill");
+
+    if (progressFill) {
+      const progressWidth = (current / total) * 100;
+      progressFill.style.width = progressWidth + "%";
+    }
   }
 
   function nextSlide() {
@@ -64,13 +88,20 @@ function initSlideshow() {
   // 進行バーのリセット機能
   resetProgress();
 
+  // 初期状態でプログレスを設定
+  updateHorizontalProgress(1, totalSlides);
+
   function resetProgress() {
-    const progressBar = document.querySelector(".slide-progress");
-    if (progressBar) {
-      progressBar.style.animation = "none";
+    const progressFill = document.querySelector(".progress-line-fill");
+    if (progressFill) {
+      // アニメーションをリセット
+      progressFill.style.animation = "none";
+      progressFill.style.width = "0%";
+
+      // 少し遅延してからアニメーションを再開
       setTimeout(() => {
-        progressBar.style.animation = "slideProgress 6s linear infinite";
-      }, 10);
+        progressFill.style.animation = "horizontalProgress 6s linear infinite";
+      }, 50);
     }
   }
 
@@ -281,19 +312,43 @@ function initializeAnimations() {
     });
 }
 
-// 統合スクロールイベント管理
-window.addEventListener("scroll", () => {
-  // ヘッダー背景変更
-  const header = document.querySelector("header");
-  if (window.scrollY > 100) {
-    header.style.background = "rgba(0, 0, 0, 0.95)";
-  } else {
-    header.style.background = "rgba(0, 0, 0, 0.9)";
-  }
+// 動画ギャラリー機能
+function initVideoGallery() {
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const videoGrids = document.querySelectorAll(".video-grid");
+  const videoItems = document.querySelectorAll(".video-item");
 
-  // アクティブナビ更新
-  updateActiveNav();
-});
+  // タブ切り替え機能
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // アクティブタブを変更
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      // 対応する動画グリッドを表示
+      const prefecture = button.getAttribute("data-prefecture");
+      videoGrids.forEach((grid) => {
+        grid.classList.remove("active");
+        if (grid.id === prefecture + "-videos") {
+          grid.classList.add("active");
+        }
+      });
+    });
+  });
+
+  // 動画アイテムクリックでYouTube再生
+  videoItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const youtubeId = item.getAttribute("data-youtube-id");
+      if (youtubeId) {
+        // 新しいタブでYouTube動画を開く
+        window.open(`https://www.youtube.com/watch?v=${youtubeId}`, "_blank");
+      }
+    });
+  });
+
+  console.log("Video gallery initialized with", videoItems.length, "videos");
+}
 
 // 初期化
 document.addEventListener("DOMContentLoaded", function () {
@@ -303,10 +358,26 @@ document.addEventListener("DOMContentLoaded", function () {
     initSmoothScroll();
     initHoverNavigation();
     initParallaxAndDepth();
+    initVideoGallery();
     updateActiveNav();
 
-    console.log("Enhanced site with depth effects fully initialized");
+    console.log(
+      "Enhanced site with horizontal progress indicator fully initialized"
+    );
   } catch (error) {
     console.error("Initialization error:", error);
   }
+});
+
+// スクロールイベントに進捗更新を追加
+window.addEventListener("scroll", () => {
+  // 既存のスクロール処理
+  const header = document.querySelector("header");
+  if (window.scrollY > 100) {
+    header.style.background = "rgba(0, 0, 0, 0.95)";
+  } else {
+    header.style.background = "rgba(0, 0, 0, 0.9)";
+  }
+
+  updateActiveNav();
 });
