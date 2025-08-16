@@ -1147,7 +1147,7 @@ nav {
 /* 画像とテキストの組み合わせレイアウト */
 .image-text-section {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 3rem;
   align-items: center;
   margin: 0 0 2rem 0;
@@ -1848,7 +1848,7 @@ nav {
 .prefecture-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.5rem;
   flex: 1;
   align-content: center;
 }
@@ -1858,18 +1858,18 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   background: rgba(255, 255, 255, 0.85);
-  border-radius: 8px;
-  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
   text-decoration: none;
   color: inherit;
-  min-height: 60px;
+  min-height: 80px;
   aspect-ratio: 1.8/1;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid rgba(184, 134, 11, 0.15);
+  border: 2px solid rgba(184, 134, 11, 0.2);
   position: relative;
   overflow: hidden;
   transform: translateY(0);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
   background-size: cover;
   background-position: center;
   background-attachment: local;
