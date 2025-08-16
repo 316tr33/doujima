@@ -8,8 +8,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&family=Shippori+Mincho&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&family=Shippori+Mincho&family=Zen+Antique&family=Kaisei+Opti:wght@400;700&family=Klee+One:wght@400;600&family=Yuji+Syuku&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- パララックス背景レイヤー -->
@@ -100,7 +103,14 @@
         <div class="hero-slide" data-info="源氏池"></div>
       </div>
 
-      <div class="slide-progress"></div>
+      <!-- 水平進行バー -->
+      <div class="horizontal-progress">
+        <div class="progress-line-container">
+          <div class="progress-line-bg"></div>
+          <div class="progress-line-fill"></div>
+          <div class="progress-center-point"></div>
+        </div>
+      </div>
 
       <div class="hero-content">
         <div class="hero-subtitle">八十八ヶ所霊場巡礼</div>
@@ -123,8 +133,175 @@
       </div>
     </section>
 
+    <!-- 四国遍路紹介セクション -->
+    <div class="image-text-section">
+      <div class="video-prefecture-content">
+        <!-- YouTube動画エリア -->
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/obIWA6KWQ1I"
+            title="四国遍路紹介動画"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <!-- 各霊場のご案内 説明ブロック -->
+        <div class="guide-description">
+          <h4>各霊場のご案内</h4>
+          <p>
+            四国88ヶ所霊場を4つの道場に分けてご紹介します。各県をクリックして詳細をご覧ください。
+          </p>
+        </div>
+
+        <!-- 四国4県ブロック -->
+        <div class="prefecture-grid">
+          <a
+            href="shikoku.html#tokushima"
+            class="prefecture-block tokushima"
+            style="
+              background-image: url('images/prefecture-grid/tokushima.jpeg');
+            "
+          >
+            <div class="prefecture-header">
+              <h4>発心の道場</h4>
+              <p>徳島県</p>
+            </div>
+            <div class="prefecture-simple">
+              <span class="prefecture-temples">1番〜23番札所</span>
+              <span class="prefecture-distance">約300km</span>
+            </div>
+          </a>
+
+          <a
+            href="shikoku.html#kouchi"
+            class="prefecture-block kouchi"
+            style="background-image: url('images/prefecture-grid/kouchi.jpeg')"
+          >
+            <div class="prefecture-header">
+              <h4>修行の道場</h4>
+              <p>高知県</p>
+            </div>
+            <div class="prefecture-simple">
+              <span class="prefecture-temples">24番〜39番札所</span>
+              <span class="prefecture-distance">約400km</span>
+            </div>
+          </a>
+
+          <a
+            href="shikoku.html#ehime"
+            class="prefecture-block ehime"
+            style="background-image: url('images/prefecture-grid/ehime.jpeg')"
+          >
+            <div class="prefecture-header">
+              <h4>菩提の道場</h4>
+              <p>愛媛県</p>
+            </div>
+            <div class="prefecture-simple">
+              <span class="prefecture-temples">40番〜65番札所</span>
+              <span class="prefecture-distance">約450km</span>
+            </div>
+          </a>
+
+          <a
+            href="shikoku.html#kagawa"
+            class="prefecture-block kagawa"
+            style="background-image: url('images/prefecture-grid/kagawa.jpeg')"
+          >
+            <div class="prefecture-header">
+              <h4>涅槃の道場</h4>
+              <p>香川県</p>
+            </div>
+            <div class="prefecture-simple">
+              <span class="prefecture-temples">66番〜88番札所</span>
+              <span class="prefecture-distance">約250km</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <!-- 動画に対応する説明エリア -->
+        <div class="description-area">
+          <h3>四国八十八ヶ所霊場巡礼</h3>
+
+          <div class="text-image-mix">
+            <div class="mix-text">
+              <p>
+                弘法大師（空海）の足跡を辿る<span class="highlight"
+                  >千二百年の歴史</span
+                >を持つ日本最古の巡礼路です。四国4県にわたって配置された88の霊場を巡ることで、心の浄化と精神的な成長を求める神聖な旅。
+              </p>
+            </div>
+            <div class="mix-image">
+              <img src="images/kukai.jpeg" alt="弘法大師像" />
+              <span class="image-caption">弘法大師（空海）</span>
+            </div>
+          </div>
+
+          <div class="text-image-mix reverse">
+            <div class="mix-text">
+              <p>
+                各県はそれぞれ異なる修行の段階を表しており、「発心」「修行」「菩提」「涅槃」の四つの道場として知られています。
+              </p>
+            </div>
+            <div class="mix-image">
+              <img src="images/landscape.jpeg" alt="四国の風景" />
+              <span class="image-caption">巡礼の道のり</span>
+            </div>
+          </div>
+
+          <div class="text-image-mix">
+            <div class="mix-text">
+              <p>
+                現代においても多くの人々が人生の節目や困難に直面した時に、この巡礼の道を歩んでいます。一歩一歩に込める祈りと感謝の気持ちが、きっと新しい気づきをもたらしてくれるでしょう。
+              </p>
+            </div>
+            <div class="mix-image">
+              <img src="images/test.jpeg" alt="遍路道の風景" />
+              <span class="image-caption">現代の巡礼者</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- prefecture-gridに対応する案内エリア -->
+        <div class="guide-area">
+          <div class="temples-invitation">
+            <h3>全八十八ヶ所霊場の見どころ</h3>
+            <p class="invitation-description">
+              各霊場の境内の魅力と見どころを3-5分の動画でご紹介しています
+            </p>
+            <div class="invitation-highlights">
+              <div class="highlight-item">
+                <i class="fas fa-video"></i>
+                <span>88本の見どころ動画</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-torii-gate"></i>
+                <span>境内の魅力を映像で</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-eye"></i>
+                <span>注目すべきポイント</span>
+              </div>
+            </div>
+            <a href="shikoku.html" class="temples-cta-button">
+              <span>霊場の見どころを見る</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- 四国遍路について -->
-    <section class="section" id="about">
+    <section
+      class="section has-bg-image"
+      id="about"
+      style="background-image: url('images/test.jpeg')"
+    >
       <div class="section-content">
         <h2 class="section-title">四国遍路とは</h2>
         <p class="section-intro">
@@ -135,7 +312,10 @@
 
         <div class="card-grid">
           <div class="card">
-            <div class="card-image"></div>
+            <div
+              class="card-image"
+              style="background-image: url('images/test.jpeg')"
+            ></div>
             <div class="card-content">
               <h3>発心の道場（阿波）</h3>
               <p>
@@ -145,7 +325,10 @@
           </div>
 
           <div class="card">
-            <div class="card-image"></div>
+            <div
+              class="card-image"
+              style="background-image: url('images/test.jpeg')"
+            ></div>
             <div class="card-content">
               <h3>修行の道場（土佐）</h3>
               <p>
@@ -155,7 +338,10 @@
           </div>
 
           <div class="card">
-            <div class="card-image"></div>
+            <div
+              class="card-image"
+              style="background-image: url('images/test.jpeg')"
+            ></div>
             <div class="card-content">
               <h3>菩提の道場（伊予）</h3>
               <p>
@@ -165,7 +351,10 @@
           </div>
 
           <div class="card">
-            <div class="card-image"></div>
+            <div
+              class="card-image"
+              style="background-image: url('images/test.jpeg')"
+            ></div>
             <div class="card-content">
               <h3>涅槃の道場（讃岐）</h3>
               <p>
@@ -177,9 +366,12 @@
       </div>
     </section>
 
-    <!-- 大きな画像セクション -->
-    <section class="hero-image-section">
-      <div class="hero-image-content">
+    <!-- フルワイド画像セクション -->
+    <div
+      class="full-width-image"
+      style="background-image: url('images/test.jpeg')"
+    >
+      <div class="overlay-text">
         <h2>同行二人</h2>
         <p>
           弘法大師と共に歩む聖なる道<br />
@@ -187,7 +379,7 @@
           困った時にはサポートがあります
         </p>
       </div>
-    </section>
+    </div>
 
     <!-- 引用セクション -->
     <section class="quote-section">
@@ -211,7 +403,10 @@
 
         <div class="card-grid">
           <div class="card">
-            <div class="card-image"></div>
+            <div
+              class="card-image"
+              style="background-image: url('images/test.jpeg')"
+            ></div>
             <div class="card-content">
               <h3>霊山寺（りょうぜんじ）</h3>
               <p>
@@ -221,7 +416,10 @@
           </div>
 
           <div class="card">
-            <div class="card-image"></div>
+            <div
+              class="card-image"
+              style="background-image: url('images/test.jpeg')"
+            ></div>
             <div class="card-content">
               <h3>善通寺（ぜんつうじ）</h3>
               <p>
@@ -231,12 +429,74 @@
           </div>
 
           <div class="card">
-            <div class="card-image"></div>
+            <div
+              class="card-image"
+              style="background-image: url('images/test.jpeg')"
+            ></div>
             <div class="card-content">
               <h3>大窪寺（おおくぼじ）</h3>
               <p>
                 結願寺。すべての巡礼者が最後に訪れる聖地。ここで「結願」を迎える感動は格別です。
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 画像とテキストの組み合わせレイアウト -->
+    <div class="image-text-section">
+      <div
+        class="image-content"
+        style="background-image: url('images/test.jpeg')"
+      ></div>
+      <div class="text-content">
+        <h3>巡礼の準備</h3>
+        <p>
+          四国遍路を始める前に、適切な準備が必要です。<span class="highlight"
+            >白衣、金剛杖、納経帳</span
+          >などの基本的な装具を揃え、心身ともに巡礼に備えます。
+        </p>
+        <p>
+          体力づくりから精神的な準備まで、私たちが丁寧にサポートいたします。初めての方でも安心して巡礼を始められます。
+        </p>
+      </div>
+    </div>
+
+    <!-- ギャラリーセクション -->
+    <section class="section">
+      <div class="section-content">
+        <h2 class="section-title">巡礼の風景</h2>
+        <p class="section-intro">
+          四国各地の美しい自然と歴史ある霊場の数々をご覧ください
+        </p>
+
+        <div class="gallery-grid">
+          <div
+            class="gallery-item"
+            style="background-image: url('images/test.jpeg')"
+          >
+            <div class="gallery-overlay">
+              <h4>霊山寺の山門</h4>
+              <p>第一番札所として多くの巡礼者を迎える</p>
+            </div>
+          </div>
+          <div
+            class="gallery-item"
+            style="background-image: url('images/test.jpeg')"
+          >
+            <div class="gallery-overlay">
+              <h4>遍路道の風景</h4>
+              <p>自然豊かな道のりを歩む</p>
+            </div>
+          </div>
+          <div
+            class="gallery-item"
+            style="background-image: url('images/test.jpeg')"
+          >
+            <div class="gallery-overlay">
+              <h4>納経の様子</h4>
+              <p>各霊場での貴重な体験</p>
             </div>
           </div>
         </div>
