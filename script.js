@@ -2,11 +2,14 @@
 let currentSlide = 0;
 let totalSlides = 0;
 
-// スライドショー機能
+// スライドショー機能（DOM キャッシュ最適化版）
 function initSlideshow() {
+  // DOM要素を初期化時に1回だけ取得してキャッシュ
   const slides = document.querySelectorAll(".hero-slide");
   const dots = document.querySelectorAll(".slide-dot");
   const slideInfo = document.getElementById("slideInfo");
+  const progressFill = document.querySelector(".progress-line-fill"); // キャッシュ化
+  
   totalSlides = slides.length;
 
   if (slides.length === 0) {
@@ -52,18 +55,17 @@ function initSlideshow() {
       }
     }
 
-    // 水平プログレスバーを更新
+    // 水平プログレスバーを更新（キャッシュした要素を使用）
     updateHorizontalProgress(index + 1, totalSlides);
 
     currentSlide = index;
   }
 
   function updateHorizontalProgress(current, total) {
-    const progressFill = document.querySelector(".progress-line-fill");
-
+    // DOM検索を削除：キャッシュした要素を直接使用
     if (progressFill) {
-      const progressWidth = (current / total) * 100;
-      progressFill.style.width = progressWidth + "%";
+      const progressWidth = current / total;
+      progressFill.style.transform = `scaleX(${progressWidth})`;
     }
   }
 
@@ -92,11 +94,11 @@ function initSlideshow() {
   updateHorizontalProgress(1, totalSlides);
 
   function resetProgress() {
-    const progressFill = document.querySelector(".progress-line-fill");
+    // DOM検索を削除：キャッシュした要素を直接使用
     if (progressFill) {
       // アニメーションをリセット
       progressFill.style.animation = "none";
-      progressFill.style.width = "0%";
+      progressFill.style.transform = "scaleX(0)";
 
       // 少し遅延してからアニメーションを再開
       setTimeout(() => {
@@ -108,87 +110,14 @@ function initSlideshow() {
   console.log("Slideshow initialized with", totalSlides, "slides");
 }
 
-// パララックス効果と粒子生成
+// 軽量化：パララックス機能を無効化
 function initParallaxAndDepth() {
-  const parallaxLayers = {
-    mountainsFar: document.getElementById("mountainsFar"),
-    mountainsMid: document.getElementById("mountainsMid"),
-    mountainsNear: document.getElementById("mountainsNear"),
-    fogLayer: document.getElementById("fogLayer"),
-    lightRays: document.getElementById("lightRays"),
-  };
-
-  // 浮遊粒子を生成
-  createFloatingParticles();
-
-  // パララックススクロール
-  function handleParallax() {
-    const scrollY = window.pageYOffset;
-
-    if (parallaxLayers.mountainsFar) {
-      parallaxLayers.mountainsFar.style.transform = `translateY(${
-        scrollY * 0.1
-      }px)`;
-    }
-    if (parallaxLayers.mountainsMid) {
-      parallaxLayers.mountainsMid.style.transform = `translateY(${
-        scrollY * 0.3
-      }px)`;
-    }
-    if (parallaxLayers.mountainsNear) {
-      parallaxLayers.mountainsNear.style.transform = `translateY(${
-        scrollY * 0.6
-      }px)`;
-    }
-    if (parallaxLayers.fogLayer) {
-      parallaxLayers.fogLayer.style.transform = `translateY(${
-        scrollY * 0.2
-      }px) translateX(${Math.sin(scrollY * 0.001) * 20}px)`;
-    }
-    if (parallaxLayers.lightRays) {
-      parallaxLayers.lightRays.style.transform = `translateY(${
-        scrollY * 0.1
-      }px) rotate(${scrollY * 0.01}deg)`;
-    }
-  }
-
-  // スクロールイベントにパララックスを追加
-  let ticking = false;
-  function updateParallax() {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        handleParallax();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }
-
-  window.addEventListener("scroll", updateParallax);
-
-  console.log("Parallax and depth effects initialized");
+  console.log("Parallax disabled for performance optimization");
 }
 
-// 浮遊粒子生成
+// 軽量化：パーティクル生成を無効化
 function createFloatingParticles() {
-  const container = document.getElementById("floatingParticles");
-  if (!container) return;
-
-  const particleCount = 15;
-
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement("div");
-    particle.className = "particle-float";
-    particle.style.left = Math.random() * 100 + "%";
-    particle.style.animationDelay = Math.random() * 12 + "s";
-    particle.style.animationDuration = Math.random() * 8 + 10 + "s";
-
-    // ランダムな色調
-    const hue = Math.random() * 60 + 30; // 30-90の範囲で暖色系
-    particle.style.background = `radial-gradient(circle, hsla(${hue}, 70%, 70%, 0.8) 0%, transparent 70%)`;
-
-    container.appendChild(particle);
-  }
+  console.log("Particles disabled for performance optimization");
 }
 
 // 改良されたホバーナビゲーション制御（パララックス考慮）
@@ -235,15 +164,26 @@ function initHoverNavigation() {
   }
 }
 
-// アクティブナビゲーション管理
+// アクティブナビゲーション管理（DOM キャッシュ最適化版）
+let cachedSections = null;
+let cachedNavLinks = null;
+
+function initNavigationCache() {
+  // DOM要素を初期化時に1回だけ取得してキャッシュ
+  cachedSections = document.querySelectorAll("section[id]");
+  cachedNavLinks = document.querySelectorAll(".vertical-nav a");
+}
+
 function updateActiveNav() {
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".vertical-nav a");
+  // キャッシュされた要素を使用（DOM検索なし）
+  if (!cachedSections || !cachedNavLinks) {
+    initNavigationCache();
+  }
 
   let currentSection = "";
   const scrollPos = window.scrollY + 200;
 
-  sections.forEach((section) => {
+  cachedSections.forEach((section) => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.offsetHeight;
 
@@ -252,7 +192,7 @@ function updateActiveNav() {
     }
   });
 
-  navLinks.forEach((link) => {
+  cachedNavLinks.forEach((link) => {
     link.classList.remove("active");
     const href = link.getAttribute("href");
     if (href === "#" + currentSection) {
@@ -261,8 +201,12 @@ function updateActiveNav() {
   });
 }
 
-// スムーススクロール
+// スムーススクロール（DOM キャッシュ最適化版）
 function initSmoothScroll() {
+  // DOM要素を初期化時に1回だけ取得してキャッシュ
+  const nav = document.getElementById("verticalNav");
+  const indicator = document.getElementById("navIndicator");
+  
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -273,9 +217,7 @@ function initSmoothScroll() {
           block: "start",
         });
 
-        // クリック後にナビを閉じる
-        const nav = document.getElementById("verticalNav");
-        const indicator = document.getElementById("navIndicator");
+        // クリック後にナビを閉じる（キャッシュした要素を使用）
         setTimeout(() => {
           nav.classList.remove("show");
           indicator.classList.remove("hover");
@@ -359,6 +301,8 @@ document.addEventListener("DOMContentLoaded", function () {
     initHoverNavigation();
     initParallaxAndDepth();
     initVideoGallery();
+    initNavigationCache(); // DOM キャッシュ初期化
+    initHeaderCache(); // ヘッダーキャッシュ初期化
     updateActiveNav();
 
     console.log(
@@ -369,15 +313,36 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// スクロールイベントに進捗更新を追加
-window.addEventListener("scroll", () => {
-  // 既存のスクロール処理
-  const header = document.querySelector("header");
-  if (window.scrollY > 100) {
-    header.style.background = "rgba(0, 0, 0, 0.95)";
-  } else {
-    header.style.background = "rgba(0, 0, 0, 0.9)";
+// スクロールイベントに進捗更新を追加（DOM キャッシュ最適化版）
+let cachedHeader = null;
+
+function initHeaderCache() {
+  cachedHeader = document.querySelector("header");
+}
+
+let scrollTicking = false;
+
+function handleScroll() {
+  // 既存のスクロール処理（キャッシュした要素を使用）
+  if (!cachedHeader) {
+    initHeaderCache();
+  }
+  
+  if (cachedHeader) {
+    if (window.scrollY > 100) {
+      cachedHeader.style.background = "rgba(0, 0, 0, 0.95)";
+    } else {
+      cachedHeader.style.background = "rgba(0, 0, 0, 0.9)";
+    }
   }
 
   updateActiveNav();
-});
+  scrollTicking = false;
+}
+
+window.addEventListener("scroll", () => {
+  if (!scrollTicking) {
+    requestAnimationFrame(handleScroll);
+    scrollTicking = true;
+  }
+}, { passive: true });
