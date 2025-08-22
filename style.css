@@ -1316,7 +1316,6 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.85);
   border-radius: 8px;
   padding: 1rem 1.2rem;
   text-decoration: none;
@@ -1324,7 +1323,6 @@ nav {
   min-height: 80px;
   aspect-ratio: 1.8/1;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-  border: 2px solid rgba(184, 134, 11, 0.2);
   position: relative;
   overflow: hidden;
   transform: translate3d(0, 0, 0);
@@ -1343,8 +1341,8 @@ nav {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.35) 0%,
-    rgba(255, 255, 255, 0.25) 100%
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
   );
   z-index: 1;
   transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease;
@@ -1365,7 +1363,7 @@ nav {
   );
   border-radius: 8px;
   z-index: 0;
-  opacity: 0;
+  opacity: 0.3;
   transition: opacity 0.3s ease;
 }
 
@@ -1377,19 +1375,35 @@ nav {
 .prefecture-block:hover {
   transform: translate3d(0, -6px, 0);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  border-color: rgba(212, 175, 55, 0.4);
 }
 
 .prefecture-block:hover::before {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(250, 248, 240, 0.45) 100%
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(250, 248, 240, 0.1) 100%
   );
 }
 
 .prefecture-block:hover::after {
-  opacity: 1;
+  opacity: 0.7;
+}
+
+/* 各県の背景画像 */
+.prefecture-block.tokushima {
+  background-image: url('/images/prefecture-grid/tokushima.webp');
+}
+
+.prefecture-block.kouchi {
+  background-image: url('/images/prefecture-grid/kouchi.webp');
+}
+
+.prefecture-block.ehime {
+  background-image: url('/images/prefecture-grid/ehime.webp');
+}
+
+.prefecture-block.kagawa {
+  background-image: url('/images/prefecture-grid/kagawa.webp');
 }
 
 .prefecture-block h4 {
@@ -1399,7 +1413,7 @@ nav {
   font-weight: 500;
   letter-spacing: 1px;
   transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   display: inline-block;
@@ -1418,7 +1432,7 @@ nav {
   transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7),
     0 0 6px rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.88);
   padding: 0.1rem 0.3rem;
   border-radius: 3px;
   display: inline-block;
@@ -1438,7 +1452,7 @@ nav {
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6),
     0 0 5px rgba(255, 255, 255, 0.4);
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   padding: 0.1rem 0.3rem;
   border-radius: 3px;
   display: inline-block;
@@ -1446,7 +1460,570 @@ nav {
 
 .prefecture-block:hover .prefecture-temples {
   color: rgba(60, 60, 60, 0.9);
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+
+
+
+/* レイアウトセクション - 基本スタイル */
+.layout-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(255, 255, 255, 0.9) 100%);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.layout-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d4af37, #b8860b, #d4af37);
+}
+
+.layout-header h3 {
+  color: #b8860b;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+}
+
+.layout-header p {
+  color: rgba(60, 60, 60, 0.85);
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* レイアウトセクション - レスポンシブ対応 */
+@media (max-width: 1024px) {
+  .layout-section {
+    padding: 2.5rem 1rem;
+    margin-bottom: 3.5rem;
+  }
+  
+  .layout-header {
+    padding: 1.8rem 2rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout-section {
+    margin-bottom: 3rem;
+    padding: 2rem 1rem;
+    border-radius: 15px;
+  }
+  
+  .layout-section::before {
+    border-radius: 15px 15px 0 0;
+  }
+  
+  .layout-header {
+    padding: 1.5rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+  }
+  
+  .layout-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .layout-header p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-section {
+    padding: 1.5rem 0.8rem;
+    border-radius: 12px;
+  }
+  
+  .layout-header {
+    padding: 1.2rem 1rem;
+    border-radius: 10px;
+  }
+  
+  .layout-header h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* 段階的学習レイアウト - 提案1強化版 */
+.pilgrimage-learning-steps {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.pilgrimage-learning-steps::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 60px;
+  bottom: 60px;
+  width: 4px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    #d4af37 10%,
+    #b8860b 50%,
+    #d4af37 90%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.learning-step {
+  margin-bottom: 5rem;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    0 4px 15px rgba(212, 175, 55, 0.1);
+  border: 3px solid rgba(212, 175, 55, 0.3);
+  position: relative;
+  z-index: 15;
+  transition: all 0.3s ease;
+}
+
+.learning-step:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 18px 50px rgba(0, 0, 0, 0.2),
+    0 6px 20px rgba(212, 175, 55, 0.15);
+}
+
+.step-header {
+  background: linear-gradient(135deg, 
+    #d4af37 0%, 
+    #c49b25 25%,
+    #b8860b 75%,
+    #a67c0a 100%);
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.step-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.step-number {
+  background: rgba(255, 255, 255, 0.95);
+  color: #b8860b;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.step-title {
+  color: white;
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.step-content {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 2.5rem;
+  padding: 2.5rem 3rem;
+  background: 
+    radial-gradient(circle at 5% 95%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 95% 5%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+}
+
+.step-video {
+  aspect-ratio: 16/9;
+  max-width: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+}
+
+.step-video::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d4af37, #b8860b, #d4af37);
+  z-index: 1;
+}
+
+.step-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.step-description {
+  min-width: 0;
+  word-wrap: break-word;
+  color: rgba(40, 40, 40, 0.9);
+  padding: 0.5rem 0;
+}
+
+.step-description p {
+  color: rgba(40, 40, 40, 0.9);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+}
+
+.step-description h4 {
+  color: #b8860b;
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 3px solid rgba(212, 175, 55, 0.4);
+  padding-bottom: 0.7rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+}
+
+.step-description h5 {
+  color: #b8860b;
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.8rem 0;
+}
+
+.step-description h6 {
+  color: #b8860b;
+  font-size: 1rem;
+  margin: 0 0 0.3rem 0;
+}
+
+.key-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.point-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  background: linear-gradient(135deg, 
+    rgba(212, 175, 55, 0.12) 0%, 
+    rgba(212, 175, 55, 0.08) 100%);
+  border-radius: 12px;
+  border-left: 5px solid #d4af37;
+  border-right: 1px solid rgba(212, 175, 55, 0.2);
+  color: rgba(40, 40, 40, 0.9);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.point-item:hover {
+  transform: translateX(3px);
+  background: linear-gradient(135deg, 
+    rgba(212, 175, 55, 0.15) 0%, 
+    rgba(212, 175, 55, 0.1) 100%);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.point-item span {
+  color: rgba(40, 40, 40, 0.9);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.point-item i {
+  color: #d4af37;
+  font-size: 1.3rem;
+  width: 24px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.items-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.items-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  color: rgba(40, 40, 40, 0.9);
+  font-weight: 500;
+}
+
+.items-list li:last-child {
+  border-bottom: none;
+}
+
+.worship-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.worship-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 8px;
+}
+
+.worship-icon {
+  background: #d4af37;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.worship-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(40, 40, 40, 0.9);
+  font-weight: 500;
+}
+
+.important-note {
+  background: rgba(255, 193, 7, 0.1);
+  border: 2px solid rgba(255, 193, 7, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: rgba(40, 40, 40, 0.9);
+  font-weight: 500;
+}
+
+.important-note i {
+  color: #ffc107;
+  font-size: 1.2rem;
+}
+
+.sutra-info, .nōkyō-info {
+  background: rgba(212, 175, 55, 0.08);
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin: 1.5rem 0;
+}
+
+.sutra-content {
+  margin-top: 0.8rem;
+}
+
+.sutra-point {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.sutra-point:last-child {
+  border-bottom: none;
+}
+
+.sutra-note {
+  font-style: italic;
+  color: rgba(40, 40, 40, 0.8);
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+}
+
+.nōkyō-prices {
+  display: flex;
+  gap: 1rem;
+  margin: 0.8rem 0;
+  flex-wrap: wrap;
+}
+
+.price-item {
+  background: rgba(212, 175, 55, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.nōkyō-rule {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.nōkyō-rule i {
+  color: #d4af37;
+}
+
+.spirit-message {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 134, 11, 0.05) 100%);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.spirit-message p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(40, 40, 40, 0.9);
+}
+
+/* レスポンシブ対応 */
+/* 段階的学習レイアウト - レスポンシブ対応 */
+@media (max-width: 1024px) {
+  .step-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .step-video {
+    max-width: 100%;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .pilgrimage-learning-steps::before {
+    left: 20px;
+  }
+  
+  .learning-step {
+    margin-bottom: 3rem;
+  }
+  
+  .step-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 1.5rem 2rem;
+  }
+  
+  .step-video {
+    max-width: 100%;
+    justify-self: center;
+  }
+  
+  .step-header {
+    padding: 1.5rem 1.5rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .step-number {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .step-title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  
+  .key-points {
+    margin: 1.5rem 0;
+  }
+  
+  .point-item {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  
+  .point-item span {
+    font-size: 1rem;
+  }
+  
+  .worship-steps {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .nōkyō-prices {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .learning-step {
+    border-radius: 15px;
+  }
+  
+  .step-header {
+    padding: 1.2rem 1rem;
+    border-radius: 15px 15px 0 0;
+  }
+  
+  .step-content {
+    padding: 1.2rem 1rem 1.5rem;
+  }
+  
+  .step-description h4 {
+    font-size: 1.2rem;
+  }
+  
+  .point-item {
+    padding: 0.8rem;
+    border-radius: 8px;
+  }
 }
 
 /* フッター */
@@ -1789,7 +2366,7 @@ footer {
   right: 0;
   text-align: center;
   font-size: 0.75rem;
-  color: rgba(60, 60, 60, 0.6);
+  color: rgba(40, 40, 40, 0.7);
   font-style: italic;
 }
 
