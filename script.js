@@ -292,6 +292,173 @@ function initVideoGallery() {
   console.log("Video gallery initialized with", videoItems.length, "videos");
 }
 
+// タブ機能の初期化
+function initTabs() {
+  // 少し遅延して確実にDOMが読み込まれてから実行
+  setTimeout(() => {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    console.log("Found tab buttons:", tabButtons.length);
+    console.log("Found tab contents:", tabContents.length);
+    
+    if (tabButtons.length === 0) {
+      console.log("No tab buttons found, skipping tab initialization");
+      return;
+    }
+    
+    // 各タブボタンにクリックイベントを設定
+    for (let i = 0; i < tabButtons.length; i++) {
+      const button = tabButtons[i];
+      const targetTab = button.getAttribute('data-tab');
+      
+      console.log(`Setting up tab button ${i}:`, targetTab);
+      
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log("Tab button clicked:", targetTab);
+        
+        // 全てのタブボタンからactiveクラスを削除
+        for (let j = 0; j < tabButtons.length; j++) {
+          tabButtons[j].classList.remove('active');
+        }
+        
+        // 全てのタブコンテンツからactiveクラスを削除
+        for (let k = 0; k < tabContents.length; k++) {
+          tabContents[k].classList.remove('active');
+        }
+        
+        // クリックされたボタンにactiveクラスを追加
+        button.classList.add('active');
+        
+        // 対応するコンテンツにactiveクラスを追加
+        const targetContent = document.getElementById(targetTab);
+        if (targetContent) {
+          targetContent.classList.add('active');
+          console.log("Successfully activated tab:", targetTab);
+        } else {
+          console.error("Target content not found:", targetTab);
+        }
+      });
+    }
+    
+    console.log("Tab functionality initialized successfully");
+  }, 100);
+}
+
+// アコーディオン機能の初期化
+function initAccordion() {
+  setTimeout(() => {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    console.log("Found accordion headers:", accordionHeaders.length);
+    
+    if (accordionHeaders.length === 0) {
+      console.log("No accordion headers found, skipping accordion initialization");
+      return;
+    }
+    
+    // 各アコーディオンヘッダーにクリックイベントを設定
+    for (let i = 0; i < accordionHeaders.length; i++) {
+      const header = accordionHeaders[i];
+      const targetId = header.getAttribute('data-target');
+      
+      console.log(`Setting up accordion header ${i}:`, targetId);
+      
+      header.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log("Accordion header clicked:", targetId);
+        
+        const targetContent = document.getElementById(targetId);
+        const isCurrentlyActive = header.classList.contains('active');
+        
+        if (!targetContent) {
+          console.error("Target content not found:", targetId);
+          return;
+        }
+        
+        if (isCurrentlyActive) {
+          // 現在アクティブなアコーディオンを閉じる
+          header.classList.remove('active');
+          targetContent.classList.remove('active');
+          console.log("Accordion closed:", targetId);
+        } else {
+          // 他のアコーディオンを全て閉じる
+          for (let j = 0; j < accordionHeaders.length; j++) {
+            accordionHeaders[j].classList.remove('active');
+            const otherTargetId = accordionHeaders[j].getAttribute('data-target');
+            const otherContent = document.getElementById(otherTargetId);
+            if (otherContent) {
+              otherContent.classList.remove('active');
+            }
+          }
+          
+          // クリックされたアコーディオンを開く
+          header.classList.add('active');
+          targetContent.classList.add('active');
+          console.log("Accordion opened:", targetId);
+        }
+      });
+    }
+    
+    console.log("Accordion functionality initialized successfully");
+  }, 100);
+}
+
+// 動画切り替え機能の初期化
+function initVideoSelector() {
+  setTimeout(() => {
+    const videoButtons = document.querySelectorAll('.video-btn');
+    const mainVideo = document.getElementById('main-video');
+    
+    console.log("Found video buttons:", videoButtons.length);
+    
+    if (videoButtons.length === 0 || !mainVideo) {
+      console.log("No video buttons or main video found, skipping video selector initialization");
+      return;
+    }
+    
+    for (let i = 0; i < videoButtons.length; i++) {
+      const button = videoButtons[i];
+      const videoId = button.getAttribute('data-video');
+      const videoTitle = button.getAttribute('data-title');
+      
+      console.log(`Setting up video button ${i}:`, videoId);
+      
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log("Video button clicked:", videoId);
+        
+        // 全てのボタンからactiveクラスを削除
+        for (let j = 0; j < videoButtons.length; j++) {
+          videoButtons[j].classList.remove('active');
+        }
+        
+        // クリックされたボタンにactiveクラスを追加
+        button.classList.add('active');
+        
+        // 動画を切り替え
+        if (videoId && videoId !== 'REPLACE_WITH_ACTUAL_ID') {
+          const newSrc = `https://www.youtube.com/embed/${videoId}`;
+          mainVideo.src = newSrc;
+          mainVideo.title = `お遍路入門 - ${videoTitle}`;
+          console.log("Video switched to:", newSrc);
+        } else {
+          console.log("Video ID not available yet:", videoId);
+        }
+      });
+    }
+    
+    console.log("Video selector functionality initialized successfully");
+  }, 100);
+}
+
 // 初期化
 document.addEventListener("DOMContentLoaded", function () {
   try {
@@ -301,6 +468,9 @@ document.addEventListener("DOMContentLoaded", function () {
     initHoverNavigation();
     initParallaxAndDepth();
     initVideoGallery();
+    initTabs(); // タブ機能を追加
+    initAccordion(); // アコーディオン機能を追加
+    initVideoSelector(); // 動画切り替え機能を追加
     initNavigationCache(); // DOM キャッシュ初期化
     initHeaderCache(); // ヘッダーキャッシュ初期化
     updateActiveNav();
