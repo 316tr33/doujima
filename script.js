@@ -348,6 +348,67 @@ function initTabs() {
   }, 100);
 }
 
+// アコーディオン機能の初期化
+function initAccordion() {
+  setTimeout(() => {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    console.log("Found accordion headers:", accordionHeaders.length);
+    
+    if (accordionHeaders.length === 0) {
+      console.log("No accordion headers found, skipping accordion initialization");
+      return;
+    }
+    
+    // 各アコーディオンヘッダーにクリックイベントを設定
+    for (let i = 0; i < accordionHeaders.length; i++) {
+      const header = accordionHeaders[i];
+      const targetId = header.getAttribute('data-target');
+      
+      console.log(`Setting up accordion header ${i}:`, targetId);
+      
+      header.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log("Accordion header clicked:", targetId);
+        
+        const targetContent = document.getElementById(targetId);
+        const isCurrentlyActive = header.classList.contains('active');
+        
+        if (!targetContent) {
+          console.error("Target content not found:", targetId);
+          return;
+        }
+        
+        if (isCurrentlyActive) {
+          // 現在アクティブなアコーディオンを閉じる
+          header.classList.remove('active');
+          targetContent.classList.remove('active');
+          console.log("Accordion closed:", targetId);
+        } else {
+          // 他のアコーディオンを全て閉じる
+          for (let j = 0; j < accordionHeaders.length; j++) {
+            accordionHeaders[j].classList.remove('active');
+            const otherTargetId = accordionHeaders[j].getAttribute('data-target');
+            const otherContent = document.getElementById(otherTargetId);
+            if (otherContent) {
+              otherContent.classList.remove('active');
+            }
+          }
+          
+          // クリックされたアコーディオンを開く
+          header.classList.add('active');
+          targetContent.classList.add('active');
+          console.log("Accordion opened:", targetId);
+        }
+      });
+    }
+    
+    console.log("Accordion functionality initialized successfully");
+  }, 100);
+}
+
 // 動画切り替え機能の初期化
 function initVideoSelector() {
   setTimeout(() => {
@@ -408,6 +469,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initParallaxAndDepth();
     initVideoGallery();
     initTabs(); // タブ機能を追加
+    initAccordion(); // アコーディオン機能を追加
     initVideoSelector(); // 動画切り替え機能を追加
     initNavigationCache(); // DOM キャッシュ初期化
     initHeaderCache(); // ヘッダーキャッシュ初期化
