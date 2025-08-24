@@ -8,23 +8,40 @@ function initSlideshow() {
   const slides = document.querySelectorAll(".hero-slide");
   const dots = document.querySelectorAll(".slide-dot");
   const slideInfo = document.getElementById("slideInfo");
-  const progressFill = document.querySelector(".progress-line-fill"); // キャッシュ化
+  const progressFill = document.querySelector(".progress-line-fill");
   
   totalSlides = slides.length;
+  let slideInterval = null;
+  let fadeTimeouts = [];
 
   if (slides.length === 0) {
     console.log("No slides found, skipping slideshow initialization");
     return;
   }
 
+  // 視認性監視でパフォーマンス最適化
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startSlideshow();
+      } else {
+        pauseSlideshow();
+      }
+    });
+  });
+
+  if (slides[0]) {
+    observer.observe(slides[0].parentElement);
+  }
+
   function showSlide(index) {
+    // 既存のタイムアウトをクリア（メモリリーク防止）
+    fadeTimeouts.forEach(timeout => clearTimeout(timeout));
+    fadeTimeouts = [];
+
     // 全てのスライドを非アクティブに
-    slides.forEach((slide) => {
-      slide.classList.remove("active");
-    });
-    dots.forEach((dot) => {
-      dot.classList.remove("active");
-    });
+    slides.forEach(slide => slide.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("active"));
 
     // 指定されたスライドをアクティブに
     if (slides[index]) {
@@ -34,35 +51,34 @@ function initSlideshow() {
       dots[index].classList.add("active");
     }
 
-    // スライド情報を更新（画像を見てもらってから説明を表示）
+    // スライド情報を更新（最適化されたタイムアウト管理）
     if (slideInfo && slides[index]) {
       const info = slides[index].getAttribute("data-info");
       if (info) {
-        // 少し遅れてフェードアウト（現在の文字をもう少し読める時間を確保）
-        setTimeout(() => {
-          // フェードアウト用のトランジション時間を設定
+        const fadeOutTimeout = setTimeout(() => {
           slideInfo.style.transition = "opacity 1s ease-in-out";
           slideInfo.classList.remove("active");
         }, 300);
 
-        // 画像をじっくり見てもらってからテキストを更新・表示
-        setTimeout(() => {
+        const fadeInTimeout = setTimeout(() => {
           slideInfo.textContent = info;
-          // フェードイン用のトランジション時間を設定
           slideInfo.style.transition = "opacity 1.6s ease-in-out";
           slideInfo.classList.add("active");
         }, 1400);
+
+        fadeTimeouts.push(fadeOutTimeout, fadeInTimeout);
       }
     }
 
-    // 水平プログレスバーを更新（キャッシュした要素を使用）
-    updateHorizontalProgress(index + 1, totalSlides);
+    // プログレスバー更新（requestAnimationFrameで最適化）
+    requestAnimationFrame(() => {
+      updateHorizontalProgress(index + 1, totalSlides);
+    });
 
     currentSlide = index;
   }
 
   function updateHorizontalProgress(current, total) {
-    // DOM検索を削除：キャッシュした要素を直接使用
     if (progressFill) {
       const progressWidth = current / total;
       progressFill.style.transform = `scaleX(${progressWidth})`;
@@ -74,40 +90,62 @@ function initSlideshow() {
     showSlide(next);
   }
 
-  // ドットクリックイベント
+  function startSlideshow() {
+    if (slideInterval || totalSlides <= 1) return;
+    slideInterval = setInterval(nextSlide, 6000);
+  }
+
+  function pauseSlideshow() {
+    if (slideInterval) {
+      clearInterval(slideInterval);
+      slideInterval = null;
+    }
+  }
+
+  // ドットクリックイベント（最適化されたリセット）
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
       showSlide(index);
       resetProgress();
+      // 手動操作時はスライドショーをリスタート
+      pauseSlideshow();
+      startSlideshow();
     });
   });
 
-  // 自動スライド（6秒間隔）
-  if (totalSlides > 1) {
-    setInterval(nextSlide, 6000);
-  }
-
   // 進行バーのリセット機能
-  resetProgress();
-
-  // 初期状態でプログレスを設定
-  updateHorizontalProgress(1, totalSlides);
-
   function resetProgress() {
-    // DOM検索を削除：キャッシュした要素を直接使用
     if (progressFill) {
-      // アニメーションをリセット
       progressFill.style.animation = "none";
       progressFill.style.transform = "scaleX(0)";
 
-      // 少し遅延してからアニメーションを再開
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         progressFill.style.animation = "horizontalProgress 6s linear infinite";
-      }, 50);
+      });
     }
   }
 
-  console.log("Slideshow initialized with", totalSlides, "slides");
+  // ページ非表示時のリソース管理
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      pauseSlideshow();
+    } else {
+      startSlideshow();
+    }
+  });
+
+  // 初期設定
+  resetProgress();
+  updateHorizontalProgress(1, totalSlides);
+  
+  // クリーンアップ関数を返す（必要に応じて使用）
+  window.slideshowCleanup = () => {
+    pauseSlideshow();
+    fadeTimeouts.forEach(timeout => clearTimeout(timeout));
+    observer.disconnect();
+  };
+
+  console.log("Optimized slideshow initialized with", totalSlides, "slides");
 }
 
 // 軽量化：パララックス機能を無効化
