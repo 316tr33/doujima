@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
     <header>
       <nav>
         <div class="logo">堂島フロント企画</div>
@@ -125,14 +124,10 @@
       <div class="video-prefecture-content">
         <!-- YouTube動画エリア -->
         <div class="video-container">
-          <iframe
-            src="https://www.youtube.com/embed/obIWA6KWQ1I"
-            title="四国遍路紹介動画"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          >
-          </iframe>
+          <div class="video-placeholder" data-video-id="obIWA6KWQ1I">
+            <img src="https://img.youtube.com/vi/obIWA6KWQ1I/maxresdefault.jpg" alt="四国遍路紹介動画" loading="lazy">
+            <div class="play-button"></div>
+          </div>
         </div>
 
         <!-- prefecture-gridに対応する案内エリア -->
@@ -296,7 +291,6 @@
             </div>
           </div>
         </div>
-
 
         <div class="card-grid">
           <div class="card">

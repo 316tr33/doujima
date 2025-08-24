@@ -292,6 +292,60 @@ function initVideoGallery() {
   console.log("Video gallery initialized with", videoItems.length, "videos");
 }
 
+// YouTube遅延読み込み機能
+function initYoutubeLazyLoading() {
+  // グローバルイベント監視 - 動画プレースホルダーのクリックを処理
+  document.addEventListener('click', (e) => {
+    // .video-placeholderの親要素である.card-imageもしくは.video-placeholder自体をチェック
+    let placeholder = e.target.closest('.video-placeholder');
+    
+    // もし.video-placeholderが見つからない場合、.card-image内の.video-placeholderを探す
+    if (!placeholder && e.target.classList.contains('card-image')) {
+      placeholder = e.target.querySelector('.video-placeholder');
+    }
+    
+    // クリックされた要素が.card-imageの場合もチェック
+    if (!placeholder) {
+      const cardImage = e.target.closest('.card-image');
+      if (cardImage) {
+        placeholder = cardImage.querySelector('.video-placeholder');
+      }
+    }
+    
+    if (placeholder) {
+      const videoId = placeholder.dataset.videoId;
+      if (videoId) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        loadYouTubeVideo(placeholder, videoId);
+      }
+    }
+  }, true);
+  
+  // 全ての動画プレースホルダーを取得してスタイル設定
+  const videoPlaceholders = document.querySelectorAll('.video-placeholder');
+  
+  videoPlaceholders.forEach((placeholder) => {
+    const videoId = placeholder.dataset.videoId;
+    if (videoId) {
+      placeholder.style.cursor = 'pointer';
+    }
+  });
+}
+
+function loadYouTubeVideo(placeholder, videoId) {
+  // iframe要素を作成
+  const iframe = document.createElement('iframe');
+  iframe.style.cssText = 'z-index: 2; position: relative; width: 100%; height: 100%;';
+  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  iframe.setAttribute('frameborder', '0');
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allowFullscreen = true;
+  
+  // プレースホルダーをiframeに置き換え
+  placeholder.parentNode.replaceChild(iframe, placeholder);
+}
+
 // 初期化
 document.addEventListener("DOMContentLoaded", function () {
   try {
@@ -303,10 +357,11 @@ document.addEventListener("DOMContentLoaded", function () {
     initVideoGallery();
     initNavigationCache(); // DOM キャッシュ初期化
     initHeaderCache(); // ヘッダーキャッシュ初期化
+    initYoutubeLazyLoading(); // YouTube遅延読み込み初期化
     updateActiveNav();
 
     console.log(
-      "Enhanced site with horizontal progress indicator fully initialized"
+      "Enhanced site with YouTube lazy loading fully initialized"
     );
   } catch (error) {
     console.error("Initialization error:", error);
