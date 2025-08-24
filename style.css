@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Noto Serif JP", "Yu Mincho", "YuMincho", "Hiragino Mincho Pro",
     "Times New Roman", serif;
@@ -17,6 +21,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #000;
   position: relative;
+  overflow-x: hidden;
 }
 /* ヘッダー */
 header {
@@ -140,6 +145,29 @@ nav {
   width: 300px;
   box-shadow: -4px 0 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .vertical-nav {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    right: -9999px !important;
+  }
+  
+  .nav-trigger-area {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  
+  .nav-indicator {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    right: -9999px !important;
+  }
 }
 
 .vertical-nav.show {
@@ -1050,9 +1078,9 @@ nav {
 
 /* フルワイド画像セクション */
 .full-width-image {
-  width: 100vw;
+  width: 100%;
   height: 60vh;
-  margin-left: calc(-50vw + 50%);
+  margin-left: 0;
   position: relative;
   background-size: cover;
   background-position: center;
@@ -1894,6 +1922,7 @@ nav {
     transform: translateY(-2px);
   }
 }
+/* レスポンシブ統合 768px */
 @media (max-width: 768px) {
   .essential-video-section {
     grid-template-columns: 1fr;
@@ -1923,77 +1952,7 @@ nav {
   .more-info-section {
     padding: 1.5rem;
   }
-}
 
-@media (max-width: 480px) {
-  .essential-learning {
-    margin: 0 1rem;
-  }
-
-  .essential-video-section,
-  .more-info-section {
-    border-radius: 12px;
-    padding: 1rem;
-  }
-
-  .essential-card {
-    padding: 1rem;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .card-icon {
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .accordion-inner {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1.5rem;
-  }
-
-  .accordion-video {
-    max-width: 100%;
-  }
-
-  .accordion-header {
-    padding: 1.2rem 1.5rem;
-    flex-direction: row;
-    text-align: left;
-  }
-
-  .accordion-title {
-    font-size: 1.2rem;
-  }
-
-  .accordion-number {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .learning-accordion {
-    border-radius: 12px;
-  }
-
-  .accordion-header {
-    padding: 1rem;
-    gap: 1rem;
-  }
-
-  .accordion-inner {
-    padding: 1rem;
-  }
-
-  .accordion-title {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 768px) {
   .summary-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -2009,31 +1968,6 @@ nav {
 
   .summary-card h5 {
     font-size: 1.2rem;
-  }
-}
-
-/* レスポンシブ対応 */
-/* 段階的学習レイアウト - レスポンシブ対応 */
-@media (max-width: 1024px) {
-  .step-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem;
-  }
-
-  .step-video {
-    max-width: 100%;
-    justify-self: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .pilgrimage-learning-steps::before {
-    left: 20px;
-  }
-
-  .learning-step {
-    margin-bottom: 3rem;
   }
 
   .step-content {
@@ -2078,9 +2012,141 @@ nav {
   .point-item span {
     font-size: 1rem;
   }
+
   .nōkyō-prices {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    writing-mode: horizontal-tb;
+    height: auto;
+    font-size: 1rem;
+  }
+
+
+  .section {
+    padding: 4rem 1rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image-content h2 {
+    font-size: 2rem;
+  }
+
+  .vertical-text {
+    writing-mode: horizontal-tb;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  /* 画像レイアウトのレスポンシブ対応 */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .image-text-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+
+  .video-prefecture-content {
+    order: 1;
+  }
+
+  .text-content {
+    order: 2;
+    max-width: none;
+    padding: 2rem 1.5rem;
+  }
+
+  .text-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .prefecture-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.3rem;
+  }
+
+  .prefecture-block {
+    min-height: 80px;
+    aspect-ratio: auto;
+    padding: 1rem;
+  }
+
+  .prefecture-header h4 {
+    font-size: 1.1rem;
+  }
+
+  .guide-description {
+    padding: 0.8rem 1rem;
+  }
+
+  .guide-description h4 {
+    font-size: 1rem;
+  }
+
+  .guide-description p {
+    font-size: 0.85rem;
+  }
+
+  .prefecture-simple {
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .essential-learning {
+    margin: 0 1rem;
+  }
+
+  .essential-video-section,
+  .more-info-section {
+    border-radius: 12px;
+    padding: 1rem;
+  }
+
+  .essential-card {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-icon {
+    margin: 0 auto;
+  }
+}
+
+/* レスポンシブ対応 */
+/* 段階的学習レイアウト - レスポンシブ対応 */
+@media (max-width: 1024px) {
+  .step-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .step-video {
+    max-width: 100%;
+    justify-self: center;
   }
 }
 
@@ -2137,232 +2203,7 @@ footer {
   letter-spacing: 1px;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
 
-  .hero h1 {
-    font-size: 3rem;
-  }
-
-  .hero-subtitle {
-    writing-mode: horizontal-tb;
-    height: auto;
-    font-size: 1rem;
-  }
-
-  .vertical-nav {
-    display: none;
-  }
-
-  .section {
-    padding: 4rem 1rem;
-  }
-
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-image-content h2 {
-    font-size: 2rem;
-  }
-
-  .vertical-text {
-    writing-mode: horizontal-tb;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-  }
-
-  /* 画像レイアウトのレスポンシブ対応 */
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .image-text-section {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem 1rem;
-    min-height: auto;
-  }
-
-  .video-prefecture-content {
-    order: 1;
-  }
-
-  .text-content {
-    order: 2;
-    max-width: none;
-    padding: 2rem 1.5rem;
-  }
-
-  .text-content h3 {
-    font-size: 1.6rem;
-  }
-
-  .prefecture-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .prefecture-block {
-    min-height: 70px;
-    aspect-ratio: auto;
-    padding: 0.8rem 0.6rem;
-  }
-
-  .prefecture-header h4 {
-    font-size: 1.1rem;
-  }
-
-  .guide-description {
-    padding: 0.8rem 1rem;
-  }
-
-  .guide-description h4 {
-    font-size: 1rem;
-  }
-
-  .guide-description p {
-    font-size: 0.85rem;
-  }
-
-  .prefecture-simple {
-    flex-direction: column;
-    gap: 0.3rem;
-    align-items: flex-start;
-  }
-
-  .summary-stats {
-    gap: 0.5rem;
-    justify-content: center;
-  }
-
-  .quick-stat {
-    font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
-  }
-
-  .pilgrimage-quote {
-    font-size: 0.9rem;
-    padding: 0.8rem 1rem;
-    max-width: 280px;
-  }
-
-  .image-text-section.reverse .text-content,
-  .image-text-section.reverse .image-content {
-    order: initial;
-  }
-
-  .full-width-image {
-    height: 40vh;
-    margin-left: calc(-50vw + 50%);
-  }
-
-  .full-width-image h2 {
-    font-size: 2rem;
-  }
-
-  .card-image {
-    height: 200px;
-  }
-
-  .gallery-item {
-    height: 250px;
-  }
-
-  /* 動画・県ブロックセクションのレスポンシブ */
-  .video-prefecture-content {
-    gap: 2rem;
-  }
-
-  .prefecture-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .prefecture-block {
-    padding: 1.5rem 1rem;
-  }
-
-  .video-container {
-    aspect-ratio: 16/9;
-  }
-
-  .play-button {
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
-  }
-
-  /* 右側エリア分割のレスポンシブ */
-  .text-content {
-    order: 2;
-    max-width: none;
-    padding: 2rem 1.5rem;
-  }
-
-  .description-area {
-    border-bottom: none;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  /* ミックスレイアウトのレスポンシブ */
-  .text-image-mix {
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .text-image-mix.reverse {
-    flex-direction: column;
-  }
-
-  .mix-image {
-    min-width: 100%;
-    max-width: 200px;
-    margin: 0 auto;
-  }
-
-  .mix-image img {
-    aspect-ratio: 1/1;
-    max-width: 80px;
-  }
-
-  .image-caption {
-    bottom: -15px;
-    font-size: 0.7rem;
-  }
-
-  .guide-area {
-    align-items: stretch;
-  }
-
-  /* 霊場紹介誘導セクションのレスポンシブ */
-  .temples-invitation {
-    padding: 1.2rem;
-  }
-
-  .invitation-highlights {
-    gap: 1rem;
-  }
-
-  .highlight-item {
-    min-width: 100px;
-  }
-
-  .highlight-item i {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-
-  .temples-cta-button {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-  }
-}
 
 /* 右側コンテンツエリアの分割 */
 .text-content {
