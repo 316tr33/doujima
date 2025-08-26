@@ -1332,19 +1332,19 @@ nav {
 
 /* 各県の背景画像 */
 .prefecture-block.tokushima .prefecture-header {
-  background-image: url("/images/prefecture-grid/tokushima.webp");
+  background-image: url("images/prefecture-grid/tokushima.webp");
 }
 
 .prefecture-block.kouchi .prefecture-header {
-  background-image: url("/images/prefecture-grid/kouchi.webp");
+  background-image: url("images/prefecture-grid/kouchi.webp");
 }
 
 .prefecture-block.ehime .prefecture-header {
-  background-image: url("/images/prefecture-grid/ehime.webp");
+  background-image: url("images/prefecture-grid/ehime.webp");
 }
 
 .prefecture-block.kagawa .prefecture-header {
-  background-image: url("/images/prefecture-grid/kagawa.webp");
+  background-image: url("images/prefecture-grid/kagawa.webp");
 }
 
 .prefecture-block h4 {
@@ -1395,7 +1395,7 @@ nav {
 }
 
 .prefecture-temples {
-  font-size: 0.7.5rem;
+  font-size: 0.75rem;
   color: rgba(60, 60, 60, 0.8);
   font-style: italic;
   letter-spacing: 0.5px;
