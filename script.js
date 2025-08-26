@@ -8,23 +8,40 @@ function initSlideshow() {
   const slides = document.querySelectorAll(".hero-slide");
   const dots = document.querySelectorAll(".slide-dot");
   const slideInfo = document.getElementById("slideInfo");
-  const progressFill = document.querySelector(".progress-line-fill"); // キャッシュ化
+  const progressFill = document.querySelector(".progress-line-fill");
   
   totalSlides = slides.length;
+  let slideInterval = null;
+  let fadeTimeouts = [];
 
   if (slides.length === 0) {
     console.log("No slides found, skipping slideshow initialization");
     return;
   }
 
+  // 視認性監視でパフォーマンス最適化
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startSlideshow();
+      } else {
+        pauseSlideshow();
+      }
+    });
+  });
+
+  if (slides[0]) {
+    observer.observe(slides[0].parentElement);
+  }
+
   function showSlide(index) {
+    // 既存のタイムアウトをクリア（メモリリーク防止）
+    fadeTimeouts.forEach(timeout => clearTimeout(timeout));
+    fadeTimeouts = [];
+
     // 全てのスライドを非アクティブに
-    slides.forEach((slide) => {
-      slide.classList.remove("active");
-    });
-    dots.forEach((dot) => {
-      dot.classList.remove("active");
-    });
+    slides.forEach(slide => slide.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("active"));
 
     // 指定されたスライドをアクティブに
     if (slides[index]) {
@@ -34,35 +51,34 @@ function initSlideshow() {
       dots[index].classList.add("active");
     }
 
-    // スライド情報を更新（画像を見てもらってから説明を表示）
+    // スライド情報を更新（最適化されたタイムアウト管理）
     if (slideInfo && slides[index]) {
       const info = slides[index].getAttribute("data-info");
       if (info) {
-        // 少し遅れてフェードアウト（現在の文字をもう少し読める時間を確保）
-        setTimeout(() => {
-          // フェードアウト用のトランジション時間を設定
+        const fadeOutTimeout = setTimeout(() => {
           slideInfo.style.transition = "opacity 1s ease-in-out";
           slideInfo.classList.remove("active");
         }, 300);
 
-        // 画像をじっくり見てもらってからテキストを更新・表示
-        setTimeout(() => {
+        const fadeInTimeout = setTimeout(() => {
           slideInfo.textContent = info;
-          // フェードイン用のトランジション時間を設定
           slideInfo.style.transition = "opacity 1.6s ease-in-out";
           slideInfo.classList.add("active");
         }, 1400);
+
+        fadeTimeouts.push(fadeOutTimeout, fadeInTimeout);
       }
     }
 
-    // 水平プログレスバーを更新（キャッシュした要素を使用）
-    updateHorizontalProgress(index + 1, totalSlides);
+    // プログレスバー更新（requestAnimationFrameで最適化）
+    requestAnimationFrame(() => {
+      updateHorizontalProgress(index + 1, totalSlides);
+    });
 
     currentSlide = index;
   }
 
   function updateHorizontalProgress(current, total) {
-    // DOM検索を削除：キャッシュした要素を直接使用
     if (progressFill) {
       const progressWidth = current / total;
       progressFill.style.transform = `scaleX(${progressWidth})`;
@@ -74,40 +90,62 @@ function initSlideshow() {
     showSlide(next);
   }
 
-  // ドットクリックイベント
+  function startSlideshow() {
+    if (slideInterval || totalSlides <= 1) return;
+    slideInterval = setInterval(nextSlide, 6000);
+  }
+
+  function pauseSlideshow() {
+    if (slideInterval) {
+      clearInterval(slideInterval);
+      slideInterval = null;
+    }
+  }
+
+  // ドットクリックイベント（最適化されたリセット）
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
       showSlide(index);
       resetProgress();
+      // 手動操作時はスライドショーをリスタート
+      pauseSlideshow();
+      startSlideshow();
     });
   });
 
-  // 自動スライド（6秒間隔）
-  if (totalSlides > 1) {
-    setInterval(nextSlide, 6000);
-  }
-
   // 進行バーのリセット機能
-  resetProgress();
-
-  // 初期状態でプログレスを設定
-  updateHorizontalProgress(1, totalSlides);
-
   function resetProgress() {
-    // DOM検索を削除：キャッシュした要素を直接使用
     if (progressFill) {
-      // アニメーションをリセット
       progressFill.style.animation = "none";
       progressFill.style.transform = "scaleX(0)";
 
-      // 少し遅延してからアニメーションを再開
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         progressFill.style.animation = "horizontalProgress 6s linear infinite";
-      }, 50);
+      });
     }
   }
 
-  console.log("Slideshow initialized with", totalSlides, "slides");
+  // ページ非表示時のリソース管理
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      pauseSlideshow();
+    } else {
+      startSlideshow();
+    }
+  });
+
+  // 初期設定
+  resetProgress();
+  updateHorizontalProgress(1, totalSlides);
+  
+  // クリーンアップ関数を返す（必要に応じて使用）
+  window.slideshowCleanup = () => {
+    pauseSlideshow();
+    fadeTimeouts.forEach(timeout => clearTimeout(timeout));
+    observer.disconnect();
+  };
+
+  console.log("Optimized slideshow initialized with", totalSlides, "slides");
 }
 
 // 軽量化：パララックス機能を無効化
@@ -292,112 +330,62 @@ function initVideoGallery() {
   console.log("Video gallery initialized with", videoItems.length, "videos");
 }
 
-// YouTube遅延読み込み機能
-function initYoutubeLazyLoading() {
-  // グローバルイベント監視 - 動画プレースホルダーのクリックを処理
-  document.addEventListener('click', (e) => {
-    // .video-placeholderの親要素である.card-imageもしくは.video-placeholder自体をチェック
-    let placeholder = e.target.closest('.video-placeholder');
-    
-    // もし.video-placeholderが見つからない場合、.card-image内の.video-placeholderを探す
-    if (!placeholder && e.target.classList.contains('card-image')) {
-      placeholder = e.target.querySelector('.video-placeholder');
+          targetContent.classList.add('active');
+          console.log("Accordion opened:", targetId);
+        }
+      });
     }
     
-    // クリックされた要素が.card-imageの場合もチェック
-    if (!placeholder) {
-      const cardImage = e.target.closest('.card-image');
-      if (cardImage) {
-        placeholder = cardImage.querySelector('.video-placeholder');
-      }
+    console.log("Accordion functionality initialized successfully");
+  }, 100);
+}
+
+// 動画切り替え機能の初期化
+function initVideoSelector() {
+  setTimeout(() => {
+    const videoButtons = document.querySelectorAll('.video-btn');
+    const mainVideo = document.getElementById('main-video');
+    
+    console.log("Found video buttons:", videoButtons.length);
+    
+    if (videoButtons.length === 0 || !mainVideo) {
+      console.log("No video buttons or main video found, skipping video selector initialization");
+      return;
     }
     
-    if (placeholder) {
-      const videoId = placeholder.dataset.videoId;
-      if (videoId) {
+    for (let i = 0; i < videoButtons.length; i++) {
+      const button = videoButtons[i];
+      const videoId = button.getAttribute('data-video');
+      const videoTitle = button.getAttribute('data-title');
+      
+      console.log(`Setting up video button ${i}:`, videoId);
+      
+      button.addEventListener('click', function(e) {
         e.preventDefault();
-        e.stopImmediatePropagation();
-        loadYouTubeVideo(placeholder, videoId);
-      }
+        e.stopPropagation();
+        
+        console.log("Video button clicked:", videoId);
+        
+        // 全てのボタンからactiveクラスを削除
+        for (let j = 0; j < videoButtons.length; j++) {
+          videoButtons[j].classList.remove('active');
+        }
+        
+        // クリックされたボタンにactiveクラスを追加
+        button.classList.add('active');
+        
+        // 動画を切り替え
+        if (videoId && videoId !== 'REPLACE_WITH_ACTUAL_ID') {
+          const newSrc = `https://www.youtube.com/embed/${videoId}`;
+          mainVideo.src = newSrc;
+          mainVideo.title = `お遍路入門 - ${videoTitle}`;
+          console.log("Video switched to:", newSrc);
+        } else {
+          console.log("Video ID not available yet:", videoId);
+        }
+      });
     }
-  }, true);
-  
-  // 全ての動画プレースホルダーを取得してスタイル設定
-  const videoPlaceholders = document.querySelectorAll('.video-placeholder');
-  
-  videoPlaceholders.forEach((placeholder) => {
-    const videoId = placeholder.dataset.videoId;
-    if (videoId) {
-      placeholder.style.cursor = 'pointer';
-    }
-  });
+    
+    console.log("Video selector functionality initialized successfully");
+  }, 100);
 }
-
-function loadYouTubeVideo(placeholder, videoId) {
-  // iframe要素を作成
-  const iframe = document.createElement('iframe');
-  iframe.style.cssText = 'z-index: 2; position: relative; width: 100%; height: 100%;';
-  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-  iframe.setAttribute('frameborder', '0');
-  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-  iframe.allowFullscreen = true;
-  
-  // プレースホルダーをiframeに置き換え
-  placeholder.parentNode.replaceChild(iframe, placeholder);
-}
-
-// 初期化
-document.addEventListener("DOMContentLoaded", function () {
-  try {
-    initSlideshow();
-    initializeAnimations();
-    initSmoothScroll();
-    initHoverNavigation();
-    initParallaxAndDepth();
-    initVideoGallery();
-    initNavigationCache(); // DOM キャッシュ初期化
-    initHeaderCache(); // ヘッダーキャッシュ初期化
-    initYoutubeLazyLoading(); // YouTube遅延読み込み初期化
-    updateActiveNav();
-
-    console.log(
-      "Enhanced site with YouTube lazy loading fully initialized"
-    );
-  } catch (error) {
-    console.error("Initialization error:", error);
-  }
-});
-
-// スクロールイベントに進捗更新を追加（DOM キャッシュ最適化版）
-let cachedHeader = null;
-
-function initHeaderCache() {
-  cachedHeader = document.querySelector("header");
-}
-
-let scrollTicking = false;
-
-function handleScroll() {
-  // 既存のスクロール処理（キャッシュした要素を使用）
-  if (!cachedHeader) {
-    initHeaderCache();
-  }
-  
-  if (cachedHeader) {
-    if (window.scrollY > 100) {
-      cachedHeader.style.background = "rgba(0, 0, 0, 0.95)";
-    } else {
-      cachedHeader.style.background = "rgba(0, 0, 0, 0.9)";
-    }
-  }
-
-  updateActiveNav();
-  scrollTicking = false;
-}
-
-window.addEventListener("scroll", () => {
-  if (!scrollTicking) {
-    requestAnimationFrame(handleScroll);
-    scrollTicking = true;
-  }
-}, { passive: true });
