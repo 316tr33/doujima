@@ -230,12 +230,80 @@ function updateActiveNav() {
     }
   });
 
+  // メインナビゲーションのアクティブ状態更新
   cachedNavLinks.forEach((link) => {
+    const wasActive = link.classList.contains("active");
+    link.classList.remove("active");
+    const href = link.getAttribute("href");
+    
+    if (href === "#" + currentSection) {
+      link.classList.add("active");
+      // スムーズなアクティブ状態変更エフェクト
+      if (!wasActive) {
+        link.style.transform = "scale(1.05)";
+        setTimeout(() => {
+          link.style.transform = "";
+        }, 200);
+      }
+    }
+  });
+
+  // 縦書きナビゲーションも同期
+  const verticalNavLinks = document.querySelectorAll('.vertical-nav a');
+  verticalNavLinks.forEach((link) => {
     link.classList.remove("active");
     const href = link.getAttribute("href");
     if (href === "#" + currentSection) {
       link.classList.add("active");
     }
+  });
+}
+
+// 改善されたナビゲーションハイライト効果
+function initEnhancedNavEffects() {
+  const navLinks = document.querySelectorAll('.nav-links > li > a');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('mouseenter', function() {
+      // 他のリンクを少し薄くする効果
+      navLinks.forEach(otherLink => {
+        if (otherLink !== this) {
+          otherLink.style.opacity = '0.6';
+        }
+      });
+    });
+    
+    link.addEventListener('mouseleave', function() {
+      // 透明度をリセット
+      navLinks.forEach(otherLink => {
+        otherLink.style.opacity = '';
+      });
+    });
+  });
+
+  // ドロップダウンメニューの改善されたインタラクション
+  const dropdownParents = document.querySelectorAll('.nav-links li:has(.dropdown)');
+  
+  dropdownParents.forEach(parent => {
+    let timeoutId;
+    
+    parent.addEventListener('mouseenter', function() {
+      clearTimeout(timeoutId);
+      const dropdown = this.querySelector('.dropdown');
+      if (dropdown) {
+        dropdown.style.transitionDelay = '0.15s';
+      }
+    });
+    
+    parent.addEventListener('mouseleave', function() {
+      const dropdown = this.querySelector('.dropdown');
+      if (dropdown) {
+        dropdown.style.transitionDelay = '0s';
+        timeoutId = setTimeout(() => {
+          // 追加の離脱効果は既にCSSで処理
+        }, 100);
+      }
+    });
   });
 }
 
@@ -569,6 +637,8 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeAnimations();
     initSmoothScroll();
     initHoverNavigation();
+    initMobileNavigation(); // モバイルナビゲーション初期化
+    initEnhancedNavEffects(); // デスクトップナビゲーション強化エフェクト
     initParallaxAndDepth();
     initVideoGallery();
     initTabs(); // タブ機能を追加
@@ -579,11 +649,89 @@ document.addEventListener("DOMContentLoaded", function () {
     initYoutubeLazyLoading(); // YouTube遅延読み込み初期化
     updateActiveNav();
 
-    console.log("Enhanced site with YouTube lazy loading fully initialized");
+    console.log("Enhanced site with improved desktop and mobile navigation fully initialized");
   } catch (error) {
     console.error("Initialization error:", error);
   }
 });
+
+// モバイルナビゲーション
+function initMobileNavigation() {
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+  
+  if (!mobileMenuToggle || !mobileMenuClose || !mobileMenu || !mobileMenuOverlay) {
+    console.log('Mobile navigation elements not found');
+    return;
+  }
+
+  // メニューを開く
+  function openMobileMenu() {
+    mobileMenu.classList.add('active');
+    mobileMenuOverlay.classList.add('active');
+    mobileMenuToggle.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // メニューを閉じる
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('active');
+    mobileMenuOverlay.classList.remove('active');
+    mobileMenuToggle.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // イベントリスナー追加
+  mobileMenuToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (mobileMenu.classList.contains('active')) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+
+  mobileMenuClose.addEventListener('click', function(e) {
+    e.preventDefault();
+    closeMobileMenu();
+  });
+
+  mobileMenuOverlay.addEventListener('click', function(e) {
+    e.preventDefault();
+    closeMobileMenu();
+  });
+
+  // メニューリンククリック時にメニューを閉じる
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      // ページ内リンクの場合のみメニューを閉じる
+      if (this.getAttribute('href').startsWith('#')) {
+        setTimeout(closeMobileMenu, 300);
+      } else {
+        closeMobileMenu();
+      }
+    });
+  });
+
+  // ESCキーでメニューを閉じる
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+      closeMobileMenu();
+    }
+  });
+
+  // ウィンドウリサイズ時にメニューを閉じる
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+      closeMobileMenu();
+    }
+  });
+
+  console.log('Mobile navigation initialized');
+}
 
 // スクロールイベントに進捗更新を追加（DOM キャッシュ最適化版）
 let cachedHeader = null;

@@ -65,9 +65,39 @@
               <a href="#contact">緊急サポート</a>
             </div>
           </li>
+          <li>
+            <a href="../index.html">企業トップページ</a>
+          </li>
         </ul>
+        <!-- ハンバーガーメニューボタン（モバイル用） -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="メニューを開く">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </nav>
     </header>
+
+    <!-- モバイル用メニューオーバーレイ -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- モバイル用メニューコンテンツ -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">メニュー</span>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="メニューを閉じる">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="#home" class="mobile-menu-link">ホーム</a>
+        <a href="#about" class="mobile-menu-link">四国遍路とは</a>
+        <a href="shikoku.html" class="mobile-menu-link">各霊場のご案内</a>
+        <a href="#journey" class="mobile-menu-link">巡礼体験</a>
+        <a href="#contact" class="mobile-menu-link">お問い合わせ</a>
+        <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
+      </nav>
+    </div>
 
     <!-- 縦書きナビゲーション -->
     <div class="vertical-nav" id="verticalNav">
@@ -77,6 +107,7 @@
         <a href="#temples">霊場</a>
         <a href="#journey">巡礼</a>
         <a href="#contact">問合</a>
+        <a href="../index.html">企業TOP</a>
       </div>
     </div>
 

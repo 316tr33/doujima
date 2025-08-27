@@ -70,9 +70,41 @@
               <a href="index.html#contact">緊急サポート</a>
             </div>
           </li>
+          <li>
+            <a href="../index.html">企業トップページ</a>
+          </li>
         </ul>
+        <!-- ハンバーガーメニューボタン（モバイル用） -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="メニューを開く">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </nav>
     </header>
+
+    <!-- モバイル用メニューオーバーレイ -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- モバイル用メニューコンテンツ -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">メニュー</span>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="メニューを閉じる">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="index.html" class="mobile-menu-link">お遍路ホーム</a>
+        <a href="index.html#about" class="mobile-menu-link">四国遍路とは</a>
+        <a href="#tokushima" class="mobile-menu-link">徳島県（発心の道場）</a>
+        <a href="#kouchi" class="mobile-menu-link">高知県（修行の道場）</a>
+        <a href="#ehime" class="mobile-menu-link">愛媛県（菩提の道場）</a>
+        <a href="#kagawa" class="mobile-menu-link">香川県（涅槃の道場）</a>
+        <a href="index.html#contact" class="mobile-menu-link">お問い合わせ</a>
+        <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
+      </nav>
+    </div>
 
     <!-- 縦書きナビゲーション -->
     <div class="vertical-nav" id="verticalNav">
@@ -82,6 +114,7 @@
         <a href="shikoku.html">霊場</a>
         <a href="index.html#journey">巡礼</a>
         <a href="index.html#contact">問合</a>
+        <a href="../index.html">企業TOP</a>
       </div>
     </div>
 
