@@ -8,23 +8,40 @@ function initSlideshow() {
   const slides = document.querySelectorAll(".hero-slide");
   const dots = document.querySelectorAll(".slide-dot");
   const slideInfo = document.getElementById("slideInfo");
-  const progressFill = document.querySelector(".progress-line-fill"); // キャッシュ化
-  
+  const progressFill = document.querySelector(".progress-line-fill");
+
   totalSlides = slides.length;
+  let slideInterval = null;
+  let fadeTimeouts = [];
 
   if (slides.length === 0) {
     console.log("No slides found, skipping slideshow initialization");
     return;
   }
 
+  // 視認性監視でパフォーマンス最適化
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        startSlideshow();
+      } else {
+        pauseSlideshow();
+      }
+    });
+  });
+
+  if (slides[0]) {
+    observer.observe(slides[0].parentElement);
+  }
+
   function showSlide(index) {
+    // 既存のタイムアウトをクリア（メモリリーク防止）
+    fadeTimeouts.forEach((timeout) => clearTimeout(timeout));
+    fadeTimeouts = [];
+
     // 全てのスライドを非アクティブに
-    slides.forEach((slide) => {
-      slide.classList.remove("active");
-    });
-    dots.forEach((dot) => {
-      dot.classList.remove("active");
-    });
+    slides.forEach((slide) => slide.classList.remove("active"));
+    dots.forEach((dot) => dot.classList.remove("active"));
 
     // 指定されたスライドをアクティブに
     if (slides[index]) {
@@ -34,35 +51,34 @@ function initSlideshow() {
       dots[index].classList.add("active");
     }
 
-    // スライド情報を更新（画像を見てもらってから説明を表示）
+    // スライド情報を更新（最適化されたタイムアウト管理）
     if (slideInfo && slides[index]) {
       const info = slides[index].getAttribute("data-info");
       if (info) {
-        // 少し遅れてフェードアウト（現在の文字をもう少し読める時間を確保）
-        setTimeout(() => {
-          // フェードアウト用のトランジション時間を設定
+        const fadeOutTimeout = setTimeout(() => {
           slideInfo.style.transition = "opacity 1s ease-in-out";
           slideInfo.classList.remove("active");
         }, 300);
 
-        // 画像をじっくり見てもらってからテキストを更新・表示
-        setTimeout(() => {
+        const fadeInTimeout = setTimeout(() => {
           slideInfo.textContent = info;
-          // フェードイン用のトランジション時間を設定
           slideInfo.style.transition = "opacity 1.6s ease-in-out";
           slideInfo.classList.add("active");
         }, 1400);
+
+        fadeTimeouts.push(fadeOutTimeout, fadeInTimeout);
       }
     }
 
-    // 水平プログレスバーを更新（キャッシュした要素を使用）
-    updateHorizontalProgress(index + 1, totalSlides);
+    // プログレスバー更新（requestAnimationFrameで最適化）
+    requestAnimationFrame(() => {
+      updateHorizontalProgress(index + 1, totalSlides);
+    });
 
     currentSlide = index;
   }
 
   function updateHorizontalProgress(current, total) {
-    // DOM検索を削除：キャッシュした要素を直接使用
     if (progressFill) {
       const progressWidth = current / total;
       progressFill.style.transform = `scaleX(${progressWidth})`;
@@ -74,40 +90,62 @@ function initSlideshow() {
     showSlide(next);
   }
 
-  // ドットクリックイベント
+  function startSlideshow() {
+    if (slideInterval || totalSlides <= 1) return;
+    slideInterval = setInterval(nextSlide, 6000);
+  }
+
+  function pauseSlideshow() {
+    if (slideInterval) {
+      clearInterval(slideInterval);
+      slideInterval = null;
+    }
+  }
+
+  // ドットクリックイベント（最適化されたリセット）
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
       showSlide(index);
       resetProgress();
+      // 手動操作時はスライドショーをリスタート
+      pauseSlideshow();
+      startSlideshow();
     });
   });
 
-  // 自動スライド（6秒間隔）
-  if (totalSlides > 1) {
-    setInterval(nextSlide, 6000);
-  }
-
   // 進行バーのリセット機能
-  resetProgress();
-
-  // 初期状態でプログレスを設定
-  updateHorizontalProgress(1, totalSlides);
-
   function resetProgress() {
-    // DOM検索を削除：キャッシュした要素を直接使用
     if (progressFill) {
-      // アニメーションをリセット
       progressFill.style.animation = "none";
       progressFill.style.transform = "scaleX(0)";
 
-      // 少し遅延してからアニメーションを再開
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         progressFill.style.animation = "horizontalProgress 6s linear infinite";
-      }, 50);
+      });
     }
   }
 
-  console.log("Slideshow initialized with", totalSlides, "slides");
+  // ページ非表示時のリソース管理
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      pauseSlideshow();
+    } else {
+      startSlideshow();
+    }
+  });
+
+  // 初期設定
+  resetProgress();
+  updateHorizontalProgress(1, totalSlides);
+
+  // クリーンアップ関数を返す（必要に応じて使用）
+  window.slideshowCleanup = () => {
+    pauseSlideshow();
+    fadeTimeouts.forEach((timeout) => clearTimeout(timeout));
+    observer.disconnect();
+  };
+
+  console.log("Optimized slideshow initialized with", totalSlides, "slides");
 }
 
 // 軽量化：パララックス機能を無効化
@@ -206,7 +244,7 @@ function initSmoothScroll() {
   // DOM要素を初期化時に1回だけ取得してキャッシュ
   const nav = document.getElementById("verticalNav");
   const indicator = document.getElementById("navIndicator");
-  
+
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -292,6 +330,238 @@ function initVideoGallery() {
   console.log("Video gallery initialized with", videoItems.length, "videos");
 }
 
+// アコーディオン機能の初期化
+function initAccordion() {
+  setTimeout(() => {
+    const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+    console.log("Found accordion headers:", accordionHeaders.length);
+
+    if (accordionHeaders.length === 0) {
+      console.log(
+        "No accordion headers found, skipping accordion initialization"
+      );
+      return;
+    }
+
+    // 各アコーディオンヘッダーにクリックイベントを設定
+    for (let i = 0; i < accordionHeaders.length; i++) {
+      const header = accordionHeaders[i];
+      const targetId = header.getAttribute("data-target");
+
+      console.log(`Setting up accordion header ${i}:`, targetId);
+
+      header.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        console.log("Accordion header clicked:", targetId);
+
+        const targetContent = document.getElementById(targetId);
+        const isCurrentlyActive = header.classList.contains("active");
+
+        if (!targetContent) {
+          console.error("Target content not found:", targetId);
+          return;
+        }
+
+        if (isCurrentlyActive) {
+          // 現在アクティブなアコーディオンを閉じる
+          header.classList.remove("active");
+          targetContent.classList.remove("active");
+          console.log("Accordion closed:", targetId);
+        } else {
+          // 他のアコーディオンを全て閉じる
+          for (let j = 0; j < accordionHeaders.length; j++) {
+            accordionHeaders[j].classList.remove("active");
+            const otherTargetId =
+              accordionHeaders[j].getAttribute("data-target");
+            const otherContent = document.getElementById(otherTargetId);
+            if (otherContent) {
+              otherContent.classList.remove("active");
+            }
+          }
+
+          // クリックされたアコーディオンを開く
+          header.classList.add("active");
+          targetContent.classList.add("active");
+          console.log("Accordion opened:", targetId);
+        }
+      });
+    }
+
+    console.log("Accordion functionality initialized successfully");
+  }, 100);
+}
+
+// 動画切り替え機能の初期化
+function initVideoSelector() {
+  setTimeout(() => {
+    const videoButtons = document.querySelectorAll(".video-btn");
+    const mainVideo = document.getElementById("main-video");
+
+    console.log("Found video buttons:", videoButtons.length);
+
+    if (videoButtons.length === 0 || !mainVideo) {
+      console.log(
+        "No video buttons or main video found, skipping video selector initialization"
+      );
+      return;
+    }
+
+    for (let i = 0; i < videoButtons.length; i++) {
+      const button = videoButtons[i];
+      const videoId = button.getAttribute("data-video");
+      const videoTitle = button.getAttribute("data-title");
+
+      console.log(`Setting up video button ${i}:`, videoId);
+
+      button.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        console.log("Video button clicked:", videoId);
+
+        // 全てのボタンからactiveクラスを削除
+        for (let j = 0; j < videoButtons.length; j++) {
+          videoButtons[j].classList.remove("active");
+        }
+
+        // クリックされたボタンにactiveクラスを追加
+        button.classList.add("active");
+
+        // 動画を切り替え
+        if (videoId && videoId !== "REPLACE_WITH_ACTUAL_ID") {
+          const newSrc = `https://www.youtube.com/embed/${videoId}`;
+          mainVideo.src = newSrc;
+          mainVideo.title = `お遍路入門 - ${videoTitle}`;
+          console.log("Video switched to:", newSrc);
+        } else {
+          console.log("Video ID not available yet:", videoId);
+        }
+      });
+    }
+
+    console.log("Video selector functionality initialized successfully");
+  }, 100);
+}
+
+// YouTube遅延読み込み機能
+function initYoutubeLazyLoading() {
+  // グローバルイベント監視 - 動画プレースホルダーのクリックを処理
+  document.addEventListener(
+    "click",
+    (e) => {
+      // .video-placeholderの親要素である.card-imageもしくは.video-placeholder自体をチェック
+      let placeholder = e.target.closest(".video-placeholder");
+
+      // もし.video-placeholderが見つからない場合、.card-image内の.video-placeholderを探す
+      if (!placeholder && e.target.classList.contains("card-image")) {
+        placeholder = e.target.querySelector(".video-placeholder");
+      }
+
+      // クリックされた要素が.card-imageの場合もチェック
+      if (!placeholder) {
+        const cardImage = e.target.closest(".card-image");
+        if (cardImage) {
+          placeholder = cardImage.querySelector(".video-placeholder");
+        }
+      }
+
+      if (placeholder) {
+        const videoId = placeholder.dataset.videoId;
+        if (videoId) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          loadYouTubeVideo(placeholder, videoId);
+        }
+      }
+    },
+    true
+  );
+
+  // 全ての動画プレースホルダーを取得してスタイル設定
+  const videoPlaceholders = document.querySelectorAll(".video-placeholder");
+
+  videoPlaceholders.forEach((placeholder) => {
+    const videoId = placeholder.dataset.videoId;
+    if (videoId) {
+      placeholder.style.cursor = "pointer";
+    }
+  });
+}
+
+function loadYouTubeVideo(placeholder, videoId) {
+  // iframe要素を作成
+  const iframe = document.createElement("iframe");
+  iframe.style.cssText =
+    "z-index: 2; position: relative; width: 100%; height: 100%;";
+  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  iframe.setAttribute("frameborder", "0");
+  iframe.allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  iframe.allowFullscreen = true;
+
+  // プレースホルダーをiframeに置き換え
+  placeholder.parentNode.replaceChild(iframe, placeholder);
+}
+
+// タブ機能の初期化
+function initTabs() {
+  // 少し遅延して確実にDOMが読み込まれてから実行
+  setTimeout(() => {
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    console.log("Found tab buttons:", tabButtons.length);
+    console.log("Found tab contents:", tabContents.length);
+
+    if (tabButtons.length === 0) {
+      console.log("No tab buttons found, skipping tab initialization");
+      return;
+    }
+
+    // 各タブボタンにクリックイベントを設定
+    for (let i = 0; i < tabButtons.length; i++) {
+      const button = tabButtons[i];
+      const targetTab = button.getAttribute("data-tab");
+
+      console.log(`Setting up tab button ${i}:`, targetTab);
+
+      button.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        console.log("Tab button clicked:", targetTab);
+
+        // 全てのタブボタンからactiveクラスを削除
+        for (let j = 0; j < tabButtons.length; j++) {
+          tabButtons[j].classList.remove("active");
+        }
+
+        // 全てのタブコンテンツからactiveクラスを削除
+        for (let k = 0; k < tabContents.length; k++) {
+          tabContents[k].classList.remove("active");
+        }
+
+        // クリックされたボタンにactiveクラスを追加
+        button.classList.add("active");
+
+        // 対応するコンテンツにactiveクラスを追加
+        const targetContent = document.getElementById(targetTab);
+        if (targetContent) {
+          targetContent.classList.add("active");
+          console.log("Successfully activated tab:", targetTab);
+        } else {
+          console.error("Target content not found:", targetTab);
+        }
+      });
+    }
+
+    console.log("Tab functionality initialized successfully");
+  }, 100);
+}
+
 // 初期化
 document.addEventListener("DOMContentLoaded", function () {
   try {
@@ -301,13 +571,15 @@ document.addEventListener("DOMContentLoaded", function () {
     initHoverNavigation();
     initParallaxAndDepth();
     initVideoGallery();
+    initTabs(); // タブ機能を追加
+    initAccordion(); // アコーディオン機能を追加
+    initVideoSelector(); // 動画切り替え機能を追加
     initNavigationCache(); // DOM キャッシュ初期化
     initHeaderCache(); // ヘッダーキャッシュ初期化
+    initYoutubeLazyLoading(); // YouTube遅延読み込み初期化
     updateActiveNav();
 
-    console.log(
-      "Enhanced site with horizontal progress indicator fully initialized"
-    );
+    console.log("Enhanced site with YouTube lazy loading fully initialized");
   } catch (error) {
     console.error("Initialization error:", error);
   }
@@ -327,7 +599,7 @@ function handleScroll() {
   if (!cachedHeader) {
     initHeaderCache();
   }
-  
+
   if (cachedHeader) {
     if (window.scrollY > 100) {
       cachedHeader.style.background = "rgba(0, 0, 0, 0.95)";
@@ -340,9 +612,13 @@ function handleScroll() {
   scrollTicking = false;
 }
 
-window.addEventListener("scroll", () => {
-  if (!scrollTicking) {
-    requestAnimationFrame(handleScroll);
-    scrollTicking = true;
-  }
-}, { passive: true });
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(handleScroll);
+      scrollTicking = true;
+    }
+  },
+  { passive: true }
+);
