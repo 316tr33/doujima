@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## プロジェクト概要
 
-四国八十八ヶ所霊場巡礼（お遍路）の情報サイト。日本の伝統的な巡礼体験を紹介し、各県の霊場情報を提供する静的 Web サイトです。
+堂島フロント企画の企業サイト。お遍路事業と東海道ウォーク事業を中心とした多事業展開企業の公式ウェブサイト。静的 HTML で構築されたマルチビジネス対応サイトです。
 
 ## 開発コマンド
 
@@ -23,9 +23,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### コアファイル構成
 
-- `index.html` - メインページ（2 ページ構成の中心）
-- `shikoku.html` - 各霊場の詳細ページ
-- `style.css` - 最適化済み CSS（2540 行、48KB）
+- `index.html` - 企業ホームページ（堂島フロント企画の事業案内）
+- `Ohenro/index.html` - お遍路事業メインページ
+- `Ohenro/shikoku.html` - 各霊場の詳細ページ
+- `Tokaido/index.html` - 東海道ウォーク事業ページ
+- `css/style.css` - 共通 CSS（1016 行、企業ページ含む）
+- `css/ohenro.css` - お遍路専用 CSS（1966 行）
 - `script.js` - JavaScript 機能（518 行）
 
 ### 主要システム
@@ -68,11 +71,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **フォント**: Noto Serif JP（縦書き対応）
 - **レスポンシブ**: 3 段階（1024px, 768px, 480px）
 
-#### CSS 最適化済み
+#### CSS 分割最適化
 
+- **css/style.css**: 共通スタイル + 企業ページ（1016 行）
+- **css/ohenro.css**: お遍路専用スタイル（1966 行）
 - 未使用学習レイアウト削除済み（pilgrimage-learning-steps 等）
 - 重複メディアクエリ統合済み
-- 2540 行に最適化（元 3400 行から 30%削減）
 
 ### JavaScript 設計
 
@@ -104,6 +108,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### CSS 修正時
 
+- **ファイル選択**:
+  - 企業ページ関連 → `css/style.css`
+  - お遍路機能関連 → `css/ohenro.css`
 - セクションコメント（`/* */`）で対象エリアを正確に特定
 - z-index 階層: ヘッダー(3) > ナビ(99-100) > コンテンツ(1-15)
 - レスポンシブはファイル後半に配置済み
