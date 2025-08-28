@@ -281,30 +281,90 @@ function initEnhancedNavEffects() {
     });
   });
 
-  // ドロップダウンメニューの改善されたインタラクション
-  const dropdownParents = document.querySelectorAll('.nav-links li:has(.dropdown)');
+  // 完全連続ホバーシステム - オーバーラップ方式
+  const dropdownParents = document.querySelectorAll('.nav-links li');
   
   dropdownParents.forEach(parent => {
-    let timeoutId;
+    const dropdown = parent.querySelector('.dropdown');
+    if (!dropdown) return;
     
-    parent.addEventListener('mouseenter', function() {
-      clearTimeout(timeoutId);
-      const dropdown = this.querySelector('.dropdown');
-      if (dropdown) {
-        dropdown.style.transitionDelay = '0.15s';
+    let isVisible = false;
+    
+    // ドロップダウン表示関数
+    function showDropdown() {
+      if (isVisible) return;
+      isVisible = true;
+      
+      dropdown.style.opacity = '1';
+      dropdown.style.visibility = 'visible';
+      dropdown.style.transform = 'translateX(-50%) translateY(0)';
+      dropdown.style.pointerEvents = 'all';
+    }
+    
+    // ドロップダウン非表示関数
+    function hideDropdown() {
+      if (!isVisible) return;
+      isVisible = false;
+      
+      dropdown.style.opacity = '0';
+      dropdown.style.visibility = 'hidden';
+      dropdown.style.transform = 'translateX(-50%) translateY(0)';
+      dropdown.style.pointerEvents = 'none';
+    }
+    
+    // マウス位置をリアルタイム追跡
+    function checkMousePosition(e) {
+      const parentRect = parent.getBoundingClientRect();
+      const dropdownRect = dropdown.getBoundingClientRect();
+      
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      
+      // 連続エリア判定（親要素とドロップダウンをオーバーラップで連結）
+      const inParent = (
+        mouseX >= parentRect.left - 5 && 
+        mouseX <= parentRect.right + 5 &&
+        mouseY >= parentRect.top - 5 && 
+        mouseY <= parentRect.bottom + 15
+      );
+      
+      const inDropdown = (
+        mouseX >= dropdownRect.left - 5 && 
+        mouseX <= dropdownRect.right + 5 &&
+        mouseY >= dropdownRect.top - 5 && 
+        mouseY <= dropdownRect.bottom + 5
+      );
+      
+      if (inParent || inDropdown) {
+        showDropdown();
+      } else if (isVisible) {
+        hideDropdown();
       }
+    }
+    
+    // 親要素イベント
+    parent.addEventListener('mouseenter', showDropdown);
+    parent.addEventListener('mousemove', checkMousePosition);
+    parent.addEventListener('mouseleave', function(e) {
+      setTimeout(() => checkMousePosition(e), 10);
     });
     
-    parent.addEventListener('mouseleave', function() {
-      const dropdown = this.querySelector('.dropdown');
-      if (dropdown) {
-        dropdown.style.transitionDelay = '0s';
-        timeoutId = setTimeout(() => {
-          // 追加の離脱効果は既にCSSで処理
-        }, 100);
+    // ドロップダウンイベント
+    dropdown.addEventListener('mouseenter', showDropdown);
+    dropdown.addEventListener('mousemove', checkMousePosition);
+    dropdown.addEventListener('mouseleave', function(e) {
+      setTimeout(() => checkMousePosition(e), 10);
+    });
+    
+    // グローバルマウス追跡（フェイルセーフ）
+    document.addEventListener('mousemove', function(e) {
+      if (isVisible) {
+        checkMousePosition(e);
       }
     });
   });
+
+  console.log('Enhanced navigation effects initialized with improved dropdown control');
 }
 
 // スムーススクロール（DOM キャッシュ最適化版）

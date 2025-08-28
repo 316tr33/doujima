@@ -136,9 +136,9 @@ nav {
 /* ドロップダウンメニュー */
 .dropdown {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 95%;
   left: 50%;
-  transform: translateX(-50%) translateY(-10px);
+  transform: translateX(-50%) translateY(0);
   background: rgba(0, 0, 0, 0.96);
   backdrop-filter: blur(10px);
   border-radius: 12px;
@@ -146,40 +146,36 @@ nav {
   min-width: 220px;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border: 1px solid rgba(212, 175, 55, 0.4);
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.4),
     0 0 20px rgba(212, 175, 55, 0.1);
   z-index: 100;
   pointer-events: none;
+  will-change: opacity, transform, visibility;
 }
 
-.nav-links li:hover .dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-  pointer-events: all;
-  transition-delay: 0.15s;
-}
-
+/* 完全連続ホバーエリア - オーバーラップ設計 */
 .dropdown::before {
   content: "";
   position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid rgba(212, 175, 55, 0.4);
+  top: -15px;
+  left: -40px;
+  right: -40px;
+  height: 20px;
+  background: transparent;
+  z-index: 2;
+  pointer-events: auto;
 }
 
+/* CSS ホバーセレクタを削除 - JavaScript制御に移行 */
+
+/* ドロップダウンの三角形指示器 */
 .dropdown::after {
   content: "";
   position: absolute;
-  top: -7px;
+  top: -6px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
@@ -187,6 +183,7 @@ nav {
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-bottom: 7px solid rgba(0, 0, 0, 0.96);
+  z-index: 10;
 }
 
 .dropdown a {
