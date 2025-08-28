@@ -138,11 +138,20 @@ function initSlideshow() {
   resetProgress();
   updateHorizontalProgress(1, totalSlides);
 
-  // クリーンアップ関数を返す（必要に応じて使用）
+  // メモリリーク防止のクリーンアップ関数を返す
   window.slideshowCleanup = () => {
     pauseSlideshow();
     fadeTimeouts.forEach((timeout) => clearTimeout(timeout));
+    fadeTimeouts = []; // 配列をクリア
     observer.disconnect();
+    
+    // イベントリスナー削除
+    dots.forEach((dot) => {
+      const newDot = dot.cloneNode(true);
+      dot.parentNode.replaceChild(newDot, dot);
+    });
+    
+    console.log('Slideshow cleanup completed');
   };
 
   console.log("Optimized slideshow initialized with", totalSlides, "slides");
@@ -164,13 +173,11 @@ function initHoverNavigation() {
   const trigger = document.getElementById("navTrigger");
   const indicator = document.getElementById("navIndicator");
 
-  let isNavOpen = false;
   let hoverTimeout;
 
   // トリガーエリアにマウスが入った時
   trigger.addEventListener("mouseenter", () => {
     clearTimeout(hoverTimeout);
-    isNavOpen = true;
     nav.classList.add("show");
     indicator.classList.add("hover");
   });
@@ -187,7 +194,6 @@ function initHoverNavigation() {
   // ナビゲーションにマウスが入った時
   nav.addEventListener("mouseenter", () => {
     clearTimeout(hoverTimeout);
-    isNavOpen = true;
   });
 
   // ナビゲーションからマウスが離れた時
@@ -196,7 +202,6 @@ function initHoverNavigation() {
   });
 
   function closeNavigation() {
-    isNavOpen = false;
     nav.classList.remove("show");
     indicator.classList.remove("hover");
   }
@@ -312,56 +317,62 @@ function initEnhancedNavEffects() {
       dropdown.style.pointerEvents = 'none';
     }
     
-    // マウス位置をリアルタイム追跡
+    // 最適化されたマウス位置判定（throttled）
+    let positionCheckThrottled = false;
     function checkMousePosition(e) {
-      const parentRect = parent.getBoundingClientRect();
-      const dropdownRect = dropdown.getBoundingClientRect();
+      if (positionCheckThrottled) return;
+      positionCheckThrottled = true;
       
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
-      
-      // 連続エリア判定（親要素とドロップダウンをオーバーラップで連結）
-      const inParent = (
-        mouseX >= parentRect.left - 5 && 
-        mouseX <= parentRect.right + 5 &&
-        mouseY >= parentRect.top - 5 && 
-        mouseY <= parentRect.bottom + 15
-      );
-      
-      const inDropdown = (
-        mouseX >= dropdownRect.left - 5 && 
-        mouseX <= dropdownRect.right + 5 &&
-        mouseY >= dropdownRect.top - 5 && 
-        mouseY <= dropdownRect.bottom + 5
-      );
-      
-      if (inParent || inDropdown) {
-        showDropdown();
-      } else if (isVisible) {
-        hideDropdown();
-      }
+      requestAnimationFrame(() => {
+        const parentRect = parent.getBoundingClientRect();
+        const dropdownRect = dropdown.getBoundingClientRect();
+        
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        
+        // 連続エリア判定（親要素とドロップダウンをオーバーラップで連結）
+        const inParent = (
+          mouseX >= parentRect.left - 5 && 
+          mouseX <= parentRect.right + 5 &&
+          mouseY >= parentRect.top - 5 && 
+          mouseY <= parentRect.bottom + 15
+        );
+        
+        const inDropdown = (
+          mouseX >= dropdownRect.left - 5 && 
+          mouseX <= dropdownRect.right + 5 &&
+          mouseY >= dropdownRect.top - 5 && 
+          mouseY <= dropdownRect.bottom + 5
+        );
+        
+        if (inParent || inDropdown) {
+          showDropdown();
+        } else if (isVisible) {
+          hideDropdown();
+        }
+        
+        positionCheckThrottled = false;
+      });
     }
     
-    // 親要素イベント
+    // 親要素イベント（最適化）
     parent.addEventListener('mouseenter', showDropdown);
-    parent.addEventListener('mousemove', checkMousePosition);
     parent.addEventListener('mouseleave', function(e) {
       setTimeout(() => checkMousePosition(e), 10);
     });
     
-    // ドロップダウンイベント
+    // ドロップダウンイベント（最適化）
     dropdown.addEventListener('mouseenter', showDropdown);
-    dropdown.addEventListener('mousemove', checkMousePosition);
     dropdown.addEventListener('mouseleave', function(e) {
       setTimeout(() => checkMousePosition(e), 10);
     });
     
-    // グローバルマウス追跡（フェイルセーフ）
-    document.addEventListener('mousemove', function(e) {
-      if (isVisible) {
-        checkMousePosition(e);
-      }
-    });
+    // GPU使用率削減のためグローバルマウス追跡を無効化
+    // document.addEventListener('mousemove', function(e) {
+    //   if (isVisible) {
+    //     checkMousePosition(e);
+    //   }
+    // });
   });
 
   console.log('Enhanced navigation effects initialized with improved dropdown control');
@@ -801,8 +812,17 @@ function initHeaderCache() {
 }
 
 let scrollTicking = false;
+let lastScrollTime = 0;
 
 function handleScroll() {
+  // スクロール頻度制限（GPU負荷削減）
+  const now = performance.now();
+  if (now - lastScrollTime < 32) { // 30FPSに制限
+    scrollTicking = false;
+    return;
+  }
+  lastScrollTime = now;
+  
   // 既存のスクロール処理（キャッシュした要素を使用）
   if (!cachedHeader) {
     initHeaderCache();
@@ -820,11 +840,16 @@ function handleScroll() {
   scrollTicking = false;
 }
 
+// スクロールイベントをthrottleでGPU負荷削減
+let scrollTimeout;
 window.addEventListener(
   "scroll",
   () => {
     if (!scrollTicking) {
-      requestAnimationFrame(handleScroll);
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        requestAnimationFrame(handleScroll);
+      }, 16);
       scrollTicking = true;
     }
   },

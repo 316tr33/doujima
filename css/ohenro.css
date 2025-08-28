@@ -462,7 +462,6 @@
   border-radius: 8px;
 }
 
-
 .video-overlay {
   position: absolute;
   top: 0;
@@ -480,7 +479,6 @@
 
 .video-placeholder:hover .video-overlay {
   background: rgba(0, 0, 0, 0.6);
-}
 
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.4);
 }
@@ -1461,7 +1459,7 @@
     grid-template-columns: 1fr !important;
     gap: 1rem !important;
   }
-  
+
   /* 動画サイズを大きくしてコンテナ全幅に合わせる */
   .card-image {
     width: 100% !important;
@@ -1469,7 +1467,7 @@
     aspect-ratio: 16/9 !important;
     position: relative !important;
   }
-  
+
   .card-image::before {
     width: 100% !important;
     height: 100% !important;
@@ -1802,7 +1800,7 @@ footer {
   align-items: center;
   gap: 0.8rem;
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); GPU使用率削減のため無効化 */
   padding: 1rem 1.5rem;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1957,7 +1955,7 @@ footer {
   cursor: pointer;
   z-index: 10;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25), 0 1px 6px rgba(212, 175, 55, 0.3);
-  backdrop-filter: blur(2px);
+  /* backdrop-filter: blur(2px); GPU使用率削減のため無効化 */
   border: 2px solid rgba(255, 255, 255, 0.8);
   pointer-events: none; /* プレイボタンをクリック不可にして親要素にイベントを伝播 */
 }
