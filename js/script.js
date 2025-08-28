@@ -286,96 +286,195 @@ function initEnhancedNavEffects() {
     });
   });
 
-  // 完全連続ホバーシステム - オーバーラップ方式
+  // 完璧版ドロップダウンシステム - フェイルセーフ対応
   const dropdownParents = document.querySelectorAll('.nav-links li');
+  let currentOpenDropdown = null;
+  let globalCheckInterval = null;
   
-  dropdownParents.forEach(parent => {
-    const dropdown = parent.querySelector('.dropdown');
-    if (!dropdown) return;
+  // 全てのドロップダウンを閉じる関数
+  function hideAllDropdowns() {
+    dropdownParents.forEach(parent => {
+      const dropdown = parent.querySelector('.dropdown');
+      if (dropdown) {
+        dropdown.style.opacity = '0';
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.pointerEvents = 'none';
+      }
+    });
+    currentOpenDropdown = null;
     
-    let isVisible = false;
-    
-    // ドロップダウン表示関数
-    function showDropdown() {
-      if (isVisible) return;
-      isVisible = true;
-      
-      dropdown.style.opacity = '1';
-      dropdown.style.visibility = 'visible';
-      dropdown.style.transform = 'translateX(-50%) translateY(0)';
-      dropdown.style.pointerEvents = 'all';
+    // グローバルチェックを停止
+    if (globalCheckInterval) {
+      clearInterval(globalCheckInterval);
+      globalCheckInterval = null;
     }
+  }
+  
+  // グローバルマウス位置監視（フェイルセーフ）
+  function startGlobalCheck() {
+    if (globalCheckInterval) return;
     
-    // ドロップダウン非表示関数
-    function hideDropdown() {
-      if (!isVisible) return;
-      isVisible = false;
+    globalCheckInterval = setInterval(() => {
+      if (!currentOpenDropdown) return;
       
-      dropdown.style.opacity = '0';
-      dropdown.style.visibility = 'hidden';
-      dropdown.style.transform = 'translateX(-50%) translateY(0)';
-      dropdown.style.pointerEvents = 'none';
-    }
-    
-    // 最適化されたマウス位置判定（throttled）
-    let positionCheckThrottled = false;
-    function checkMousePosition(e) {
-      if (positionCheckThrottled) return;
-      positionCheckThrottled = true;
-      
-      requestAnimationFrame(() => {
-        const parentRect = parent.getBoundingClientRect();
+      // マウスの現在位置を取得
+      document.addEventListener('mousemove', function checkGlobalMouse(e) {
+        document.removeEventListener('mousemove', checkGlobalMouse);
+        
+        const dropdown = currentOpenDropdown.querySelector('.dropdown');
+        if (!dropdown) return;
+        
+        const parentRect = currentOpenDropdown.getBoundingClientRect();
         const dropdownRect = dropdown.getBoundingClientRect();
         
         const mouseX = e.clientX;
         const mouseY = e.clientY;
         
-        // 連続エリア判定（親要素とドロップダウンをオーバーラップで連結）
-        const inParent = (
-          mouseX >= parentRect.left - 5 && 
-          mouseX <= parentRect.right + 5 &&
-          mouseY >= parentRect.top - 5 && 
-          mouseY <= parentRect.bottom + 15
+        // より厳密な境界判定
+        const inParentArea = (
+          mouseX >= parentRect.left - 2 && 
+          mouseX <= parentRect.right + 2 &&
+          mouseY >= parentRect.top - 2 && 
+          mouseY <= parentRect.bottom + 10
         );
         
-        const inDropdown = (
-          mouseX >= dropdownRect.left - 5 && 
-          mouseX <= dropdownRect.right + 5 &&
-          mouseY >= dropdownRect.top - 5 && 
-          mouseY <= dropdownRect.bottom + 5
+        const inDropdownArea = (
+          mouseX >= dropdownRect.left - 2 && 
+          mouseX <= dropdownRect.right + 2 &&
+          mouseY >= dropdownRect.top - 2 && 
+          mouseY <= dropdownRect.bottom + 2
         );
         
-        if (inParent || inDropdown) {
-          showDropdown();
-        } else if (isVisible) {
-          hideDropdown();
+        // どちらのエリアにもない場合は強制非表示
+        if (!inParentArea && !inDropdownArea) {
+          hideAllDropdowns();
         }
-        
-        positionCheckThrottled = false;
+      }, { once: true });
+    }, 150); // 150ms間隔でチェック
+  }
+  
+  dropdownParents.forEach(parent => {
+    const dropdown = parent.querySelector('.dropdown');
+    
+    // ドロップダウンがない要素（ホーム、企業トップページ）の場合
+    if (!dropdown) {
+      parent.addEventListener('mouseenter', function() {
+        // ドロップダウンのない要素にホバーした場合、全てのドロップダウンを即座に閉じる
+        hideAllDropdowns();
       });
+      return;
     }
     
-    // 親要素イベント（最適化）
-    parent.addEventListener('mouseenter', showDropdown);
+    // ドロップダウン表示関数
+    function showDropdown() {
+      if (currentOpenDropdown === parent) return; // 既に開いている場合
+      
+      // 他のドロップダウンを即座に閉じる
+      hideAllDropdowns();
+      
+      // 現在のドロップダウンを表示
+      currentOpenDropdown = parent;
+      dropdown.style.opacity = '1';
+      dropdown.style.visibility = 'visible';
+      dropdown.style.transform = 'translateX(-50%) translateY(0)';
+      dropdown.style.pointerEvents = 'all';
+      
+      // グローバル監視開始
+      startGlobalCheck();
+    }
+    
+    // ドロップダウン非表示関数（即座実行）
+    function hideDropdown() {
+      if (currentOpenDropdown === parent) {
+        dropdown.style.opacity = '0';
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.transform = 'translateX(-50%) translateY(0)';
+        dropdown.style.pointerEvents = 'none';
+        currentOpenDropdown = null;
+        
+        // グローバルチェック停止
+        if (globalCheckInterval) {
+          clearInterval(globalCheckInterval);
+          globalCheckInterval = null;
+        }
+      }
+    }
+    
+    // 親要素イベント
+    parent.addEventListener('mouseenter', function(e) {
+      showDropdown();
+    });
+    
     parent.addEventListener('mouseleave', function(e) {
-      setTimeout(() => checkMousePosition(e), 10);
+      // 即座にエリア判定
+      const parentRect = parent.getBoundingClientRect();
+      const dropdownRect = dropdown.getBoundingClientRect();
+      
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      
+      const inParentArea = (
+        mouseX >= parentRect.left - 2 && 
+        mouseX <= parentRect.right + 2 &&
+        mouseY >= parentRect.top - 2 && 
+        mouseY <= parentRect.bottom + 10
+      );
+      
+      const inDropdownArea = (
+        mouseX >= dropdownRect.left - 2 && 
+        mouseX <= dropdownRect.right + 2 &&
+        mouseY >= dropdownRect.top - 2 && 
+        mouseY <= dropdownRect.bottom + 2
+      );
+      
+      if (!inParentArea && !inDropdownArea) {
+        hideDropdown();
+      }
     });
     
-    // ドロップダウンイベント（最適化）
-    dropdown.addEventListener('mouseenter', showDropdown);
+    // ドロップダウン要素イベント
+    dropdown.addEventListener('mouseenter', function(e) {
+      showDropdown();
+    });
+    
     dropdown.addEventListener('mouseleave', function(e) {
-      setTimeout(() => checkMousePosition(e), 10);
+      // ドロップダウンから出た場合の判定
+      const parentRect = parent.getBoundingClientRect();
+      const dropdownRect = dropdown.getBoundingClientRect();
+      
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      
+      const inParentArea = (
+        mouseX >= parentRect.left - 2 && 
+        mouseX <= parentRect.right + 2 &&
+        mouseY >= parentRect.top - 2 && 
+        mouseY <= parentRect.bottom + 10
+      );
+      
+      const inDropdownArea = (
+        mouseX >= dropdownRect.left - 2 && 
+        mouseX <= dropdownRect.right + 2 &&
+        mouseY >= dropdownRect.top - 2 && 
+        mouseY <= dropdownRect.bottom + 2
+      );
+      
+      if (!inParentArea && !inDropdownArea) {
+        hideDropdown();
+      }
     });
-    
-    // GPU使用率削減のためグローバルマウス追跡を無効化
-    // document.addEventListener('mousemove', function(e) {
-    //   if (isVisible) {
-    //     checkMousePosition(e);
-    //   }
-    // });
   });
 
-  console.log('Enhanced navigation effects initialized with improved dropdown control');
+  // 最終フェイルセーフ: ページ全体でのクリックで全ドロップダウンを閉じる
+  document.addEventListener('click', function(e) {
+    // ナビゲーション要素外でのクリックの場合
+    const isNavClick = e.target.closest('.nav-links');
+    if (!isNavClick && currentOpenDropdown) {
+      hideAllDropdowns();
+    }
+  });
+
+  console.log('Perfect navigation effects initialized with failsafe dropdown management');
 }
 
 // スムーススクロール（DOM キャッシュ最適化版）
