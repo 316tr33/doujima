@@ -11,23 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&family=Shippori+Mincho&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/ohenro.css">
-    <link rel="stylesheet" href="../css/ohenro-performance.css">
     <script src="../js/performance-monitor.js" defer></script>
   </head>
   <body>
-    <!-- パララックス背景レイヤー -->
-    <div class="parallax-container" id="parallaxContainer">
-      <div class="parallax-layer mountains-far" id="mountainsFar"></div>
-      <div class="parallax-layer mountains-mid" id="mountainsMid"></div>
-      <div class="parallax-layer mountains-near" id="mountainsNear"></div>
-      <div class="parallax-layer fog-layer" id="fogLayer"></div>
-      <div class="parallax-layer light-rays" id="lightRays"></div>
-      <div
-        class="parallax-layer floating-particles"
-        id="floatingParticles"
-      ></div>
-      <div class="parallax-layer time-overlay" id="timeOverlay"></div>
-    </div>
+    <!-- シンプル背景レイヤー（パフォーマンス最適化） -->
+    <div class="simple-bg-overlay"></div>
 
     <header>
       <nav>
@@ -127,10 +115,10 @@
     <div class="nav-indicator" id="navIndicator">メニュー</div>
 
     <!-- ページタイトルセクション -->
-    <section class="hero" style="height: 50vh; min-height: 300px">
-      <div class="hero-content" style="padding-top: 15vh">
-        <h1 style="font-size: 3rem">各霊場のご案内</h1>
-        <p class="hero-description" style="font-size: 1.2rem">
+    <section class="hero shikoku-hero">
+      <div class="hero-content shikoku-hero-content">
+        <h1 class="shikoku-title">各霊場のご案内</h1>
+        <p class="hero-description shikoku-description">
           四国八十八ヶ所霊場の詳細情報
         </p>
       </div>

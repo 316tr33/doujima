@@ -80,8 +80,8 @@ function initSlideshow() {
 
   function updateHorizontalProgress(current, total) {
     if (progressFill) {
-      const progressWidth = current / total;
-      progressFill.style.transform = `scaleX(${progressWidth})`;
+      const progressWidth = (current / total) * 100;
+      progressFill.style.width = `${progressWidth}%`;
     }
   }
 
@@ -92,7 +92,8 @@ function initSlideshow() {
 
   function startSlideshow() {
     if (slideInterval || totalSlides <= 1) return;
-    slideInterval = setInterval(nextSlide, 6000);
+    // 8秒間隔に最適化（CPU負荷軽減）
+    slideInterval = setInterval(nextSlide, 8000);
   }
 
   function pauseSlideshow() {
@@ -117,10 +118,10 @@ function initSlideshow() {
   function resetProgress() {
     if (progressFill) {
       progressFill.style.animation = "none";
-      progressFill.style.transform = "scaleX(0)";
+      progressFill.style.width = "0%";
 
       requestAnimationFrame(() => {
-        progressFill.style.animation = "horizontalProgress 6s linear infinite";
+        progressFill.style.animation = "horizontalProgress 8s linear infinite";
       });
     }
   }
@@ -142,32 +143,22 @@ function initSlideshow() {
   window.slideshowCleanup = () => {
     pauseSlideshow();
     fadeTimeouts.forEach((timeout) => clearTimeout(timeout));
-    fadeTimeouts = []; // 配列をクリア
+    fadeTimeouts = [];
     observer.disconnect();
-    
+
     // イベントリスナー削除
     dots.forEach((dot) => {
       const newDot = dot.cloneNode(true);
       dot.parentNode.replaceChild(newDot, dot);
     });
-    
-    console.log('Slideshow cleanup completed');
+
+    console.log("Slideshow cleanup completed");
   };
 
   console.log("Optimized slideshow initialized with", totalSlides, "slides");
 }
 
-// 軽量化：パララックス機能を無効化
-function initParallaxAndDepth() {
-  console.log("Parallax disabled for performance optimization");
-}
-
-// 軽量化：パーティクル生成を無効化
-function createFloatingParticles() {
-  console.log("Particles disabled for performance optimization");
-}
-
-// 改良されたホバーナビゲーション制御（パララックス考慮）
+// 改良されたホバーナビゲーション制御
 function initHoverNavigation() {
   const nav = document.getElementById("verticalNav");
   const trigger = document.getElementById("navTrigger");
@@ -240,7 +231,7 @@ function updateActiveNav() {
     const wasActive = link.classList.contains("active");
     link.classList.remove("active");
     const href = link.getAttribute("href");
-    
+
     if (href === "#" + currentSection) {
       link.classList.add("active");
       // スムーズなアクティブ状態変更エフェクト
@@ -254,7 +245,7 @@ function updateActiveNav() {
   });
 
   // 縦書きナビゲーションも同期
-  const verticalNavLinks = document.querySelectorAll('.vertical-nav a');
+  const verticalNavLinks = document.querySelectorAll(".vertical-nav a");
   verticalNavLinks.forEach((link) => {
     link.classList.remove("active");
     const href = link.getAttribute("href");
@@ -266,132 +257,134 @@ function updateActiveNav() {
 
 // 改善されたナビゲーションハイライト効果
 function initEnhancedNavEffects() {
-  const navLinks = document.querySelectorAll('.nav-links > li > a');
-  
-  navLinks.forEach(link => {
-    link.addEventListener('mouseenter', function() {
+  const navLinks = document.querySelectorAll(".nav-links > li > a");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("mouseenter", function () {
       // 他のリンクを少し薄くする効果
-      navLinks.forEach(otherLink => {
+      navLinks.forEach((otherLink) => {
         if (otherLink !== this) {
-          otherLink.style.opacity = '0.6';
+          otherLink.style.opacity = "0.6";
         }
       });
     });
-    
-    link.addEventListener('mouseleave', function() {
+
+    link.addEventListener("mouseleave", function () {
       // 透明度をリセット
-      navLinks.forEach(otherLink => {
-        otherLink.style.opacity = '';
+      navLinks.forEach((otherLink) => {
+        otherLink.style.opacity = "";
       });
     });
   });
 
   // 完璧版ドロップダウンシステム - フェイルセーフ対応
-  const dropdownParents = document.querySelectorAll('.nav-links li');
+  const dropdownParents = document.querySelectorAll(".nav-links li");
   let currentOpenDropdown = null;
   let globalCheckInterval = null;
-  
+
   // 全てのドロップダウンを閉じる関数
   function hideAllDropdowns() {
-    dropdownParents.forEach(parent => {
-      const dropdown = parent.querySelector('.dropdown');
+    dropdownParents.forEach((parent) => {
+      const dropdown = parent.querySelector(".dropdown");
       if (dropdown) {
-        dropdown.style.opacity = '0';
-        dropdown.style.visibility = 'hidden';
-        dropdown.style.pointerEvents = 'none';
+        dropdown.style.opacity = "0";
+        dropdown.style.visibility = "hidden";
+        dropdown.style.pointerEvents = "none";
       }
     });
     currentOpenDropdown = null;
-    
+
     // グローバルチェックを停止
     if (globalCheckInterval) {
       clearInterval(globalCheckInterval);
       globalCheckInterval = null;
     }
   }
-  
+
   // グローバルマウス位置監視（フェイルセーフ）
   function startGlobalCheck() {
     if (globalCheckInterval) return;
-    
+
     globalCheckInterval = setInterval(() => {
       if (!currentOpenDropdown) return;
-      
+
       // マウスの現在位置を取得
-      document.addEventListener('mousemove', function checkGlobalMouse(e) {
-        document.removeEventListener('mousemove', checkGlobalMouse);
-        
-        const dropdown = currentOpenDropdown.querySelector('.dropdown');
-        if (!dropdown) return;
-        
-        const parentRect = currentOpenDropdown.getBoundingClientRect();
-        const dropdownRect = dropdown.getBoundingClientRect();
-        
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
-        
-        // より厳密な境界判定
-        const inParentArea = (
-          mouseX >= parentRect.left - 2 && 
-          mouseX <= parentRect.right + 2 &&
-          mouseY >= parentRect.top - 2 && 
-          mouseY <= parentRect.bottom + 10
-        );
-        
-        const inDropdownArea = (
-          mouseX >= dropdownRect.left - 2 && 
-          mouseX <= dropdownRect.right + 2 &&
-          mouseY >= dropdownRect.top - 2 && 
-          mouseY <= dropdownRect.bottom + 2
-        );
-        
-        // どちらのエリアにもない場合は強制非表示
-        if (!inParentArea && !inDropdownArea) {
-          hideAllDropdowns();
-        }
-      }, { once: true });
+      document.addEventListener(
+        "mousemove",
+        function checkGlobalMouse(e) {
+          document.removeEventListener("mousemove", checkGlobalMouse);
+
+          const dropdown = currentOpenDropdown.querySelector(".dropdown");
+          if (!dropdown) return;
+
+          const parentRect = currentOpenDropdown.getBoundingClientRect();
+          const dropdownRect = dropdown.getBoundingClientRect();
+
+          const mouseX = e.clientX;
+          const mouseY = e.clientY;
+
+          // より厳密な境界判定
+          const inParentArea =
+            mouseX >= parentRect.left - 2 &&
+            mouseX <= parentRect.right + 2 &&
+            mouseY >= parentRect.top - 2 &&
+            mouseY <= parentRect.bottom + 10;
+
+          const inDropdownArea =
+            mouseX >= dropdownRect.left - 2 &&
+            mouseX <= dropdownRect.right + 2 &&
+            mouseY >= dropdownRect.top - 2 &&
+            mouseY <= dropdownRect.bottom + 2;
+
+          // どちらのエリアにもない場合は強制非表示
+          if (!inParentArea && !inDropdownArea) {
+            hideAllDropdowns();
+          }
+        },
+        { once: true }
+      );
     }, 150); // 150ms間隔でチェック
   }
-  
-  dropdownParents.forEach(parent => {
-    const dropdown = parent.querySelector('.dropdown');
-    
+
+  dropdownParents.forEach((parent) => {
+    const dropdown = parent.querySelector(".dropdown");
+
     // ドロップダウンがない要素（ホーム、企業トップページ）の場合
     if (!dropdown) {
-      parent.addEventListener('mouseenter', function() {
+      parent.addEventListener("mouseenter", function () {
         // ドロップダウンのない要素にホバーした場合、全てのドロップダウンを即座に閉じる
         hideAllDropdowns();
       });
       return;
     }
-    
+
     // ドロップダウン表示関数
     function showDropdown() {
       if (currentOpenDropdown === parent) return; // 既に開いている場合
-      
+
       // 他のドロップダウンを即座に閉じる
       hideAllDropdowns();
-      
+
       // 現在のドロップダウンを表示
       currentOpenDropdown = parent;
-      dropdown.style.opacity = '1';
-      dropdown.style.visibility = 'visible';
-      dropdown.style.transform = 'translateX(-50%) translateY(0)';
-      dropdown.style.pointerEvents = 'all';
-      
+      dropdown.style.opacity = "1";
+      dropdown.style.visibility = "visible";
+      dropdown.style.transform = "translateX(-50%) translateY(0)";
+      dropdown.style.pointerEvents = "all";
+
       // グローバル監視開始
       startGlobalCheck();
     }
-    
+
     // ドロップダウン非表示関数（即座実行）
     function hideDropdown() {
       if (currentOpenDropdown === parent) {
-        dropdown.style.opacity = '0';
-        dropdown.style.visibility = 'hidden';
-        dropdown.style.transform = 'translateX(-50%) translateY(0)';
-        dropdown.style.pointerEvents = 'none';
+        dropdown.style.opacity = "0";
+        dropdown.style.visibility = "hidden";
+        dropdown.style.transform = "translateX(-50%) translateY(0)";
+        dropdown.style.pointerEvents = "none";
         currentOpenDropdown = null;
-        
+
         // グローバルチェック停止
         if (globalCheckInterval) {
           clearInterval(globalCheckInterval);
@@ -399,66 +392,62 @@ function initEnhancedNavEffects() {
         }
       }
     }
-    
+
     // 親要素イベント
-    parent.addEventListener('mouseenter', function(e) {
+    parent.addEventListener("mouseenter", function (e) {
       showDropdown();
     });
-    
-    parent.addEventListener('mouseleave', function(e) {
+
+    parent.addEventListener("mouseleave", function (e) {
       // 即座にエリア判定
       const parentRect = parent.getBoundingClientRect();
       const dropdownRect = dropdown.getBoundingClientRect();
-      
+
       const mouseX = e.clientX;
       const mouseY = e.clientY;
-      
-      const inParentArea = (
-        mouseX >= parentRect.left - 2 && 
+
+      const inParentArea =
+        mouseX >= parentRect.left - 2 &&
         mouseX <= parentRect.right + 2 &&
-        mouseY >= parentRect.top - 2 && 
-        mouseY <= parentRect.bottom + 10
-      );
-      
-      const inDropdownArea = (
-        mouseX >= dropdownRect.left - 2 && 
+        mouseY >= parentRect.top - 2 &&
+        mouseY <= parentRect.bottom + 10;
+
+      const inDropdownArea =
+        mouseX >= dropdownRect.left - 2 &&
         mouseX <= dropdownRect.right + 2 &&
-        mouseY >= dropdownRect.top - 2 && 
-        mouseY <= dropdownRect.bottom + 2
-      );
-      
+        mouseY >= dropdownRect.top - 2 &&
+        mouseY <= dropdownRect.bottom + 2;
+
       if (!inParentArea && !inDropdownArea) {
         hideDropdown();
       }
     });
-    
+
     // ドロップダウン要素イベント
-    dropdown.addEventListener('mouseenter', function(e) {
+    dropdown.addEventListener("mouseenter", function (e) {
       showDropdown();
     });
-    
-    dropdown.addEventListener('mouseleave', function(e) {
+
+    dropdown.addEventListener("mouseleave", function (e) {
       // ドロップダウンから出た場合の判定
       const parentRect = parent.getBoundingClientRect();
       const dropdownRect = dropdown.getBoundingClientRect();
-      
+
       const mouseX = e.clientX;
       const mouseY = e.clientY;
-      
-      const inParentArea = (
-        mouseX >= parentRect.left - 2 && 
+
+      const inParentArea =
+        mouseX >= parentRect.left - 2 &&
         mouseX <= parentRect.right + 2 &&
-        mouseY >= parentRect.top - 2 && 
-        mouseY <= parentRect.bottom + 10
-      );
-      
-      const inDropdownArea = (
-        mouseX >= dropdownRect.left - 2 && 
+        mouseY >= parentRect.top - 2 &&
+        mouseY <= parentRect.bottom + 10;
+
+      const inDropdownArea =
+        mouseX >= dropdownRect.left - 2 &&
         mouseX <= dropdownRect.right + 2 &&
-        mouseY >= dropdownRect.top - 2 && 
-        mouseY <= dropdownRect.bottom + 2
-      );
-      
+        mouseY >= dropdownRect.top - 2 &&
+        mouseY <= dropdownRect.bottom + 2;
+
       if (!inParentArea && !inDropdownArea) {
         hideDropdown();
       }
@@ -466,15 +455,17 @@ function initEnhancedNavEffects() {
   });
 
   // 最終フェイルセーフ: ページ全体でのクリックで全ドロップダウンを閉じる
-  document.addEventListener('click', function(e) {
+  document.addEventListener("click", function (e) {
     // ナビゲーション要素外でのクリックの場合
-    const isNavClick = e.target.closest('.nav-links');
+    const isNavClick = e.target.closest(".nav-links");
     if (!isNavClick && currentOpenDropdown) {
       hideAllDropdowns();
     }
   });
 
-  console.log('Perfect navigation effects initialized with failsafe dropdown management');
+  console.log(
+    "Perfect navigation effects initialized with failsafe dropdown management"
+  );
 }
 
 // スムーススクロール（DOM キャッシュ最適化版）
@@ -568,122 +559,6 @@ function initVideoGallery() {
   console.log("Video gallery initialized with", videoItems.length, "videos");
 }
 
-// アコーディオン機能の初期化
-function initAccordion() {
-  setTimeout(() => {
-    const accordionHeaders = document.querySelectorAll(".accordion-header");
-
-    console.log("Found accordion headers:", accordionHeaders.length);
-
-    if (accordionHeaders.length === 0) {
-      console.log(
-        "No accordion headers found, skipping accordion initialization"
-      );
-      return;
-    }
-
-    // 各アコーディオンヘッダーにクリックイベントを設定
-    for (let i = 0; i < accordionHeaders.length; i++) {
-      const header = accordionHeaders[i];
-      const targetId = header.getAttribute("data-target");
-
-      console.log(`Setting up accordion header ${i}:`, targetId);
-
-      header.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        console.log("Accordion header clicked:", targetId);
-
-        const targetContent = document.getElementById(targetId);
-        const isCurrentlyActive = header.classList.contains("active");
-
-        if (!targetContent) {
-          console.error("Target content not found:", targetId);
-          return;
-        }
-
-        if (isCurrentlyActive) {
-          // 現在アクティブなアコーディオンを閉じる
-          header.classList.remove("active");
-          targetContent.classList.remove("active");
-          console.log("Accordion closed:", targetId);
-        } else {
-          // 他のアコーディオンを全て閉じる
-          for (let j = 0; j < accordionHeaders.length; j++) {
-            accordionHeaders[j].classList.remove("active");
-            const otherTargetId =
-              accordionHeaders[j].getAttribute("data-target");
-            const otherContent = document.getElementById(otherTargetId);
-            if (otherContent) {
-              otherContent.classList.remove("active");
-            }
-          }
-
-          // クリックされたアコーディオンを開く
-          header.classList.add("active");
-          targetContent.classList.add("active");
-          console.log("Accordion opened:", targetId);
-        }
-      });
-    }
-
-    console.log("Accordion functionality initialized successfully");
-  }, 100);
-}
-
-// 動画切り替え機能の初期化
-function initVideoSelector() {
-  setTimeout(() => {
-    const videoButtons = document.querySelectorAll(".video-btn");
-    const mainVideo = document.getElementById("main-video");
-
-    console.log("Found video buttons:", videoButtons.length);
-
-    if (videoButtons.length === 0 || !mainVideo) {
-      console.log(
-        "No video buttons or main video found, skipping video selector initialization"
-      );
-      return;
-    }
-
-    for (let i = 0; i < videoButtons.length; i++) {
-      const button = videoButtons[i];
-      const videoId = button.getAttribute("data-video");
-      const videoTitle = button.getAttribute("data-title");
-
-      console.log(`Setting up video button ${i}:`, videoId);
-
-      button.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        console.log("Video button clicked:", videoId);
-
-        // 全てのボタンからactiveクラスを削除
-        for (let j = 0; j < videoButtons.length; j++) {
-          videoButtons[j].classList.remove("active");
-        }
-
-        // クリックされたボタンにactiveクラスを追加
-        button.classList.add("active");
-
-        // 動画を切り替え
-        if (videoId && videoId !== "REPLACE_WITH_ACTUAL_ID") {
-          const newSrc = `https://www.youtube.com/embed/${videoId}`;
-          mainVideo.src = newSrc;
-          mainVideo.title = `お遍路入門 - ${videoTitle}`;
-          console.log("Video switched to:", newSrc);
-        } else {
-          console.log("Video ID not available yet:", videoId);
-        }
-      });
-    }
-
-    console.log("Video selector functionality initialized successfully");
-  }, 100);
-}
-
 // YouTube遅延読み込み機能
 function initYoutubeLazyLoading() {
   // グローバルイベント監視 - 動画プレースホルダーのクリックを処理
@@ -744,62 +619,6 @@ function loadYouTubeVideo(placeholder, videoId) {
   placeholder.parentNode.replaceChild(iframe, placeholder);
 }
 
-// タブ機能の初期化
-function initTabs() {
-  // 少し遅延して確実にDOMが読み込まれてから実行
-  setTimeout(() => {
-    const tabButtons = document.querySelectorAll(".tab-button");
-    const tabContents = document.querySelectorAll(".tab-content");
-
-    console.log("Found tab buttons:", tabButtons.length);
-    console.log("Found tab contents:", tabContents.length);
-
-    if (tabButtons.length === 0) {
-      console.log("No tab buttons found, skipping tab initialization");
-      return;
-    }
-
-    // 各タブボタンにクリックイベントを設定
-    for (let i = 0; i < tabButtons.length; i++) {
-      const button = tabButtons[i];
-      const targetTab = button.getAttribute("data-tab");
-
-      console.log(`Setting up tab button ${i}:`, targetTab);
-
-      button.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        console.log("Tab button clicked:", targetTab);
-
-        // 全てのタブボタンからactiveクラスを削除
-        for (let j = 0; j < tabButtons.length; j++) {
-          tabButtons[j].classList.remove("active");
-        }
-
-        // 全てのタブコンテンツからactiveクラスを削除
-        for (let k = 0; k < tabContents.length; k++) {
-          tabContents[k].classList.remove("active");
-        }
-
-        // クリックされたボタンにactiveクラスを追加
-        button.classList.add("active");
-
-        // 対応するコンテンツにactiveクラスを追加
-        const targetContent = document.getElementById(targetTab);
-        if (targetContent) {
-          targetContent.classList.add("active");
-          console.log("Successfully activated tab:", targetTab);
-        } else {
-          console.error("Target content not found:", targetTab);
-        }
-      });
-    }
-
-    console.log("Tab functionality initialized successfully");
-  }, 100);
-}
-
 // 初期化
 document.addEventListener("DOMContentLoaded", function () {
   try {
@@ -809,17 +628,15 @@ document.addEventListener("DOMContentLoaded", function () {
     initHoverNavigation();
     initMobileNavigation(); // モバイルナビゲーション初期化
     initEnhancedNavEffects(); // デスクトップナビゲーション強化エフェクト
-    initParallaxAndDepth();
     initVideoGallery();
-    initTabs(); // タブ機能を追加
-    initAccordion(); // アコーディオン機能を追加
-    initVideoSelector(); // 動画切り替え機能を追加
     initNavigationCache(); // DOM キャッシュ初期化
     initHeaderCache(); // ヘッダーキャッシュ初期化
     initYoutubeLazyLoading(); // YouTube遅延読み込み初期化
     updateActiveNav();
 
-    console.log("Enhanced site with improved desktop and mobile navigation fully initialized");
+    console.log(
+      "Enhanced site with improved desktop and mobile navigation fully initialized"
+    );
   } catch (error) {
     console.error("Initialization error:", error);
   }
@@ -827,58 +644,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // モバイルナビゲーション
 function initMobileNavigation() {
-  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-  const mobileMenuClose = document.getElementById('mobileMenuClose');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-  const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-  
-  if (!mobileMenuToggle || !mobileMenuClose || !mobileMenu || !mobileMenuOverlay) {
-    console.log('Mobile navigation elements not found');
+  const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+  const mobileMenuClose = document.getElementById("mobileMenuClose");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+  const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link");
+
+  if (
+    !mobileMenuToggle ||
+    !mobileMenuClose ||
+    !mobileMenu ||
+    !mobileMenuOverlay
+  ) {
+    console.log("Mobile navigation elements not found");
     return;
   }
 
   // メニューを開く
   function openMobileMenu() {
-    mobileMenu.classList.add('active');
-    mobileMenuOverlay.classList.add('active');
-    mobileMenuToggle.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    mobileMenu.classList.add("active");
+    mobileMenuOverlay.classList.add("active");
+    mobileMenuToggle.classList.add("active");
+    document.body.style.overflow = "hidden";
   }
 
   // メニューを閉じる
   function closeMobileMenu() {
-    mobileMenu.classList.remove('active');
-    mobileMenuOverlay.classList.remove('active');
-    mobileMenuToggle.classList.remove('active');
-    document.body.style.overflow = '';
+    mobileMenu.classList.remove("active");
+    mobileMenuOverlay.classList.remove("active");
+    mobileMenuToggle.classList.remove("active");
+    document.body.style.overflow = "";
   }
 
   // イベントリスナー追加
-  mobileMenuToggle.addEventListener('click', function(e) {
+  mobileMenuToggle.addEventListener("click", function (e) {
     e.preventDefault();
-    if (mobileMenu.classList.contains('active')) {
+    if (mobileMenu.classList.contains("active")) {
       closeMobileMenu();
     } else {
       openMobileMenu();
     }
   });
 
-  mobileMenuClose.addEventListener('click', function(e) {
+  mobileMenuClose.addEventListener("click", function (e) {
     e.preventDefault();
     closeMobileMenu();
   });
 
-  mobileMenuOverlay.addEventListener('click', function(e) {
+  mobileMenuOverlay.addEventListener("click", function (e) {
     e.preventDefault();
     closeMobileMenu();
   });
 
   // メニューリンククリック時にメニューを閉じる
-  mobileMenuLinks.forEach(link => {
-    link.addEventListener('click', function() {
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", function () {
       // ページ内リンクの場合のみメニューを閉じる
-      if (this.getAttribute('href').startsWith('#')) {
+      if (this.getAttribute("href").startsWith("#")) {
         setTimeout(closeMobileMenu, 300);
       } else {
         closeMobileMenu();
@@ -887,20 +709,20 @@ function initMobileNavigation() {
   });
 
   // ESCキーでメニューを閉じる
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
       closeMobileMenu();
     }
   });
 
   // ウィンドウリサイズ時にメニューを閉じる
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 768 && mobileMenu.classList.contains("active")) {
       closeMobileMenu();
     }
   });
 
-  console.log('Mobile navigation initialized');
+  console.log("Mobile navigation initialized");
 }
 
 // スクロールイベントに進捗更新を追加（DOM キャッシュ最適化版）
@@ -916,12 +738,13 @@ let lastScrollTime = 0;
 function handleScroll() {
   // スクロール頻度制限（GPU負荷削減）
   const now = performance.now();
-  if (now - lastScrollTime < 32) { // 30FPSに制限
+  if (now - lastScrollTime < 32) {
+    // 30FPSに制限
     scrollTicking = false;
     return;
   }
   lastScrollTime = now;
-  
+
   // 既存のスクロール処理（キャッシュした要素を使用）
   if (!cachedHeader) {
     initHeaderCache();

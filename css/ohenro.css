@@ -87,6 +87,135 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* パフォーマンス最適化 - GPU使用率削減 */
+
+.nav-links a,
+.dropdown,
+.vertical-nav a {
+  will-change: transform, opacity;
+}
+
+.prefecture-block {
+  will-change: transform;
+  transition: transform 0.15s ease-out;
+}
+
+.prefecture-block:hover {
+  transform: translate3d(0, -3px, 0);
+}
+
+/* 軽量化されたアニメーション */
+.feature-item {
+  transition: transform 0.15s ease-out, background 0.15s ease-out;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* レイアウトシフト防止 */
+.step-content,
+.prefecture-grid {
+  contain: layout style;
+}
+
+/* パフォーマンス重視設定 */
+.card,
+.prefecture-block,
+.feature-item {
+  will-change: auto;
+  transform: translateZ(0);
+}
+
+.card,
+.prefecture-block {
+  transition: transform 0.2s ease-out;
+}
+
+.card:hover {
+  transform: translate3d(0, -5px, 0);
+}
+
+/* 軽量化されたボタン */
+.play-button {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* プレースホルダー画像共通化 */
+.placeholder-bg {
+  background-image: url("../images/test.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* shikoku.html専用最適化 */
+.simple-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 20, 20, 0.95),
+    rgba(40, 40, 40, 0.9)
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+.shikoku-hero {
+  height: 50vh;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.shikoku-hero-content {
+  padding-top: 15vh;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.shikoku-title {
+  font-size: 3rem;
+  color: #d4af37;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.shikoku-description {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .shikoku-hero {
+    height: 40vh;
+    min-height: 250px;
+  }
+
+  .shikoku-hero-content {
+    padding-top: 10vh;
+    padding: 2rem 1rem;
+  }
+
+  .shikoku-title {
+    font-size: 2rem;
+  }
+
+  .shikoku-description {
+    font-size: 1rem;
+  }
+}
+
 .gallery-overlay {
   position: absolute;
   bottom: 0;
@@ -273,13 +402,6 @@
 
 .prefecture-header h4 {
   display: none;
-}
-
-.prefecture-header p {
-  font-size: 0.75rem;
-  color: rgba(60, 60, 60, 0.8);
-  margin: 0;
-  font-weight: 400;
 }
 
 .prefecture-details {
@@ -532,10 +654,6 @@
   transition: background 0.3s ease;
 }
 
-/* 金色オーバーレイを削除して県名表示に::afterを使用 */
-
-/* prefecture-block > * rule removed for absolute positioning */
-
 .prefecture-block:hover {
   transform: translate3d(0, -3px, 0);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06), 0 3px 8px rgba(0, 0, 0, 0.04);
@@ -549,8 +667,6 @@
     rgba(0, 0, 0, 0.2) 100%
   );
 }
-
-/* ホバー時の金色オーバーレイも削除 */
 
 /* 各県の背景画像 */
 .prefecture-block.tokushima .prefecture-header {
@@ -569,15 +685,6 @@
   background-image: url("../images/prefecture-grid/kagawa.webp");
 }
 
-.prefecture-block h4 {
-  display: none;
-}
-
-.prefecture-block:hover h4 {
-  color: #9a7209;
-  background: rgba(255, 255, 255, 0.9);
-}
-
 .prefecture-header p {
   font-size: 1rem;
   color: #b8860b;
@@ -594,22 +701,6 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
   position: relative;
   z-index: 10;
-}
-
-.prefecture-block.tokushima::after {
-  display: none;
-}
-
-.prefecture-block.kouchi::after {
-  display: none;
-}
-
-.prefecture-block.ehime::after {
-  display: none;
-}
-
-.prefecture-block.kagawa::after {
-  display: none;
 }
 
 .prefecture-block:hover .prefecture-header p {
@@ -1476,64 +1567,62 @@
   }
 }
 
-@media (max-width: 480px) {
-  .learning-step {
-    border-radius: 15px;
-  }
+.learning-step {
+  border-radius: 15px;
+}
 
-  .prefecture-block {
-    padding: 1.5rem 1rem;
-  }
+.prefecture-block {
+  padding: 1.5rem 1rem;
+}
 
-  .video-container {
-    aspect-ratio: 16/9;
-  }
+.video-container {
+  aspect-ratio: 16/9;
+}
 
-  .play-button {
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
-  }
+.play-button {
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+}
 
-  /* 右側エリア分割のレスポンシブ */
-  .text-content {
-    order: 2;
-    max-width: none;
-    padding: 2rem 1.5rem;
-  }
+/* 右側エリア分割のレスポンシブ */
+.text-content {
+  order: 2;
+  max-width: none;
+  padding: 2rem 1.5rem;
+}
 
-  .step-title {
-    font-size: 1.1rem !important;
-    margin: 0;
-    font-weight: 600;
-    line-height: 1.3;
-  }
+.step-title {
+  font-size: 1.1rem !important;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
 
-  .step-content {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1.2rem 1rem 1.5rem;
-  }
+.step-content {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1.2rem 1rem 1.5rem;
+}
 
-  .step-description h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-  }
+.step-description h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
 
-  .step-description p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
+.step-description p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
 
-  .quick-points li,
-  .worship-flow li {
-    font-size: 0.8rem;
-  }
+.quick-points li,
+.worship-flow li {
+  font-size: 0.8rem;
+}
 
-  .point-item {
-    padding: 0.8rem;
-    border-radius: 8px;
-  }
+.point-item {
+  padding: 0.8rem;
+  border-radius: 8px;
 }
 
 /* フッター */
@@ -1800,7 +1889,6 @@ footer {
   align-items: center;
   gap: 0.8rem;
   background: rgba(255, 255, 255, 0.15);
-  /* backdrop-filter: blur(10px); GPU使用率削減のため無効化 */
   padding: 1rem 1.5rem;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1859,56 +1947,52 @@ footer {
 }
 
 /* 予約セクション レスポンシブ対応 */
-@media (max-width: 768px) {
-  .booking-section {
-    padding: 2.5rem 0;
-  }
-
-  .booking-title {
-    font-size: 1.8rem;
-  }
-
-  .booking-subtitle {
-    font-size: 1rem;
-  }
-
-  .booking-features {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    max-width: 400px;
-  }
-
-  .booking-cta-button {
-    width: 100%;
-    max-width: 300px;
-    justify-content: center;
-  }
+.booking-section {
+  padding: 2.5rem 0;
 }
 
-@media (max-width: 480px) {
-  .booking-content {
-    padding: 1rem;
-  }
+.booking-title {
+  font-size: 1.8rem;
+}
 
-  .booking-title {
-    font-size: 1.6rem;
-  }
+.booking-subtitle {
+  font-size: 1rem;
+}
 
-  .booking-features {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-    max-width: 300px;
-  }
+.booking-features {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 400px;
+}
 
-  .feature-item {
-    padding: 0.8rem 1.2rem;
-    justify-content: center;
-  }
+.booking-cta-button {
+  width: 100%;
+  max-width: 300px;
+  justify-content: center;
+}
 
-  .booking-cta-button {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-  }
+.booking-content {
+  padding: 1rem;
+}
+
+.booking-title {
+  font-size: 1.6rem;
+}
+
+.booking-features {
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  max-width: 300px;
+}
+
+.feature-item {
+  padding: 0.8rem 1.2rem;
+  justify-content: center;
+}
+
+.booking-cta-button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
 }
 
 /* YouTube動画プレースホルダー用CSS */
@@ -1955,7 +2039,6 @@ footer {
   cursor: pointer;
   z-index: 10;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25), 0 1px 6px rgba(212, 175, 55, 0.3);
-  /* backdrop-filter: blur(2px); GPU使用率削減のため無効化 */
   border: 2px solid rgba(255, 255, 255, 0.8);
   pointer-events: none; /* プレイボタンをクリック不可にして親要素にイベントを伝播 */
 }
