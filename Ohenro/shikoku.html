@@ -113,6 +113,32 @@
 
     <!-- ナビゲーション表示インジケーター -->
     <div class="nav-indicator" id="navIndicator">メニュー</div>
+    
+    <!-- 県移動ナビゲーション -->
+    <div class="prefecture-nav" id="prefectureNav">
+      <div class="prefecture-nav-container">
+        <a href="#tokushima" class="prefecture-nav-btn" data-prefecture="tokushima">
+          <span class="nav-number">1-23</span>
+          <span class="nav-name">徳島</span>
+          <span class="nav-dojo">発心</span>
+        </a>
+        <a href="#kouchi" class="prefecture-nav-btn" data-prefecture="kouchi">
+          <span class="nav-number">24-39</span>
+          <span class="nav-name">高知</span>
+          <span class="nav-dojo">修行</span>
+        </a>
+        <a href="#ehime" class="prefecture-nav-btn" data-prefecture="ehime">
+          <span class="nav-number">40-65</span>
+          <span class="nav-name">愛媛</span>
+          <span class="nav-dojo">菩提</span>
+        </a>
+        <a href="#kagawa" class="prefecture-nav-btn" data-prefecture="kagawa">
+          <span class="nav-number">66-88</span>
+          <span class="nav-name">香川</span>
+          <span class="nav-dojo">涅槃</span>
+        </a>
+      </div>
+    </div>
 
     <!-- ページタイトルセクション -->
     <section class="hero shikoku-hero">
@@ -121,6 +147,27 @@
         <p class="hero-description shikoku-description">
           四国八十八ヶ所霊場の詳細情報
         </p>
+        
+        <!-- 霊場検索機能 -->
+        <div class="temple-search-container">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input 
+              type="text" 
+              id="templeSearch" 
+              placeholder="霊場を検索（番号、名前、県名）" 
+              autocomplete="off"
+            >
+          </div>
+          <div class="quick-filters">
+            <button class="filter-btn active" data-filter="all">すべて</button>
+            <button class="filter-btn" data-filter="tokushima">徳島</button>
+            <button class="filter-btn" data-filter="kouchi">高知</button>
+            <button class="filter-btn" data-filter="ehime">愛媛</button>
+            <button class="filter-btn" data-filter="kagawa">香川</button>
+            <button class="filter-btn" data-filter="special">重要霊場</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -131,16 +178,23 @@
       style="background-color: rgba(0, 0, 0, 0.1)"
     >
       <div class="section-content">
-        <h2 class="section-title">徳島県</h2>
-        <p class="section-intro">
-          第一番霊山寺から第二十三番薬王寺までの23ヶ寺。巡礼の始まりの地であり、悟りへの決意を固める「発心」の段階です。
+        <div class="prefecture-header-enhanced">
+          <h2 class="section-title">徳島県</h2>
+          <div class="dojo-name">発心の道場</div>
+          <div class="prefecture-stats">
+            <span class="temple-count">23ヶ寺</span>
+            <span class="range">第1番～第23畯</span>
+          </div>
+        </div>
+        <p class="section-intro enhanced-intro">
+          巡礼の始まりの地であり、悟りへの決意を固める「発心」の段階。第一番霊山寺から巡礼の旅が始まります。
         </p>
           <!-- メインコンテンツ -->
     <main>
           <div class="section-content">
             <div class="card-grid">
             <!-- 第1番 霊山寺 -->
-            <div class="card">
+            <div class="card tokushima special-temple" data-category="special">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="qskCAXGJR5c">
                   <img src="https://img.youtube.com/vi/qskCAXGJR5c/maxresdefault.jpg" alt="第一番 霊山寺" loading="lazy">
@@ -148,7 +202,7 @@
                 </div>
               </div>
               <div class="card-content">
-                <h3>第一番 霊山寺</h3>
+                <h3>第一番 霊山寺 <span class="temple-importance">★★</span></h3>
                 <p>所在地: 徳島県鳴門市大麻町板東塚鼻126</p>
                 <p class="card-small-text">電話: 088-689-1111</p>
               </div>
@@ -420,7 +474,7 @@
               </div>
             </div>
             <!-- 第21番 太龍寺 -->
-            <div class="card">
+            <div class="card tokushima special-temple" data-category="special">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="x-HexIZOfhw">
                   <img src="https://img.youtube.com/vi/x-HexIZOfhw/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -428,7 +482,7 @@
                 </div>
               </div>
               <div class="card-content">
-                <h3>第二十一番 太龍寺</h3>
+                <h3>第二十一番 太龍寺 <span class="temple-importance">★★</span></h3>
                 <p>所在地: 徳島県阿南市加茂町龍山2</p>
                 <p class="card-small-text">電話: 0884-62-2021</p>
               </div>
@@ -474,9 +528,16 @@
       style="background-color: rgba(0, 0, 0, 0.1)"
     >
       <div class="section-content">
-        <h2 class="section-title">高知県</h2>
-        <p class="section-intro">
-          第二十四番最御崎寺から第三十九番延光寺までの16ヶ寺。太平洋に面した長い道のりで、心身を鍛える「修行」の段階です。
+        <div class="prefecture-header-enhanced">
+          <h2 class="section-title">高知県</h2>
+          <div class="dojo-name">修行の道場</div>
+          <div class="prefecture-stats">
+            <span class="temple-count">16ヶ寺</span>
+            <span class="range">第24番～第39畯</span>
+          </div>
+        </div>
+        <p class="section-intro enhanced-intro">
+          太平洋に面した長い道のりで、心身を鍛える「修行」の段階。最も過酷な修行の段階とされています。
         </p>
           <!-- メインコンテンツ -->
           <main>
@@ -691,9 +752,16 @@
     style="background-color: rgba(0, 0, 0, 0.1)"
   >
       <div class="section-content">
-        <h2 class="section-title">愛媛県</h2>
-        <p class="section-intro">
-          第四十番観自在寺から第六十五番三角寺までの26ヶ寺。煩悩を断ち切り、悟りに近づく「菩提」の段階です。
+        <div class="prefecture-header-enhanced">
+          <h2 class="section-title">愛媛県</h2>
+          <div class="dojo-name">菩提の道場</div>
+          <div class="prefecture-stats">
+            <span class="temple-count">26ヶ寺</span>
+            <span class="range">第40番～第65畯</span>
+          </div>
+        </div>
+        <p class="section-intro enhanced-intro">
+          煩悩を断ち切り、悟りに近づく「菩提」の段階。最多の26ヶ寺があり、石手寺など著名な霊場があります。
         </p>
           <!-- メインコンテンツ -->
           <main>
@@ -854,7 +922,7 @@
             </div>
           </div>
           <!-- 51番 石手寺 -->
-          <div class="card">
+          <div class="card ehime special-temple" data-category="special">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Fm2vJ92IvWQ">
                   <img src="https://img.youtube.com/vi/Fm2vJ92IvWQ/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -862,7 +930,7 @@
                 </div>
             </div>
             <div class="card-content">
-              <h3>第五十一番 石手寺</h3>
+              <h3>第五十一番 石手寺 <span class="temple-importance">★★</span></h3>
               <p>所在地: 愛媛県松山市石手2-9-21</p>
               <p class="card-small-text">電話: 089-977-0870</p>
             </div>
@@ -1076,9 +1144,16 @@
       style="background-color: rgba(0, 0, 0, 0.1)"
     >
       <div class="section-content">
-        <h2 class="section-title">香川県</h2>
-        <p class="section-intro">
-          第六十六番雲辺寺から第八十八番大窪寺までの23ヶ寺。苦悩から解放された悟りの境地に至る「涅槃」の段階です。
+        <div class="prefecture-header-enhanced">
+          <h2 class="section-title">香川県</h2>
+          <div class="dojo-name">涅槃の道場</div>
+          <div class="prefecture-stats">
+            <span class="temple-count">23ヶ寺</span>
+            <span class="range">第66番～第88畯</span>
+          </div>
+        </div>
+        <p class="section-intro enhanced-intro">
+          苦悩から解放された悟りの境地に至る「涅槃」の段階。弘法大師生誕の地善通寺、結願寺大窪寺があります。
         </p>
           <!-- メインコンテンツ -->
           <main>
@@ -1211,7 +1286,8 @@
             </div>
           </div>
           <!-- 75番 善通寺 -->
-          <div class="card">
+          <div class="card kagawa special-temple birthplace-temple" data-category="special">
+            <div class="temple-badge birthplace-badge">大師生誕地</div>
             <div class="card-image">
               <div class="video-placeholder" data-video-id="umkEKQtnfyQ">
                   <img src="https://img.youtube.com/vi/umkEKQtnfyQ/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1219,7 +1295,8 @@
                 </div>
             </div>
             <div class="card-content">
-              <h3>第七十五番 善通寺</h3>
+              <h3>第七十五番 善通寺 <span class="temple-importance">★★★</span></h3>
+              <p class="temple-significance">弘法大師空海が生まれた聖なる故郷</p>
               <p>所在地: 〒765-0003 香川県善通寺市善通寺町3-3-1</p>
               <p class="card-small-text">電話: 0877-62-0111</p>
             </div>
@@ -1393,7 +1470,7 @@
             </div>
           </div>
           <!-- 88番 大窪寺 -->
-          <div class="card">
+          <div class="card kagawa special-temple" data-category="special">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="NqXdIc4asFk">
                   <img src="https://img.youtube.com/vi/NqXdIc4asFk/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1401,7 +1478,7 @@
                 </div>
             </div>
             <div class="card-content">
-              <h3>第八十八番 大窪寺</h3>
+              <h3>第八十八番 大窪寺 <span class="temple-importance">★★</span></h3>
               <p>所在地: 〒769-2306 香川県さぬき市多和兼割96</p>
               <p class="card-small-text">電話: 0879-56-2278</p>
             </div>
@@ -1426,5 +1503,184 @@
     </footer>
 
     <script src="../js/script.js"></script>
+    <script>
+      // 霊場検索機能
+      document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('templeSearch');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+        const sections = document.querySelectorAll('.section');
+        
+        // 検索機能
+        searchInput.addEventListener('input', function() {
+          const query = this.value.toLowerCase();
+          filterTemples(query, getCurrentFilter());
+        });
+        
+        // フィルターボタン
+        filterButtons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            filterTemples(searchInput.value.toLowerCase(), this.dataset.filter);
+          });
+        });
+        
+        function getCurrentFilter() {
+          return document.querySelector('.filter-btn.active').dataset.filter;
+        }
+        
+        // 数字から漢数字に変換する関数
+        function convertToKanji(num) {
+          const kanjiNumbers = {
+            '1': '一', '2': '二', '3': '三', '4': '四', '5': '五',
+            '6': '六', '7': '七', '8': '八', '9': '九', '10': '十',
+            '11': '十一', '12': '十二', '13': '十三', '14': '十四', '15': '十五',
+            '16': '十六', '17': '十七', '18': '十八', '19': '十九', '20': '二十',
+            '21': '二十一', '22': '二十二', '23': '二十三', '24': '二十四', '25': '二十五',
+            '26': '二十六', '27': '二十七', '28': '二十八', '29': '二十九', '30': '三十',
+            '31': '三十一', '32': '三十二', '33': '三十三', '34': '三十四', '35': '三十五',
+            '36': '三十六', '37': '三十七', '38': '三十八', '39': '三十九', '40': '四十',
+            '41': '四十一', '42': '四十二', '43': '四十三', '44': '四十四', '45': '四十五',
+            '46': '四十六', '47': '四十七', '48': '四十八', '49': '四十九', '50': '五十',
+            '51': '五十一', '52': '五十二', '53': '五十三', '54': '五十四', '55': '五十五',
+            '56': '五十六', '57': '五十七', '58': '五十八', '59': '五十九', '60': '六十',
+            '61': '六十一', '62': '六十二', '63': '六十三', '64': '六十四', '65': '六十五',
+            '66': '六十六', '67': '六十七', '68': '六十八', '69': '六十九', '70': '七十',
+            '71': '七十一', '72': '七十二', '73': '七十三', '74': '七十四', '75': '七十五',
+            '76': '七十六', '77': '七十七', '78': '七十八', '79': '七十九', '80': '八十',
+            '81': '八十一', '82': '八十二', '83': '八十三', '84': '八十四', '85': '八十五',
+            '86': '八十六', '87': '八十七', '88': '八十八'
+          };
+          return kanjiNumbers[num] || num;
+        }
+
+        // 検索テキストマッチング関数（優先順位付き検索）
+        function searchTextMatch(cardText, query, card) {
+          // 重要霊場の検索
+          if (query === '重要' || query === '重要霊場' || query === 'special' || query === '特別') {
+            const isSpecial = card.getAttribute('data-category') === 'special';
+            if (isSpecial) {
+              return true;
+            }
+          }
+          
+          // 霊場番号の完全一致を最優先（「23」→「第二十三番」）
+          if (/^\d+$/.test(query)) {
+            const kanjiNumber = convertToKanji(query);
+            const templeTitle = card.querySelector('h3')?.textContent || '';
+            
+            // 「第〇〇番」の形式で完全一致チェック
+            if (templeTitle.includes(`第${kanjiNumber}番`)) {
+              return true;
+            }
+          }
+          
+          // 「〇番」「第〇番」形式の検索
+          if (/^\d+番$/.test(query) || /^第\d+番$/.test(query)) {
+            const number = query.replace(/[第番]/g, '');
+            const kanjiNumber = convertToKanji(number);
+            const templeTitle = card.querySelector('h3')?.textContent || '';
+            
+            if (templeTitle.includes(`第${kanjiNumber}番`)) {
+              return true;
+            }
+          }
+          
+          // 寺院名での検索（h3タイトルのみ対象）
+          const templeTitle = card.querySelector('h3')?.textContent.toLowerCase() || '';
+          if (templeTitle.includes(query)) {
+            return true;
+          }
+          
+          // 数字が含まれる寺院名検索（「1寺」→「一寺」等）
+          const convertedQuery = query.replace(/\d+/g, (match) => convertToKanji(match));
+          if (convertedQuery !== query && templeTitle.includes(convertedQuery)) {
+            return true;
+          }
+          
+          // 最後に全文検索（住所・電話番号含む）- 他で見つからない場合のみ
+          return false;
+        }
+
+        function filterTemples(query, filter) {
+          let visibleCount = 0;
+          
+          // 各カードをチェック
+          cards.forEach(card => {
+            const cardText = card.textContent.toLowerCase();
+            const isSpecial = card.getAttribute('data-category') === 'special';
+            const parentSection = card.closest('.section');
+            let show = true;
+            
+            // テキスト検索（優先順位付き検索）
+            if (query && !searchTextMatch(cardText, query, card)) {
+              show = false;
+            }
+            
+            // フィルターチェック
+            if (filter !== 'all') {
+              if (filter === 'special' && !isSpecial) {
+                show = false;
+              } else if (filter !== 'special' && !parentSection.id.includes(filter)) {
+                show = false;
+              }
+            }
+            
+            card.style.display = show ? 'block' : 'none';
+            if (show) visibleCount++;
+          });
+          
+          // セクションの表示/非表示
+          sections.forEach(section => {
+            if (section.id && (section.id === 'tokushima' || section.id === 'kouchi' || section.id === 'ehime' || section.id === 'kagawa')) {
+              const visibleCards = section.querySelectorAll('.card[style="display: block;"], .card:not([style*="display: none"])');
+              section.style.display = (filter === 'all' || filter === section.id || (filter === 'special' && visibleCards.length > 0)) ? 'block' : 'none';
+            }
+          });
+          
+          // 結果表示
+          updateSearchResults(visibleCount, query, filter);
+        }
+        
+        function updateSearchResults(count, query, filter) {
+          // 結果表示用のメッセージを追加できる
+          console.log(`検索結果: ${count}件`);
+        }
+        
+        // 県ナビゲーションのアクティブ状態管理
+        const prefectureNavBtns = document.querySelectorAll('.prefecture-nav-btn');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const currentId = entry.target.id;
+              prefectureNavBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.prefecture === currentId);
+              });
+            }
+          });
+        }, { 
+          rootMargin: '-30% 0px -60% 0px',
+          threshold: 0.1
+        });
+        
+        sections.forEach(section => {
+          if (section.id && (section.id === 'tokushima' || section.id === 'kouchi' || section.id === 'ehime' || section.id === 'kagawa')) {
+            observer.observe(section);
+          }
+        });
+        
+        // スムーススクロール
+        prefectureNavBtns.forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

@@ -1995,6 +1995,551 @@ footer {
   font-size: 1rem;
 }
 
+/* 県別ナビゲーション */
+.prefecture-nav {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.85));
+  border-radius: 16px;
+  padding: 20px 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 25px rgba(212, 175, 55, 0.25);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  max-width: 190px;
+  opacity: 0.96;
+  transition: all 0.4s ease;
+}
+
+.prefecture-nav:hover {
+  opacity: 1;
+  transform: translateX(-8px);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.35);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+.prefecture-nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.prefecture-nav-btn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.25),
+    rgba(244, 208, 63, 0.18)
+  );
+  border-color: rgba(212, 175, 55, 0.6);
+  transform: translateX(-4px) translateY(-1px);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.25);
+}
+
+.prefecture-nav-btn.active {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.3),
+    rgba(244, 208, 63, 0.2)
+  );
+  border-color: #d4af37;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.prefecture-nav-btn.active::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: linear-gradient(to bottom, #d4af37, #b8860b);
+  border-radius: 2px;
+}
+
+.temple-range,
+.nav-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #d4af37;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+/* 県別番号カラーテーマ */
+.prefecture-nav-btn[data-prefecture="tokushima"] .nav-number {
+  color: rgba(40, 167, 69, 0.9);
+}
+
+.prefecture-nav-btn[data-prefecture="kouchi"] .nav-number {
+  color: rgba(0, 123, 255, 0.9);
+}
+
+.prefecture-nav-btn[data-prefecture="ehime"] .nav-number {
+  color: rgba(253, 126, 20, 0.9);
+}
+
+.prefecture-nav-btn[data-prefecture="kagawa"] .nav-number {
+  color: rgba(111, 66, 193, 0.9);
+}
+
+.prefecture-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1px;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.stage-name {
+  font-size: 0.7rem;
+  color: #cccccc;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+/* 県別カラーテーマ */
+.prefecture-nav-btn[data-prefecture="tokushima"]:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(40, 167, 69, 0.2),
+    rgba(34, 139, 34, 0.15)
+  );
+  border-color: rgba(40, 167, 69, 0.5);
+}
+
+.prefecture-nav-btn[data-prefecture="tokushima"].active {
+  background: linear-gradient(
+    135deg,
+    rgba(40, 167, 69, 0.3),
+    rgba(34, 139, 34, 0.2)
+  );
+  border-color: #28a745;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.prefecture-nav-btn[data-prefecture="kouchi"]:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.2),
+    rgba(0, 86, 179, 0.15)
+  );
+  border-color: rgba(0, 123, 255, 0.5);
+}
+
+.prefecture-nav-btn[data-prefecture="kouchi"].active {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.3),
+    rgba(0, 86, 179, 0.2)
+  );
+  border-color: #007bff;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.prefecture-nav-btn[data-prefecture="ehime"]:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(253, 126, 20, 0.2),
+    rgba(230, 81, 0, 0.15)
+  );
+  border-color: rgba(253, 126, 20, 0.5);
+}
+
+.prefecture-nav-btn[data-prefecture="ehime"].active {
+  background: linear-gradient(
+    135deg,
+    rgba(253, 126, 20, 0.3),
+    rgba(230, 81, 0, 0.2)
+  );
+  border-color: #fd7e14;
+  box-shadow: 0 4px 15px rgba(253, 126, 20, 0.3);
+}
+
+.prefecture-nav-btn[data-prefecture="kagawa"]:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(111, 66, 193, 0.2),
+    rgba(87, 13, 248, 0.15)
+  );
+  border-color: rgba(111, 66, 193, 0.5);
+}
+
+.prefecture-nav-btn[data-prefecture="kagawa"].active {
+  background: linear-gradient(
+    135deg,
+    rgba(111, 66, 193, 0.3),
+    rgba(87, 13, 248, 0.2)
+  );
+  border-color: #6f42c1;
+  box-shadow: 0 4px 15px rgba(111, 66, 193, 0.3);
+}
+
+/* ホバー時の県別テキストカラー強化 */
+.prefecture-nav-btn[data-prefecture="tokushima"]:hover .nav-name,
+.prefecture-nav-btn[data-prefecture="tokushima"].active .nav-name {
+  color: rgba(40, 167, 69, 1);
+  text-shadow: 0 1px 3px rgba(40, 167, 69, 0.3);
+}
+
+.prefecture-nav-btn[data-prefecture="kouchi"]:hover .nav-name,
+.prefecture-nav-btn[data-prefecture="kouchi"].active .nav-name {
+  color: rgba(0, 123, 255, 1);
+  text-shadow: 0 1px 3px rgba(0, 123, 255, 0.3);
+}
+
+.prefecture-nav-btn[data-prefecture="ehime"]:hover .nav-name,
+.prefecture-nav-btn[data-prefecture="ehime"].active .nav-name {
+  color: rgba(253, 126, 20, 1);
+  text-shadow: 0 1px 3px rgba(253, 126, 20, 0.3);
+}
+
+.prefecture-nav-btn[data-prefecture="kagawa"]:hover .nav-name,
+.prefecture-nav-btn[data-prefecture="kagawa"].active .nav-name {
+  color: rgba(111, 66, 193, 1);
+  text-shadow: 0 1px 3px rgba(111, 66, 193, 0.3);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .prefecture-nav {
+    top: 70px;
+    right: 10px;
+    max-width: 160px;
+    padding: 16px 10px;
+    gap: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(212, 175, 55, 0.2);
+  }
+
+  .prefecture-nav:hover {
+    transform: translateX(-6px);
+  }
+
+  .prefecture-nav-btn {
+    padding: 10px 8px;
+  }
+
+  .temple-range {
+    font-size: 0.7rem;
+  }
+
+  .prefecture-name {
+    font-size: 0.8rem;
+  }
+
+  .stage-name {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prefecture-nav {
+    top: 60px;
+    right: 8px;
+    max-width: 130px;
+    padding: 12px 8px;
+    gap: 6px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25),
+      0 0 15px rgba(212, 175, 55, 0.15);
+  }
+
+  .prefecture-nav:hover {
+    transform: translateX(-4px);
+  }
+
+  .prefecture-nav-btn {
+    padding: 8px 6px;
+  }
+
+  .temple-range {
+    font-size: 0.65rem;
+  }
+
+  .prefecture-name {
+    font-size: 0.75rem;
+  }
+
+  .stage-name {
+    font-size: 0.6rem;
+  }
+}
+
+/* 霊場検索機能 */
+.temple-search-container {
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.search-box i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d4af37;
+  font-size: 1.1rem;
+  z-index: 2;
+}
+
+#templeSearch {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  font-size: 1rem;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
+  transition: all 0.3s ease;
+}
+
+#templeSearch:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+  transform: translateY(-1px);
+}
+
+#templeSearch::placeholder {
+  color: rgba(108, 117, 125, 0.7);
+}
+
+.quick-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  color: #6c757d;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: white;
+  border-color: #d4af37;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* モバイル用検索デザイン */
+@media (max-width: 768px) {
+  .temple-search-container {
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  #templeSearch {
+    padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+    font-size: 0.9rem;
+  }
+
+  .quick-filters {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* 県ヘッダー強化デザイン */
+.prefecture-header-enhanced {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.1),
+    rgba(244, 208, 63, 0.05)
+  );
+  border-radius: 16px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.prefecture-header-enhanced::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #d4af37, #b8860b, #d4af37);
+}
+
+.prefecture-header-enhanced .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #b8860b;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dojo-name {
+  font-size: 1.8rem;
+  color: #d4af37;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+}
+
+.prefecture-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.temple-count {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 10px rgba(40, 167, 69, 0.3);
+}
+
+.range {
+  background: linear-gradient(135deg, #6c757d, #495057);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 10px rgba(108, 117, 125, 0.3);
+}
+
+.enhanced-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(60, 60, 60, 0.9);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  border-left: 4px solid #d4af37;
+  box-shadow: inset 0 2px 8px rgba(212, 175, 55, 0.1);
+}
+
+/* 特別霊場のデザイン - 通常カードと同じスタイルに統一（スタイル削除） */
+
+.start-temple {
+  border-color: #28a745;
+  background: linear-gradient(
+    135deg,
+    rgba(40, 167, 69, 0.05),
+    rgba(34, 139, 34, 0.05)
+  );
+}
+
+.final-temple {
+  border-color: #ffc107;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 193, 7, 0.05),
+    rgba(255, 165, 0, 0.05)
+  );
+}
+
+/* 霊場バッジ */
+.temple-badge {
+  position: absolute;
+  top: -8px;
+  right: 15px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+  z-index: 10;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  animation: subtle-glow 2s infinite alternate;
+}
+
+.start-badge {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  box-shadow: 0 3px 10px rgba(40, 167, 69, 0.4);
+}
+
+.birthplace-badge {
+  display: none; /* バッジを非表示 */
+}
+
+.final-badge {
+  background: linear-gradient(135deg, #ffc107, #e0a800);
+  box-shadow: 0 3px 10px rgba(255, 193, 7, 0.4);
+  color: #000;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* 重要度星マーク */
+.temple-importance {
+  color: #ffc107;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  margin-left: 0.3rem;
+}
+
+/* 霊場の特別説明 */
+.temple-significance {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 0.8rem;
+  padding: 0.5rem 0.8rem;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 6px;
+  border-left: 3px solid #d4af37;
+}
+
+@keyframes subtle-glow {
+  0% {
+    box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
+  }
+  100% {
+    box-shadow: 0 3px 15px rgba(212, 175, 55, 0.5);
+  }
+}
+
 /* YouTube動画プレースホルダー用CSS */
 .video-placeholder {
   position: relative;

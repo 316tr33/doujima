@@ -632,6 +632,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initNavigationCache(); // DOM キャッシュ初期化
     initHeaderCache(); // ヘッダーキャッシュ初期化
     initYoutubeLazyLoading(); // YouTube遅延読み込み初期化
+    initTempleFilter(); // 重要霊場フィルター初期化
     updateActiveNav();
 
     console.log(
@@ -777,3 +778,42 @@ window.addEventListener(
   },
   { passive: true }
 );
+
+// 重要霊場フィルター機能
+function initTempleFilter() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+  
+  if (!filterButtons.length || !cards.length) {
+    return;
+  }
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+      
+      // アクティブボタンの切り替え
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      // カードのフィルタリング
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const shouldShow = filter === 'all' || 
+                          (filter === 'special' && cardCategory === 'special') ||
+                          card.classList.contains(filter) ||
+                          card.querySelector('[data-prefecture="' + filter + '"]');
+        
+        if (shouldShow) {
+          card.style.display = 'block';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+          card.style.opacity = '0';
+        }
+      });
+    });
+  });
+  
+  console.log('Temple filter system initialized');
+}
