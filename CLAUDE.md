@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## プロジェクト概要
 
-四国八十八ヶ所霊場巡礼（お遍路）の情報サイト。日本の伝統的な巡礼体験を紹介し、各県の霊場情報を提供する静的 Web サイトです。
+堂島フロント企画の企業サイト。お遍路事業と東海道ウォーク事業を中心とした多事業展開企業の公式ウェブサイト。静的 HTML で構築されたマルチビジネス対応サイトです。
 
 ## 開発コマンド
 
@@ -23,10 +23,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### コアファイル構成
 
-- `index.html` - メインページ（2 ページ構成の中心）
-- `shikoku.html` - 各霊場の詳細ページ
-- `style.css` - 最適化済み CSS（2540 行、48KB）
-- `script.js` - JavaScript 機能（518 行）
+- `index.html` - 企業ホームページ（堂島フロント企画の事業案内）
+- `Ohenro/index.html` - お遍路事業メインページ
+- `Ohenro/shikoku.html` - 各霊場の詳細ページ
+- `Tokaido/index.html` - 東海道ウォーク事業ページ
+- `css/style.css` - 共通 CSS（1016 行、企業ページ含む）
+- `css/ohenro.css` - お遍路専用 CSS（1966 行）
+- `js/script.js` - JavaScript 機能（800+ 行、最適化済み）
 
 ### 主要システム
 
@@ -55,10 +58,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - プログレスバー（.horizontal-progress）とドットナビゲーション
 - DOM 要素キャッシュ最適化済み
 
+#### 検索・フィルター機能（shikoku.html）
+
+霊場詳細ページの核心機能：
+
+- **検索機能**: `#templeSearch` - 番号、名前、県名での検索
+- **県別フィルター**: `tokushima`, `kouchi`, `ehime`, `kagawa` クラスでの分類
+- **重要霊場フィルター**: `special-temple` クラス + `data-category="special"`
+- **カードクラス構造**: 番号範囲による県別クラス必須
+  - 徳島県（1-23番）: `tokushima`
+  - 高知県（24-39番）: `kouchi` 
+  - 愛媛県（40-65番）: `ehime`
+  - 香川県（66-88番）: `kagawa`
+
 #### デュアルナビゲーション
 
 - 固定ヘッダー（nav + .nav-links）
 - サイド縦書きナビ（.vertical-nav）- 右端からスライドイン
+- モバイルハンバーガーメニュー（.mobile-menu-toggle）
 
 ### デザイン・CSS 構造
 
@@ -68,11 +85,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **フォント**: Noto Serif JP（縦書き対応）
 - **レスポンシブ**: 3 段階（1024px, 768px, 480px）
 
-#### CSS 最適化済み
+#### CSS 分割最適化
 
+- **css/style.css**: 共通スタイル + 企業ページ（1016 行）
+- **css/ohenro.css**: お遍路専用スタイル（1966 行）
 - 未使用学習レイアウト削除済み（pilgrimage-learning-steps 等）
 - 重複メディアクエリ統合済み
-- 2540 行に最適化（元 3400 行から 30%削減）
 
 ### JavaScript 設計
 
@@ -80,11 +98,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```javascript
 // DOMContentLoaded内での順序
-1. initSlideshow()     // スライドショー
-2. initAnimations()    // アニメーション
-3. initSmoothScroll()  // スムーススクロール
-4. initNavigation()    // ナビゲーション
-5. initDOMCache()      // DOMキャッシュ
+1. initSlideshow()           // スライドショー
+2. initializeAnimations()    // アニメーション
+3. initSmoothScroll()        // スムーススクロール
+4. initHoverNavigation()     // デスクトップナビゲーション
+5. initMobileNavigation()    // モバイルナビゲーション
+6. initEnhancedNavEffects()  // ナビエフェクト
+7. initVideoGallery()        // 動画ギャラリー
+8. initNavigationCache()     // ナビキャッシュ
+9. initHeaderCache()         // ヘッダーキャッシュ
+10. initYoutubeLazyLoading() // YouTube遅延読み込み
+11. initTempleFilter()       // 霊場フィルター（重要）
 ```
 
 #### DOM 最適化
@@ -104,6 +128,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### CSS 修正時
 
+- **ファイル選択**:
+  - 企業ページ関連 → `css/style.css`
+  - お遍路機能関連 → `css/ohenro.css`
 - セクションコメント（`/* */`）で対象エリアを正確に特定
 - z-index 階層: ヘッダー(3) > ナビ(99-100) > コンテンツ(1-15)
 - レスポンシブはファイル後半に配置済み
@@ -113,3 +140,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - DOM 要素は必ずキャッシュして再利用
 - エラーハンドリングは console.log()パターンに統一
 - 初期化は必ず DOMContentLoaded イベント内
+
+### 霊場フィルター機能修正時（重要）
+
+shikoku.htmlの検索・フィルター機能の修正ルール：
+
+- **カードクラス必須**: JavaScript は `card.classList.contains(filter)` でフィルタリング
+- **HTMLクラス構造**: `<div class="card tokushima special-temple" data-category="special">`
+- **重要霊場設定**: 1番、21番、51番、75番、88番に `special-temple` クラス必須
+- **県別クラス**: 必ず番号範囲に応じた県名クラス（data属性ではなくclass属性）
+- **検索コンテナ**: `.temple-search-container` 内に検索ボックスとフィルターボタン配置
+
+### パフォーマンス最適化
+
+- requestAnimationFrame でアニメーション最適化
+- IntersectionObserver で視認性監視
+- スクロールイベントの頻度制限（30FPS）
+- YouTube遅延読み込みでページ速度向上
+- DOM要素キャッシュでリピート検索を最小化
