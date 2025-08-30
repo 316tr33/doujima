@@ -29,7 +29,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `Tokaido/index.html` - 東海道ウォーク事業ページ
 - `css/style.css` - 共通 CSS（1016 行、企業ページ含む）
 - `css/ohenro.css` - お遍路専用 CSS（1966 行）
-- `script.js` - JavaScript 機能（518 行）
+- `js/script.js` - JavaScript 機能（800+ 行、最適化済み）
 
 ### 主要システム
 
@@ -58,10 +58,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - プログレスバー（.horizontal-progress）とドットナビゲーション
 - DOM 要素キャッシュ最適化済み
 
+#### 検索・フィルター機能（shikoku.html）
+
+霊場詳細ページの核心機能：
+
+- **検索機能**: `#templeSearch` - 番号、名前、県名での検索
+- **県別フィルター**: `tokushima`, `kouchi`, `ehime`, `kagawa` クラスでの分類
+- **重要霊場フィルター**: `special-temple` クラス + `data-category="special"`
+- **カードクラス構造**: 番号範囲による県別クラス必須
+  - 徳島県（1-23番）: `tokushima`
+  - 高知県（24-39番）: `kouchi` 
+  - 愛媛県（40-65番）: `ehime`
+  - 香川県（66-88番）: `kagawa`
+
 #### デュアルナビゲーション
 
 - 固定ヘッダー（nav + .nav-links）
 - サイド縦書きナビ（.vertical-nav）- 右端からスライドイン
+- モバイルハンバーガーメニュー（.mobile-menu-toggle）
 
 ### デザイン・CSS 構造
 
@@ -84,11 +98,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```javascript
 // DOMContentLoaded内での順序
-1. initSlideshow()     // スライドショー
-2. initAnimations()    // アニメーション
-3. initSmoothScroll()  // スムーススクロール
-4. initNavigation()    // ナビゲーション
-5. initDOMCache()      // DOMキャッシュ
+1. initSlideshow()           // スライドショー
+2. initializeAnimations()    // アニメーション
+3. initSmoothScroll()        // スムーススクロール
+4. initHoverNavigation()     // デスクトップナビゲーション
+5. initMobileNavigation()    // モバイルナビゲーション
+6. initEnhancedNavEffects()  // ナビエフェクト
+7. initVideoGallery()        // 動画ギャラリー
+8. initNavigationCache()     // ナビキャッシュ
+9. initHeaderCache()         // ヘッダーキャッシュ
+10. initYoutubeLazyLoading() // YouTube遅延読み込み
+11. initTempleFilter()       // 霊場フィルター（重要）
 ```
 
 #### DOM 最適化
@@ -120,3 +140,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - DOM 要素は必ずキャッシュして再利用
 - エラーハンドリングは console.log()パターンに統一
 - 初期化は必ず DOMContentLoaded イベント内
+
+### 霊場フィルター機能修正時（重要）
+
+shikoku.htmlの検索・フィルター機能の修正ルール：
+
+- **カードクラス必須**: JavaScript は `card.classList.contains(filter)` でフィルタリング
+- **HTMLクラス構造**: `<div class="card tokushima special-temple" data-category="special">`
+- **重要霊場設定**: 1番、21番、51番、75番、88番に `special-temple` クラス必須
+- **県別クラス**: 必ず番号範囲に応じた県名クラス（data属性ではなくclass属性）
+- **検索コンテナ**: `.temple-search-container` 内に検索ボックスとフィルターボタン配置
+
+### パフォーマンス最適化
+
+- requestAnimationFrame でアニメーション最適化
+- IntersectionObserver で視認性監視
+- スクロールイベントの頻度制限（30FPS）
+- YouTube遅延読み込みでページ速度向上
+- DOM要素キャッシュでリピート検索を最小化
