@@ -1,0 +1,382 @@
+/* FAQページ専用スタイル */
+body {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c1810 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+/* FAQ検索バー */
+.faq-search-container {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+}
+
+.faq-search {
+  width: 100%;
+  padding: 15px 20px 15px 50px;
+  background-color: rgba(44, 44, 44, 0.9);
+  border: 2px solid #d4af37;
+  border-radius: 50px;
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.faq-search:focus {
+  outline: none;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+.search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+/* カテゴリータブ */
+.faq-categories {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.category-btn {
+  padding: 10px 25px;
+  background: linear-gradient(
+    135deg,
+    rgba(184, 134, 11, 0.2),
+    rgba(212, 175, 55, 0.2)
+  );
+  border: 1px solid #d4af37;
+  border-radius: 25px;
+  color: #d4af37;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Noto Serif JP", serif;
+}
+
+.category-btn:hover {
+  background: linear-gradient(135deg, #b8860b, #d4af37);
+  color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, #b8860b, #d4af37);
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* FAQコンテナ */
+.faq-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(44, 44, 44, 0.95),
+    rgba(34, 34, 34, 0.95)
+  );
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* FAQヘッダー */
+.faq-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.faq-header h2 {
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 15px;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+}
+
+.faq-header p {
+  color: #aaa;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* FAQ項目 */
+.faq-item {
+  margin-bottom: 15px;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: rgba(26, 26, 26, 0.5);
+}
+
+.faq-item:hover {
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.1);
+  transform: translateX(5px);
+}
+
+.faq-item.active {
+  border-color: #d4af37;
+  background: rgba(212, 175, 55, 0.05);
+}
+
+/* 質問部分 */
+.faq-question {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 20px 25px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  font-family: "Noto Serif JP", serif;
+  position: relative;
+}
+
+.faq-question::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 0;
+  background: linear-gradient(to bottom, #d4af37, #b8860b);
+  transition: height 0.3s ease;
+}
+
+.faq-item.active .faq-question::before {
+  height: 60%;
+}
+
+.faq-question:hover {
+  background: rgba(212, 175, 55, 0.05);
+  padding-left: 30px;
+}
+
+.faq-question span {
+  flex: 1;
+  padding-right: 20px;
+  line-height: 1.5;
+}
+
+.faq-question i {
+  color: #d4af37;
+  transition: transform 0.3s ease;
+  font-size: 1rem;
+}
+
+/* 回答部分 */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, padding 0.3s ease-out;
+  background: linear-gradient(
+    135deg,
+    rgba(34, 34, 34, 0.9),
+    rgba(26, 26, 26, 0.9)
+  );
+}
+
+.faq-answer-content {
+  padding: 0 25px 25px 30px;
+  animation: fadeIn 0.5s ease;
+}
+
+.faq-answer p {
+  margin: 0;
+  line-height: 1.8;
+  color: #ccc;
+  font-size: 1.05rem;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding-top: 10px;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+  color: #fff;
+}
+
+/* カテゴリラベル */
+.faq-item[data-category] {
+  position: relative;
+}
+
+.category-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 12px;
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 15px;
+  font-size: 0.85rem;
+  color: #d4af37;
+  font-weight: 500;
+  display: none;
+}
+
+/* 検索結果なし */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #888;
+  font-size: 1.2rem;
+  display: none;
+}
+
+.no-results i {
+  font-size: 3rem;
+  color: #666;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* 統計情報 */
+.faq-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(212, 175, 55, 0.05);
+  border-radius: 10px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  color: #d4af37;
+  font-weight: 700;
+  display: block;
+}
+
+.stat-label {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* スクロールトップボタン */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #b8860b, #d4af37);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+.scroll-top i {
+  color: #1a1a1a;
+  font-size: 1.5rem;
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width: 768px) {
+  .faq-container {
+    padding: 30px 20px;
+    margin: 30px 15px;
+  }
+
+  .faq-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+    padding: 15px 20px;
+  }
+
+  .faq-answer p {
+    font-size: 0.95rem;
+  }
+
+  .faq-categories {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+  }
+
+  .category-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .faq-stats {
+    gap: 20px;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .faq-question span {
+    font-size: 0.95rem;
+  }
+
+  .faq-answer-content {
+    padding: 0 15px 20px 20px;
+  }
+}
