@@ -69,8 +69,44 @@
         </div>
     </section>
 
+    <!-- 検索バー -->
+    <div class="faq-search-container">
+        <div style="position: relative;">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="faq-search" placeholder="質問を検索...">
+        </div>
+    </div>
+
+    <!-- カテゴリフィルター -->
+    <div class="faq-categories">
+        <button class="category-btn active" data-category="all">すべて</button>
+        <button class="category-btn" data-category="basic">基本情報</button>
+        <button class="category-btn" data-category="preparation">準備・装備</button>
+        <button class="category-btn" data-category="pilgrimage">巡礼方法</button>
+        <button class="category-btn" data-category="manners">作法・マナー</button>
+        <button class="category-btn" data-category="misc">その他</button>
+    </div>
+
     <main class="faq-container">
-        <div class="faq-item">
+        <!-- FAQヘッダー -->
+        <div class="faq-header">
+            <h2>よくあるご質問</h2>
+            <p>四国遍路に関する疑問や不安を解決するために、<br>よくお寄せいただく質問とその回答をまとめました。</p>
+        </div>
+
+        <!-- 統計情報 -->
+        <div class="faq-stats">
+            <div class="stat-item">
+                <span class="stat-number">0</span>
+                <span class="stat-label">質問総数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">0</span>
+                <span class="stat-label">カテゴリ数</span>
+            </div>
+        </div>
+        <!-- 基本情報 -->
+        <div class="faq-item" data-category="basic" id="q1">
             <button class="faq-question">
                 <span>四国遍路とは何ですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -82,7 +118,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="preparation" id="q2">
             <button class="faq-question">
                 <span>お遍路を始めるには何が必要ですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -94,7 +130,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="basic" id="q3">
             <button class="faq-question">
                 <span>費用はどのくらいかかりますか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -106,7 +142,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="preparation" id="q4">
             <button class="faq-question">
                 <span>宿泊はどうすればいいですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -118,7 +154,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="pilgrimage" id="q5">
             <button class="faq-question">
                 <span>歩き遍路と車遍路の違いは何ですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -130,7 +166,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="basic" id="q6">
             <button class="faq-question">
                 <span>女性一人でも安全ですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -141,7 +177,8 @@
                 </p>
             </div>
         </div>
-    <div class="faq-item">
+        <!-- 巡礼方法 -->
+        <div class="faq-item" data-category="pilgrimage" id="q7">
             <button class="faq-question">
                 <span>四国霊場をお参りする際に番号の順番通りにお参りしないといけないのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -153,7 +190,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="preparation" id="q8">
             <button class="faq-question">
                 <span>遍路用品は最初から全部そろえた方が良いですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -165,7 +202,8 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <!-- 作法・マナー -->
+        <div class="faq-item" data-category="manners" id="q9">
             <button class="faq-question">
                 <span>お参りの際に読むお経は決まっているのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -177,7 +215,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="manners" id="q10">
             <button class="faq-question">
                 <span>お納経をお参り前に取っても良いのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -189,7 +227,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="manners" id="q11">
             <button class="faq-question">
                 <span>お参りの際に必ず本堂からお参りしないといけないのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -200,7 +238,7 @@
                 </p>
             </div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" data-category="manners" id="q12">
             <button class="faq-question">
                 <span>錦、金、銀の納札を持ち帰りたいのですが、納札入れから取っても良いのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -212,7 +250,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="manners" id="q13">
             <button class="faq-question">
                 <span>お線香やお蝋燭をお供えする際に、決まりはあるのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -224,7 +262,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="manners" id="q14">
             <button class="faq-question">
                 <span>お遍路さんは霊場を参拝の際に橋で杖を撞かないのはなぜでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -236,7 +274,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="misc" id="q15">
             <button class="faq-question">
                 <span>お納経にはどの様な文字が書かれているのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -248,7 +286,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="pilgrimage" id="q16">
             <button class="faq-question">
                 <span>四国霊場をすべてお参りし終えた後にお礼参りは必ずしなければいけないのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -259,7 +297,8 @@
                 </p>
             </div>
         </div>
-        <div class="faq-item">
+        <!-- その他 -->
+        <div class="faq-item" data-category="misc" id="q17">
             <button class="faq-question">
                 <span>同行二人（どうぎょうににん）とはどのような意味があるのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -271,7 +310,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="preparation" id="q18">
             <button class="faq-question">
                 <span>金剛杖に杖カバーは付けた方が良いのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -283,7 +322,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="preparation" id="q19">
             <button class="faq-question">
                 <span>お遍路用品はどの霊場にも置いていますか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -295,7 +334,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="manners" id="q20">
             <button class="faq-question">
                 <span>鐘楼堂などの鐘は、いつどの様に撞けば良いのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -307,7 +346,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="misc" id="q21">
             <button class="faq-question">
                 <span>お接待とは何でしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -318,7 +357,7 @@
                 </p>
             </div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" data-category="manners" id="q22">
             <button class="faq-question">
                 <span>御影（御姿）はどの様に取り扱えば良いのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -330,7 +369,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="pilgrimage" id="q23">
             <button class="faq-question">
                 <span>逆打ちとは何ですか？また、閏年（うるうどし）に行うのはなぜですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -342,7 +381,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="pilgrimage" id="q24">
             <button class="faq-question">
                 <span>巡拝の際は1度に全部お参りしないといけないのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -354,7 +393,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="preparation" id="q25">
             <button class="faq-question">
                 <span>お参りをする際の服装は何か決まったものがあるのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -366,7 +405,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="misc" id="q26">
             <button class="faq-question">
                 <span>宿坊とは何ですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -377,7 +416,7 @@
                 </p>
             </div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" data-category="pilgrimage" id="q27">
             <button class="faq-question">
                 <span>四国霊場をすべてお参りし終えた後に高野山には必ずお参りしなければいけないのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -389,7 +428,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="misc" id="q28">
             <button class="faq-question">
                 <span>四国霊場の記念事業中に周り終える事ができないのですが、事業終了後に記念の授与品などをいただく事は出来ないのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -401,7 +440,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="basic" id="q29">
             <button class="faq-question">
                 <span>宗旨が真言宗ではないのですが、四国霊場はお参りできるのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -413,7 +452,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="misc" id="q30">
             <button class="faq-question">
                 <span>自宅に両親やご先祖が使用していた途中までの納経帳があるのですが、これを自身のお参りに使うことはできないのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -425,7 +464,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="pilgrimage" id="q31">
             <button class="faq-question">
                 <span>四国遍路を行うにはどの様な手段があるのでしょうか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -436,7 +475,7 @@
                 </p>
             </div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" data-category="misc" id="q32">
             <button class="faq-question">
                 <span>ご朱印とお納経の違いはなんですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -448,7 +487,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="misc" id="q33">
             <button class="faq-question">
                 <span>お納経に日付を記入しないのはなぜですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -460,7 +499,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="preparation" id="q34">
             <button class="faq-question">
                 <span>網代笠・菅笠にかかれている文字の意味は何ですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -472,7 +511,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="misc" id="q35">
             <button class="faq-question">
                 <span>お大師様を表す梵字と弥勒菩薩を表す梵字が同じなのは何故ですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -484,7 +523,7 @@
             </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-category="basic" id="q36">
             <button class="faq-question">
                 <span>ペット同伴・盲導犬同伴のお参りは可能ですか？</span>
                 <i class="fas fa-chevron-down"></i>
@@ -495,7 +534,18 @@
                 </p>
             </div>
         </div>
+
+        <!-- 検索結果なしメッセージ -->
+        <div class="no-results">
+            <i class="fas fa-search"></i>
+            <p>検索結果が見つかりませんでした。<br>別のキーワードでお試しください。</p>
+        </div>
     </main>
+
+    <!-- スクロールトップボタン -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
     <footer id="contact">
       <div class="social-links">
