@@ -1,3 +1,64 @@
+/* CSS変数定義 - デザインシステム */
+:root {
+  /* カラーパレット */
+  --primary-gold: #d4af37;
+  --secondary-gold: #b8860b;
+  --accent-gold: #ffc107;
+  --text-white: #fff;
+  --text-gray: #6c757d;
+  --bg-black: #000;
+  --bg-dark: #1a1a1a;
+  --bg-overlay: rgba(20, 20, 20, 0.9);
+  
+  /* スペーシング */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  --margin-auto: 0 auto;
+  
+  /* フォント */
+  --font-primary: "Noto Serif JP", "Yu Mincho", "YuMincho", "Hiragino Mincho Pro", "Times New Roman", serif;
+  --font-secondary: "Shippori Mincho", serif;
+  
+  /* 境界線 */
+  --border-gold: 1px solid rgba(212, 175, 55, 0.2);
+  --border-radius: 8px;
+  
+  /* 影 */
+  --shadow-text: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 4px 15px rgba(212, 175, 55, 0.3);
+
+}
+
+/* 共通ユーティリティクラス */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* よく使われるユーティリティクラス */
+.text-center { text-align: center; }
+.text-gold { color: var(--primary-gold); }
+.bg-overlay { background: var(--bg-overlay); }
+.margin-auto { margin: var(--margin-auto); }
+.padding-lg { padding: var(--spacing-lg); }
+.margin-bottom-md { margin-bottom: var(--spacing-md); }
+
+/* 重複の多いスタイルパターンを統合 */
+.gold-border { border: var(--border-gold); }
+.shadow-text { text-shadow: var(--shadow-text); }
+.shadow-card { box-shadow: var(--shadow-card); }
+.bg-dark { background: var(--bg-dark); }
+
 * {
   margin: 0;
   padding: 0;
@@ -23,9 +84,7 @@ body {
   position: relative;
 }
 
-/* 固定の明るい背景オーバーレイ */
-
-/* ヘッダー - 元に戻す */
+/* ヘッダー */
 header {
   position: fixed;
   top: 0;
@@ -41,7 +100,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: var(--margin-auto);
   padding: 0 2rem;
 }
 
@@ -102,7 +161,7 @@ nav {
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #d4af37, #f4d03f);
+  background: linear-gradient(90deg, var(--primary-gold), #f4d03f);
   transition: all 0.4s ease;
   transform: translateX(-50%);
   border-radius: 2px;
@@ -319,7 +378,7 @@ nav {
   left: -100%;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
   transition: left 0.8s ease;
   transform: translateY(-50%);
 }
@@ -528,7 +587,7 @@ nav {
 }
 
 .slide-dot.active {
-  background: #d4af37;
+  background: var(--primary-gold);
   border-color: #d4af37;
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
 }
@@ -656,15 +715,13 @@ nav {
   font-weight: 400;
   letter-spacing: 0.1em;
   line-height: 2.3;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem;
   opacity: 0.95;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   max-width: 420px;
   font-feature-settings: "palt" 1, "kern" 1;
   text-rendering: optimizeLegibility;
   word-break: auto-phrase;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* セクション共通 - 画像背景対応 */
@@ -714,13 +771,13 @@ nav {
 
 .section-content {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: var(--margin-auto);
 }
 
 .section-title {
   font-size: 2.8rem;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   color: #d4af37;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -736,10 +793,8 @@ nav {
   font-weight: 400;
   line-height: 2.2;
   letter-spacing: 0.06em;
-  margin-bottom: 3rem;
+  margin: 0 auto 1.5rem;
   max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
   font-feature-settings: "palt" 1, "kern" 1;
   text-rendering: optimizeLegibility;
   word-break: auto-phrase;
@@ -932,7 +987,7 @@ nav {
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   max-width: 600px;
-  margin: 0 auto;
+  margin: var(--margin-auto);
 }
 
 .business-card {
@@ -977,7 +1032,7 @@ nav {
 
 .company-overview .container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: var(--margin-auto);
 }
 
 .company-overview h2 {
@@ -998,7 +1053,7 @@ nav {
 
 .cta-button {
   display: inline-block;
-  background: linear-gradient(135deg, #d4af37, #b8860b);
+  background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
   color: white;
   padding: 1rem 2rem;
   border-radius: 8px;
@@ -1013,7 +1068,7 @@ nav {
 .cta-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-  background: linear-gradient(135deg, #e6c547, #d4af37);
+  background: linear-gradient(135deg, #e6c547, var(--primary-gold));
   text-decoration: none;
   color: white;
 }
@@ -1027,7 +1082,7 @@ nav {
 
 .news-section .container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: var(--margin-auto);
 }
 
 .news-section h2 {
@@ -1079,7 +1134,7 @@ nav {
   grid-template-columns: 2fr 1fr;
   gap: 3rem;
   max-width: 800px;
-  margin: 0 auto 2rem;
+  margin: var(--margin-auto) auto 2rem;
   text-align: left;
 }
 
@@ -1143,7 +1198,7 @@ nav {
 .hamburger-line {
   width: 25px;
   height: 3px;
-  background-color: #d4af37;
+  background-color: var(--primary-gold);
   display: block;
   transition: all 0.3s ease;
   transform-origin: center;
