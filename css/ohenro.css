@@ -7,24 +7,24 @@
   padding: 6rem 2rem;
   text-align: center;
   position: relative;
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  border-top: var(--border-gold);
+  border-bottom: var(--border-gold);
 }
 
 .quote-content {
   max-width: 800px;
-  margin: 0 auto;
+  margin: var(--margin-auto);
 }
 
 .quote-text {
   font-size: 2.1rem;
-  color: #d4af37;
+  color: var(--primary-gold);
   font-style: normal;
   font-weight: 500;
   margin-bottom: 2rem;
   letter-spacing: 0.12em;
   line-height: 2;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  text-shadow: var(--shadow-text);
   font-feature-settings: "kern" 1, "jp04" 1;
   text-rendering: optimizeLegibility;
   word-break: keep-all;
@@ -41,7 +41,7 @@
 
 /* 縦書きテキストセクション */
 .vertical-text-section {
-  background: #1a1a1a;
+  background: var(--bg-dark);
   padding: 6rem 2rem;
   display: flex;
   justify-content: center;
@@ -54,7 +54,7 @@
   text-orientation: upright;
   font-size: 1.6rem;
   letter-spacing: 10px;
-  color: #d4af37;
+  color: var(--primary-gold);
   line-height: 3.2;
   text-align: center;
   font-feature-settings: "vert" 1, "vrt2" 1, "jp90" 1;
@@ -74,7 +74,7 @@
   position: relative;
   height: 300px;
   background: #f5f5f5;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   overflow: hidden;
   transition: transform 0.4s ease, color 0.4s ease, background 0.4s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -179,12 +179,12 @@
   padding-top: 15vh;
   text-align: center;
   max-width: 800px;
-  margin: 0 auto;
+  margin: var(--margin-auto);
 }
 
 .shikoku-title {
   font-size: 3rem;
-  color: #d4af37;
+  color: var(--primary-gold);
   margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
@@ -234,7 +234,7 @@
 
 .gallery-overlay h4 {
   font-size: 1.3rem;
-  color: #d4af37;
+  color: var(--primary-gold);
   margin-bottom: 0.5rem;
   font-weight: 400;
 }
@@ -258,7 +258,7 @@
   background: rgba(250, 248, 245, 0.92);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   min-height: 400px;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: var(--border-gold);
 }
 
 .image-text-section.reverse {
@@ -275,7 +275,7 @@
 
 .image-content {
   position: relative;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
@@ -298,7 +298,7 @@
   position: relative;
   padding: 2rem 1.8rem;
   background: rgba(250, 248, 240, 0.95);
-  border-left: 4px solid #b8860b;
+  border-left: 4px solid var(--secondary-gold);
   box-shadow: inset 8px 0 20px -8px rgba(212, 175, 55, 0.1),
     0 4px 15px rgba(0, 0, 0, 0.1);
   height: 100%;
@@ -339,7 +339,7 @@
 
 .text-content h3 {
   font-size: 1.9rem;
-  color: #b8860b;
+  color: var(--secondary-gold);
   margin-bottom: 1.5rem;
   font-weight: 300;
   letter-spacing: 1.5px;
@@ -354,7 +354,11 @@
   left: 0;
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, #b8860b 0%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    var(--secondary-gold) 0%,
+    transparent 100%
+  );
 }
 
 .text-content p {
@@ -404,19 +408,6 @@
   display: none;
 }
 
-.prefecture-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.prefecture-temples {
-  font-size: 0.95rem;
-  color: #b8860b;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
 .prefecture-stats {
   display: flex;
   gap: 1rem;
@@ -436,7 +427,7 @@
   color: rgba(60, 60, 60, 0.8);
   font-style: italic;
   padding-top: 0.5rem;
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-top: var(--border-gold);
 }
 
 /* シンプルな県ブロックスタイル */
@@ -454,7 +445,7 @@
     rgba(250, 248, 240, 0.92) 100%
   );
   border-radius: 0 0 12px 12px;
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-top: var(--border-gold);
   z-index: 1;
   transition: all 0.2s ease;
 }
@@ -467,14 +458,6 @@
   );
   border-top-color: rgba(212, 175, 55, 0.25);
   transform: translateY(-1px);
-}
-
-.prefecture-temples {
-  font-size: 0.75rem;
-  color: #9d7c0a;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
 }
 
 .prefecture-distance {
@@ -543,8 +526,8 @@
     rgba(212, 175, 55, 0.08) 0%,
     rgba(212, 175, 55, 0.04) 100%
   );
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 8px;
+  border: var(--border-gold);
+  border-radius: var(--border-radius);
   padding: 0.8rem 1rem;
   text-align: center;
   margin: 2rem 0 1rem 0;
@@ -552,7 +535,7 @@
 
 .guide-description h4 {
   font-size: 1.1rem;
-  color: #b8860b;
+  color: var(--secondary-gold);
   margin-bottom: 0.5rem;
   font-weight: 500;
   letter-spacing: 1px;
@@ -571,7 +554,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   flex-shrink: 0;
@@ -581,7 +564,7 @@
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 
 .video-overlay {
@@ -687,7 +670,7 @@
 
 .prefecture-header p {
   font-size: 1rem;
-  color: #b8860b;
+  color: var(--secondary-gold);
   margin: 0;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -751,11 +734,16 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #d4af37, #b8860b, #d4af37);
+  background: linear-gradient(
+    90deg,
+    var(--primary-gold),
+    var(--secondary-gold),
+    var(--primary-gold)
+  );
 }
 
 .layout-header h3 {
-  color: #b8860b;
+  color: var(--secondary-gold);
   font-size: 1.8rem;
   margin-bottom: 1rem;
   font-weight: 600;
@@ -818,7 +806,7 @@
 /* コンパクトオリジナルレイアウト */
 .compact-original-learning {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: var(--margin-auto);
   position: relative;
   z-index: 10;
 }
@@ -840,9 +828,9 @@
 .step-header {
   background: linear-gradient(
     135deg,
-    #d4af37 0%,
+    var(--primary-gold) 0%,
     #c49b25 25%,
-    #b8860b 75%,
+    var(--secondary-gold) 75%,
     #a67c0a 100%
   );
   padding: 1.2rem 2rem;
@@ -875,7 +863,7 @@
 
 .step-number {
   background: rgba(255, 255, 255, 0.95);
-  color: #b8860b;
+  color: var(--secondary-gold);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-weight: 700;
@@ -934,7 +922,12 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #d4af37, #b8860b, #d4af37);
+  background: linear-gradient(
+    90deg,
+    var(--primary-gold),
+    var(--secondary-gold),
+    var(--primary-gold)
+  );
   z-index: 1;
 }
 
@@ -951,7 +944,7 @@
 }
 
 .step-description h4 {
-  color: #b8860b;
+  color: var(--secondary-gold);
   font-size: 1.2rem;
   margin-bottom: 0.8rem;
   border-bottom: 2px solid rgba(212, 175, 55, 0.3);
@@ -982,8 +975,8 @@
 .essential-items {
   background: rgba(212, 175, 55, 0.1);
   padding: 0.6rem 1rem;
-  border-radius: 8px;
-  border-left: 3px solid #d4af37;
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--primary-gold);
   font-size: 0.9rem;
   color: rgba(40, 40, 40, 0.9);
   margin-bottom: 1rem;
@@ -1021,7 +1014,7 @@
 .flow-num {
   width: 20px;
   height: 20px;
-  background: #b8860b;
+  background: var(--secondary-gold);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -1040,8 +1033,8 @@
 .important-tip {
   background: rgba(255, 193, 7, 0.1);
   padding: 0.6rem 1rem;
-  border-radius: 8px;
-  border-left: 3px solid #ffc107;
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--accent-gold);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -1049,7 +1042,7 @@
 }
 
 .important-tip i {
-  color: #ffc107;
+  color: var(--accent-gold);
   font-size: 0.9rem;
 }
 
@@ -1082,8 +1075,8 @@
 .nokyo-prices {
   background: rgba(212, 175, 55, 0.1);
   padding: 0 1rem 1rem 1rem;
-  border-radius: 8px;
-  border-left: 3px solid #d4af37;
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--primary-gold);
   font-size: 0.9rem;
   color: rgba(40, 40, 40, 0.9);
   margin-bottom: 1rem;
@@ -1093,7 +1086,7 @@
 }
 
 .nokyo-prices h5 {
-  color: #b8860b;
+  color: var(--secondary-gold);
   font-size: 1rem;
   margin: -1rem 0 0 0;
   font-weight: 600;
@@ -1115,7 +1108,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.2rem;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: var(--border-gold);
   transition: all 0.3s ease;
 }
 
@@ -1125,7 +1118,7 @@
 }
 
 .price-item.recommended {
-  border-color: #d4af37;
+  border-color: var(--primary-gold);
   background: rgba(212, 175, 55, 0.15);
 }
 
@@ -1138,12 +1131,12 @@
 .price-amount {
   font-size: 1rem;
   font-weight: 700;
-  color: #b8860b;
+  color: var(--secondary-gold);
 }
 
 .price-note {
   font-size: 0.7rem;
-  color: #d4af37;
+  color: var(--primary-gold);
   font-weight: 600;
 }
 
@@ -1155,7 +1148,7 @@
     rgba(212, 175, 55, 0.1),
     rgba(184, 134, 11, 0.05)
   );
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   font-size: 0.95rem;
   color: rgba(40, 40, 40, 0.9);
   font-weight: 500;
@@ -1219,7 +1212,7 @@
   margin-left: auto;
   font-size: 0.6rem;
   padding: 0.1rem 0.4rem;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 
 /* シンプルステップコネクター */
@@ -1264,7 +1257,7 @@
 }
 
 .connector-arrow-simple i {
-  color: #b8860b;
+  color: var(--secondary-gold);
   font-size: 0.7rem;
   animation: subtleBounce 3s infinite;
 }
@@ -1279,191 +1272,144 @@
     transform: translateY(-2px);
   }
 }
-/* レスポンシブ統合 768px */
+/* レスポンシブ 768px */
 @media (max-width: 768px) {
-  .essential-video-section {
+  .essential-video-section,
+  .more-info-section {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 1.5rem;
   }
-
-  .essential-points {
+  .essential-points,
+  .info-links,
+  .summary-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-
-  .essential-card {
+  .essential-card,
+  .summary-card {
     padding: 1.2rem;
   }
-
   .card-icon {
     width: 40px;
     height: 40px;
     font-size: 1.2rem;
   }
-
-  .info-links {
-    grid-template-columns: 1fr;
-  }
-
-  .more-info-section {
-    padding: 1.5rem;
-  }
-
-  .summary-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .summary-card {
-    padding: 1.5rem;
-  }
-
   .summary-card i {
     font-size: 2rem;
   }
-
   .summary-card h5 {
     font-size: 1.2rem;
   }
-
   .step-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 1.5rem 1.5rem 2rem;
   }
-
   .step-video {
     max-width: 100%;
     justify-self: center;
   }
-
   .step-header {
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem;
     flex-direction: column;
     text-align: center;
     gap: 1rem;
   }
-
   .step-number {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
-
   .step-title {
     font-size: 1.4rem;
     text-align: center;
   }
-
   .key-points {
     margin: 1.5rem 0;
   }
-
   .point-item {
     padding: 1rem;
     flex-direction: column;
     text-align: center;
     gap: 0.8rem;
   }
-
   .point-item span {
     font-size: 1rem;
   }
-
   .nōkyō-prices {
     flex-direction: column;
     gap: 0.5rem;
   }
-
   .nav-links {
     display: none;
   }
-
   .hero h1 {
     font-size: 3rem;
   }
-
   .hero-subtitle {
     writing-mode: horizontal-tb;
     height: auto;
     font-size: 1rem;
   }
-
   .section {
     padding: 2.5rem 1rem;
     background: rgba(250, 248, 245, 0.75) !important;
     background-blend-mode: overlay !important;
   }
-
-  .card-grid {
+  .card-grid,
+  .gallery-grid {
     grid-template-columns: 1fr;
   }
-
+  .gallery-grid {
+    gap: 1.5rem;
+  }
   .hero-image-content h2 {
     font-size: 2rem;
   }
-
   .vertical-text {
     writing-mode: horizontal-tb;
     font-size: 1.2rem;
     letter-spacing: 2px;
   }
-
-  /* 画像レイアウトのレスポンシブ対応 */
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
   .image-text-section {
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 2rem 1rem;
     min-height: auto;
   }
-
   .video-prefecture-content {
     order: 1;
   }
-
   .text-content {
     order: 2;
     max-width: none;
     padding: 2rem 1.5rem;
   }
-
   .text-content h3 {
     font-size: 1.6rem;
   }
-
   .prefecture-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 0.3rem;
   }
-
   .prefecture-block {
     min-height: 80px;
     aspect-ratio: auto;
     padding: 1rem;
   }
-
   .prefecture-header h4 {
     font-size: 1.1rem;
   }
-
   .guide-description {
     padding: 0.8rem 1rem;
   }
-
   .guide-description h4 {
     font-size: 1rem;
   }
-
   .guide-description p {
     font-size: 0.85rem;
   }
-
   .prefecture-simple {
     flex-direction: column;
     gap: 0.3rem;
@@ -1489,7 +1435,7 @@
   }
 
   .card-icon {
-    margin: 0 auto;
+    margin: var(--margin-auto);
   }
 
   .full-width-image h2 {
@@ -1567,63 +1513,7 @@
   }
 }
 
-.learning-step {
-  border-radius: 15px;
-}
-
-.prefecture-block {
-  padding: 1.5rem 1rem;
-}
-
-.video-container {
-  aspect-ratio: 16/9;
-}
-
-.play-button {
-  width: 60px;
-  height: 60px;
-  font-size: 1.5rem;
-}
-
 /* 右側エリア分割のレスポンシブ */
-.text-content {
-  order: 2;
-  max-width: none;
-  padding: 2rem 1.5rem;
-}
-
-.step-title {
-  font-size: 1.1rem !important;
-  margin: 0;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.step-content {
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  padding: 1.2rem 1rem 1.5rem;
-}
-
-.step-description h4 {
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-}
-
-.step-description p {
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
-
-.quick-points li,
-.worship-flow li {
-  font-size: 0.8rem;
-}
-
-.point-item {
-  padding: 0.8rem;
-  border-radius: 8px;
-}
 
 /* フッター */
 footer {
@@ -1645,7 +1535,7 @@ footer {
 }
 
 .social-links a:hover {
-  color: #d4af37;
+  color: var(--primary-gold);
 }
 
 .footer-text {
@@ -1667,7 +1557,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   padding-bottom: 0.8rem;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: var(--border-gold);
   margin-bottom: 0.8rem;
 }
 
@@ -1707,7 +1597,7 @@ footer {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -1742,15 +1632,15 @@ footer {
     rgba(212, 175, 55, 0.08) 0%,
     rgba(212, 175, 55, 0.04) 100%
   );
-  border-radius: 8px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--border-radius);
+  border: var(--border-gold);
   text-align: center;
   width: 100%;
 }
 
 .temples-invitation h3 {
   font-size: 1.2rem;
-  color: #b8860b;
+  color: var(--secondary-gold);
   margin-bottom: 0.6rem;
   letter-spacing: 1px;
 }
@@ -1780,7 +1670,7 @@ footer {
 
 .highlight-item i {
   font-size: 1.2rem;
-  color: #d4af37;
+  color: var(--primary-gold);
   padding: 0.5rem;
   background: rgba(212, 175, 55, 0.1);
   border-radius: 50%;
@@ -1801,10 +1691,14 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  background: linear-gradient(135deg, #d4af37, #b8860b);
+  background: linear-gradient(
+    135deg,
+    var(--primary-gold),
+    var(--secondary-gold)
+  );
   color: white;
   padding: 1rem 2rem;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -1816,7 +1710,7 @@ footer {
 .temples-cta-button:hover {
   transform: translate3d(0, -2px, 0);
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-  background: linear-gradient(135deg, #e6c547, #d4af37);
+  background: linear-gradient(135deg, #e6c547, var(--primary-gold));
   color: white;
   text-decoration: none;
 }
@@ -1849,7 +1743,7 @@ footer {
 
 .booking-content {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: var(--margin-auto);
   padding: 2rem;
   text-align: center;
 }
@@ -1878,10 +1772,8 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin: 2rem 0;
+  margin: 2rem auto;
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .feature-item {
@@ -1916,7 +1808,11 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  background: linear-gradient(135deg, #d4af37, #b8860b);
+  background: linear-gradient(
+    135deg,
+    var(--primary-gold),
+    var(--secondary-gold)
+  );
   color: white;
   padding: 1.2rem 2.5rem;
   border-radius: 50px;
@@ -1925,14 +1821,14 @@ footer {
   font-size: 1.1rem;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  box-shadow: var(--shadow-card);
   margin-top: 1rem;
 }
 
 .booking-cta-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-  background: linear-gradient(135deg, #e6c547, #d4af37);
+  background: linear-gradient(135deg, #e6c547, var(--primary-gold));
   color: white;
   text-decoration: none;
 }
@@ -1946,50 +1842,41 @@ footer {
   transform: translateX(3px);
 }
 
-/* 予約セクション レスポンシブ対応 */
+/* 予約セクション レスポンシブ */
 .booking-section {
   padding: 2.5rem 0;
 }
-
 .booking-title {
   font-size: 1.8rem;
 }
-
 .booking-subtitle {
   font-size: 1rem;
 }
-
 .booking-features {
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   max-width: 400px;
 }
-
 .booking-cta-button {
   width: 100%;
   max-width: 300px;
   justify-content: center;
 }
-
 .booking-content {
   padding: 1rem;
 }
-
 .booking-title {
   font-size: 1.6rem;
 }
-
 .booking-features {
   grid-template-columns: 1fr;
   gap: 0.8rem;
   max-width: 300px;
 }
-
 .feature-item {
   padding: 0.8rem 1.2rem;
   justify-content: center;
 }
-
 .booking-cta-button {
   padding: 1rem 2rem;
   font-size: 1rem;
@@ -2053,8 +1940,8 @@ footer {
     rgba(212, 175, 55, 0.3),
     rgba(244, 208, 63, 0.2)
   );
-  border-color: #d4af37;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  border-color: var(--primary-gold);
+  box-shadow: var(--shadow-card);
 }
 
 .prefecture-nav-btn.active::before {
@@ -2073,7 +1960,7 @@ footer {
 .nav-number {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #d4af37;
+  color: var(--primary-gold);
   margin-bottom: 2px;
   letter-spacing: 0.5px;
   transition: color 0.3s ease;
@@ -2297,7 +2184,7 @@ footer {
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  color: #d4af37;
+  color: var(--primary-gold);
   font-size: 1.1rem;
   z-index: 2;
 }
@@ -2315,7 +2202,7 @@ footer {
 
 #templeSearch:focus {
   outline: none;
-  border-color: #d4af37;
+  border-color: var(--primary-gold);
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
   transform: translateY(-1px);
 }
@@ -2349,10 +2236,14 @@ footer {
 }
 
 .filter-btn.active {
-  background: linear-gradient(135deg, #d4af37, #b8860b);
+  background: linear-gradient(
+    135deg,
+    var(--primary-gold),
+    var(--secondary-gold)
+  );
   color: white;
-  border-color: #d4af37;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  border-color: var(--primary-gold);
+  box-shadow: var(--shadow-card);
 }
 
 /* モバイル用検索デザイン */
@@ -2401,20 +2292,25 @@ footer {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #d4af37, #b8860b, #d4af37);
+  background: linear-gradient(
+    90deg,
+    var(--primary-gold),
+    var(--secondary-gold),
+    var(--primary-gold)
+  );
 }
 
 .prefecture-header-enhanced .section-title {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  color: #b8860b;
+  color: var(--secondary-gold);
   font-weight: 700;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dojo-name {
   font-size: 1.8rem;
-  color: #d4af37;
+  color: var(--primary-gold);
   font-weight: 600;
   margin-bottom: 1rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -2453,7 +2349,7 @@ footer {
   line-height: 1.8;
   color: rgba(60, 60, 60, 0.9);
   max-width: 800px;
-  margin: 0 auto;
+  margin: var(--margin-auto);
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 12px;
@@ -2514,7 +2410,7 @@ footer {
 
 /* 重要度星マーク */
 .temple-importance {
-  color: #ffc107;
+  color: var(--accent-gold);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   margin-left: 0.3rem;
 }
@@ -2528,7 +2424,7 @@ footer {
   padding: 0.5rem 0.8rem;
   background: rgba(212, 175, 55, 0.1);
   border-radius: 6px;
-  border-left: 3px solid #d4af37;
+  border-left: 3px solid var(--primary-gold);
 }
 
 @keyframes subtle-glow {
@@ -2547,7 +2443,7 @@ footer {
   height: 100%;
   cursor: pointer;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -2608,4 +2504,691 @@ footer {
   );
   border-color: #b2932f;
   transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* 東海道ウォーク独自スタイル */
+.tokaido-attractions {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.attraction-block {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.attraction-block.reverse {
+  flex-direction: row-reverse;
+}
+
+.attraction-image {
+  flex: 0 0 300px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.attraction-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.attraction-block:hover .attraction-image img {
+  transform: scale(1.05);
+}
+
+.attraction-content {
+  flex: 1;
+  color: #333;
+}
+
+.attraction-content h3 {
+  color: #d4af37;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.attraction-content p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.attraction-highlights {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.attraction-highlights span {
+  background: rgba(212, 175, 55, 0.2);
+  color: #d4af37;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .attraction-block,
+  .attraction-block.reverse {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .attraction-image {
+    flex: none;
+    width: 100%;
+    height: 180px;
+  }
+
+  .attraction-content h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .attraction-highlights {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .tokaido-attractions {
+    gap: 2.5rem;
+  }
+
+  .attraction-block {
+    padding: 1.5rem 1rem;
+  }
+
+  .attraction-image {
+    height: 150px;
+  }
+
+  .attraction-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .attraction-content p {
+    font-size: 1rem;
+  }
+}
+
+/* 東海道セクション専用スタイル */
+.tokaido-about-section {
+  background: #f8f9fa;
+  padding: 2rem 2rem;
+  position: relative;
+}
+
+.tokaido-main-title {
+  margin-top: 1.5rem !important;
+  margin-bottom: 2.5rem !important;
+}
+
+.tokaido-section {
+  background: #f8f9fa;
+  padding: 2rem 2rem 4rem 2rem;
+  position: relative;
+}
+
+/* 東海道詳細情報グリッド */
+.tokaido-detailed-info {
+  margin-top: 2rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info-block {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-block:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.info-block h3 {
+  color: var(--secondary-gold);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-block p {
+  color: rgba(60, 60, 60, 0.85);
+  line-height: 1.8;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+/* 東海道詳細情報のレスポンシブ対応 */
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .info-block {
+    padding: 1.5rem;
+  }
+
+  .info-block h3 {
+    font-size: 1.2rem;
+  }
+
+  .info-block p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .tokaido-detailed-info {
+    margin-top: 1.5rem;
+  }
+
+  .info-grid {
+    gap: 1rem;
+  }
+
+  .info-block {
+    padding: 1.2rem;
+  }
+
+  .info-block h3 {
+    font-size: 1.1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .info-block p {
+    font-size: 0.9rem;
+  }
+}
+
+/* 東海道タイムラインセクション */
+.tokaido-timeline-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.timeline-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--secondary-gold);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.timeline-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: rgba(60, 60, 60, 0.8);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary-gold), var(--secondary-gold));
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+.timeline-left .timeline-content {
+  margin-right: 55%;
+  text-align: right;
+}
+
+.timeline-right .timeline-content {
+  margin-left: 55%;
+  text-align: left;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+}
+
+.timeline-year {
+  display: inline-block;
+  background: var(--secondary-gold);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-content h3 {
+  color: var(--primary-gold);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.timeline-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.timeline-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.timeline-content:hover .timeline-image img {
+  transform: scale(1.05);
+}
+
+.timeline-content p {
+  color: rgba(60, 60, 60, 0.85);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--secondary-gold);
+  border: 4px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* 現代の楽しみ方セクション */
+.modern-experience {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.modern-experience h3 {
+  color: var(--primary-gold);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.experience-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.experience-card i {
+  font-size: 2rem;
+  color: var(--secondary-gold);
+  margin-bottom: 1rem;
+}
+
+.experience-card h4 {
+  color: var(--primary-gold);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.experience-card p {
+  color: rgba(60, 60, 60, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* タイムラインのレスポンシブ対応 */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 30px;
+  }
+  
+  .timeline-left .timeline-content,
+  .timeline-right .timeline-content {
+    margin-left: 60px;
+    margin-right: 0;
+    text-align: left;
+  }
+  
+  .timeline-marker {
+    left: 30px;
+  }
+  
+  .timeline-content {
+    padding: 1.5rem;
+  }
+  
+  .timeline-image {
+    height: 150px;
+  }
+  
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tokaido-timeline-section {
+    padding: 3rem 1rem;
+  }
+  
+  .timeline-title {
+    font-size: 2rem;
+  }
+  
+  .timeline-intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .timeline-content {
+    padding: 1.2rem;
+  }
+  
+  .timeline-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .timeline-image {
+    height: 120px;
+  }
+  
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .experience-card {
+    padding: 1.2rem;
+  }
+}
+
+/* 代表宿場町紹介セクション */
+.featured-stations-section {
+  background: #ffffff;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.stations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0;
+}
+
+.station-highlight {
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.station-highlight:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.station-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.station-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.station-highlight:hover .station-image img {
+  transform: scale(1.08);
+}
+
+.station-number {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--secondary-gold);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.station-info {
+  padding: 2rem;
+}
+
+.station-info h3 {
+  color: var(--primary-gold);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.station-subtitle {
+  color: rgba(60, 60, 60, 0.7);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.station-info p {
+  color: rgba(60, 60, 60, 0.85);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.station-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.feature-tag {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--primary-gold);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* 導線ナビゲーション */
+.stations-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 2px solid;
+}
+
+.nav-button.primary {
+  background: var(--secondary-gold);
+  color: white;
+  border-color: var(--secondary-gold);
+}
+
+.nav-button.primary:hover {
+  background: var(--primary-gold);
+  border-color: var(--primary-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+}
+
+.nav-button.secondary {
+  background: transparent;
+  color: var(--primary-gold);
+  border-color: var(--primary-gold);
+}
+
+.nav-button.secondary:hover {
+  background: var(--primary-gold);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* 代表宿場町セクションのレスポンシブ対応 */
+@media (max-width: 768px) {
+  .featured-stations-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .stations-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .station-info {
+    padding: 1.5rem;
+  }
+  
+  .station-info h3 {
+    font-size: 1.4rem;
+  }
+  
+  .stations-navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .nav-button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .stations-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .station-image {
+    height: 150px;
+  }
+  
+  .station-info {
+    padding: 1.2rem;
+  }
+  
+  .station-info h3 {
+    font-size: 1.3rem;
+  }
+  
+  .station-number {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
 }
