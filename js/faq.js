@@ -21,10 +21,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const question = item.querySelector(".faq-question");
     const answer = item.querySelector(".faq-answer");
 
-    // 回答コンテンツをラップ
+    // 回答コンテンツをラップ（サニタイズ付き）
     if (answer && !answer.querySelector(".faq-answer-content")) {
       const content = answer.innerHTML;
-      answer.innerHTML = `<div class="faq-answer-content">${content}</div>`;
+      // DOMPurifyの代替として、基本的なサニタイズを実装
+      const sanitizedContent = content
+        .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+        .replace(/on\w+\s*=\s*"[^"]*"/gi, '')
+        .replace(/on\w+\s*=\s*'[^']*'/gi, '')
+        .replace(/javascript:/gi, '');
+      
+      // textContentとinnerHTMLの使い分けで安全性向上
+      const wrapper = document.createElement('div');
+      wrapper.className = 'faq-answer-content';
+      wrapper.innerHTML = sanitizedContent;
+      answer.innerHTML = '';
+      answer.appendChild(wrapper);
     }
 
     question.addEventListener("click", () => {
@@ -139,16 +151,32 @@ document.addEventListener("DOMContentLoaded", () => {
       answer.dataset.original = answer.textContent;
     }
 
-    // ハイライト適用
-    const regex = new RegExp(`(${term})`, "gi");
-    question.innerHTML = question.dataset.original.replace(
-      regex,
-      '<mark style="background: #d4af37; color: #1a1a1a; padding: 2px;">$1</mark>'
-    );
-    answer.innerHTML = answer.dataset.original.replace(
-      regex,
-      '<mark style="background: #d4af37; color: #1a1a1a; padding: 2px;">$1</mark>'
-    );
+    // ハイライト適用（XSS対策済み）
+    // 検索語をエスケープしてから正規表現化
+    const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escapedTerm})`, "gi");
+    
+    // textContentでテキストを取得し、安全にハイライト
+    const highlightText = (text) => {
+      const div = document.createElement('div');
+      const parts = text.split(regex);
+      
+      parts.forEach((part, index) => {
+        if (index % 2 === 1 && regex.test(part)) {
+          const mark = document.createElement('mark');
+          mark.style.cssText = 'background: #d4af37; color: #1a1a1a; padding: 2px;';
+          mark.textContent = part;
+          div.appendChild(mark);
+        } else {
+          div.appendChild(document.createTextNode(part));
+        }
+      });
+      
+      return div.innerHTML;
+    };
+    
+    question.innerHTML = highlightText(question.dataset.original);
+    answer.innerHTML = highlightText(answer.dataset.original);
   }
 
   // ハイライトを削除
