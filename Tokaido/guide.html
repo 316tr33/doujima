@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>東海道ウォーク - 歩き方ガイド</title>
+    <meta
+      name="description"
+      content="東海道ウォークを安全に楽しむための実用的ガイド。装備、計画、安全対策から宿泊情報まで詳しく解説します。"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/ohenro.css" />
+    <script src="../js/performance-monitor.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">堂島フロント企画</div>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html">東海道ホーム</a>
+          </li>
+          <li>
+            <a href="stations.html">宿場町のご案内</a>
+            <div class="dropdown">
+              <a href="stations.html#edo-area">江戸（1-15宿）</a>
+              <a href="stations.html#tokaido-area">東海道（16-35宿）</a>
+              <a href="stations.html#kinki-area">近畿（36-53宿）</a>
+            </div>
+          </li>
+          <li>
+            <a href="routes.html">モデルコース</a>
+          </li>
+          <li>
+            <a href="guide.html" class="active">歩き方ガイド</a>
+          </li>
+          <li>
+            <a href="../index.html">企業トップページ</a>
+          </li>
+        </ul>
+        <button
+          class="mobile-menu-toggle"
+          id="mobileMenuToggle"
+          aria-label="メニューを開く"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">メニュー</span>
+        <button
+          class="mobile-menu-close"
+          id="mobileMenuClose"
+          aria-label="メニューを閉じる"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="index.html" class="mobile-menu-link">東海道ホーム</a>
+        <a href="stations.html#edo-area" class="mobile-menu-link"
+          >江戸（1-15宿）</a
+        >
+        <a href="stations.html#tokaido-area" class="mobile-menu-link"
+          >東海道（16-35宿）</a
+        >
+        <a href="stations.html#kinki-area" class="mobile-menu-link"
+          >近畿（36-53宿）</a
+        >
+        <a href="routes.html" class="mobile-menu-link">モデルコース</a>
+        <a href="guide.html" class="mobile-menu-link">歩き方ガイド</a>
+        <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
+      </nav>
+    </div>
+
+    <!-- 縦型ナビゲーション -->
+    <div class="vertical-nav" id="verticalNav">
+      <div class="vertical-nav-container">
+        <a href="index.html">東海道</a>
+        <a href="stations.html#edo-area">江戸</a>
+        <a href="stations.html#tokaido-area">東海道</a>
+        <a href="stations.html#kinki-area">近畿</a>
+        <a href="routes.html">コース</a>
+        <a href="guide.html">ガイド</a>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero-section tokaido-hero">
+        <div class="hero-content">
+          <h1 class="hero-title">歩き方ガイド</h1>
+          <p class="hero-subtitle">
+            安全で快適な東海道ウォークのための完全マニュアル
+          </p>
+        </div>
+      </section>
+
+      <section class="guide-index-section">
+        <div class="container">
+          <div class="section-intro">
+            <h2 class="section-title">ガイド目次</h2>
+            <p>
+              東海道ウォークを成功させるための重要なポイントを段階的にご案内します。初心者の方は順番に読み進めることをおすすめします。
+            </p>
+          </div>
+
+          <div class="guide-index-grid">
+            <div
+              class="guide-index-card"
+              onclick="scrollToSection('preparation')"
+            >
+              <div class="index-icon">📋</div>
+              <h3>事前準備</h3>
+              <p>計画立案から装備準備まで</p>
+              <div class="index-arrow">→</div>
+            </div>
+            <div
+              class="guide-index-card"
+              onclick="scrollToSection('equipment')"
+            >
+              <div class="index-icon">🎒</div>
+              <h3>装備・持ち物</h3>
+              <p>必須アイテムと推奨品</p>
+              <div class="index-arrow">→</div>
+            </div>
+            <div class="guide-index-card" onclick="scrollToSection('safety')">
+              <div class="index-icon">🛡️</div>
+              <h3>安全対策</h3>
+              <p>リスク管理と緊急時対応</p>
+              <div class="index-arrow">→</div>
+            </div>
+            <div
+              class="guide-index-card"
+              onclick="scrollToSection('accommodation')"
+            >
+              <div class="index-icon">🏨</div>
+              <h3>宿泊・休憩</h3>
+              <p>宿泊施設と休憩ポイント</p>
+              <div class="index-arrow">→</div>
+            </div>
+            <div
+              class="guide-index-card"
+              onclick="scrollToSection('transportation')"
+            >
+              <div class="index-icon">🚌</div>
+              <h3>交通・アクセス</h3>
+              <p>各宿場へのアクセス方法</p>
+              <div class="index-arrow">→</div>
+            </div>
+            <div class="guide-index-card" onclick="scrollToSection('tips')">
+              <div class="index-icon">💡</div>
+              <h3>実践的なコツ</h3>
+              <p>経験者からのアドバイス</p>
+              <div class="index-arrow">→</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="preparation" class="guide-section">
+        <div class="container">
+          <div class="guide-header">
+            <div class="guide-icon">📋</div>
+            <h2>事前準備</h2>
+          </div>
+
+          <div class="guide-content-grid">
+            <div class="guide-content-main">
+              <div class="guide-step">
+                <h3><span class="step-number">1</span> ルート選定</h3>
+                <div class="step-content">
+                  <p>体力・経験・時間に応じて適切なルートを選択しましょう。</p>
+                  <ul>
+                    <li><strong>初心者:</strong> 5-7宿場の短距離コース</li>
+                    <li><strong>中級者:</strong> 8-12宿場の中距離コース</li>
+                    <li><strong>上級者:</strong> 完全踏破や長距離コース</li>
+                  </ul>
+                  <div class="tip-box">
+                    <i class="fas fa-lightbulb"></i>
+                    <span
+                      >初回は短距離から始めて、徐々に距離を伸ばすことをおすすめします</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="guide-step">
+                <h3><span class="step-number">2</span> スケジュール計画</h3>
+                <div class="step-content">
+                  <p>無理のない歩行スケジュールを立てましょう。</p>
+                  <div class="schedule-table">
+                    <div class="schedule-row schedule-header">
+                      <span>距離</span>
+                      <span>所要時間</span>
+                      <span>休憩込み</span>
+                    </div>
+                    <div class="schedule-row">
+                      <span>10km</span>
+                      <span>2-3時間</span>
+                      <span>3-4時間</span>
+                    </div>
+                    <div class="schedule-row">
+                      <span>15km</span>
+                      <span>3-4時間</span>
+                      <span>5-6時間</span>
+                    </div>
+                    <div class="schedule-row">
+                      <span>20km</span>
+                      <span>4-5時間</span>
+                      <span>6-7時間</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="guide-step">
+                <h3><span class="step-number">3</span> 天候・季節の確認</h3>
+                <div class="step-content">
+                  <p>歩行に適した時期とコンディションを選びましょう。</p>
+                  <div class="season-grid">
+                    <div class="season-item best">
+                      <div class="season-header">
+                        <span class="season-icon">🌸</span>
+                        <h4>春（3-5月）</h4>
+                        <span class="season-rating">★★★★★</span>
+                      </div>
+                      <p>気候が温暖で歩きやすい。桜の季節は特に美しい。</p>
+                    </div>
+                    <div class="season-item avoid">
+                      <div class="season-header">
+                        <span class="season-icon">☀️</span>
+                        <h4>夏（6-8月）</h4>
+                        <span class="season-rating">★★☆☆☆</span>
+                      </div>
+                      <p>暑さが厳しく熱中症のリスクあり。早朝出発を推奨。</p>
+                    </div>
+                    <div class="season-item good">
+                      <div class="season-header">
+                        <span class="season-icon">🍂</span>
+                        <h4>秋（9-11月）</h4>
+                        <span class="season-rating">★★★★☆</span>
+                      </div>
+                      <p>涼しく歩きやすい。紅葉が美しい季節。</p>
+                    </div>
+                    <div class="season-item fair">
+                      <div class="season-header">
+                        <span class="season-icon">❄️</span>
+                        <h4>冬（12-2月）</h4>
+                        <span class="season-rating">★★★☆☆</span>
+                      </div>
+                      <p>寒いが空気が澄んで富士山がきれい。防寒必須。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-sidebar">
+              <div class="preparation-checklist">
+                <h4>🗂️ 準備チェックリスト</h4>
+                <div class="checklist">
+                  <label><input type="checkbox" /> ルート決定</label>
+                  <label><input type="checkbox" /> 宿泊予約</label>
+                  <label><input type="checkbox" /> 装備準備</label>
+                  <label><input type="checkbox" /> 天気予報確認</label>
+                  <label><input type="checkbox" /> 緊急連絡先共有</label>
+                  <label><input type="checkbox" /> 保険確認</label>
+                  <label><input type="checkbox" /> 地図・アプリ準備</label>
+                  <label><input type="checkbox" /> 体調管理</label>
+                </div>
+              </div>
+
+              <div class="useful-apps">
+                <h4>📱 おすすめアプリ</h4>
+                <div class="app-list">
+                  <div class="app-item">
+                    <span class="app-name">Google Maps</span>
+                    <span class="app-purpose">ナビゲーション</span>
+                  </div>
+                  <div class="app-item">
+                    <span class="app-name">Yahoo!天気</span>
+                    <span class="app-purpose">天気予報</span>
+                  </div>
+                  <div class="app-item">
+                    <span class="app-name">歩数計</span>
+                    <span class="app-purpose">距離管理</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="equipment" class="guide-section">
+        <div class="container">
+          <div class="guide-header">
+            <div class="guide-icon">🎒</div>
+            <h2>装備・持ち物</h2>
+          </div>
+
+          <div class="equipment-categories">
+            <div class="equipment-category essential">
+              <div class="category-header">
+                <h3>🔴 必須装備</h3>
+                <p>絶対に忘れてはいけない基本装備</p>
+              </div>
+              <div class="equipment-grid">
+                <div class="equipment-item">
+                  <div class="item-icon">👟</div>
+                  <h4>ウォーキングシューズ</h4>
+                  <p>履き慣れた歩きやすい靴。新品は避ける。</p>
+                </div>
+                <div class="equipment-item">
+                  <div class="item-icon">🎒</div>
+                  <h4>リュックサック</h4>
+                  <p>20-30L程度。腰ベルト付きが理想。</p>
+                </div>
+                <div class="equipment-item">
+                  <div class="item-icon">💧</div>
+                  <h4>水筒・飲料</h4>
+                  <p>1L以上。脱水症状を防ぐため必須。</p>
+                </div>
+                <div class="equipment-item">
+                  <div class="item-icon">🗺️</div>
+                  <h4>地図・GPS</h4>
+                  <p>スマートフォンと紙地図の両方を準備。</p>
+                </div>
+                <div class="equipment-item">
+                  <div class="item-icon">🩹</div>
+                  <h4>救急セット</h4>
+                  <p>絆創膏、消毒液、痛み止めなど。</p>
+                </div>
+                <div class="equipment-item">
+                  <div class="item-icon">📱</div>
+                  <h4>モバイルバッテリー</h4>
+                  <p>緊急時の連絡手段確保のため。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="equipment-category recommended">
+              <div class="category-header">
+                <h3>🟡 推奨装備</h3>
+                <p>より快適で安全な歩行のための装備</p>
+              </div>
+              <div class="equipment-grid">
+                <div class="equipment-item">
+                  <div class="item-icon">🧢</div>
+                  <h4>帽子・サングラス</h4>
+                  <p>日差しや紫外線から保護。</p>
+                </div>
+                <div class="equipment-item">
+                  <div class="item-icon">🧴</div>
+                  <h4>日焼け止め</h4>
+                  <p>長時間の屋外歩行に必要。</p>
+                </div>
+                <div class="equipment-item">
+                  <div class="item-icon">🔦</div>
+                  <h4>ヘッドライト</h4>
+                  <p>早朝出発や日没時に便利。</p>
+                </div>
+                <div class="equipment-item">
+                  <div class="item-icon">🧤</div>
+                  <h4>手袋・タオル</h4>
+                  <p>汗拭きや防寒に役立つ。</p>
+                </div>
+                <div class="equipment-item">
+                  <div class="item-icon">☂️</div>
+                  <h4>レインウェア</h4>
+                  <p>突然の雨に備えて軽量タイプ。</p>
+                </div>
+                <div class="equipment-item">
+                  <div class="item-icon">🍫</div>
+                  <h4>行動食・補給食</h4>
+                  <p>エネルギー補給用のおやつ。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="equipment-category seasonal">
+              <div class="category-header">
+                <h3>🔵 季節別装備</h3>
+                <p>季節や天候に応じた追加装備</p>
+              </div>
+              <div class="seasonal-equipment">
+                <div class="seasonal-section">
+                  <h4>夏季（6-8月）</h4>
+                  <ul>
+                    <li>冷却タオル・保冷剤</li>
+                    <li>塩分補給タブレット</li>
+                    <li>虫除けスプレー</li>
+                    <li>速乾性インナー</li>
+                  </ul>
+                </div>
+                <div class="seasonal-section">
+                  <h4>冬季（12-2月）</h4>
+                  <ul>
+                    <li>防寒着・ダウンジャケット</li>
+                    <li>防風・防水ウェア</li>
+                    <li>保温インナー</li>
+                    <li>使い捨てカイロ</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="safety" class="guide-section">
+        <div class="container">
+          <div class="guide-header">
+            <div class="guide-icon">🛡️</div>
+            <h2>安全対策</h2>
+          </div>
+
+          <div class="safety-content">
+            <div class="safety-alerts">
+              <div class="alert-item danger">
+                <div class="alert-icon">⚠️</div>
+                <div class="alert-content">
+                  <h4>危険エリア</h4>
+                  <p>
+                    箱根峠、薩埵峠など山間部では特に注意。天候急変や道迷いのリスクがあります。
+                  </p>
+                </div>
+              </div>
+              <div class="alert-item warning">
+                <div class="alert-icon">🚨</div>
+                <div class="alert-content">
+                  <h4>交通安全</h4>
+                  <p>
+                    国道1号線沿いの区間では車に十分注意。歩道のない箇所では特に慎重に。
+                  </p>
+                </div>
+              </div>
+              <div class="alert-item info">
+                <div class="alert-icon">💡</div>
+                <div class="alert-content">
+                  <h4>熱中症対策</h4>
+                  <p>
+                    夏季は早朝出発、こまめな水分・塩分補給、適度な休憩を心がけてください。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="emergency-info">
+              <h3>📞 緊急時の対応</h3>
+              <div class="emergency-grid">
+                <div class="emergency-card">
+                  <h4>🚑 医療緊急時</h4>
+                  <div class="emergency-number">119</div>
+                  <p>救急車・消防</p>
+                  <ul>
+                    <li>意識不明・重傷時</li>
+                    <li>呼吸困難・胸痛</li>
+                    <li>熱中症の重症化</li>
+                  </ul>
+                </div>
+                <div class="emergency-card">
+                  <h4>🚔 事件・事故</h4>
+                  <div class="emergency-number">110</div>
+                  <p>警察</p>
+                  <ul>
+                    <li>交通事故</li>
+                    <li>不審者・危険人物</li>
+                    <li>道迷い・遭難</li>
+                  </ul>
+                </div>
+                <div class="emergency-card">
+                  <h4>📍 位置情報の伝え方</h4>
+                  <div class="location-info">
+                    <p>緊急時は以下の情報を伝える：</p>
+                    <ul>
+                      <li>現在の宿場名・区間</li>
+                      <li>GPS座標（スマホアプリで確認）</li>
+                      <li>近くの目印（コンビニ・標識など）</li>
+                      <li>症状や状況の詳細</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="accommodation" class="guide-section">
+        <div class="container">
+          <div class="guide-header">
+            <div class="guide-icon">🏨</div>
+            <h2>宿泊・休憩</h2>
+          </div>
+
+          <div class="accommodation-types">
+            <div class="accommodation-type">
+              <h3>🏨 宿泊施設の種類</h3>
+              <div class="accommodation-grid">
+                <div class="accommodation-item luxury">
+                  <h4>旅館・ホテル</h4>
+                  <div class="price-range">¥8,000-¥20,000</div>
+                  <div class="features">
+                    <span class="feature">温泉</span>
+                    <span class="feature">食事付き</span>
+                    <span class="feature">個室</span>
+                  </div>
+                  <p>
+                    伝統的なおもてなしと快適性。疲れた体をしっかり癒やせます。
+                  </p>
+                </div>
+                <div class="accommodation-item standard">
+                  <h4>ビジネスホテル</h4>
+                  <div class="price-range">¥5,000-¥10,000</div>
+                  <div class="features">
+                    <span class="feature">駅近</span>
+                    <span class="feature">清潔</span>
+                    <span class="feature">朝食付き</span>
+                  </div>
+                  <p>
+                    清潔で機能的。アクセスが良く、コストパフォーマンスに優れます。
+                  </p>
+                </div>
+                <div class="accommodation-item budget">
+                  <h4>ゲストハウス・民宿</h4>
+                  <div class="price-range">¥3,000-¥6,000</div>
+                  <div class="features">
+                    <span class="feature">格安</span>
+                    <span class="feature">交流</span>
+                    <span class="feature">家庭的</span>
+                  </div>
+                  <p>地元の人との交流も楽しめる庶民的な宿泊施設。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="rest-spots">
+              <h3>☕ 休憩ポイント</h3>
+              <div class="rest-categories">
+                <div class="rest-category">
+                  <h4>コンビニエンスストア</h4>
+                  <ul>
+                    <li>24時間営業で便利</li>
+                    <li>トイレ・ATMも利用可能</li>
+                    <li>水分・食料の補給</li>
+                    <li>主要な宿場町には複数店舗</li>
+                  </ul>
+                </div>
+                <div class="rest-category">
+                  <h4>道の駅・SA・PA</h4>
+                  <ul>
+                    <li>地元特産品の販売</li>
+                    <li>レストラン・フードコート</li>
+                    <li>きれいなトイレ・休憩所</li>
+                    <li>観光情報も入手可能</li>
+                  </ul>
+                </div>
+                <div class="rest-category">
+                  <h4>カフェ・喫茶店</h4>
+                  <ul>
+                    <li>座ってゆっくり休める</li>
+                    <li>地元の雰囲気を味わえる</li>
+                    <li>WiFiが使える店も多い</li>
+                    <li>地元情報の収集に最適</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="transportation" class="guide-section">
+        <div class="container">
+          <div class="guide-header">
+            <div class="guide-icon">🚌</div>
+            <h2>交通・アクセス</h2>
+          </div>
+
+          <div class="transportation-content">
+            <div class="transport-options">
+              <div class="transport-method">
+                <h3>🚊 電車でのアクセス</h3>
+                <div class="railway-lines">
+                  <div class="line-item">
+                    <h4>JR東海道本線</h4>
+                    <p>
+                      東海道沿いの主要宿場にアクセス可能。最も便利な移動手段。
+                    </p>
+                    <div class="stations-served">
+                      <span>東京</span>
+                      <span>川崎</span>
+                      <span>横浜</span>
+                      <span>藤沢</span>
+                      <span>小田原</span>
+                      <span>静岡</span>
+                      <span>浜松</span>
+                      <span>名古屋</span>
+                      <span>京都</span>
+                    </div>
+                  </div>
+                  <div class="line-item">
+                    <h4>私鉄各線</h4>
+                    <p>小田急線、京急線、名鉄線など、補完的なアクセス手段。</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="transport-method">
+                <h3>🚌 バス</h3>
+                <p>
+                  電車駅から離れた宿場や峠道へのアクセスに便利。本数が少ない場合があるので事前確認必須。
+                </p>
+                <div class="bus-tips">
+                  <ul>
+                    <li>時刻表の事前確認</li>
+                    <li>ICカード対応状況の確認</li>
+                    <li>土日祝日の運行変更に注意</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="transport-method">
+                <h3>🚗 自動車</h3>
+                <p>柔軟なスケジュールで移動可能。駐車場の確保が課題。</p>
+                <div class="car-considerations">
+                  <div class="pros-cons">
+                    <div class="pros">
+                      <h5>メリット</h5>
+                      <ul>
+                        <li>荷物を車に置ける</li>
+                        <li>悪天候時の避難場所</li>
+                        <li>スケジュール自由度が高い</li>
+                      </ul>
+                    </div>
+                    <div class="cons">
+                      <h5>デメリット</h5>
+                      <ul>
+                        <li>駐車場探しが大変</li>
+                        <li>駐車料金がかかる</li>
+                        <li>歩くルートと道路が異なる場合</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="access-planning">
+              <h3>📍 アクセス計画のコツ</h3>
+              <div class="planning-tips">
+                <div class="tip-item">
+                  <div class="tip-icon">🔄</div>
+                  <h4>往復計画</h4>
+                  <p>出発地点への帰路も考慮してルートを計画しましょう。</p>
+                </div>
+                <div class="tip-item">
+                  <div class="tip-icon">⏰</div>
+                  <h4>時間に余裕を</h4>
+                  <p>
+                    電車の遅延やバスの待ち時間を考慮して余裕を持ったスケジュールを。
+                  </p>
+                </div>
+                <div class="tip-item">
+                  <div class="tip-icon">💰</div>
+                  <h4>交通費の概算</h4>
+                  <p>
+                    往復の交通費を事前に計算し、予算に組み込んでおきましょう。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tips" class="guide-section">
+        <div class="container">
+          <div class="guide-header">
+            <div class="guide-icon">💡</div>
+            <h2>実践的なコツ</h2>
+          </div>
+
+          <div class="tips-content">
+            <div class="experience-tips">
+              <h3>👥 経験者からのアドバイス</h3>
+              <div class="tips-grid">
+                <div class="tip-card">
+                  <div class="tip-header">
+                    <span class="tip-emoji">🌅</span>
+                    <h4>早朝スタートのススメ</h4>
+                  </div>
+                  <p>
+                    日の出とともに歩き始めると、涼しく、人も少なく、美しい朝景色を楽しめます。特に夏季は必須です。
+                  </p>
+                </div>
+                <div class="tip-card">
+                  <div class="tip-header">
+                    <span class="tip-emoji">👟</span>
+                    <h4>靴擦れ防止</h4>
+                  </div>
+                  <p>
+                    新しい靴は避け、履き慣れた靴を選択。ワセリンやバンドエイドで事前の予防対策を忘れずに。
+                  </p>
+                </div>
+                <div class="tip-card">
+                  <div class="tip-header">
+                    <span class="tip-emoji">📸</span>
+                    <h4>写真記録のコツ</h4>
+                  </div>
+                  <p>
+                    宿場の標識や一里塚などの歴史的マーカーを撮影。後で振り返る際の良い思い出になります。
+                  </p>
+                </div>
+                <div class="tip-card">
+                  <div class="tip-header">
+                    <span class="tip-emoji">🗣️</span>
+                    <h4>地元の人との交流</h4>
+                  </div>
+                  <p>
+                    地元の方は親切で、隠れたスポットやおすすめの食べ物を教えてくれることが多いです。
+                  </p>
+                </div>
+                <div class="tip-card">
+                  <div class="tip-header">
+                    <span class="tip-emoji">🍜</span>
+                    <h4>地元グルメを楽しむ</h4>
+                  </div>
+                  <p>
+                    各宿場には名物料理があります。桜エビ、浜松餃子、手羽先など、歩いた後の食事は格別です。
+                  </p>
+                </div>
+                <div class="tip-card">
+                  <div class="tip-header">
+                    <span class="tip-emoji">📝</span>
+                    <h4>歩行記録をつける</h4>
+                  </div>
+                  <p>
+                    歩いた距離、所要時間、感想などを記録。次回の計画立案や思い出の整理に役立ちます。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="common-mistakes">
+              <h3>⚠️ よくある失敗と対策</h3>
+              <div class="mistakes-list">
+                <div class="mistake-item">
+                  <h4>❌ 過度な荷物</h4>
+                  <p>
+                    <strong>失敗:</strong>
+                    あれもこれもと荷物を詰め込みすぎて重くなる
+                  </p>
+                  <p>
+                    <strong>対策:</strong> 必要最小限に絞り、軽量化を心がける
+                  </p>
+                </div>
+                <div class="mistake-item">
+                  <h4>❌ 水分不足</h4>
+                  <p>
+                    <strong>失敗:</strong> 十分な水を持参せず、脱水症状になる
+                  </p>
+                  <p>
+                    <strong>対策:</strong> 多めの水分を用意し、こまめに補給する
+                  </p>
+                </div>
+                <div class="mistake-item">
+                  <h4>❌ 無理なスケジュール</h4>
+                  <p>
+                    <strong>失敗:</strong>
+                    体力を過信して長距離を設定し、途中でバテる
+                  </p>
+                  <p>
+                    <strong>対策:</strong> 控えめな距離から始めて徐々に延ばす
+                  </p>
+                </div>
+                <div class="mistake-item">
+                  <h4>❌ 天候軽視</h4>
+                  <p><strong>失敗:</strong> 天気予報を確認せず、悪天候で困る</p>
+                  <p><strong>対策:</strong> 事前の天気確認と雨具の準備</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="success-factors">
+              <h3>🎯 成功のための要素</h3>
+              <div class="success-grid">
+                <div class="success-item">
+                  <div class="success-icon">🎯</div>
+                  <h4>現実的な目標設定</h4>
+                  <p>
+                    自分の体力と経験に合った無理のない計画を立てることが成功の鍵です。
+                  </p>
+                </div>
+                <div class="success-item">
+                  <div class="success-icon">🔄</div>
+                  <h4>柔軟性を保つ</h4>
+                  <p>
+                    天候や体調に応じて予定を変更する勇気も大切。無理は禁物です。
+                  </p>
+                </div>
+                <div class="success-item">
+                  <div class="success-icon">👥</div>
+                  <h4>仲間との歩行</h4>
+                  <p>
+                    一人でも楽しめますが、仲間がいるとより安全で楽しい体験になります。
+                  </p>
+                </div>
+                <div class="success-item">
+                  <div class="success-icon">📚</div>
+                  <h4>事前学習</h4>
+                  <p>
+                    歴史や文化を学んでから歩くと、ただの散歩ではなく深い体験になります。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="company-info">
+          <h4>堂島フロント企画</h4>
+          <p>〒000-0000 大阪府大阪市○○区○○町0-0-0</p>
+          <p>TEL: 00-0000-0000</p>
+        </div>
+        <div class="footer-links">
+          <a href="../index.html#company">会社概要</a>
+          <a href="../recruit.html">採用情報</a>
+          <a href="../index.html#contact">お問い合わせ</a>
+        </div>
+      </div>
+      <p class="copyright">
+        &copy; 2024 堂島フロント企画. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const checkboxes = document.querySelectorAll(
+          '.checklist input[type="checkbox"]'
+        );
+
+        checkboxes.forEach((checkbox, index) => {
+          const saved = localStorage.getItem(`tokaido-checklist-${index}`);
+          if (saved === "true") {
+            checkbox.checked = true;
+          }
+
+          checkbox.addEventListener("change", function () {
+            localStorage.setItem(`tokaido-checklist-${index}`, this.checked);
+          });
+        });
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "-20% 0px -80% 0px",
+          threshold: 0,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              document.querySelectorAll(".guide-index-card").forEach((card) => {
+                card.classList.remove("active");
+              });
+              const activeCard = document.querySelector(
+                `[onclick="scrollToSection('${id}')"]`
+              );
+              if (activeCard) {
+                activeCard.classList.add("active");
+              }
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".guide-section[id]").forEach((section) => {
+          observer.observe(section);
+        });
+      });
+    </script>
+  </body>
+</html>
