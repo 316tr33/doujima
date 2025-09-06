@@ -90,8 +90,7 @@
 /* パフォーマンス最適化 - GPU使用率削減 */
 
 .nav-links a,
-.dropdown,
-.vertical-nav a {
+.dropdown {
   will-change: transform, opacity;
 }
 
