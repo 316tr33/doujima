@@ -32,6 +32,7 @@
     />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/ohenro.css" />
+    <link rel="stylesheet" href="../css/booking-responsive.css" />
     <script src="../js/performance-monitor.js" defer></script>
   </head>
   <body>
@@ -266,47 +267,180 @@
     <section class="booking-section placeholder-bg">
       <div class="booking-overlay">
         <div class="booking-content">
+          <!-- 装飾的なトップライン -->
+          <div class="booking-decoration-top">
+            <span class="deco-line"></span>
+            <i class="fas fa-dharmachakra"></i>
+            <span class="deco-line"></span>
+          </div>
+
           <div class="booking-header">
-            <h2 class="booking-title">お遍路ツアーのご案内</h2>
-            <p class="booking-subtitle">阪神交通社で心に残る巡礼の旅を</p>
+            <h2 class="booking-title">
+              <span class="title-accent">初めての方も安心</span>
+              <span class="title-main">専門ガイド同行のお遍路ツアー</span>
+            </h2>
+            <p class="booking-subtitle">
+              <span class="subtitle-highlight">四国八十八ヶ所</span>を
+              <span class="subtitle-highlight">快適</span>に巡る旅
+            </p>
           </div>
 
-          <div class="booking-features">
-            <div class="feature-item">
-              <i class="fas fa-bus"></i>
-              <span>快適なバスの旅</span>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-user-tie"></i>
-              <span>専門ガイド同行</span>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-heart"></i>
-              <span>初心者歓迎</span>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-hotel"></i>
-              <span>宿泊・食事込み</span>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-hands-helping"></i>
-              <span>経験豊富な添乗員</span>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-shield-alt"></i>
-              <span>安心のサポート</span>
+          <!-- 特徴カード -->
+          <div class="booking-features-wrapper">
+            <div class="booking-features">
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-bus"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>快適なバスの旅</h4>
+                  <p>移動の負担を軽減</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>専門ガイド同行</h4>
+                  <p>深い知識でサポート</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>初心者歓迎</h4>
+                  <p>丁寧にご案内します</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-hotel"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>宿泊・食事込み</h4>
+                  <p>手配の心配不要</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-hands-helping"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>経験豊富な添乗員</h4>
+                  <p>安心のサポート体制</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>効率的な行程</h4>
+                  <p>無理のないスケジュール</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <a
-            href="https://www.hankyu-travel.com/kokunai/junrei/shikoku88/"
-            class="booking-cta-button"
-            target="_blank"
-            rel="noopener"
-          >
-            ツアー詳細を見る
-            <i class="fas fa-external-link-alt"></i>
-          </a>
+          <!-- CTA エリア -->
+          <div class="booking-cta-area">
+            <div class="cta-decoration">
+              <span class="cta-line"></span>
+            </div>
+            <a
+              href="https://www.hankyu-travel.com/kokunai/junrei/shikoku88/"
+              class="booking-cta-button enhanced"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="cta-text">ツアー詳細を見る</span>
+              <span class="cta-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </a>
+            <p class="cta-note">各種プランをご用意しています</p>
+          </div>
+
+          <!-- 装飾的なボトムライン -->
+          <div class="booking-decoration-bottom">
+            <span class="deco-pattern"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ECサイト案内セクション -->
+    <section class="ec-section placeholder-bg">
+      <div class="ec-overlay">
+        <div class="ec-content">
+          <div class="ec-header">
+            <div class="ec-title-decoration"></div>
+            <h2 class="ec-title">
+              <span class="ec-title-main">お遍路用品専門店</span>
+              <span class="ec-title-sub">巡礼の準備は当店にお任せください</span>
+            </h2>
+            <p class="ec-subtitle">四国八十八ヶ所霊場巡りに必要な用品を厳選してご用意</p>
+            <div class="ec-header-decoration">
+              <span class="decoration-line left"></span>
+              <i class="fas fa-torii-gate"></i>
+              <span class="decoration-line right"></span>
+            </div>
+          </div>
+
+          <div class="ec-categories">
+            <div class="ec-category" data-step="1">
+              <div class="category-number">01</div>
+              <div class="category-icon-bg">
+                <i class="fas fa-tshirt"></i>
+              </div>
+              <h3>巡礼衣装</h3>
+              <p>白衣・遍路笠・和袈裟</p>
+            </div>
+            <div class="ec-category" data-step="2">
+              <div class="category-number">02</div>
+              <div class="category-icon-bg">
+                <i class="fas fa-scroll"></i>
+              </div>
+              <h3>納経用品</h3>
+              <p>納経帳・御朱印軸・御影保存帳</p>
+            </div>
+            <div class="ec-category" data-step="3">
+              <div class="category-number">03</div>
+              <div class="category-icon-bg">
+                <i class="fas fa-walking"></i>
+              </div>
+              <h3>歩行用品</h3>
+              <p>金剛杖・念珠</p>
+            </div>
+            <div class="ec-category" data-step="4">
+              <div class="category-number">04</div>
+              <div class="category-icon-bg">
+                <i class="fas fa-fire"></i>
+              </div>
+              <h3>参拝用品</h3>
+              <p>線香・ローソク</p>
+            </div>
+          </div>
+
+          <div class="ec-cta-container">
+            <a
+              href="https://doujimafront.stores.jp/"
+              class="ec-cta-button enhanced"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="cta-text">オンラインショップで購入</span>
+              <span class="cta-subtext">巡礼用品を見る</span>
+              <i class="fas fa-arrow-right cta-arrow"></i>
+            </a>
+            <p class="ec-note">
+              <i class="fas fa-shield-check"></i>
+              堂島フロント企画公式オンラインショップ・安心の品質保証
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -364,6 +498,12 @@
                   <div class="essential-items">
                     <strong>必需品：</strong
                     >納札・納経帳・数珠・線香・ろうそく・お賽銭
+                    <div class="shop-link">
+                      <a href="https://doujimafront.stores.jp/" target="_blank" rel="noopener">
+                        <i class="fas fa-shopping-cart"></i>
+                        用品はこちらで購入できます
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

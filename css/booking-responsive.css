@@ -1,0 +1,130 @@
+/* 予約セクション レスポンシブデザイン */
+
+/* デスクトップ デフォルトは3列 - ohenro.cssで定義済み */
+
+@media (max-width: 1024px) {
+  .booking-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .title-main {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-section {
+    padding: 3rem 0;
+  }
+  .booking-content {
+    padding: 2rem 1rem;
+  }
+  .title-accent {
+    font-size: 1rem;
+  }
+  .title-main {
+    font-size: 1.8rem;
+  }
+  .booking-subtitle {
+    font-size: 1.1rem;
+  }
+  .booking-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .feature-card {
+    padding: 1.2rem;
+  }
+  .feature-content h4 {
+    font-size: 1rem;
+  }
+  .feature-content p {
+    font-size: 0.85rem;
+  }
+  .booking-cta-button.enhanced {
+    padding: 1.1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+  .booking-decoration-top i {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-section {
+    padding: 2.5rem 0;
+  }
+  .booking-content {
+    padding: 1.5rem 1rem;
+  }
+  .booking-decoration-top .deco-line {
+    width: 40px;
+  }
+  .booking-decoration-top i {
+    font-size: 1.3rem;
+  }
+  .title-accent {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+  .title-main {
+    font-size: 1.5rem;
+  }
+  .booking-subtitle {
+    font-size: 1rem;
+  }
+  .subtitle-highlight {
+    font-size: 1rem;
+  }
+  .booking-features {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 280px;
+    margin: 2rem auto;
+    justify-items: center;
+  }
+  .feature-card {
+    padding: 1rem;
+    max-width: 280px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .feature-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    flex-shrink: 0;
+  }
+  .feature-icon-wrapper i {
+    font-size: 1.2rem;
+  }
+  .feature-content {
+    flex: 1;
+  }
+  .feature-content h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .feature-content p {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+  .booking-cta-button.enhanced {
+    width: 100%;
+    max-width: 280px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  .cta-note {
+    font-size: 0.85rem;
+  }
+  .deco-pattern {
+    width: 100px;
+  }
+}
