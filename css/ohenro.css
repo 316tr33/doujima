@@ -873,6 +873,10 @@
   border: 2px solid rgba(212, 175, 55, 0.3);
   position: relative;
   z-index: 2;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .step-title {
