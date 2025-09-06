@@ -21,7 +21,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/ohenro.css" />
+    <link rel="stylesheet" href="../css/tokaido.css" />
     <script src="../js/performance-monitor.js" defer></script>
   </head>
   <body>
@@ -39,9 +39,6 @@
               <a href="#tokaido-area">東海道（16-35宿）</a>
               <a href="#kinki-area">近畿（36-53宿）</a>
             </div>
-          </li>
-          <li>
-            <a href="routes.html">モデルコース</a>
           </li>
           <li>
             <a href="guide.html">歩き方ガイド</a>
@@ -83,7 +80,6 @@
         <a href="#edo-area" class="mobile-menu-link">江戸（1-15宿）</a>
         <a href="#tokaido-area" class="mobile-menu-link">東海道（16-35宿）</a>
         <a href="#kinki-area" class="mobile-menu-link">近畿（36-53宿）</a>
-        <a href="routes.html" class="mobile-menu-link">モデルコース</a>
         <a href="guide.html" class="mobile-menu-link">歩き方ガイド</a>
         <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
       </nav>
@@ -96,7 +92,6 @@
         <a href="#edo-area">江戸</a>
         <a href="#tokaido-area">東海道</a>
         <a href="#kinki-area">近畿</a>
-        <a href="routes.html">コース</a>
         <a href="guide.html">ガイド</a>
       </div>
     </div>
@@ -169,13 +164,65 @@
           <h2 class="area-title">
             <span class="area-number">1-15</span>
             江戸エリア
-            <span class="area-description"
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
               >旅の出発点となる江戸の風情を残すエリア</span
             >
           </h2>
 
           <div class="stations-grid">
-            <!-- 1宿 日本橋 -->
+            <!-- 起点 日本橋 -->
+            <div
+              class="station-card edo scenic history special"
+              data-number="0"
+              data-features="起点,歴史,名所"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/1-Nihonbashi.webp"
+                  alt="日本橋 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+                <div class="station-number">起点</div>
+                <div class="station-badges">
+                  <span class="badge history">起点</span>
+                  <span class="badge scenic">歴史名所</span>
+                </div>
+              </div>
+              <div class="station-info">
+                <h3>日本橋</h3>
+                <div class="station-reading">にほんばし</div>
+                <p class="station-description">
+                  東海道五十三次の起点。五街道すべての始まりとなる歴史的な橋で、江戸時代から現在まで日本の交通の中心地。
+                </p>
+                <div class="station-details">
+                  <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>東京都中央区</span>
+                  </div>
+                  <div class="detail-item">
+                    <i class="fas fa-road"></i>
+                    <span>五街道の起点</span>
+                  </div>
+                  <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <span>見学時間：30分</span>
+                  </div>
+                </div>
+                <div class="station-features">
+                  <span class="feature">起点</span>
+                  <span class="feature">歴史</span>
+                  <span class="feature">名所</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 1宿 品川 -->
             <div
               class="station-card edo scenic history"
               data-number="1"
@@ -183,8 +230,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="日本橋"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/2-Shinagawa.webp"
+                  alt="品川 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">1</div>
@@ -194,11 +241,10 @@
                 </div>
               </div>
               <div class="station-info">
-                <h3>日本橋</h3>
-                <div class="station-reading">にほんばし</div>
+                <h3>品川</h3>
+                <div class="station-reading">しながわ</div>
                 <p class="station-description">
-                  東海道の起点として栄えた江戸時代の商業中心地。
-                  現在でも重要な歴史的価値を持つ宿場です。
+                  東海道第一の宿場町。日本橋から約2里（8km）の距離にあり、江戸時代には遊郭や茶屋が立ち並び、多くの旅人で賑わいました。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
@@ -222,7 +268,7 @@
               </div>
             </div>
 
-            <!-- 2宿 品川 -->
+            <!-- 2宿 川崎 -->
             <div
               class="station-card edo history gourmet"
               data-number="2"
@@ -230,8 +276,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="品川"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/3-Kawasaki.webp"
+                  alt="川崎 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">2</div>
@@ -241,11 +287,10 @@
                 </div>
               </div>
               <div class="station-info">
-                <h3>品川</h3>
-                <div class="station-reading">しながわ</div>
+                <h3>川崎</h3>
+                <div class="station-reading">かわさき</div>
                 <p class="station-description">
-                  江戸四宿の一つとして発展した旅の第一歩。
-                  海苔の産地として有名で、今も多くの食文化が残ります。
+                  多摩川の渡しで有名な宿場。六郷の渡しと呼ばれ、往来の旅人で賑わいました。大師河原の「奥の細道」でも詠われた武蔵の名所です。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
@@ -258,7 +303,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>滞在時間：1-2時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -269,84 +314,38 @@
               </div>
             </div>
 
-            <!-- 3宿 川崎 -->
+            <!-- 3宿 神奈川 -->
             <div
-              class="station-card edo beginner"
+              class="station-card edo history scenic"
               data-number="3"
-              data-features="初心者,アクセス良好"
+              data-features="歴史,開港場,横浜"
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="川崎"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/4-Kanagawa.webp"
+                  alt="神奈川 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">3</div>
                 <div class="station-badges">
-                  <span class="badge beginner">初心者向け</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>川崎</h3>
-                <div class="station-reading">かわさき</div>
-                <p class="station-description">
-                  多摩川を渡る重要な中継地点。
-                  初心者の東海道ウォーキングに最適な立地です。
-                </p>
-                <div class="station-details">
-                  <div class="detail-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>神奈川県川崎市</span>
-                  </div>
-                  <div class="detail-item">
-                    <i class="fas fa-train"></i>
-                    <span>川崎駅徒歩10分</span>
-                  </div>
-                  <div class="detail-item">
-                    <i class="fas fa-clock"></i>
-                    <span>滞在時間：45分</span>
-                  </div>
-                </div>
-                <div class="station-highlights">
-                  <span>多摩川</span>
-                  <span>初心者向け</span>
-                  <span>アクセス良好</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 4宿 神奈川 -->
-            <div
-              class="station-card edo scenic history"
-              data-number="4"
-              data-features="歴史,神社,宿場"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/road.jpg"
-                  alt="神奈川"
-                  loading="lazy"
-                />
-                <div class="station-number">4</div>
-                <div class="station-badges">
                   <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
+                  <span class="badge scenic">開港場</span>
                 </div>
               </div>
               <div class="station-info">
                 <h3>神奈川</h3>
                 <div class="station-reading">かながわ</div>
                 <p class="station-description">
-                  神奈川宿として栄えた港町。横浜開港の歴史とも深い関わりを持つ重要な宿場です。
+                  幕末の開港場として歴史的に重要な宿場。現在の横浜市神奈川区に位置し、外国人居留地として栄えました。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>神奈川県横浜市</span>
+                    <span>神奈川県横浜市神奈川区</span>
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-train"></i>
-                    <span>神奈川駅徒歩5分</span>
+                    <span>神奈川駅・東神奈川駅</span>
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
@@ -354,126 +353,128 @@
                   </div>
                 </div>
                 <div class="station-highlights">
-                  <span>港町</span>
-                  <span>神社</span>
-                  <span>横浜開港</span>
+                  <span>神奈川台の関門跡</span>
+                  <span>開港当時の史跡群</span>
+                  <span>本覚寺（神奈川宿場町の中心）</span>
                 </div>
               </div>
             </div>
 
-            <!-- 5宿 保土ケ谷 -->
+            <!-- 4宿 保土ケ谷 -->
             <div
-              class="station-card edo beginner"
-              data-number="5"
-              data-features="初心者,自然,丘陵"
+              class="station-card edo history scenic"
+              data-number="4"
+              data-features="歴史,難所,権太坂"
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="保土ケ谷"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/5-Hodogaya.webp"
+                  alt="保土ケ谷 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">5</div>
+                <div class="station-number">4</div>
                 <div class="station-badges">
-                  <span class="badge beginner">初心者向け</span>
+                  <span class="badge history">歴史名所</span>
+                  <span class="badge scenic">難所</span>
                 </div>
               </div>
               <div class="station-info">
                 <h3>保土ケ谷</h3>
                 <div class="station-reading">ほどがや</div>
                 <p class="station-description">
-                  丘陵地帯に位置する緑豊かな宿場。現在も住宅街として発達している親しみやすい地域です。
+                  権太坂の難所で知られる宿場町。東海道の古道が現在も残り、歌川広重の浮世絵にも描かれました。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>神奈川県横浜市</span>
+                    <span>神奈川県横浜市保土ケ谷区</span>
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-train"></i>
-                    <span>保土ケ谷駅徒歩8分</span>
+                    <span>保土ケ谷駅</span>
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：40分</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
-                  <span>自然環境</span>
-                  <span>住宅街</span>
-                  <span>丘陵</span>
+                  <span>権太坂の急坂（東海道最大の難所の一つ）</span>
+                  <span>旧東海道の古道</span>
+                  <span>保土ケ谷宿歴史の道</span>
                 </div>
               </div>
             </div>
 
-            <!-- 6宿 戸塚 -->
+            <!-- 5宿 戸塚 -->
             <div
-              class="station-card edo history"
-              data-number="6"
-              data-features="歴史,宿場,街道"
+              class="station-card edo history beginner"
+              data-number="5"
+              data-features="歴史,大宿場,交通要衝"
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="戸塚"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/6-Totsuka.webp"
+                  alt="戸塚 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">6</div>
+                <div class="station-number">5</div>
                 <div class="station-badges">
                   <span class="badge history">歴史名所</span>
+                  <span class="badge beginner">初心者向け</span>
                 </div>
               </div>
               <div class="station-info">
                 <h3>戸塚</h3>
                 <div class="station-reading">とつか</div>
                 <p class="station-description">
-                  江戸から6番目の宿場として多くの旅人が利用。現代でも交通の要衝として機能しています。
+                  東海道有数の大宿場町。鎌倉道との分岐点として交通の要衝を担い、多くの旅人で賑わいました。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>神奈川県横浜市</span>
+                    <span>神奈川県横浜市戸塚区</span>
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-train"></i>
-                    <span>戸塚駅徒歩12分</span>
+                    <span>戸塚駅</span>
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：50分</span>
+                    <span>見学時間：1時間</span>
                   </div>
                 </div>
                 <div class="station-highlights">
-                  <span>交通要衝</span>
-                  <span>歴史街道</span>
-                  <span>宿場町</span>
+                  <span>戸塚宿場まつり（毎年開催）</span>
+                  <span>鎌倉道との追分（分岐点）</span>
+                  <span>本陣跡と脇本陣跡</span>
                 </div>
               </div>
             </div>
 
-            <!-- 7宿 藤沢 -->
+            <!-- 6宿 藤沢 -->
             <div
-              class="station-card edo scenic gourmet"
-              data-number="7"
-              data-features="観光,江島,名物"
+              class="station-card edo history scenic"
+              data-number="6"
+              data-features="遊行寺,江島道,門前町"
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="藤沢"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/7-Fujisawa.webp"
+                  alt="藤沢 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">7</div>
+                <div class="station-number">6</div>
                 <div class="station-badges">
-                  <span class="badge scenic">風景名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
+                  <span class="badge history">歴史名所</span>
+                  <span class="badge scenic">門前町</span>
                 </div>
               </div>
               <div class="station-info">
                 <h3>藤沢</h3>
                 <div class="station-reading">ふじさわ</div>
                 <p class="station-description">
-                  江島神社への参詣路として賑わった宿場。湘南海岸への玄関口でもあります。
+                  遊行寺の門前町として栄えた宿場。江島神社への参詣道である江島道の分岐点でもありました。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
@@ -482,34 +483,34 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-train"></i>
-                    <span>藤沢駅徒歩10分</span>
+                    <span>藤沢駅</span>
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
-                  <span>江島神社</span>
-                  <span>湘南海岸</span>
-                  <span>参詣路</span>
+                  <span>遊行寺（時宗総本山）</span>
+                  <span>江島道分岐点</span>
+                  <span>藤沢宿本陣跡</span>
                 </div>
               </div>
             </div>
 
-            <!-- 8宿 平塚 -->
+            <!-- 7宿 平塚 -->
             <div
               class="station-card edo scenic beginner"
-              data-number="8"
-              data-features="初心者,海岸,平野"
+              data-number="7"
+              data-features="相模川,渡船場,平野部"
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="平塚"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/8-Hiratsuka.webp"
+                  alt="平塚 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">8</div>
+                <div class="station-number">7</div>
                 <div class="station-badges">
                   <span class="badge scenic">風景名所</span>
                   <span class="badge beginner">初心者向け</span>
@@ -519,7 +520,7 @@
                 <h3>平塚</h3>
                 <div class="station-reading">ひらつか</div>
                 <p class="station-description">
-                  相模平野の中央に位置する宿場。七夕まつりでも有名な現代的な宿場町です。
+                  相模川の渡船場として重要な宿場町。相模平野の中央に位置し、現在は七夕まつりで有名です。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
@@ -528,17 +529,63 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-train"></i>
-                    <span>平塚駅徒歩8分</span>
+                    <span>平塚駅</span>
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：45分</span>
+                    <span>見学時間：1時間</span>
                   </div>
                 </div>
                 <div class="station-highlights">
-                  <span>七夕まつり</span>
-                  <span>相模平野</span>
-                  <span>現代的</span>
+                  <span>相模川の渡し場跡</span>
+                  <span>平塚八幡宮</span>
+                  <span>湘南ひらつか七夕まつり（7月開催）</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 8宿 平塚 -->
+            <div
+              class="station-card edo scenic history"
+              data-number="8"
+              data-features="七夕祭り,湘南海岸,歴史"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/8-Hiratsuka.webp"
+                  alt="平塚 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+                <div class="station-number">8</div>
+                <div class="station-badges">
+                  <span class="badge scenic">海岸宿場</span>
+                  <span class="badge history">歴史名所</span>
+                </div>
+              </div>
+              <div class="station-info">
+                <h3>平塚</h3>
+                <div class="station-reading">ひらつか</div>
+                <p class="station-description">
+                  相模川の渡し場で栄えた宿場町。現在は湘南の中心都市として発展し、七夕まつりで全国的に有名です。
+                </p>
+                <div class="station-details">
+                  <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>神奈川県平塚市</span>
+                  </div>
+                  <div class="detail-item">
+                    <i class="fas fa-train"></i>
+                    <span>平塚駅</span>
+                  </div>
+                  <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <span>見学時間：1時間30分</span>
+                  </div>
+                </div>
+                <div class="station-highlights">
+                  <span>湘南ひらつか七夕まつり（7月開催）</span>
+                  <span>平塚八幡宮</span>
+                  <span>湘南海岸</span>
                 </div>
               </div>
             </div>
@@ -547,25 +594,25 @@
             <div
               class="station-card edo scenic onsen"
               data-number="9"
-              data-features="海岸,温泉,別荘"
+              data-features="松並木,海岸,別荘地"
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="大磯"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/9-Ōiso.webp"
+                  alt="大磯 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">9</div>
                 <div class="station-badges">
                   <span class="badge scenic">風景名所</span>
-                  <span class="badge onsen">温泉宿場</span>
+                  <span class="badge onsen">海岸宿場</span>
                 </div>
               </div>
               <div class="station-info">
                 <h3>大磯</h3>
                 <div class="station-reading">おおいそ</div>
                 <p class="station-description">
-                  相模湾を望む美しい海岸線の宿場。明治時代には多くの政治家や文人の別荘地として愛されました。
+                  相模湾を望む美しい松並木の宿場。明治時代には政治家や文人の別荘地として愛されました。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
@@ -574,44 +621,44 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-train"></i>
-                    <span>大磯駅徒歩15分</span>
+                    <span>大磯駅</span>
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：2時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
-                  <span>相模湾</span>
-                  <span>別荘文化</span>
-                  <span>海岸線</span>
+                  <span>旧東海道松並木（国指定天然記念物）</span>
+                  <span>大磯海水浴場（日本最初の海水浴場）</span>
+                  <span>旧伊藤博文邸跡</span>
                 </div>
               </div>
             </div>
 
             <!-- 10宿 小田原 -->
             <div
-              class="station-card edo history scenic"
+              class="station-card edo history scenic special"
               data-number="10"
-              data-features="城下町,歴史,観光"
+              data-features="城下町,小田原城,関東最後"
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="小田原"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/10-Odawara.webp"
+                  alt="小田原 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">10</div>
                 <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
+                  <span class="badge history">城下町</span>
+                  <span class="badge special">特別</span>
                 </div>
               </div>
               <div class="station-info">
                 <h3>小田原</h3>
                 <div class="station-reading">おだわら</div>
                 <p class="station-description">
-                  北条氏の城下町として栄えた関東最後の大きな宿場。小田原城と共に歴史ある観光地です。
+                  戦国大名北条氏の城下町として栄えた関東地方最後の大宿場。小田原城を中心とした歴史ある観光地です。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
@@ -624,59 +671,60 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：2-3時間</span>
+                    <span>見学時間：3時間</span>
                   </div>
                 </div>
                 <div class="station-highlights">
-                  <span>小田原城</span>
-                  <span>城下町</span>
-                  <span>北条氏</span>
+                  <span>小田原城（復元天守閣）</span>
+                  <span>小田原宿なりわい交流館</span>
+                  <span>かまぼこ博物館（名物グルメ）</span>
                 </div>
               </div>
             </div>
 
             <!-- 11宿 箱根 -->
             <div
-              class="station-card edo scenic onsen"
+              class="station-card edo scenic onsen special"
               data-number="11"
-              data-features="温泉,山,観光地"
+              data-features="温泉,関所,山岳宿場,東海道最大難所"
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="箱根"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/11-Hakone.webp"
+                  alt="箱根 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">11</div>
                 <div class="station-badges">
                   <span class="badge scenic">風景名所</span>
                   <span class="badge onsen">温泉宿場</span>
+                  <span class="badge special">特別</span>
                 </div>
               </div>
               <div class="station-info">
                 <h3>箱根</h3>
                 <div class="station-reading">はこね</div>
                 <p class="station-description">
-                  東海道最大の難所として知られる山間の宿場。現在も日本屈指の温泉観光地として人気です。
+                  東海道最大の難所として恐れられた山間の関所宿場。箱根八里の険しい山道を越える旅人の重要な休息地で、現在も日本屈指の温泉観光地として世界中から愛され続けています。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>神奈川県箱根町</span>
+                    <span>神奈川県足柄下郡箱根町</span>
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-train"></i>
-                    <span>箱根湯本駅バス20分</span>
+                    <span>箱根湯本駅バス25分</span>
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：半日</span>
+                    <span>見学時間：2時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
-                  <span>温泉郷</span>
-                  <span>芦ノ湖</span>
-                  <span>関所</span>
+                  <span>箱根関所（復元建物と資料館）</span>
+                  <span>芦ノ湖と富士山の絶景</span>
+                  <span>箱根温泉郷（17の温泉地）</span>
                 </div>
               </div>
             </div>
@@ -689,8 +737,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="三島"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/12-Mishima.webp"
+                  alt="三島 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">12</div>
@@ -716,7 +764,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -735,8 +783,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="沼津"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/13-Numazu.webp"
+                  alt="沼津 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">13</div>
@@ -780,7 +828,11 @@
               data-features="富士山,景観,歴史"
             >
               <div class="station-image">
-                <img src="../images/tokaido/road.jpg" alt="原" loading="lazy" />
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/14-Hara.webp"
+                  alt="原 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
                 <div class="station-number">14</div>
                 <div class="station-badges">
                   <span class="badge scenic">風景名所</span>
@@ -823,8 +875,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="吉原"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/15-Yoshiwara.webp"
+                  alt="吉原 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">15</div>
@@ -850,7 +902,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -868,7 +920,13 @@
           <h2 class="area-title">
             <span class="area-number">16-35</span>
             東海道エリア
-            <span class="area-description"
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
               >富士山を仰ぎ見る東海道の中心区間</span
             >
           </h2>
@@ -882,8 +940,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="蒲原"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/16-Kambara.webp"
+                  alt="蒲原 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">16</div>
@@ -928,8 +986,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="由比"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/17-Yui.webp"
+                  alt="由比 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">17</div>
@@ -955,7 +1013,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -974,8 +1032,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="興津"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/18-Okitsu-gawa.webp"
+                  alt="興津 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">18</div>
@@ -1020,8 +1078,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="江尻"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/19-Ejiri.webp"
+                  alt="江尻 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">19</div>
@@ -1047,7 +1105,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -1066,8 +1124,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="府中"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/20-Fuchu.webp"
+                  alt="府中 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">20</div>
@@ -1112,8 +1170,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="丸子"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/21-Mariko.webp"
+                  alt="丸子 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">21</div>
@@ -1158,8 +1216,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="岡部"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/22-Okabe.webp"
+                  alt="岡部 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">22</div>
@@ -1204,8 +1262,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="藤枝"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/23-Fujieda.webp"
+                  alt="藤枝 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">23</div>
@@ -1250,8 +1308,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="島田"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/24-Shimada.webp"
+                  alt="島田 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">24</div>
@@ -1277,7 +1335,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -1296,8 +1354,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="金谷"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/25-Kanaya.webp"
+                  alt="金谷 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">25</div>
@@ -1342,8 +1400,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="日坂"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/26-Nissaka.webp"
+                  alt="日坂 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">26</div>
@@ -1388,8 +1446,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="掛川"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/27-Kakegawa.webp"
+                  alt="掛川 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">27</div>
@@ -1434,8 +1492,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="袋井"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/28-Fukuroi.webp"
+                  alt="袋井 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">28</div>
@@ -1480,8 +1538,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="見付"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/29-Mitsuke.webp"
+                  alt="見付 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">29</div>
@@ -1507,7 +1565,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -1526,8 +1584,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="浜松"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/30-Hamamatsu.webp"
+                  alt="浜松 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">30</div>
@@ -1553,7 +1611,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：2-3時間</span>
+                    <span>見学時間：2時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -1572,8 +1630,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="舞坂"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/31-Maisaka.webp"
+                  alt="舞坂 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">31</div>
@@ -1599,7 +1657,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -1618,8 +1676,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="新居"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/32-Arai.webp"
+                  alt="新居 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">32</div>
@@ -1664,8 +1722,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="白須賀"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/33-Shirasuka.webp"
+                  alt="白須賀 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">33</div>
@@ -1710,8 +1768,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="二川"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/34-Futagawa.webp"
+                  alt="二川 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">34</div>
@@ -1756,8 +1814,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="吉田"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/35-Yoshida.webp"
+                  alt="吉田 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">35</div>
@@ -1783,7 +1841,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：2時間</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -1801,7 +1859,13 @@
           <h2 class="area-title">
             <span class="area-number">36-53</span>
             近畿エリア
-            <span class="area-description"
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
               >京都への最終区間、古都の文化が色濃いエリア</span
             >
           </h2>
@@ -1815,8 +1879,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="御油"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/36-Goyu.webp"
+                  alt="御油 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">36</div>
@@ -1861,8 +1925,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="赤坂"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/37-Akasaka.webp"
+                  alt="赤坂 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">37</div>
@@ -1907,8 +1971,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="藤川"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/38-Fujikawa.webp"
+                  alt="藤川 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">38</div>
@@ -1953,8 +2017,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="岡崎"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/39-Okazaki.webp"
+                  alt="岡崎 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">39</div>
@@ -1999,8 +2063,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="池鯉鮒"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/40-Chiryū.webp"
+                  alt="池鯉鮒 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">40</div>
@@ -2026,7 +2090,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -2045,8 +2109,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="鳴海"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/41-Narumi.webp"
+                  alt="鳴海 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">41</div>
@@ -2072,7 +2136,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -2090,7 +2154,11 @@
               data-features="熱田神宮,歴史,神社"
             >
               <div class="station-image">
-                <img src="../images/tokaido/road.jpg" alt="宮" loading="lazy" />
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/42-Miya.webp"
+                  alt="宮 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
                 <div class="station-number">42</div>
                 <div class="station-badges">
                   <span class="badge history">歴史名所</span>
@@ -2133,8 +2201,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="桑名"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/43-Kuwana.webp"
+                  alt="桑名 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">43</div>
@@ -2179,8 +2247,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="四日市"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/44-Yokkaichi.webp"
+                  alt="四日市 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">44</div>
@@ -2206,7 +2274,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -2225,8 +2293,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="石薬師"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/45-Ishiyakushi.webp"
+                  alt="石薬師 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">45</div>
@@ -2271,8 +2339,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="庄野"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/46-Shōno.webp"
+                  alt="庄野 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">46</div>
@@ -2317,8 +2385,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="亀山"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/47-Kameyama.webp"
+                  alt="亀山 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">47</div>
@@ -2362,7 +2430,11 @@
               data-features="関宿,歴史保存,街並み"
             >
               <div class="station-image">
-                <img src="../images/tokaido/road.jpg" alt="関" loading="lazy" />
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/48-Seki.webp"
+                  alt="関 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
                 <div class="station-number">48</div>
                 <div class="station-badges">
                   <span class="badge history">歴史名所</span>
@@ -2386,7 +2458,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：2-3時間</span>
+                    <span>見学時間：2時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -2405,8 +2477,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="坂下"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/49-Sakanoshita.webp"
+                  alt="坂下 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">49</div>
@@ -2443,19 +2515,19 @@
               </div>
             </div>
 
-            <!-- 50宿 土山 -->
+            <!-- 49宿 土山 -->
             <div
               class="station-card kinki history scenic"
-              data-number="50"
+              data-number="49"
               data-features="茶,山間,歴史"
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="土山"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/50-Tsuchiyama.webp"
+                  alt="土山 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">50</div>
+                <div class="station-number">49</div>
                 <div class="station-badges">
                   <span class="badge history">歴史名所</span>
                   <span class="badge scenic">風景名所</span>
@@ -2465,7 +2537,7 @@
                 <h3>土山</h3>
                 <div class="station-reading">つちやま</div>
                 <p class="station-description">
-                  近江国への入口となる山間の宿場。土山茶で有名な茶の産地でもあります。
+                  鈴鹿峠を越えて近江国に入る最初の宿場。土山茶で有名な茶の産地でもあります。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
@@ -2489,19 +2561,19 @@
               </div>
             </div>
 
-            <!-- 51宿 水口 -->
+            <!-- 50宿 水口 -->
             <div
               class="station-card kinki history scenic"
-              data-number="51"
+              data-number="50"
               data-features="城下町,水口城,歴史"
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="水口"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/51-Minakuchi.webp"
+                  alt="水口 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">51</div>
+                <div class="station-number">50</div>
                 <div class="station-badges">
                   <span class="badge history">歴史名所</span>
                   <span class="badge scenic">風景名所</span>
@@ -2511,7 +2583,7 @@
                 <h3>水口</h3>
                 <div class="station-reading">みなくち</div>
                 <p class="station-description">
-                  水口城の城下町として栄えた近江国の宿場。豊富な水源に恵まれた美しい地域です。
+                  水口城の城下町として栄え、近江国の政治的中心地でもありました。徳川将軍の上洛時の宿泊地としても使われ、格式の高い宿場でした。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
@@ -2524,7 +2596,7 @@
                   </div>
                   <div class="detail-item">
                     <i class="fas fa-clock"></i>
-                    <span>見学時間：1.5時間</span>
+                    <span>見学時間：1時間30分</span>
                   </div>
                 </div>
                 <div class="station-highlights">
@@ -2535,19 +2607,19 @@
               </div>
             </div>
 
-            <!-- 52宿 石部 -->
+            <!-- 51宿 石部 -->
             <div
               class="station-card kinki beginner gourmet"
-              data-number="52"
+              data-number="51"
               data-features="初心者,農村,名物"
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road.jpg"
-                  alt="石部"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/52-Ishibe.webp"
+                  alt="石部 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">52</div>
+                <div class="station-number">51</div>
                 <div class="station-badges">
                   <span class="badge beginner">初心者向け</span>
                   <span class="badge gourmet">名物グルメ</span>
@@ -2557,7 +2629,7 @@
                 <h3>石部</h3>
                 <div class="station-reading">いしべ</div>
                 <p class="station-description">
-                  京都への最後の休憩地として重要な役割を果たした宿場。近江牛の名産地でもあります。
+                  「石部の佐吉」で有名な石部宿は、比較的小さな宿場でしたが、交通の要衝として重要な役割を果たしていました。近江の国の入り口としても知られています。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
@@ -2581,6 +2653,52 @@
               </div>
             </div>
 
+            <!-- 52宿 草津 -->
+            <div
+              class="station-card kinki history scenic"
+              data-number="52"
+              data-features="交通要衝,中山道,本陣"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/53-Kusatsu.webp"
+                  alt="草津 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+                <div class="station-number">52</div>
+                <div class="station-badges">
+                  <span class="badge history">歴史名所</span>
+                  <span class="badge scenic">風景名所</span>
+                </div>
+              </div>
+              <div class="station-info">
+                <h3>草津</h3>
+                <div class="station-reading">くさつ</div>
+                <p class="station-description">
+                  東海道と中山道が合流する交通の要衝。本陣2軒、脇本陣2軒を擁し、東海道屈指の大宿場として栄えました。現在も草津宿本陣が保存され、往時の姿を伝えています。
+                </p>
+                <div class="station-details">
+                  <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>滋賀県草津市</span>
+                  </div>
+                  <div class="detail-item">
+                    <i class="fas fa-train"></i>
+                    <span>草津駅徒歩15分</span>
+                  </div>
+                  <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <span>見学時間：2時間</span>
+                  </div>
+                </div>
+                <div class="station-highlights">
+                  <span>交通要衝</span>
+                  <span>本陣保存</span>
+                  <span>大宿場</span>
+                </div>
+              </div>
+            </div>
+
             <!-- 53宿 大津 -->
             <div
               class="station-card kinki history scenic"
@@ -2589,8 +2707,8 @@
             >
               <div class="station-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
-                  alt="大津"
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/54-Ōtsū.webp"
+                  alt="大津 - 歌川広重浮世絵"
                   loading="lazy"
                 />
                 <div class="station-number">53</div>
@@ -2603,7 +2721,7 @@
                 <h3>大津</h3>
                 <div class="station-reading">おおつ</div>
                 <p class="station-description">
-                  東海道五十三次の終点。琵琶湖に面した美しい景観と共に、長い旅路の終わりを告げる記念すべき宿場です。
+                  東海道53番目の宿場。琵琶湖畔に位置し、水運の拠点としても栄えました。大津絵や大津算盤で有名で、多くの文人墨客が訪れた文化的な宿場でもありました。ここから京都三条大橋まで約3里半の道のりです。
                 </p>
                 <div class="station-details">
                   <div class="detail-item">
@@ -2620,8 +2738,55 @@
                   </div>
                 </div>
                 <div class="station-highlights">
-                  <span>東海道終点</span>
+                  <span>53番目宿</span>
                   <span>琵琶湖</span>
+                  <span>文化的</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 終点：三条大橋 -->
+            <div
+              class="station-card kinki scenic history special"
+              data-number="54"
+              data-features="終点,橋,京都"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/55-Kyoto.webp"
+                  alt="三条大橋 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+                <div class="station-number">終点</div>
+                <div class="station-badges">
+                  <span class="badge history">歴史名所</span>
+                  <span class="badge scenic">風景名所</span>
+                  <span class="badge special">特別</span>
+                </div>
+              </div>
+              <div class="station-info">
+                <h3>三条大橋</h3>
+                <div class="station-reading">さんじょうおおはし</div>
+                <p class="station-description">
+                  東海道の終点となる京都の三条大橋。天正18年（1590年）に豊臣秀吉の命により架けられ、江戸時代には東海道の西の起終点として多くの旅人が行き交いました。現在も鴨川に架かる歴史的な橋として親しまれています。
+                </p>
+                <div class="station-details">
+                  <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>京都市中京区</span>
+                  </div>
+                  <div class="detail-item">
+                    <i class="fas fa-train"></i>
+                    <span>京阪三条駅徒歩5分</span>
+                  </div>
+                  <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <span>見学時間：1時間</span>
+                  </div>
+                </div>
+                <div class="station-highlights">
+                  <span>東海道終点</span>
+                  <span>歴史的橋</span>
                   <span>完歩記念</span>
                 </div>
               </div>
@@ -2652,11 +2817,8 @@
           "
         >
           <h3 style="margin-bottom: 1rem; font-size: 1.5rem">
-            🎌 東海道五十三次 完全制覇
+            東海道デジタル街道案内
           </h3>
-          <p style="margin-bottom: 0.5rem; font-size: 1.1rem">
-            全53宿場を表示中
-          </p>
           <p style="opacity: 0.9">
             江戸・日本橋から京都・大津まで、すべての宿場町をご案内しております
           </p>
