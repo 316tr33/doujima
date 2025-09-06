@@ -633,7 +633,29 @@ document.addEventListener("DOMContentLoaded", function () {
     initHeaderCache(); // ヘッダーキャッシュ初期化
     initYoutubeLazyLoading(); // YouTube遅延読み込み初期化
     initTempleFilter(); // 重要霊場フィルター初期化
+    
+    // Tokaido専用機能の初期化（routes.htmlでのみ実行）
+    if (typeof initRouteDetails === 'function') {
+      initRouteDetails();
+      console.log("Route details system initialized");
+    }
+    
     updateActiveNav();
+    
+    // パフォーマンス監視初期化（開発環境のみ）
+    if (typeof PerformanceMonitor === 'function' && 
+        (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+      console.log('Performance monitoring enabled');
+      
+      // 5秒後にメモリ使用量チェック
+      setTimeout(() => {
+        window.performanceMonitor.checkMemoryUsage();
+        console.log('Performance Stats:', window.performanceMonitor.getPerformanceStats());
+      }, 5000);
+      
+      // FPS測定開始
+      window.performanceMonitor.measureFPS();
+    }
 
     console.log(
       "Enhanced site with improved desktop and mobile navigation fully initialized"
