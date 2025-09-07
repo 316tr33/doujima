@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>採用情報 - 堂島フロント企画</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="recruit.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>堂島フロント企画</h1>
+                <span>採用情報</span>
+            </div>
+            <nav>
+                <a href="index.html">ホーム</a>
+                <a href="Ohenro/index.html">お遍路事業</a>
+                <a href="Tokaido/index.html">東海道ウォーク事業</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ヒーローセクション -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>一緒に巡礼の旅を<br>サポートしませんか</h2>
+                <p>堂島フロント企画では、お遍路・東海道ウォークツアーの<br>添乗員・アシスタント・ガイドを募集しています</p>
+                <div class="hero-highlights">
+                    <div class="highlight-item">
+                        <span>初心者歓迎</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span>交通費全額支給</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span>経験により昇給</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 募集職種セクション -->
+        <section class="positions">
+            <div class="container">
+                <h2>募集職種</h2>
+                <p class="section-intro">あなたの経験を活かせるポジションを見つけてください</p>
+                
+                <!-- 職種カードグリッド -->
+                <div class="position-cards-grid">
+                    <div class="position-card" onclick="scrollToDetails('tenjouin')">
+                        <h3>添乗員</h3>
+                        <div class="position-info">
+                            <span class="position-type">正社員・パート</span>
+                            <span class="salary-range">時給1,100円～</span>
+                        </div>
+                        <div class="click-hint">詳細を見る ▼</div>
+                    </div>
+                    
+                    <div class="position-card" onclick="scrollToDetails('assistant')">
+                        <h3>アシスタント</h3>
+                        <div class="position-info">
+                            <span class="position-type">パートタイム</span>
+                            <span class="salary-range">時給1,100円～</span>
+                        </div>
+                        <div class="click-hint">詳細を見る ▼</div>
+                    </div>
+                    
+                    <div class="position-card" onclick="scrollToDetails('sendatsu')">
+                        <h3>先達</h3>
+                        <div class="position-info">
+                            <span class="position-type">業務委託</span>
+                            <span class="salary-range">日当10,000円～</span>
+                        </div>
+                        <div class="click-hint">詳細を見る ▼</div>
+                    </div>
+                    
+                    <div class="position-card" onclick="scrollToDetails('walkleader')">
+                        <h3>街道ウォークリーダー</h3>
+                        <div class="position-info">
+                            <span class="position-type">業務委託</span>
+                            <span class="salary-range">日当13,000円～</span>
+                        </div>
+                        <div class="click-hint">詳細を見る ▼</div>
+                    </div>
+                </div>
+
+                <!-- 職種詳細セクション -->
+                <div class="position-details-section" style="display: none;">
+                    <div class="detail-section-header">
+                        <h3 id="detail-section-title">職種詳細</h3>
+                        <button class="back-to-positions" onclick="hideAllDetails()">← 職種一覧に戻る</button>
+                    </div>
+                    
+                    <!-- 添乗員詳細 -->
+                    <div id="tenjouin-details" class="position-detail-section" style="display: none;">
+                        <div class="detail-header">
+                            <h4>添乗員</h4>
+                            <div class="header-info">
+                                <span class="position-type">正社員・パート</span>
+                                <span class="salary-compact">時給1,100円～（月収例：88,000円～）</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-grid-compact">
+                            <div class="detail-item-compact">
+                                <h5>仕事内容</h5>
+                                <p>ツアー参加者の出欠確認、バス乗降時の安全管理、宿泊施設での手続き、緊急時の対応</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>求める人物</h5>
+                                <p>責任感が強く細かい気配りができる方、緊急時に冷静な判断ができる方、接客経験者歓迎</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>勤務条件</h5>
+                                <p>四国各地・東海道沿線、ツアー日程により変動、宿泊を伴う場合あり</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>待遇</h5>
+                                <p>交通費全額支給、宿泊費会社負担、食事手当支給、各種保険完備</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- アシスタント詳細 -->
+                    <div id="assistant-details" class="position-detail-section" style="display: none;">
+                        <div class="detail-header">
+                            <h4>アシスタント</h4>
+                            <div class="header-info">
+                                <span class="position-type">パートタイム</span>
+                                <span class="salary-compact">時給1,100円～（月収例：66,000円～）</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-grid-compact">
+                            <div class="detail-item-compact">
+                                <h5>仕事内容</h5>
+                                <p>添乗員の業務サポート、参加者の荷物管理補助、バス内での安全確認、高齢者サポート</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>求める人物</h5>
+                                <p>人とのコミュニケーションが好きな方、体力に自信のある方、チームワークを大切にできる方</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>勤務条件</h5>
+                                <p>四国各地・東海道沿線、ツアー日程により変動、パートタイム勤務</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>待遇</h5>
+                                <p>交通費全額支給、研修制度充実、正社員登用制度あり、各種手当支給</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 先達詳細 -->
+                    <div id="sendatsu-details" class="position-detail-section" style="display: none;">
+                        <div class="detail-header">
+                            <h4>先達</h4>
+                            <div class="header-info">
+                                <span class="position-type">業務委託</span>
+                                <span class="salary-compact">日当10,000円～（月収例：120,000円～）</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-grid-compact">
+                            <div class="detail-item-compact">
+                                <h5>仕事内容</h5>
+                                <p>各霊場での案内・解説、朱印帳への朱印押印代行、巡礼作法の指導、参加者の巡礼サポート</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>求める人物</h5>
+                                <p>四国八十八ヶ所霊場会認定先達資格必須、巡礼経験豊富、仏教や四国遍路に関する深い知識</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>勤務条件</h5>
+                                <p>四国八十八ヶ所霊場、ツアー日程により変動、業務委託契約</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>待遇</h5>
+                                <p>交通費・宿泊費全額支給、高額日当（経験により優遇）、専門知識を活かせる環境</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 街道ウォークリーダー詳細 -->
+                    <div id="walkleader-details" class="position-detail-section" style="display: none;">
+                        <div class="detail-header">
+                            <h4>街道ウォークリーダー</h4>
+                            <div class="header-info">
+                                <span class="position-type">業務委託</span>
+                                <span class="salary-compact">日当13,000円～（月収例：90,000円～）</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-grid-compact">
+                            <div class="detail-item-compact">
+                                <h5>仕事内容</h5>
+                                <p>ウォーキングツアーの先導、歴史的建造物・史跡の解説、参加者の体調管理・ペース調整</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>求める人物</h5>
+                                <p>ウォーキング・ハイキング経験豊富、歴史や文化に興味、体力に自信があり長距離歩行が可能</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>勤務条件</h5>
+                                <p>東海道五十三次沿線、ツアー日程により変動、業務委託契約</p>
+                            </div>
+                            <div class="detail-item-compact">
+                                <h5>待遇</h5>
+                                <p>交通費・宿泊費全額支給、高額日当（最高レベル）、歴史知識を活かせる専門職</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 選考順序セクション -->
+        <section class="selection-process">
+            <div class="container">
+                <h2>選考の流れ</h2>
+                <p class="process-subtitle">簡単3ステップで採用決定！最短即日から働けます</p>
+                
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>応募フォーム入力</h3>
+                            <p class="step-description">
+                                下記の応募フォームから必要事項をご入力ください。
+                                入力は約3分で完了します。
+                            </p>
+                            <div class="step-time">所要時間：3分</div>
+                        </div>
+                    </div>
+
+                    <div class="process-arrow">→</div>
+
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>簡単面接</h3>
+                            <p class="step-description">
+                                お電話またはオンラインでの簡単な面接を行います。
+                                お仕事内容の説明と簡単な質疑応答です。
+                            </p>
+                            <div class="step-time">所要時間：10分</div>
+                        </div>
+                    </div>
+
+                    <div class="process-arrow">→</div>
+
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>合否連絡・勤務開始</h3>
+                            <p class="step-description">
+                                面接後、原則24時間以内に合否をご連絡いたします。
+                                採用となった場合、最短即日から勤務可能です。
+                            </p>
+                            <div class="step-time">連絡まで：24時間以内</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="process-cta">
+                    <p>今すぐ応募して、新しい働き方を始めませんか？</p>
+                    <button class="cta-button" onclick="scrollToForm()">応募フォームへ進む</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 応募フォームセクション -->
+        <section class="application-form">
+            <div class="container">
+                <h2>応募フォーム</h2>
+                <form id="recruitForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">お名前 <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kana">フリガナ <span class="required">*</span></label>
+                            <input type="text" id="kana" name="kana" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話番号 <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">年齢</label>
+                            <input type="number" id="age" name="age" min="18" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">住所</label>
+                            <input type="text" id="address" name="address">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="position">希望職種 <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="position" value="添乗員">
+                                <span>添乗員</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="position" value="アシスタント">
+                                <span>アシスタント</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="position" value="先達">
+                                <span>先達</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="position" value="街道ウォークリーダー">
+                                <span>街道ウォークリーダー</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">関連経験・資格</label>
+                        <textarea id="experience" name="experience" rows="4" placeholder="巡礼経験、ガイド経験、保有資格などをご記入ください"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivation">応募理由・自己PR</label>
+                        <textarea id="motivation" name="motivation" rows="4" placeholder="応募理由や自己PRをご記入ください"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="availability">勤務可能時期</label>
+                        <select id="availability" name="availability">
+                            <option value="">選択してください</option>
+                            <option value="即日">即日から</option>
+                            <option value="1週間以内">1週間以内</option>
+                            <option value="2週間以内">2週間以内</option>
+                            <option value="1ヶ月以内">1ヶ月以内</option>
+                            <option value="相談">要相談</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">その他・ご質問</label>
+                        <textarea id="message" name="message" rows="3" placeholder="ご質問やご要望があればご記入ください"></textarea>
+                    </div>
+
+                    <div class="form-group privacy-policy">
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <span>個人情報の取扱いに同意します <span class="required">*</span></span>
+                        </label>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit">応募する</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="company-info">
+                    <h3>堂島フロント企画</h3>
+                    <p>お遍路・東海道ウォークツアーの専門企画会社</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">ホーム</a>
+                    <a href="Ohenro/index.html">お遍路事業</a>
+                    <a href="Tokaido/index.html">東海道ウォーク事業</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 堂島フロント企画. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="recruit.js"></script>
+</body>
+</html>

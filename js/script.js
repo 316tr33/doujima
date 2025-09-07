@@ -158,54 +158,13 @@ function initSlideshow() {
   console.log("Optimized slideshow initialized with", totalSlides, "slides");
 }
 
-// 改良されたホバーナビゲーション制御
-function initHoverNavigation() {
-  const nav = document.getElementById("verticalNav");
-  const trigger = document.getElementById("navTrigger");
-  const indicator = document.getElementById("navIndicator");
-
-  let hoverTimeout;
-
-  // トリガーエリアにマウスが入った時
-  trigger.addEventListener("mouseenter", () => {
-    clearTimeout(hoverTimeout);
-    nav.classList.add("show");
-    indicator.classList.add("hover");
-  });
-
-  // トリガーエリアからマウスが離れた時
-  trigger.addEventListener("mouseleave", () => {
-    hoverTimeout = setTimeout(() => {
-      if (!nav.matches(":hover")) {
-        closeNavigation();
-      }
-    }, 150);
-  });
-
-  // ナビゲーションにマウスが入った時
-  nav.addEventListener("mouseenter", () => {
-    clearTimeout(hoverTimeout);
-  });
-
-  // ナビゲーションからマウスが離れた時
-  nav.addEventListener("mouseleave", () => {
-    closeNavigation();
-  });
-
-  function closeNavigation() {
-    nav.classList.remove("show");
-    indicator.classList.remove("hover");
-  }
-}
 
 // アクティブナビゲーション管理（DOM キャッシュ最適化版）
 let cachedSections = null;
-let cachedNavLinks = null;
 
 function initNavigationCache() {
   // DOM要素を初期化時に1回だけ取得してキャッシュ
   cachedSections = document.querySelectorAll("section[id]");
-  cachedNavLinks = document.querySelectorAll(".vertical-nav a");
 }
 
 function updateActiveNav() {
@@ -244,15 +203,6 @@ function updateActiveNav() {
     }
   });
 
-  // 縦書きナビゲーションも同期
-  const verticalNavLinks = document.querySelectorAll(".vertical-nav a");
-  verticalNavLinks.forEach((link) => {
-    link.classList.remove("active");
-    const href = link.getAttribute("href");
-    if (href === "#" + currentSection) {
-      link.classList.add("active");
-    }
-  });
 }
 
 // 改善されたナビゲーションハイライト効果
@@ -625,7 +575,6 @@ document.addEventListener("DOMContentLoaded", function () {
     initSlideshow();
     initializeAnimations();
     initSmoothScroll();
-    initHoverNavigation();
     initMobileNavigation(); // モバイルナビゲーション初期化
     initEnhancedNavEffects(); // デスクトップナビゲーション強化エフェクト
     initVideoGallery();
@@ -633,7 +582,29 @@ document.addEventListener("DOMContentLoaded", function () {
     initHeaderCache(); // ヘッダーキャッシュ初期化
     initYoutubeLazyLoading(); // YouTube遅延読み込み初期化
     initTempleFilter(); // 重要霊場フィルター初期化
+    
+    // Tokaido専用機能の初期化（routes.htmlでのみ実行）
+    if (typeof initRouteDetails === 'function') {
+      initRouteDetails();
+      console.log("Route details system initialized");
+    }
+    
     updateActiveNav();
+    
+    // パフォーマンス監視初期化（開発環境のみ）
+    if (typeof PerformanceMonitor === 'function' && 
+        (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+      console.log('Performance monitoring enabled');
+      
+      // 5秒後にメモリ使用量チェック
+      setTimeout(() => {
+        window.performanceMonitor.checkMemoryUsage();
+        console.log('Performance Stats:', window.performanceMonitor.getPerformanceStats());
+      }, 5000);
+      
+      // FPS測定開始
+      window.performanceMonitor.measureFPS();
+    }
 
     console.log(
       "Enhanced site with improved desktop and mobile navigation fully initialized"

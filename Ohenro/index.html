@@ -32,6 +32,7 @@
     />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/ohenro.css" />
+    <link rel="stylesheet" href="../css/booking-responsive.css" />
     <script src="../js/performance-monitor.js" defer></script>
   </head>
   <body>
@@ -40,16 +41,7 @@
         <div class="logo">堂島フロント企画</div>
         <ul class="nav-links">
           <li>
-            <a href="#home">ホーム</a>
-          </li>
-          <li>
-            <a href="#about">四国遍路とは</a>
-            <div class="dropdown">
-              <a href="#about">歴史と由来</a>
-              <a href="#about">巡礼の精神</a>
-              <a href="#about">同行二人の意味</a>
-              <a href="#about">巡礼の効果</a>
-            </div>
+            <a href="#home">四国お遍路</a>
           </li>
           <li>
             <a href="shikoku.html">各霊場のご案内</a>
@@ -61,23 +53,7 @@
             </div>
           </li>
           <li>
-            <a href="#journey">巡礼体験</a>
-            <div class="dropdown">
-              <a href="#journey">巡礼の準備</a>
-              <a href="#journey">参拝作法</a>
-              <a href="#journey">宿泊施設</a>
-              <a href="#journey">サポート情報</a>
-            </div>
-          </li>
-          <li>
-            <a href="#contact">お問い合わせ</a>
-            <div class="dropdown">
-              <a href="faq.html">よくあるご質問</a>
-              <a href="#contact">一般お問い合わせ</a>
-              <a href="#contact">宿泊予約</a>
-              <a href="#contact">ガイド依頼</a>
-              <a href="#contact">緊急サポート</a>
-            </div>
+            <a href="faq.html">よくあるご質問</a>
           </li>
           <li>
             <a href="../index.html">企業トップページ</a>
@@ -121,23 +97,6 @@
       </nav>
     </div>
 
-    <!-- 縦書きナビゲーション -->
-    <div class="vertical-nav" id="verticalNav">
-      <div class="vertical-nav-container">
-        <a href="#home">ホーム</a>
-        <a href="#about">四国遍路</a>
-        <a href="#temples">霊場</a>
-        <a href="#journey">巡礼</a>
-        <a href="#contact">問合</a>
-        <a href="../index.html">企業TOP</a>
-      </div>
-    </div>
-
-    <!-- ナビゲーション表示トリガーエリア -->
-    <div class="nav-trigger-area" id="navTrigger"></div>
-
-    <!-- ナビゲーション表示インジケーター -->
-    <div class="nav-indicator" id="navIndicator">メニュー</div>
 
     <!-- ヒーローセクション -->
     <section class="hero" id="home">
@@ -291,47 +250,180 @@
     <section class="booking-section placeholder-bg">
       <div class="booking-overlay">
         <div class="booking-content">
+          <!-- 装飾的なトップライン -->
+          <div class="booking-decoration-top">
+            <span class="deco-line"></span>
+            <i class="fas fa-dharmachakra"></i>
+            <span class="deco-line"></span>
+          </div>
+
           <div class="booking-header">
-            <h2 class="booking-title">お遍路ツアーのご案内</h2>
-            <p class="booking-subtitle">阪神交通社で心に残る巡礼の旅を</p>
+            <h2 class="booking-title">
+              <span class="title-accent">初めての方も安心</span>
+              <span class="title-main">専門ガイド同行のお遍路ツアー</span>
+            </h2>
+            <p class="booking-subtitle">
+              <span class="subtitle-highlight">四国八十八ヶ所</span>を
+              <span class="subtitle-highlight">快適</span>に巡る旅
+            </p>
           </div>
 
-          <div class="booking-features">
-            <div class="feature-item">
-              <i class="fas fa-bus"></i>
-              <span>快適なバスの旅</span>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-user-tie"></i>
-              <span>専門ガイド同行</span>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-heart"></i>
-              <span>初心者歓迎</span>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-hotel"></i>
-              <span>宿泊・食事込み</span>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-hands-helping"></i>
-              <span>経験豊富な添乗員</span>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-shield-alt"></i>
-              <span>安心のサポート</span>
+          <!-- 特徴カード -->
+          <div class="booking-features-wrapper">
+            <div class="booking-features">
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-bus"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>快適なバスの旅</h4>
+                  <p>移動の負担を軽減</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>専門ガイド同行</h4>
+                  <p>深い知識でサポート</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>初心者歓迎</h4>
+                  <p>丁寧にご案内します</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-hotel"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>宿泊・食事込み</h4>
+                  <p>手配の心配不要</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-hands-helping"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>経験豊富な添乗員</h4>
+                  <p>安心のサポート体制</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>効率的な行程</h4>
+                  <p>無理のないスケジュール</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <a
-            href="https://www.hankyu-travel.com/kokunai/junrei/shikoku88/"
-            class="booking-cta-button"
-            target="_blank"
-            rel="noopener"
-          >
-            ツアー詳細を見る
-            <i class="fas fa-external-link-alt"></i>
-          </a>
+          <!-- CTA エリア -->
+          <div class="booking-cta-area">
+            <div class="cta-decoration">
+              <span class="cta-line"></span>
+            </div>
+            <a
+              href="https://www.hankyu-travel.com/kokunai/junrei/shikoku88/"
+              class="booking-cta-button enhanced"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="cta-text">ツアー詳細を見る</span>
+              <span class="cta-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </a>
+            <p class="cta-note">各種プランをご用意しています</p>
+          </div>
+
+          <!-- 装飾的なボトムライン -->
+          <div class="booking-decoration-bottom">
+            <span class="deco-pattern"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ECサイト案内セクション -->
+    <section class="ec-section placeholder-bg">
+      <div class="ec-overlay">
+        <div class="ec-content">
+          <div class="ec-header">
+            <div class="ec-title-decoration"></div>
+            <h2 class="ec-title">
+              <span class="ec-title-main">お遍路用品専門店</span>
+              <span class="ec-title-sub">巡礼の準備は当店にお任せください</span>
+            </h2>
+            <p class="ec-subtitle">四国八十八ヶ所霊場巡りに必要な用品を厳選してご用意</p>
+            <div class="ec-header-decoration">
+              <span class="decoration-line left"></span>
+              <i class="fas fa-torii-gate"></i>
+              <span class="decoration-line right"></span>
+            </div>
+          </div>
+
+          <div class="ec-categories">
+            <div class="ec-category" data-step="1">
+              <div class="category-number">01</div>
+              <div class="category-icon-bg">
+                <i class="fas fa-tshirt"></i>
+              </div>
+              <h3>巡礼衣装</h3>
+              <p>白衣・遍路笠・和袈裟</p>
+            </div>
+            <div class="ec-category" data-step="2">
+              <div class="category-number">02</div>
+              <div class="category-icon-bg">
+                <i class="fas fa-scroll"></i>
+              </div>
+              <h3>納経用品</h3>
+              <p>納経帳・御朱印軸・御影保存帳</p>
+            </div>
+            <div class="ec-category" data-step="3">
+              <div class="category-number">03</div>
+              <div class="category-icon-bg">
+                <i class="fas fa-walking"></i>
+              </div>
+              <h3>歩行用品</h3>
+              <p>金剛杖・念珠</p>
+            </div>
+            <div class="ec-category" data-step="4">
+              <div class="category-number">04</div>
+              <div class="category-icon-bg">
+                <i class="fas fa-fire"></i>
+              </div>
+              <h3>参拝用品</h3>
+              <p>線香・ローソク</p>
+            </div>
+          </div>
+
+          <div class="ec-cta-container">
+            <a
+              href="https://doujimafront.stores.jp/"
+              class="ec-cta-button enhanced"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="cta-text">オンラインショップで購入</span>
+              <span class="cta-subtext">巡礼用品を見る</span>
+              <i class="fas fa-arrow-right cta-arrow"></i>
+            </a>
+            <p class="ec-note">
+              <i class="fas fa-shield-check"></i>
+              堂島フロント企画公式オンラインショップ・安心の品質保証
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -389,6 +481,12 @@
                   <div class="essential-items">
                     <strong>必需品：</strong
                     >納札・納経帳・数珠・線香・ろうそく・お賽銭
+                    <div class="shop-link">
+                      <a href="https://doujimafront.stores.jp/" target="_blank" rel="noopener">
+                        <i class="fas fa-shopping-cart"></i>
+                        用品はこちらで購入できます
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -497,7 +595,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div class="pilgrim-spirit">
                     お大師さんと共に歩む「同行二人」の心で
                   </div>
@@ -509,88 +606,6 @@
       </div>
     </section>
 
-    <!-- フルワイド画像セクション -->
-    <div class="full-width-image placeholder-bg">
-      <div class="overlay-text">
-        <h2>同行二人</h2>
-        <p>
-          弘法大師と共に歩む聖なる道<br />
-          一歩一歩に込める祈りと感謝<br />
-          困った時にはサポートがあります
-        </p>
-      </div>
-    </div>
-
-    <!-- 引用セクション -->
-    <section class="quote-section">
-      <div class="quote-content">
-        <div class="quote-text">
-          「歩くことそのものが祈りなり<br />
-          一歩一歩に仏の慈悲を感ず」
-        </div>
-        <div class="quote-author">— 弘法大師の教え</div>
-      </div>
-    </section>
-
-    <!-- 主要霊場 -->
-    <section class="section" id="temples">
-      <div class="section-content">
-        <h2 class="section-title">主要霊場</h2>
-        <p class="section-intro">
-          八十八の霊場それぞれに千年を超える歴史と独特の御利益があります。
-          参拝時のお困りごとや作法についてもサポートいたします。
-        </p>
-
-        <div class="card-grid">
-          <div class="card">
-            <div class="card-image placeholder-bg"></div>
-            <div class="card-content">
-              <h3>霊山寺（りょうぜんじ）</h3>
-              <p>
-                第一番霊場。すべての巡礼者が最初に訪れる聖地。「発願の寺」として多くの人々が人生の新たなスタートを切る場所です。
-              </p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-image placeholder-bg"></div>
-            <div class="card-content">
-              <h3>善通寺（ぜんつうじ）</h3>
-              <p>
-                弘法大師生誕の地。東院と西院に分かれ、西院の御影堂地下には「戒壇巡り」があります。
-              </p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-image placeholder-bg"></div>
-            <div class="card-content">
-              <h3>大窪寺（おおくぼじ）</h3>
-              <p>
-                結願寺。すべての巡礼者が最後に訪れる聖地。ここで「結願」を迎える感動は格別です。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 画像とテキストの組み合わせレイアウト -->
-    <div class="image-text-section">
-      <div class="image-content placeholder-bg"></div>
-      <div class="text-content">
-        <h3>巡礼の準備</h3>
-        <p>
-          お遍路を始める前に、適切な準備が必要です。<span class="highlight"
-            >白衣、金剛杖、納経帳</span
-          >などの基本的な装具を揃え、心身ともに巡礼に備えます。
-        </p>
-        <p>
-          体力づくりから精神的な準備まで、私たちが丁寧にサポートいたします。初めての方でも安心して巡礼を始められます。
-        </p>
-      </div>
-    </div>
-
     <!-- ギャラリーセクション -->
     <section class="section">
       <div class="section-content">
@@ -600,206 +615,105 @@
         </p>
 
         <div class="gallery-grid">
-          <div class="gallery-item" class="placeholder-bg">
+          <div class="gallery-item" style="background-image: url('../images/Fujiidera.webp');">
             <div class="gallery-overlay">
-              <h4>霊山寺の山門</h4>
-              <p>第一番札所として多くの巡礼者を迎える</p>
+              <h4>藤井寺（十一番札所）</h4>
+              <p>弘法大師が修行された霊場</p>
             </div>
           </div>
-          <div class="gallery-item" class="placeholder-bg">
+          <div class="gallery-item" style="background-image: url('../images/Jurakuji.webp');">
             <div class="gallery-overlay">
-              <h4>遍路道の風景</h4>
-              <p>自然豊かな道のりを歩む</p>
+              <h4>十楽寺（七番札所）</h4>
+              <p>阿波の霊場で心の平安を求める</p>
             </div>
           </div>
-          <div class="gallery-item" class="placeholder-bg">
+          <div class="gallery-item" style="background-image: url('../images/Ryukoji.webp');">
             <div class="gallery-overlay">
-              <h4>納経の様子</h4>
-              <p>各霊場での貴重な体験</p>
+              <h4>龍光寺（四十一番札所）</h4>
+              <p>愛媛の菩提の道場で功徳を積む</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 縦書きテキストセクション -->
-    <section class="vertical-text-section">
-      <div class="vertical-text">
-        南無大師遍照金剛<br />
-        心を清める巡礼の道<br />
-        困った時にはサポートあり<br />
-        一期一会の出会いに感謝
-      </div>
-    </section>
-
-    <!-- 巡礼体験 -->
-    <section class="section" id="journey">
-      <div class="section-content">
-        <h2 class="section-title">巡礼体験</h2>
-        <p class="section-intro">
-          お遍路は単なる観光を超えた深い精神的な修行です。
-          歩くことで心が浄化され、日常では得られない気づきと成長を体験できます。
-          巡礼中に困ったことがあれば、24時間サポート体制でお手伝いいたします。
-        </p>
-
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <div class="gallery-overlay">
-              <h4>白装束での巡礼</h4>
-              <p>伝統的な遍路装束で心を清めます</p>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <div class="gallery-overlay">
-              <h4>納経帳への御朱印</h4>
-              <p>各霊場での貴重な証となります</p>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <div class="gallery-overlay">
-              <h4>お接待の心</h4>
-              <p>地元の方々の温かいもてなし</p>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <div class="gallery-overlay">
-              <h4>山道での修行</h4>
-              <p>厳しい道程が心を鍛えます</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- サポート案内 -->
-        <div
-          style="
-            background: rgba(20, 20, 20, 0.8);
-            border-radius: 15px;
-            padding: 3rem;
-            margin-top: 4rem;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            text-align: center;
-          "
-        >
-          <h3
-            style="
-              color: #d4af37;
-              font-size: 1.8rem;
-              margin-bottom: 2rem;
-              letter-spacing: 2px;
-            "
-          >
-            巡礼サポートセンター
-          </h3>
-          <p
-            style="
-              color: rgba(255, 255, 255, 0.8);
-              font-size: 1.1rem;
-              line-height: 2;
-              margin-bottom: 2rem;
-            "
-          >
-            道に迷った、体調が悪い、宿が見つからない<br />
-            巡礼中の様々なお困りごとを24時間体制でサポートします
-          </p>
-          <div
-            style="
-              background: linear-gradient(
-                135deg,
-                rgba(212, 175, 55, 0.2),
-                rgba(184, 134, 11, 0.3)
-              );
-              border: 2px solid rgba(212, 175, 55, 0.5);
-              color: white;
-              padding: 1.5rem;
-              border-radius: 10px;
-              margin-bottom: 2rem;
-            "
-          >
-            <div
-              style="
-                font-size: 1.2rem;
-                font-weight: bold;
-                margin-bottom: 0.5rem;
-                color: #d4af37;
-              "
-            >
-              巡礼サポートホットライン
-            </div>
-            <div
-              style="
-                font-size: 2rem;
-                font-weight: bold;
-                color: #ffffff;
-                text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-              "
-            >
-              0120-88-1200
-            </div>
-            <div
-              style="
-                font-size: 0.9rem;
-                opacity: 0.9;
-                color: rgba(255, 255, 255, 0.8);
-              "
-            >
-              24時間・年中無休・通話料無料
-            </div>
-          </div>
-          <div
-            style="
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-              gap: 1.5rem;
-              margin-top: 2rem;
-            "
-          >
-            <div style="text-align: center">
-              <div
-                style="color: #d4af37; font-size: 1.1rem; margin-bottom: 0.5rem"
+                <!-- サポート案内 -->
+                <div
+                style="
+                  background: rgba(250, 248, 245, 0.95);
+                  border-radius: 15px;
+                  padding: 3rem;
+                  margin-top: 4rem;
+                  border: 2px solid rgba(212, 175, 55, 0.3);
+                  text-align: center;
+                "
               >
-                道案内・ルート相談
-              </div>
-              <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem">
-                GPS案内で正確にサポート
+                <h3
+                  style="
+                    color: #cd853f;
+                    font-size: 1.8rem;
+                    margin-bottom: 2rem;
+                    letter-spacing: 2px;
+                  "
+                >
+                  巡礼サポートセンター
+                </h3>
+                <p
+                  style="
+                    color: rgba(40, 40, 40, 0.9);
+                    font-size: 1.1rem;
+                    line-height: 2;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  巡礼でお困りの方はこちらへ<br />
+                </p>
+                <div
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(212, 175, 55, 0.15),
+                      rgba(184, 134, 11, 0.2)
+                    );
+                    border: 2px solid rgba(212, 175, 55, 0.4);
+                    color: #333333;
+                    padding: 1.5rem;
+                    border-radius: 10px;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <div
+                    style="
+                      font-size: 1.2rem;
+                      font-weight: bold;
+                      margin-bottom: 0.5rem;
+                      color: #cd853f;
+                    "
+                  >
+                    巡礼サポートホットライン
+                  </div>
+                  <div
+                    style="
+                      font-size: 2rem;
+                      font-weight: bold;
+                      color: #4a4a4a;
+                      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+                    "
+                  >
+                    0774-46-8762
+                  </div>
+                  <div
+                    style="
+                      font-size: 0.9rem;
+                      opacity: 0.9;
+                      color: rgba(255, 255, 255, 0.8);
+                    "
+                  >
+                  </div>
+                </div>
               </div>
             </div>
-            <div style="text-align: center">
-              <div
-                style="color: #d4af37; font-size: 1.1rem; margin-bottom: 0.5rem"
-              >
-                宿泊先手配・予約
-              </div>
-              <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem">
-                満室時の代替宿探し
-              </div>
-            </div>
-            <div style="text-align: center">
-              <div
-                style="color: #d4af37; font-size: 1.1rem; margin-bottom: 0.5rem"
-              >
-                健康・医療相談
-              </div>
-              <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem">
-                体調不良時の医療機関案内
-              </div>
-            </div>
-            <div style="text-align: center">
-              <div
-                style="color: #d4af37; font-size: 1.1rem; margin-bottom: 0.5rem"
-              >
-                天候・安全情報
-              </div>
-              <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem">
-                悪天候時の避難支援
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </section>
 
     <footer id="contact">
       <div class="social-links">

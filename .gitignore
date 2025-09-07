@@ -18,3 +18,6 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Claude Code分析・レポートファイル
+claudedocs/

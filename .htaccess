@@ -1,0 +1,44 @@
+# セキュリティヘッダー設定
+# Content Security Policy - XSS攻撃対策
+<IfModule mod_headers.c>
+    # CSP - 自己ホストのリソースとCDNのみ許可
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com; frame-src https://www.youtube.com"
+    
+    # クリックジャッキング対策
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # XSS保護の有効化
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # MIMEタイプスニッフィング防止
+    Header set X-Content-Type-Options "nosniff"
+    
+    # リファラーポリシー
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # HTTPS強制（本番環境用）
+    # Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# キャッシュ制御
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # 画像ファイル - 1ヶ月
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    
+    # CSS/JS - 1週間
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    
+    # HTML - 1時間
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# gzip圧縮
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
