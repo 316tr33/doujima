@@ -1,8 +1,8 @@
 .quote-section {
   background: linear-gradient(
     135deg,
-    rgba(20, 20, 20, 0.9),
-    rgba(40, 40, 40, 0.8)
+    rgba(250, 248, 243, 0.95),
+    rgba(248, 246, 240, 0.9)
   );
   padding: 6rem 2rem;
   text-align: center;
@@ -34,9 +34,9 @@
 .quote-author {
   font-size: 1.1rem;
   font-weight: 400;
-  color: rgba(85, 85, 85, 0.8);
+  color: #666;
   letter-spacing: 0.08em;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* 縦書きテキストセクション */
@@ -158,8 +158,8 @@
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(20, 20, 20, 0.95),
-    rgba(40, 40, 40, 0.9)
+    #faf8f3 0%,
+    #f8f6f0 100%
   );
   z-index: -1;
   pointer-events: none;
@@ -172,6 +172,10 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('../images/shosenji.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .shikoku-hero-content {
@@ -183,15 +187,17 @@
 
 .shikoku-title {
   font-size: 3rem;
-  color: var(--primary-gold);
+  color: #fff;
   margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .shikoku-description {
   font-size: 1.2rem;
-  color: rgba(51, 51, 51, 0.9);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* レスポンシブ対応 */
@@ -220,7 +226,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.95);
   color: #333;
   padding: 2rem;
   transform: translate3d(0, 100%, 0);
@@ -583,7 +589,7 @@
 }
 
 .video-placeholder:hover .video-overlay {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.9);
 
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.4);
 }
@@ -1525,6 +1531,38 @@ footer {
   border-top: 1px solid rgba(212, 175, 55, 0.3);
 }
 
+/* お問い合わせ情報 */
+.contact-info {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+.contact-info p {
+  margin: 0.8rem 0;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.contact-info i {
+  width: 20px;
+  font-size: 1.2rem;
+  color: #d4af37;
+}
+.contact-info a {
+  color: #b8860b;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.contact-info a:hover {
+  color: #d4af37;
+  text-decoration: underline;
+}
+
 .social-links {
   margin-bottom: 2rem;
 }
@@ -2108,289 +2146,6 @@ footer {
 
 /* 予約セクション レスポンシブは booking-responsive.css に移動済み */
 
-/* 県別ナビゲーション */
-.prefecture-nav {
-  position: fixed;
-  top: 80px;
-  right: 20px;
-  z-index: 90;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.85));
-  border-radius: 16px;
-  padding: 20px 14px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 25px rgba(212, 175, 55, 0.25);
-  backdrop-filter: blur(15px);
-  border: 2px solid rgba(212, 175, 55, 0.4);
-  max-width: 190px;
-  opacity: 0.96;
-  transition: all 0.4s ease;
-}
-
-.prefecture-nav:hover {
-  opacity: 1;
-  transform: translateX(-8px);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.35);
-  border-color: rgba(212, 175, 55, 0.6);
-}
-
-.prefecture-nav-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 12px 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  color: #333;
-  position: relative;
-  border: 1px solid transparent;
-}
-
-.prefecture-nav-btn:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(212, 175, 55, 0.25),
-    rgba(244, 208, 63, 0.18)
-  );
-  border-color: rgba(212, 175, 55, 0.6);
-  transform: translateX(-4px) translateY(-1px);
-  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.25);
-}
-
-.prefecture-nav-btn.active {
-  background: linear-gradient(
-    135deg,
-    rgba(212, 175, 55, 0.3),
-    rgba(244, 208, 63, 0.2)
-  );
-  border-color: var(--primary-gold);
-  box-shadow: var(--shadow-card);
-}
-
-.prefecture-nav-btn.active::before {
-  content: "";
-  position: absolute;
-  left: -2px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 60%;
-  background: linear-gradient(to bottom, #d4af37, #b8860b);
-  border-radius: 2px;
-}
-
-.temple-range,
-.nav-number {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--primary-gold);
-  margin-bottom: 2px;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease;
-}
-
-/* 県別番号カラーテーマ */
-.prefecture-nav-btn[data-prefecture="tokushima"] .nav-number {
-  color: rgba(40, 167, 69, 0.9);
-}
-
-.prefecture-nav-btn[data-prefecture="kouchi"] .nav-number {
-  color: rgba(0, 123, 255, 0.9);
-}
-
-.prefecture-nav-btn[data-prefecture="ehime"] .nav-number {
-  color: rgba(253, 126, 20, 0.9);
-}
-
-.prefecture-nav-btn[data-prefecture="kagawa"] .nav-number {
-  color: rgba(111, 66, 193, 0.9);
-}
-
-.prefecture-name {
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 1px;
-  text-align: center;
-  line-height: 1.1;
-}
-
-.stage-name {
-  font-size: 0.7rem;
-  color: #cccccc;
-  font-weight: 400;
-  text-align: center;
-  line-height: 1;
-  opacity: 0.9;
-}
-
-/* 県別カラーテーマ */
-.prefecture-nav-btn[data-prefecture="tokushima"]:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(40, 167, 69, 0.2),
-    rgba(34, 139, 34, 0.15)
-  );
-  border-color: rgba(40, 167, 69, 0.5);
-}
-
-.prefecture-nav-btn[data-prefecture="tokushima"].active {
-  background: linear-gradient(
-    135deg,
-    rgba(40, 167, 69, 0.3),
-    rgba(34, 139, 34, 0.2)
-  );
-  border-color: #28a745;
-  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
-}
-
-.prefecture-nav-btn[data-prefecture="kouchi"]:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 123, 255, 0.2),
-    rgba(0, 86, 179, 0.15)
-  );
-  border-color: rgba(0, 123, 255, 0.5);
-}
-
-.prefecture-nav-btn[data-prefecture="kouchi"].active {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 123, 255, 0.3),
-    rgba(0, 86, 179, 0.2)
-  );
-  border-color: #007bff;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-}
-
-.prefecture-nav-btn[data-prefecture="ehime"]:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(253, 126, 20, 0.2),
-    rgba(230, 81, 0, 0.15)
-  );
-  border-color: rgba(253, 126, 20, 0.5);
-}
-
-.prefecture-nav-btn[data-prefecture="ehime"].active {
-  background: linear-gradient(
-    135deg,
-    rgba(253, 126, 20, 0.3),
-    rgba(230, 81, 0, 0.2)
-  );
-  border-color: #fd7e14;
-  box-shadow: 0 4px 15px rgba(253, 126, 20, 0.3);
-}
-
-.prefecture-nav-btn[data-prefecture="kagawa"]:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(111, 66, 193, 0.2),
-    rgba(87, 13, 248, 0.15)
-  );
-  border-color: rgba(111, 66, 193, 0.5);
-}
-
-.prefecture-nav-btn[data-prefecture="kagawa"].active {
-  background: linear-gradient(
-    135deg,
-    rgba(111, 66, 193, 0.3),
-    rgba(87, 13, 248, 0.2)
-  );
-  border-color: #6f42c1;
-  box-shadow: 0 4px 15px rgba(111, 66, 193, 0.3);
-}
-
-/* ホバー時の県別テキストカラー強化 */
-.prefecture-nav-btn[data-prefecture="tokushima"]:hover .nav-name,
-.prefecture-nav-btn[data-prefecture="tokushima"].active .nav-name {
-  color: rgba(40, 167, 69, 1);
-  text-shadow: 0 1px 3px rgba(40, 167, 69, 0.3);
-}
-
-.prefecture-nav-btn[data-prefecture="kouchi"]:hover .nav-name,
-.prefecture-nav-btn[data-prefecture="kouchi"].active .nav-name {
-  color: rgba(0, 123, 255, 1);
-  text-shadow: 0 1px 3px rgba(0, 123, 255, 0.3);
-}
-
-.prefecture-nav-btn[data-prefecture="ehime"]:hover .nav-name,
-.prefecture-nav-btn[data-prefecture="ehime"].active .nav-name {
-  color: rgba(253, 126, 20, 1);
-  text-shadow: 0 1px 3px rgba(253, 126, 20, 0.3);
-}
-
-.prefecture-nav-btn[data-prefecture="kagawa"]:hover .nav-name,
-.prefecture-nav-btn[data-prefecture="kagawa"].active .nav-name {
-  color: rgba(111, 66, 193, 1);
-  text-shadow: 0 1px 3px rgba(111, 66, 193, 0.3);
-}
-
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-  .prefecture-nav {
-    top: 70px;
-    right: 10px;
-    max-width: 160px;
-    padding: 16px 10px;
-    gap: 8px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(212, 175, 55, 0.2);
-  }
-
-  .prefecture-nav:hover {
-    transform: translateX(-6px);
-  }
-
-  .prefecture-nav-btn {
-    padding: 10px 8px;
-  }
-
-  .temple-range {
-    font-size: 0.7rem;
-  }
-
-  .prefecture-name {
-    font-size: 0.8rem;
-  }
-
-  .stage-name {
-    font-size: 0.65rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .prefecture-nav {
-    top: 60px;
-    right: 8px;
-    max-width: 130px;
-    padding: 12px 8px;
-    gap: 6px;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25),
-      0 0 15px rgba(212, 175, 55, 0.15);
-  }
-
-  .prefecture-nav:hover {
-    transform: translateX(-4px);
-  }
-
-  .prefecture-nav-btn {
-    padding: 8px 6px;
-  }
-
-  .temple-range {
-    font-size: 0.65rem;
-  }
-
-  .prefecture-name {
-    font-size: 0.75rem;
-  }
-
-  .stage-name {
-    font-size: 0.6rem;
-  }
-}
 
 /* 霊場検索機能 */
 .temple-search-container {
@@ -2529,14 +2284,14 @@ footer {
 .prefecture-header-enhanced .section-title {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  color: var(--secondary-gold);
+  color: #b8860b;
   font-weight: 700;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dojo-name {
   font-size: 1.8rem;
-  color: var(--primary-gold);
+  color: #9d7f1a;
   font-weight: 600;
   margin-bottom: 1rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -2561,13 +2316,14 @@ footer {
 }
 
 .range {
-  background: linear-gradient(135deg, #6c757d, #495057);
-  color: #333;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  color: #495057;
   padding: 0.5rem 1.2rem;
   border-radius: 20px;
   font-weight: 600;
   font-size: 0.9rem;
-  box-shadow: 0 3px 10px rgba(108, 117, 125, 0.3);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .enhanced-intro {
@@ -2576,6 +2332,7 @@ footer {
   color: rgba(60, 60, 60, 0.9);
   max-width: 800px;
   margin: var(--margin-auto);
+  margin-bottom: 3rem;
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 12px;
