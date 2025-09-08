@@ -258,36 +258,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 職種詳細表示機能
+    // 職種詳細セクションまでスクロール（画面中央に配置）
     window.scrollToDetails = function(positionId) {
-        // 全ての詳細セクションを非表示
-        const allDetails = document.querySelectorAll('.position-detail-section');
-        allDetails.forEach(detail => {
-            detail.style.display = 'none';
-        });
-
-        // 選択された詳細セクションを表示
         const targetElement = document.getElementById(positionId + '-details');
-        const detailsSection = document.querySelector('.position-details-section');
-        const sectionTitle = document.getElementById('detail-section-title');
         
-        if (targetElement && detailsSection && sectionTitle) {
-            // 詳細セクション全体を表示
-            detailsSection.style.display = 'block';
+        if (targetElement) {
+            // 要素の高さと画面の高さを取得
+            const elementRect = targetElement.getBoundingClientRect();
+            const elementHeight = elementRect.height;
+            const windowHeight = window.innerHeight;
             
-            // 選択された職種の詳細を表示
-            targetElement.style.display = 'block';
+            // 要素を画面中央に配置するための位置を計算
+            const elementTop = targetElement.offsetTop;
+            const scrollPosition = elementTop - (windowHeight / 2) + (elementHeight / 2);
             
-            // タイトルを更新
-            const positionName = targetElement.querySelector('h4').textContent;
-            sectionTitle.textContent = `${positionName} - 詳細情報`;
-
-            // 詳細セクションまでスクロール
-            const elementPosition = detailsSection.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - 80; // 80px上にマージンを取る
-
+            // スクロール実行（最小値は0）
             window.scrollTo({
-                top: offsetPosition,
+                top: Math.max(0, scrollPosition),
                 behavior: 'smooth'
             });
 
@@ -298,26 +285,6 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 targetElement.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
             }, 2000);
-        }
-    }
-
-    // 全詳細を非表示にして職種一覧に戻る
-    window.hideAllDetails = function() {
-        const detailsSection = document.querySelector('.position-details-section');
-        const cardsGrid = document.querySelector('.position-cards-grid');
-        
-        if (detailsSection && cardsGrid) {
-            // 詳細セクションを非表示
-            detailsSection.style.display = 'none';
-            
-            // 職種カードまでスクロール
-            const elementPosition = cardsGrid.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - 100; // 100px上にマージンを取る
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
         }
     }
 });
