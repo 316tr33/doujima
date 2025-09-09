@@ -1,24 +1,52 @@
 /* FAQページ専用スタイル */
+:root {
+  --primary-gold: #b8860b;
+  --secondary-gold: #8b6914;
+  --accent-gold: #d4af37;
+  --text-white: #2c2c2c;
+  --text-gray: #555;
+}
+
 body {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2c1810 100%);
-  color: #e0e0e0;
+  background: linear-gradient(135deg, #faf8f3 0%, #f8f6f0 100%);
+  color: #333;
   min-height: 100vh;
+}
+
+/* ヒーロー背景画像 */
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../images/landscape2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero .hero-content h1 {
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero .hero-description {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* FAQ検索バー */
 .faq-search-container {
   max-width: 800px;
-  margin: 0 auto 30px;
+  margin: 80px auto 30px;
   padding: 0 20px;
 }
 
 .faq-search {
   width: 100%;
   padding: 15px 20px 15px 50px;
-  background-color: rgba(44, 44, 44, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
   border: 2px solid #d4af37;
   border-radius: 50px;
-  color: #e0e0e0;
+  color: #333;
   font-size: 1.1rem;
   transition: all 0.3s ease;
   position: relative;
@@ -52,15 +80,12 @@ body {
 
 .category-btn {
   padding: 10px 25px;
-  background: linear-gradient(
-    135deg,
-    rgba(184, 134, 11, 0.2),
-    rgba(212, 175, 55, 0.2)
-  );
-  border: 1px solid #d4af37;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #d4af37;
   border-radius: 25px;
-  color: #d4af37;
+  color: #b8860b;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: "Noto Serif JP", serif;
@@ -84,14 +109,10 @@ body {
   max-width: 900px;
   margin: 50px auto;
   padding: 40px 30px;
-  background: linear-gradient(
-    135deg,
-    rgba(44, 44, 44, 0.95),
-    rgba(34, 34, 34, 0.95)
-  );
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 /* FAQヘッダー */
@@ -111,7 +132,7 @@ body {
 }
 
 .faq-header p {
-  color: #aaa;
+  color: #666;
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -119,11 +140,11 @@ body {
 /* FAQ項目 */
 .faq-item {
   margin-bottom: 15px;
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
-  background: rgba(26, 26, 26, 0.5);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .faq-item:hover {
@@ -145,7 +166,7 @@ body {
   padding: 20px 25px;
   font-size: 1.15rem;
   font-weight: 500;
-  color: #e0e0e0;
+  color: #333;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -193,11 +214,7 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-out, padding 0.3s ease-out;
-  background: linear-gradient(
-    135deg,
-    rgba(34, 34, 34, 0.9),
-    rgba(26, 26, 26, 0.9)
-  );
+  background: rgba(248, 246, 240, 0.8);
 }
 
 .faq-answer-content {
@@ -208,7 +225,7 @@ body {
 .faq-answer p {
   margin: 0;
   line-height: 1.8;
-  color: #ccc;
+  color: #555;
   font-size: 1.05rem;
 }
 
@@ -244,7 +261,7 @@ body {
 .no-results {
   text-align: center;
   padding: 60px 20px;
-  color: #888;
+  color: #666;
   font-size: 1.2rem;
   display: none;
 }
@@ -279,7 +296,7 @@ body {
 }
 
 .stat-label {
-  color: #aaa;
+  color: #666;
   font-size: 0.9rem;
   margin-top: 5px;
 }
@@ -328,6 +345,42 @@ body {
 .scroll-top i {
   color: #1a1a1a;
   font-size: 1.5rem;
+}
+
+/* お問い合わせ情報 */
+.contact-info {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.contact-info p {
+  margin: 0.8rem 0;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-info i {
+  width: 20px;
+  font-size: 1.2rem;
+  color: #d4af37;
+}
+
+.contact-info a {
+  color: #b8860b;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #d4af37;
+  text-decoration: underline;
 }
 
 /* レスポンシブデザイン */

@@ -24,6 +24,15 @@
   --font-primary: "Noto Serif JP", "Yu Mincho", "YuMincho", "Hiragino Mincho Pro", "Times New Roman", serif;
   --font-secondary: "Shippori Mincho", serif;
   
+  /* フォントサイズ階層 */
+  --font-h1: 2.5rem;
+  --font-h2: 2rem;
+  --font-h3: 1.5rem;
+  --font-h4: 1.25rem;
+  --font-body: 1rem;
+  --font-small: 0.9rem;
+  --font-xs: 0.8rem;
+  
   /* 境界線 */
   --border-gold: 1px solid rgba(184, 134, 11, 0.3);
   --border-radius: 8px;
@@ -585,7 +594,7 @@ nav {
   font-size: 2.8rem;
   text-align: center;
   margin-bottom: 2rem;
-  color: #d4af37;
+  color: #b8860b;
   font-weight: 700;
   letter-spacing: 0.18em;
   line-height: 1.5;
@@ -742,10 +751,14 @@ nav {
   align-items: center;
   justify-content: center;
   background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(20, 20, 20, 0.8) 100%
-  );
+      135deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(20, 20, 20, 0.8) 100%
+    ),
+    url('../images/shosanji.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   position: relative;
   margin-top: 80px;
 }
@@ -892,7 +905,10 @@ nav {
   margin: var(--margin-auto);
 }
 
-.news-section h2 {
+.news-section h2,
+.services-section h2,
+.results-section h2,
+.contact-section h2 {
   font-size: 2rem;
   color: #b8860b;
   margin-bottom: 2rem;
@@ -937,8 +953,10 @@ nav {
 
 /* フッター */
 footer {
-  padding: 3rem 2rem 1rem;
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.9) 100%);
+  padding: 4rem 2rem 2rem;
   position: relative;
+  color: #fff;
 }
 
 /* フッターコンテンツ */
@@ -959,7 +977,7 @@ footer {
 }
 
 .company-info p {
-  color: #555;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
   letter-spacing: 0.02em;
@@ -972,7 +990,7 @@ footer {
 }
 
 .footer-links a {
-  color: #666;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -984,11 +1002,11 @@ footer {
 }
 
 .copyright {
-  color: #777;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.85rem;
-  margin: 2rem 0 0 0;
+  margin: 3rem 0 0 0;
   padding-top: 2rem;
-  border-top: 1px solid rgba(184, 134, 11, 0.2);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
   text-align: center;
 }
 
@@ -1749,6 +1767,7 @@ footer .social-links a:hover {
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  height: fit-content;
 }
 
 .contact-info h3 {
@@ -1781,6 +1800,28 @@ footer .social-links a:hover {
 .contact-method p {
   color: rgba(60, 60, 60, 0.7);
   font-size: 0.95rem;
+  margin: 0;
+}
+
+.contact-note {
+  background: rgba(212, 175, 55, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  border-left: 4px solid var(--primary-gold);
+}
+
+.contact-note h4 {
+  color: var(--primary-gold);
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.contact-note p {
+  color: rgba(60, 60, 60, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -1911,12 +1952,11 @@ footer .social-links a:hover {
 /* フッター - B2B版 */
 .footer-content {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
 }
 
 .footer-services h5,
-.footer-pages h5,
 .footer-links h5 {
   color: var(--primary-gold);
   font-size: 1.1rem;
@@ -1925,10 +1965,17 @@ footer .social-links a:hover {
 }
 
 .footer-services a,
-.footer-pages a,
 .footer-links a {
   display: block;
   margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-services a:hover,
+.footer-links a:hover {
+  color: var(--primary-gold);
 }
 
 /* レスポンシブ対応 - B2B版 */
@@ -1944,7 +1991,7 @@ footer .social-links a:hover {
   }
   
   .footer-content {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
 }

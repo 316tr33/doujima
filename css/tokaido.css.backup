@@ -1,11 +1,4 @@
 /* 東海道ウォーク独自スタイル */
-:root {
-  --primary-gold: #b8860b;
-  --secondary-gold: #8b6914;
-  --accent-gold: #d4af37;
-  --text-white: #2c2c2c;
-  --text-gray: #555;
-}
 
 /* エリアタイトルとエリア説明のスタイル */
 .area-title {
@@ -3652,55 +3645,3 @@ textarea:focus,
   margin-left: -1rem !important; /* inputボックス自体をさらに右に移動 */
 }
 /* ======= End of 検索ボックスのレイアウト根本修正 ======= */
-
-/* ======= 東海道専用フッタースタイル ======= */
-/* Ohenroページと同じ白ベースフッター */
-footer {
-  background: #f8f6f0 !important;
-  padding: 4rem 2rem 2rem !important;
-  text-align: center !important;
-  border-top: 1px solid rgba(212, 175, 55, 0.3) !important;
-}
-
-/* お問い合わせ情報 */
-.contact-info {
-  text-align: center;
-  margin-bottom: 2rem;
-  padding: 1rem;
-}
-
-.contact-info p {
-  margin: 0.8rem 0;
-  color: #333 !important;
-  font-size: 1.1rem;
-  font-weight: 500;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.contact-info i {
-  width: 20px;
-  font-size: 1.2rem;
-  color: #d4af37;
-}
-
-.contact-info a {
-  color: #b8860b !important;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.contact-info a:hover {
-  color: #d4af37 !important;
-  text-decoration: underline;
-}
-
-.footer-text {
-  color: rgba(51, 51, 51, 0.8) !important;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-}
-/* ======= End of 東海道専用フッタースタイル ======= */

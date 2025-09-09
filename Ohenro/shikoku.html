@@ -8,10 +8,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&family=Shippori+Mincho&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/ohenro.css">
-    <script src="../js/performance-monitor.js" defer></script>
   </head>
   <body>
     <!-- シンプル背景レイヤー（パフォーマンス最適化） -->
@@ -22,7 +21,7 @@
         <div class="logo">堂島フロント企画</div>
         <ul class="nav-links">
           <li>
-            <a href="index.html">ホーム</a>
+            <a href="index.html">四国お遍路</a>
           </li>
           <li>
             <a href="shikoku.html">各霊場のご案内</a>
@@ -35,6 +34,9 @@
           </li>
           <li>
             <a href="faq.html">よくあるご質問</a>
+          </li>
+          <li>
+            <a href="../Tokaido/index.html">東海道ウォーク</a>
           </li>
           <li>
             <a href="../index.html">企業トップページ</a>
@@ -61,43 +63,18 @@
         </button>
       </div>
       <nav class="mobile-menu-nav">
-        <a href="index.html" class="mobile-menu-link">お遍路ホーム</a>
+        <a href="index.html" class="mobile-menu-link">四国お遍路</a>
         <a href="index.html#about" class="mobile-menu-link">四国遍路とは</a>
         <a href="#tokushima" class="mobile-menu-link">徳島県（発心の道場）</a>
         <a href="#kouchi" class="mobile-menu-link">高知県（修行の道場）</a>
         <a href="#ehime" class="mobile-menu-link">愛媛県（菩提の道場）</a>
         <a href="#kagawa" class="mobile-menu-link">香川県（涅槃の道場）</a>
         <a href="index.html#contact" class="mobile-menu-link">お問い合わせ</a>
+        <a href="../Tokaido/index.html" class="mobile-menu-link">東海道ウォーク</a>
         <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
       </nav>
     </div>
 
-    
-    <!-- 県移動ナビゲーション -->
-    <div class="prefecture-nav" id="prefectureNav">
-      <div class="prefecture-nav-container">
-        <a href="#tokushima" class="prefecture-nav-btn" data-prefecture="tokushima">
-          <span class="nav-number">1-23</span>
-          <span class="nav-name">徳島</span>
-          <span class="nav-dojo">発心</span>
-        </a>
-        <a href="#kouchi" class="prefecture-nav-btn" data-prefecture="kouchi">
-          <span class="nav-number">24-39</span>
-          <span class="nav-name">高知</span>
-          <span class="nav-dojo">修行</span>
-        </a>
-        <a href="#ehime" class="prefecture-nav-btn" data-prefecture="ehime">
-          <span class="nav-number">40-65</span>
-          <span class="nav-name">愛媛</span>
-          <span class="nav-dojo">菩提</span>
-        </a>
-        <a href="#kagawa" class="prefecture-nav-btn" data-prefecture="kagawa">
-          <span class="nav-number">66-88</span>
-          <span class="nav-name">香川</span>
-          <span class="nav-dojo">涅槃</span>
-        </a>
-      </div>
-    </div>
 
     <!-- ページタイトルセクション -->
     <section class="hero shikoku-hero">
@@ -1449,13 +1426,19 @@
 </section>
 
     <footer id="contact">
-      <div class="social-links">
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> お問い合わせ: 0774-46-8762</p>
+        <p><i class="fas fa-envelope"></i> info@doujima-front.com</p>
+        <p>
+          <i class="fab fa-youtube"></i>
+          <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ"
+            >YouTube チャンネル</a
+          >
+        </p>
       </div>
-      <p class="footer-text">&copy; 2025 四国遍路. すべての権利を保持します.</p>
+      <p class="footer-text">
+        &copy; 2025 堂島フロント企画 All right reserved.
+      </p>
       <p class="footer-text" style="margin-top: 1rem; opacity: 0.8">
         南無大師遍照金剛 - 同行二人の精神で、安全な巡礼をサポートいたします
       </p>
@@ -1606,39 +1589,6 @@
           // 結果表示用のメッセージを追加できる
           console.log(`検索結果: ${count}件`);
         }
-        
-        // 県ナビゲーションのアクティブ状態管理
-        const prefectureNavBtns = document.querySelectorAll('.prefecture-nav-btn');
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const currentId = entry.target.id;
-              prefectureNavBtns.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.prefecture === currentId);
-              });
-            }
-          });
-        }, { 
-          rootMargin: '-30% 0px -60% 0px',
-          threshold: 0.1
-        });
-        
-        sections.forEach(section => {
-          if (section.id && (section.id === 'tokushima' || section.id === 'kouchi' || section.id === 'ehime' || section.id === 'kagawa')) {
-            observer.observe(section);
-          }
-        });
-        
-        // スムーススクロール
-        prefectureNavBtns.forEach(btn => {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          });
-        });
       });
     </script>
   </body>
