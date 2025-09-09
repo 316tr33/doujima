@@ -3067,3 +3067,457 @@ textarea:focus,
     font-size: 1.2rem;
   }
 }
+
+/* 宿場町グリッドレイアウト - 2x2配置 */
+.stations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.station-highlight {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+.station-highlight:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.station-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.station-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.station-highlight:hover .station-image img {
+  transform: scale(1.05);
+}
+
+.station-number {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.station-info {
+  padding: 1.5rem;
+}
+
+.station-info h3 {
+  color: #d4af37;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.station-subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.station-info p {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.station-features {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.feature-tag {
+  background: rgba(212, 175, 55, 0.1);
+  color: #b8860b;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* レスポンシブ対応 - モバイルでは1列表示 */
+@media (max-width: 768px) {
+  .stations-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .station-image {
+    height: 180px;
+  }
+  
+  .station-info {
+    padding: 1.2rem;
+  }
+  
+  .station-info h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* お問い合わせ情報 */
+.contact-info {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.contact-info p {
+  margin: 0.8rem 0;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-info i {
+  width: 20px;
+  font-size: 1.2rem;
+  color: #d4af37;
+}
+
+.contact-info a {
+  color: #b8860b;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #d4af37;
+  text-decoration: underline;
+}
+
+/* 東海道の魅力ハイライト */
+.attraction-highlights {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.attraction-highlights span {
+  background: rgba(212, 175, 55, 0.15);
+  color: #8b6914;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.attraction-highlights span:hover {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: rgba(212, 175, 55, 0.5);
+  color: #7a5f12;
+}
+
+/* 予約ボタンスタイル */
+.booking-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #fff;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+}
+
+.booking-cta-button:hover {
+  background: linear-gradient(135deg, #e6c200 0%, #cd853f 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  color: #fff;
+  text-decoration: none;
+}
+
+.booking-cta-button:active {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+}
+
+.booking-cta-button i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.booking-cta-button:hover i {
+  transform: translateX(3px);
+}
+
+/* ナビゲーションボタンスタイル */
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  letter-spacing: 0.5px;
+}
+
+.nav-button.primary {
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  border: none;
+}
+
+.nav-button.primary:hover {
+  background: linear-gradient(135deg, #e6c200 0%, #cd853f 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.nav-button i {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-button:hover i {
+  transform: translateX(3px);
+}
+
+/* タイムラインの年表示スタイル */
+.timeline-year {
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 予約セクションタイトルの読みやすさ改善 */
+.booking-title {
+  color: #d4af37;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: none;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* タイムライン導入文の改行制御 */
+.timeline-intro {
+  font-size: 1.1rem;
+  color: #666;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* レスポンシブ対応 - モバイルでは改行を許可 */
+@media (max-width: 768px) {
+  .timeline-intro {
+    white-space: normal;
+    font-size: 1rem;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+/* タイムラインマーカーのz-index調整 */
+.timeline-marker {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  border-radius: 50%;
+  border: 3px solid #fff;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* タイムライン要素全体のz-index管理 */
+.timeline-item {
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* 現代の楽しみ方セクション - 2x2グリッドレイアウト */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.experience-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.experience-card i {
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.experience-card h4 {
+  color: #8b6914;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.experience-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* レスポンシブ対応 - モバイルでは1列表示 */
+@media (max-width: 768px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .experience-card {
+    padding: 1.5rem;
+  }
+  
+  .experience-card i {
+    font-size: 2rem;
+  }
+  
+  .experience-card h4 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ギャラリーオーバーレイの改善 */
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  color: #fff;
+  padding: 2rem;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  transform: translate3d(0, 0, 0);
+}
+
+.gallery-overlay h4 {
+  font-size: 1.3rem;
+  color: #d4af37;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-overlay p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
