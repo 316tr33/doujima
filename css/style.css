@@ -24,6 +24,15 @@
   --font-primary: "Noto Serif JP", "Yu Mincho", "YuMincho", "Hiragino Mincho Pro", "Times New Roman", serif;
   --font-secondary: "Shippori Mincho", serif;
   
+  /* フォントサイズ階層 */
+  --font-h1: 2.5rem;
+  --font-h2: 2rem;
+  --font-h3: 1.5rem;
+  --font-h4: 1.25rem;
+  --font-body: 1rem;
+  --font-small: 0.9rem;
+  --font-xs: 0.8rem;
+  
   /* 境界線 */
   --border-gold: 1px solid rgba(184, 134, 11, 0.3);
   --border-radius: 8px;

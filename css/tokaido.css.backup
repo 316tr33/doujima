@@ -1,11 +1,4 @@
 /* 東海道ウォーク独自スタイル */
-:root {
-  --primary-gold: #b8860b;
-  --secondary-gold: #8b6914;
-  --accent-gold: #d4af37;
-  --text-white: #2c2c2c;
-  --text-gray: #555;
-}
 
 /* エリアタイトルとエリア説明のスタイル */
 .area-title {

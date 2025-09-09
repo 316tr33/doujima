@@ -1,5 +1,14 @@
 /* 採用情報ページ専用CSS - 堂島フロント企画 */
 
+:root {
+  /* カラーパレット - 企業サイトと統一 */
+  --primary-gold: #b8860b;
+  --secondary-gold: #8b6914;
+  --accent-gold: #d4af37;
+  --text-white: #2c2c2c;
+  --text-gray: #555;
+}
+
 /* リセット・基本設定 */
 * {
     margin: 0;
@@ -10,7 +19,7 @@
 body {
     font-family: 'Noto Serif JP', serif;
     line-height: 1.6;
-    background: linear-gradient(180deg, #e8e8e8 0%, #f5f5f5 30%, #ffffff 70%, #e8e8e8 100%);
+    background: #f8f8f8;
     color: #2a2a2a;
     overflow-x: hidden;
 }
@@ -29,7 +38,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 3px solid #d4af37;
+    border-bottom: 3px solid var(--accent-gold);
 }
 
 .header-container {
@@ -42,15 +51,15 @@ header {
 }
 
 .logo h1 {
-    font-size: 2rem;
-    color: #d4af37;
+    font-size: 1.3rem;
+    color: var(--accent-gold);
     font-weight: 700;
     margin-bottom: 5px;
 }
 
 .logo span {
-    font-size: 1rem;
-    color: #b8860b;
+    font-size: 0.9rem;
+    color: var(--primary-gold);
     display: block;
 }
 
@@ -71,7 +80,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #d4af37;
+    color: var(--accent-gold);
     background: rgba(212, 175, 55, 0.1);
     transform: translateY(-2px);
 }
@@ -83,7 +92,7 @@ nav a::after {
     left: 50%;
     width: 0;
     height: 2px;
-    background: #d4af37;
+    background: var(--accent-gold);
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -224,7 +233,7 @@ nav a:hover::after {
 
 .position-card:hover {
     transform: translateY(-12px) scale(1.02);
-    border-color: #d4af37;
+    border-color: var(--accent-gold);
     box-shadow: 0 25px 50px rgba(212, 175, 55, 0.25), 
                 0 10px 20px rgba(0, 0, 0, 0.4);
 }
@@ -232,7 +241,7 @@ nav a:hover::after {
 
 .position-card h3 {
     font-size: 1.5rem;
-    color: #d4af37;
+    color: var(--accent-gold);
     margin-bottom: 15px;
     font-weight: 600;
 }
@@ -245,7 +254,7 @@ nav a:hover::after {
 }
 
 .salary {
-    background: linear-gradient(135deg, #b8860b, #d4af37);
+    background: linear-gradient(135deg, var(--primary-gold), var(--accent-gold));
     color: #000;
     padding: 10px 20px;
     border-radius: 25px;
@@ -694,8 +703,8 @@ nav a:hover::after {
 }
 
 .cta-button {
-    background: linear-gradient(135deg, #d4af37, #b8860b);
-    color: #000;
+    background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+    color: white;
     border: none;
     padding: 15px 40px;
     font-size: 1.1rem;
@@ -709,7 +718,7 @@ nav a:hover::after {
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
-    background: linear-gradient(135deg, #b8860b, #d4af37);
+    background: linear-gradient(135deg, #e6c547, var(--primary-gold));
 }
 
 /* 応募フォームセクション */
@@ -739,7 +748,7 @@ nav a:hover::after {
 .application-form h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #d4af37;
+    color: var(--accent-gold);
     margin-bottom: 60px;
     position: relative;
 }
@@ -752,7 +761,7 @@ nav a:hover::after {
     transform: translateX(-50%);
     width: 100px;
     height: 3px;
-    background: linear-gradient(90deg, #b8860b, #d4af37, #b8860b);
+    background: linear-gradient(90deg, var(--primary-gold), var(--accent-gold), var(--primary-gold));
 }
 
 #recruitForm {
@@ -778,7 +787,7 @@ nav a:hover::after {
 
 .form-group label {
     display: block;
-    color: #d4af37;
+    color: var(--accent-gold);
     font-weight: 600;
     margin-bottom: 8px;
     font-size: 1rem;
@@ -806,7 +815,7 @@ nav a:hover::after {
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #d4af37;
+    border-color: var(--accent-gold);
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
@@ -832,7 +841,7 @@ nav a:hover::after {
 .checkbox-item input[type="checkbox"] {
     width: auto;
     margin-right: 10px;
-    accent-color: #d4af37;
+    accent-color: var(--accent-gold);
     transform: scale(1.2);
 }
 
@@ -847,8 +856,8 @@ nav a:hover::after {
 }
 
 .form-submit button {
-    background: linear-gradient(135deg, #d4af37, #b8860b);
-    color: #000;
+    background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+    color: white;
     border: none;
     padding: 15px 50px;
     font-size: 1.2rem;
@@ -864,14 +873,15 @@ nav a:hover::after {
 .form-submit button:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-    background: linear-gradient(135deg, #b8860b, #d4af37);
+    background: linear-gradient(135deg, #e6c547, var(--primary-gold));
 }
 
 /* フッター */
 footer {
-    background: #495057;
-    padding: 40px 0 20px;
-    border-top: 1px solid #dee2e6;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.9) 100%);
+    padding: 4rem 2rem 2rem;
+    position: relative;
+    color: #fff;
 }
 
 .footer-content {
@@ -882,13 +892,13 @@ footer {
 }
 
 .company-info h3 {
-    color: #d4af37;
+    color: var(--accent-gold);
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
 .company-info p {
-    color: #cccccc;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
 }
 
@@ -898,23 +908,23 @@ footer {
 }
 
 .footer-links a {
-    color: #cccccc;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #d4af37;
+    color: var(--primary-gold);
 }
 
 .copyright {
-    border-top: 1px solid #333;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
     padding-top: 20px;
     text-align: center;
 }
 
 .copyright p {
-    color: #888;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
 }
 

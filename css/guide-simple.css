@@ -1,4 +1,11 @@
 /* guide.html簡略化対応スタイル */
+:root {
+  --primary-gold: #b8860b;
+  --secondary-gold: #8b6914;
+  --accent-gold: #d4af37;
+  --text-white: #2c2c2c;
+  --text-gray: #555;
+}
 
 /* ヒーローセクション調整 - 小さめに設定 */
 .tokaido-hero {

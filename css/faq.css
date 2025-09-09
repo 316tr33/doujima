@@ -1,4 +1,12 @@
 /* FAQページ専用スタイル */
+:root {
+  --primary-gold: #b8860b;
+  --secondary-gold: #8b6914;
+  --accent-gold: #d4af37;
+  --text-white: #2c2c2c;
+  --text-gray: #555;
+}
+
 body {
   background: linear-gradient(135deg, #faf8f3 0%, #f8f6f0 100%);
   color: #333;
