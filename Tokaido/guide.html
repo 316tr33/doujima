@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/tokaido.css" />
     <link rel="stylesheet" href="../css/guide-simple.css" />
-    <script src="../js/performance-monitor.js" defer></script>
   </head>
   <body>
     <header>
@@ -86,21 +85,31 @@
       </nav>
     </div>
 
-
     <main>
       <section
         class="hero-section tokaido-hero"
         style="
-          background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/tokaido/tour/tour6.jpg');
+          background-image: linear-gradient(
+              rgba(0, 0, 0, 0.4),
+              rgba(0, 0, 0, 0.4)
+            ),
+            url('../images/tokaido/tour/tour6.jpg');
           background-size: cover;
-          background-position: center;
-          background-attachment: fixed;
+          background-position: center 100%;
         "
       >
         <div class="hero-content">
-          <h1 class="hero-title" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">歩き方ガイド</h1>
-          <p class="hero-subtitle" style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);">
-            ツアー参加者向けの実用的ガイド - 知っておきたい装備・注意点・楽しみ方
+          <h1
+            class="hero-title"
+            style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8)"
+          >
+            歩き方ガイド
+          </h1>
+          <p
+            class="hero-subtitle"
+            style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9)"
+          >
+            ツアー参加者向けの実用的ガイド<br />知っておきたい<br />装備・注意点・<br />楽しみ方
           </p>
         </div>
       </section>
@@ -172,7 +181,10 @@
 
             <div class="seasonal-note">
               <h3>● 季節別の追加装備</h3>
-              <p><strong>夏季：</strong> 冷却タオル、塩分補給、虫除け、速乾インナー</p>
+              <p>
+                <strong>夏季：</strong>
+                冷却タオル、塩分補給、虫除け、速乾インナー
+              </p>
               <p><strong>冬季：</strong> 防寒着、防風ウェア、カイロ</p>
             </div>
           </div>
@@ -209,7 +221,9 @@
 
             <div class="emergency-basic">
               <h3>● 緊急時はガイドへ即座に連絡</h3>
-              <p>体調不良や怪我をした場合は、無理せずすぐにツアーガイドに声をかけてください。ガイドが適切な対応を行います。</p>
+              <p>
+                体調不良や怪我をした場合は、無理せずすぐにツアーガイドに声をかけてください。ガイドが適切な対応を行います。
+              </p>
             </div>
           </div>
         </div>
@@ -257,21 +271,22 @@
       </section>
     </main>
 
-    <footer>
-      <div class="footer-content">
-        <div class="company-info">
-          <h4>堂島フロント企画</h4>
-          <p>〒000-0000 大阪府大阪市○○区○○町0-0-0</p>
-          <p>TEL: 00-0000-0000</p>
-        </div>
-        <div class="footer-links">
-          <a href="../index.html#company">会社概要</a>
-          <a href="../recruit.html">採用情報</a>
-          <a href="../index.html#contact">お問い合わせ</a>
-        </div>
+    <footer id="contact">
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> お問い合わせ: 0774-46-8762</p>
+        <p><i class="fas fa-envelope"></i> info@doujima-front.com</p>
+        <p>
+          <i class="fab fa-youtube"></i>
+          <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ"
+            >YouTube チャンネル</a
+          >
+        </p>
       </div>
-      <p class="copyright">
-        &copy; 2025 堂島フロント企画. All rights reserved.
+      <p class="footer-text">
+        &copy; 2025 堂島フロント企画 All right reserved.
+      </p>
+      <p class="footer-text" style="margin-top: 1rem; opacity: 0.8">
+        江戸と京都を結ぶ歴史街道で、文化と自然の旅をサポートいたします
       </p>
     </footer>
 
