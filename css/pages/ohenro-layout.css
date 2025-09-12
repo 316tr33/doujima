@@ -96,17 +96,17 @@
 
 /* 各県の背景画像 */
 .prefecture-block.tokushima .prefecture-header {
-  background-image: url("../images/prefecture-grid/tokushima.webp");
+  background-image: url("../../images/prefecture-grid/tokushima.webp");
 }
 
 .prefecture-block.kouchi .prefecture-header {
-  background-image: url("../images/prefecture-grid/kouchi.webp");
+  background-image: url("../../images/prefecture-grid/kouchi.webp");
 }
 
 .prefecture-block.ehime .prefecture-header {
-  background-image: url("../images/prefecture-grid/ehime.webp");
+  background-image: url("../../images/prefecture-grid/ehime.webp");
 }
 
 .prefecture-block.kagawa .prefecture-header {
-  background-image: url("../images/prefecture-grid/kagawa.webp");
+  background-image: url("../../images/prefecture-grid/kagawa.webp");
 }

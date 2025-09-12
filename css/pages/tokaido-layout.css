@@ -91,7 +91,7 @@
     135deg,
     rgba(0, 0, 0, 0.6),
     rgba(20, 20, 20, 0.7)
-  ), url('../images/tokaido-hero.webp');
+  ), url('../../images/tokaido-hero.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

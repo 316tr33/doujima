@@ -16,7 +16,7 @@ body {
 /* ヒーロー背景画像 */
 .hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../images/landscape2.webp");
+    url("../../images/landscape2.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

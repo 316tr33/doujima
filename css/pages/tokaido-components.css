@@ -900,7 +900,7 @@ footer {
       rgba(20, 20, 20, 0.7),
       rgba(20, 20, 20, 0.8)
     ),
-    url("../images/tokaido/fujisan.jpg") center/cover;
+    url("../../images/tokaido/fujisan.jpg") center/cover;
   min-height: 60vh;
 }
 
@@ -3187,7 +3187,7 @@ textarea:focus,
 /* 予約セクション */
 .booking-section {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../images/tokaido/fujisan.jpg");
+    url("../../images/tokaido/fujisan.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -3850,7 +3850,7 @@ textarea:focus,
   height: 60vh; /* 従来の100vhから60vhに縮小 */
   min-height: 500px; /* 最小高さを確保 */
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../images/tokaido/fujisan.jpg");
+    url("../../images/tokaido/fujisan.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

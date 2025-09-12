@@ -66,44 +66,44 @@
 
 /* デフォルト背景 */
 .hero-slide:nth-child(1) {
-  background: url("../images/index-hero/slide1.webp") center/cover;
+  background: url("../../images/index-hero/slide1.webp") center/cover;
 }
 
 .hero-slide:nth-child(2) {
-  background: url("../images/index-hero/slide2.webp") center/cover;
+  background: url("../../images/index-hero/slide2.webp") center/cover;
 }
 
 .hero-slide:nth-child(3) {
-  background: url("../images/index-hero/slide3.webp") center/cover;
+  background: url("../../images/index-hero/slide3.webp") center/cover;
 }
 
 .hero-slide:nth-child(4) {
-  background: url("../images/index-hero/slide4.webp") center/cover;
+  background: url("../../images/index-hero/slide4.webp") center/cover;
 }
 
 .hero-slide:nth-child(5) {
-  background: url("../images/index-hero/slide5.webp") center/cover;
+  background: url("../../images/index-hero/slide5.webp") center/cover;
 }
 
 /* お遍路ページ専用背景 */
 body[data-page="ohenro"] .hero-slide:nth-child(1) {
-  background: url("../images/shosanji.webp") center/cover;
+  background: url("../../images/shosanji.webp") center/cover;
 }
 
 body[data-page="ohenro"] .hero-slide:nth-child(2) {
-  background: url("../images/Fujiidera.webp") center/cover;
+  background: url("../../images/Fujiidera.webp") center/cover;
 }
 
 body[data-page="ohenro"] .hero-slide:nth-child(3) {
-  background: url("../images/Ryukoji.webp") center/cover;
+  background: url("../../images/Ryukoji.webp") center/cover;
 }
 
 body[data-page="ohenro"] .hero-slide:nth-child(4) {
-  background: url("../images/landscape.webp") center/cover;
+  background: url("../../images/landscape.webp") center/cover;
 }
 
 body[data-page="ohenro"] .hero-slide:nth-child(5) {
-  background: url("../images/landscape2.webp") center/cover;
+  background: url("../../images/landscape2.webp") center/cover;
 }
 
 .slideshow-controls {

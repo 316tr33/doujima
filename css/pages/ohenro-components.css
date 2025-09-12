@@ -25,7 +25,7 @@
 .prefecture-block {
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: auto;
   border-radius: var(--border-radius);
   border: var(--border-gold);
   overflow: hidden;
@@ -35,7 +35,7 @@
 }
 
 .prefecture-header {
-  flex: 1;
+  aspect-ratio: 1.8/1;
   position: relative;
   background-size: cover;
   background-position: center;
@@ -505,7 +505,7 @@
 
 /* プレースホルダー画像共通化 */
 .placeholder-bg {
-  background-image: url("../images/test.webp");
+  background-image: url("../../images/test.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -534,7 +534,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('../images/shosenji.webp');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('../../images/shosenji.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -806,7 +806,7 @@
   gap: 0.2rem;
   align-items: center;
   margin-top: 0;
-  padding: 0.6rem;
+  padding: 0.4rem;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.95) 0%,
@@ -1021,19 +1021,19 @@
 
 /* 各県の背景画像 */
 .prefecture-block.tokushima .prefecture-header {
-  background-image: url("../images/prefecture-grid/tokushima.webp");
+  background-image: url("../../images/prefecture-grid/tokushima.webp");
 }
 
 .prefecture-block.kouchi .prefecture-header {
-  background-image: url("../images/prefecture-grid/kouchi.webp");
+  background-image: url("../../images/prefecture-grid/kouchi.webp");
 }
 
 .prefecture-block.ehime .prefecture-header {
-  background-image: url("../images/prefecture-grid/ehime.webp");
+  background-image: url("../../images/prefecture-grid/ehime.webp");
 }
 
 .prefecture-block.kagawa .prefecture-header {
-  background-image: url("../images/prefecture-grid/kagawa.webp");
+  background-image: url("../../images/prefecture-grid/kagawa.webp");
 }
 
 .prefecture-header p {
@@ -3057,19 +3057,19 @@ footer {
 
 /* 各カテゴリーの背景画像 */
 .ec-category[data-step="1"] {
-  background-image: url("../images/hakui.webp");
+  background-image: url("../../images/hakui.webp");
 }
 
 .ec-category[data-step="2"] {
-  background-image: url("../images/nokyocho.webp");
+  background-image: url("../../images/nokyocho.webp");
 }
 
 .ec-category[data-step="3"] {
-  background-image: url("../images/kongozue.webp");
+  background-image: url("../../images/kongozue.webp");
 }
 
 .ec-category[data-step="4"] {
-  background-image: url("../images/senko.webp");
+  background-image: url("../../images/senko.webp");
 }
 
 .ec-category:hover {

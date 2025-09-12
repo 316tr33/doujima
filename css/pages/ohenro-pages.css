@@ -199,35 +199,35 @@
    =============================================== */
 
 body[data-page="ohenro"] .hero-slide:nth-child(1) {
-  background-image: url("../images/index-hero/slide1.webp") !important;
+  background-image: url("../../images/index-hero/slide1.webp") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
 }
 
 body[data-page="ohenro"] .hero-slide:nth-child(2) {
-  background-image: url("../images/index-hero/slide2.webp") !important;
+  background-image: url("../../images/index-hero/slide2.webp") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
 }
 
 body[data-page="ohenro"] .hero-slide:nth-child(3) {
-  background-image: url("../images/index-hero/slide3.webp") !important;
+  background-image: url("../../images/index-hero/slide3.webp") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
 }
 
 body[data-page="ohenro"] .hero-slide:nth-child(4) {
-  background-image: url("../images/index-hero/slide4.webp") !important;
+  background-image: url("../../images/index-hero/slide4.webp") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
 }
 
 body[data-page="ohenro"] .hero-slide:nth-child(5) {
-  background-image: url("../images/index-hero/slide5.webp") !important;
+  background-image: url("../../images/index-hero/slide5.webp") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
