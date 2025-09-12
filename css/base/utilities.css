@@ -1,0 +1,26 @@
+/* qæüÆ£êÆ£¯é¹ */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ˆOŒ‹æüÆ£êÆ£¯é¹ */
+.text-center { text-align: center; }
+.text-gold { color: var(--primary-gold); }
+.bg-overlay { background: var(--bg-overlay); }
+.margin-auto { margin: var(--margin-auto); }
+.padding-lg { padding: var(--spacing-lg); }
+.margin-bottom-md { margin-bottom: var(--spacing-md); }
+
+/* ÍnD¹¿¤ëÑ¿üó’q */
+.gold-border { border: var(--border-gold); }
+.shadow-text { text-shadow: var(--shadow-text); }
+.shadow-card { box-shadow: var(--shadow-card); }
+.bg-dark { background: var(--bg-dark); }
