@@ -1,0 +1,309 @@
+/* ===========================================
+   企業ホームページ専用スタイル
+   =========================================== */
+
+/* 企業ヒーローセクション */
+.hero-section {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(20, 20, 20, 0.8) 100%
+    ),
+    url('../images/shosanji.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  margin-top: 80px;
+  z-index: 1;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(212, 175, 55, 0.1) 0%,
+    transparent 50%,
+    rgba(184, 134, 11, 0.1) 100%
+  );
+}
+
+/* 事業リンクカード */
+.business-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 600px;
+  margin: var(--margin-auto);
+}
+
+.business-card {
+  background: rgba(250, 248, 245, 0.95);
+  padding: 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.business-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+  border-color: #d4af37;
+}
+
+.business-card h3 {
+  font-size: 1.4rem;
+  color: #b8860b;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.business-card p {
+  font-size: 1rem;
+  color: rgba(60, 60, 60, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 企業概要セクション */
+.company-overview {
+  padding: 4rem 2rem;
+  background: rgba(250, 248, 245, 0.9);
+  text-align: center;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.company-overview .container {
+  max-width: 800px;
+  margin: var(--margin-auto);
+}
+
+.company-overview h2 {
+  font-size: 2.2rem;
+  color: #b8860b;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.company-overview p {
+  font-size: 1.2rem;
+  color: rgba(60, 60, 60, 0.8);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+/* ニュースセクション */
+.news-section {
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.news-section .container {
+  max-width: 800px;
+  margin: var(--margin-auto);
+}
+
+.news-section h2,
+.services-section h2,
+.results-section h2,
+.contact-section h2 {
+  font-size: 2rem;
+  color: #b8860b;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.news-item {
+  background: rgba(250, 248, 245, 0.9);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #d4af37;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.news-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.news-item time {
+  font-size: 0.9rem;
+  color: rgba(60, 60, 60, 0.6);
+  font-weight: 500;
+}
+
+.news-item h3 {
+  font-size: 1.2rem;
+  color: #b8860b;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* B2B企業ページ専用スタイル */
+
+/* ヒーローセクション - B2B版 */
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: rgba(212, 175, 55, 0.9);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-description {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.cta-primary {
+  background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+  color: white;
+  padding: 1.2rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  background: linear-gradient(135deg, #e6c547, var(--primary-gold));
+  text-decoration: none;
+  color: white;
+}
+
+.cta-secondary {
+  background: transparent;
+  color: white;
+  padding: 1.2rem 2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  transform: translateY(-3px);
+  text-decoration: none;
+  color: white;
+}
+
+.hero-features {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.feature-item i {
+  font-size: 1.5rem;
+  color: var(--accent-gold);
+}
+
+.feature-item span {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content > p {
+    font-size: 1.1rem;
+  }
+
+  .business-links {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .hero-features {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 70vh;
+    margin-top: 70px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .business-card {
+    padding: 1.5rem;
+  }
+
+  .company-overview,
+  .news-section {
+    padding: 2.5rem 1rem;
+  }
+}

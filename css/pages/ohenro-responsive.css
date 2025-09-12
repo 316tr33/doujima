@@ -1,0 +1,369 @@
+/* 
+   ohenro-responsive.css - お遍路ページレスポンシブ対応
+   メディアクエリ・モバイル・タブレット対応
+*/
+
+/* ===============================================
+   タブレット対応 (max-width: 1024px)
+   =============================================== */
+
+@media (max-width: 1024px) {
+  .layout-section {
+    padding: 2.5rem 1rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .layout-header {
+    font-size: 1.6rem;
+    padding: 1.2rem 2.5rem;
+  }
+}
+
+/* ===============================================
+   モバイル対応 (max-width: 768px)
+   =============================================== */
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .prefecture-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.3rem;
+  }
+
+  .prefecture-block {
+    height: 280px;
+    min-height: 80px;
+    aspect-ratio: auto;
+    padding: 1rem;
+  }
+
+  .quote-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .quote-text {
+    font-size: 1.8rem;
+    line-height: 1.8;
+  }
+
+  .vertical-text-section {
+    padding: 4rem 1.5rem;
+    min-height: 40vh;
+  }
+
+  .vertical-text {
+    font-size: 1.4rem;
+    letter-spacing: 8px;
+    line-height: 2.8;
+  }
+
+  .layout-section {
+    padding: 1.5rem 0.8rem;
+    border-radius: 12px;
+  }
+
+  .layout-header {
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+  }
+
+  /* STEP学習システム - タブレット */
+  .compact-original-learning {
+    padding: 2rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .step-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .step-video {
+    max-width: 100%;
+    order: -1;
+  }
+
+  .step-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .step-number {
+    margin-right: 0;
+  }
+
+  /* 検索・フィルター - タブレット */
+  .temple-search-container {
+    padding: 2.5rem 1rem;
+  }
+
+  .search-box {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .search-filters {
+    gap: 0.8rem;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  /* カード・コンポーネント - タブレット */
+  .card-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    gap: 1.5rem;
+  }
+
+  .hero-image-content h2 {
+    font-size: 2rem;
+  }
+
+  .section-intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .text-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .text-content h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ===============================================
+   スマートフォン対応 (max-width: 480px)
+   =============================================== */
+
+@media (max-width: 480px) {
+  .layout-section {
+    padding: 2rem 1rem;
+    margin-bottom: 2.5rem;
+    border-radius: 8px;
+  }
+
+  .layout-header {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  /* STEP学習システム - スマートフォン */
+  .compact-original-learning {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+  }
+
+  .compact-step {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .step-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .step-title {
+    font-size: 1.2rem;
+  }
+
+  .step-video {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-description {
+    padding: 0.5rem;
+  }
+
+  .step-description h4 {
+    font-size: 1.1rem;
+  }
+
+  /* カード全体の幅設定を480px以下で修正 */
+  .prefecture-block,
+  .gallery-item {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .prefecture-block {
+    height: 250px;
+    margin-bottom: 1rem;
+  }
+
+  .prefecture-header {
+    padding: 0.8rem;
+  }
+
+  .prefecture-simple {
+    padding: 0.8rem;
+  }
+
+  /* 検索・フィルター - スマートフォン */
+  .temple-search-container {
+    padding: 2rem 0.8rem;
+  }
+
+  .search-box {
+    padding: 0.6rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-box input {
+    font-size: 1rem;
+  }
+
+  .search-filters {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    min-width: 80px;
+  }
+
+  /* テキスト・引用 - スマートフォン */
+  .quote-section {
+    padding: 3rem 1rem;
+  }
+
+  .quote-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .quote-author {
+    font-size: 1rem;
+  }
+
+  .vertical-text-section {
+    padding: 3rem 1rem;
+    min-height: 30vh;
+  }
+
+  .vertical-text {
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+    line-height: 2.4;
+  }
+
+  /* ボタン・CTA - スマートフォン */
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* YouTube動画 - スマートフォン */
+  .youtube-placeholder {
+    min-height: 150px;
+    font-size: 1rem;
+  }
+
+  .youtube-placeholder::before {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* ===============================================
+   極小画面対応 (max-width: 360px)
+   =============================================== */
+
+@media (max-width: 360px) {
+  .compact-original-learning {
+    padding: 1rem 0.8rem;
+  }
+
+  .compact-step {
+    padding: 1rem 0.8rem;
+  }
+
+  .step-number {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .step-title {
+    font-size: 1.1rem;
+  }
+
+  .prefecture-block {
+    height: 220px;
+  }
+
+  .search-box {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .quote-text {
+    font-size: 1.3rem;
+  }
+
+  .vertical-text {
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+  }
+}
+
+/* ===============================================
+   高解像度・大画面対応 (min-width: 1400px)
+   =============================================== */
+
+@media (min-width: 1400px) {
+  .layout-section {
+    padding: 5rem 3rem;
+  }
+
+  .compact-original-learning {
+    max-width: 1400px;
+    padding: 4rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+
+  .prefecture-grid {
+    max-width: 1400px;
+    gap: 2rem;
+  }
+
+  .quote-text {
+    font-size: 2.4rem;
+  }
+}

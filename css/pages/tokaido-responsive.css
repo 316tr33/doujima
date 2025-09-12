@@ -1,0 +1,229 @@
+/* 
+   tokaido-responsive.css - 東海道ページレスポンシブ対応
+   メディアクエリ・モバイル・タブレット対応
+*/
+
+/* ===============================================
+   タブレット対応 (max-width: 1024px)
+   =============================================== */
+
+@media (max-width: 1024px) {
+  .tokaido-attractions {
+    padding: 3rem 1.5rem;
+    gap: 3rem;
+  }
+  
+  .attraction-block {
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+  
+  .attraction-content h3 {
+    font-size: 1.6rem;
+  }
+  
+  .stations-title {
+    font-size: 3.5rem;
+  }
+  
+  .station-search-container {
+    padding: 0 1rem;
+  }
+}
+
+/* ===============================================
+   モバイル対応 (max-width: 768px)
+   =============================================== */
+
+@media (max-width: 768px) {
+  .attraction-block,
+  .attraction-block.reverse {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .attraction-image {
+    flex: none;
+    width: 100%;
+    height: 180px;
+  }
+
+  .attraction-content h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .attraction-highlights {
+    justify-content: center;
+  }
+  
+  .stations-title {
+    font-size: 2.8rem;
+  }
+  
+  .stations-description {
+    font-size: 1.1rem;
+  }
+  
+  .stations-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .search-box {
+    padding: 0.6rem 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .search-filters {
+    gap: 0.6rem;
+  }
+  
+  .filter-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+  
+  .tokaido-section {
+    padding: 1.5rem 1rem 3rem 1rem;
+  }
+}
+
+/* ===============================================
+   スマートフォン対応 (max-width: 480px)
+   =============================================== */
+
+@media (max-width: 480px) {
+  .tokaido-attractions {
+    gap: 2.5rem;
+  }
+
+  .attraction-block {
+    padding: 1.5rem 1rem;
+  }
+
+  .attraction-image {
+    height: 150px;
+  }
+
+  .attraction-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .attraction-content p {
+    font-size: 1rem;
+  }
+  
+  .stations-title {
+    font-size: 2.2rem;
+  }
+  
+  .stations-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .search-box {
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+  }
+  
+  .search-box input {
+    font-size: 1rem;
+    padding: 0.3rem;
+  }
+  
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    min-width: 90px;
+    margin-bottom: 0.6rem;
+  }
+  
+  .station-card {
+    margin-bottom: 1rem;
+  }
+  
+  .station-header {
+    height: 150px;
+  }
+  
+  .station-content {
+    padding: 1rem;
+  }
+  
+  .station-title {
+    font-size: 1.1rem;
+  }
+  
+  .contact-info p {
+    font-size: 1rem;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .tokaido-section {
+    padding: 1rem 0.8rem 2rem 0.8rem;
+  }
+}
+
+/* ===============================================
+   極小画面対応 (max-width: 360px)
+   =============================================== */
+
+@media (max-width: 360px) {
+  .attraction-block {
+    padding: 1rem 0.8rem;
+  }
+  
+  .stations-title {
+    font-size: 1.8rem;
+  }
+  
+  .search-box {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .filter-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 80px;
+  }
+  
+  .station-header {
+    height: 120px;
+  }
+  
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===============================================
+   大画面対応 (min-width: 1400px)
+   =============================================== */
+
+@media (min-width: 1400px) {
+  .tokaido-attractions {
+    max-width: 1400px;
+    padding: 5rem 3rem;
+    gap: 5rem;
+  }
+  
+  .attraction-block {
+    padding: 4rem 3rem;
+    gap: 4rem;
+  }
+  
+  .stations-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+  }
+  
+  .stations-title {
+    font-size: 5rem;
+  }
+}

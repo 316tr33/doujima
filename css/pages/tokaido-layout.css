@@ -1,0 +1,120 @@
+/* 
+   tokaido-layout.css - 東海道ページレイアウト・構造
+   基本レイアウト・グリッド・セクション構造
+*/
+
+/* =============== 基本レイアウト構造 =============== */
+
+.tokaido-attractions {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.tokaido-about-section {
+  background: #f8f9fa;
+  padding: 2rem 2rem;
+  position: relative;
+}
+
+.tokaido-main-title {
+  margin-top: 1.5rem !important;
+  margin-bottom: 2.5rem !important;
+}
+
+.tokaido-section {
+  background: #f8f9fa;
+  padding: 2rem 2rem 4rem 2rem;
+  position: relative;
+}
+
+.tokaido-detailed-info {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* =============== グリッドレイアウト =============== */
+
+.stations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.station-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease;
+}
+
+.station-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.station-header {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.station-content {
+  padding: 1.5rem;
+}
+
+.station-title {
+  color: #d4af37;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.station-distance {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* =============== ヒーローセクション =============== */
+
+.hero.stations-hero {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.6),
+    rgba(20, 20, 20, 0.7)
+  ), url('../images/tokaido-hero.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.stations-hero-content {
+  text-align: center;
+  color: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.stations-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.stations-description {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}

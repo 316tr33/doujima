@@ -1,0 +1,112 @@
+/* 
+   ohenro-layout.css - お遍路ページレイアウト・構造
+   基本レイアウト・グリッド・セクション構造
+*/
+
+/* quote-section */
+.quote-section {
+  background: linear-gradient(
+    135deg,
+    rgba(250, 248, 243, 0.95),
+    rgba(248, 246, 240, 0.9)
+  );
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+  border-top: var(--border-gold);
+  border-bottom: var(--border-gold);
+}
+
+.quote-content {
+  max-width: 800px;
+  margin: var(--margin-auto);
+}
+
+/* 縦書きテキストセクション */
+.vertical-text-section {
+  background: var(--bg-dark);
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+/* 画像ギャラリー - 拡張版 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+/* 四国4県ブロック */
+.prefecture-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  flex: 1;
+  align-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* レイアウトシフト防止 */
+.step-content,
+.prefecture-grid {
+  contain: layout style;
+}
+
+/* レイアウトセクション - 基本スタイル */
+.layout-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem 2rem;
+  margin-bottom: 4rem;
+  background: linear-gradient(
+    135deg,
+    rgba(250, 248, 243, 0.4) 0%,
+    rgba(248, 246, 240, 0.6) 100%
+  );
+  position: relative;
+  min-height: 80vh;
+}
+
+.layout-header {
+  background: linear-gradient(
+    135deg,
+    var(--primary-gold),
+    var(--secondary-gold),
+    var(--primary-gold)
+  );
+  padding: 1.5rem 3rem;
+  color: var(--secondary-gold);
+  font-size: 1.8rem;
+  border-radius: 35px 5px;
+  margin-bottom: 4rem;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background-clip: padding-box;
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* 各県の背景画像 */
+.prefecture-block.tokushima .prefecture-header {
+  background-image: url("../images/prefecture-grid/tokushima.webp");
+}
+
+.prefecture-block.kouchi .prefecture-header {
+  background-image: url("../images/prefecture-grid/kouchi.webp");
+}
+
+.prefecture-block.ehime .prefecture-header {
+  background-image: url("../images/prefecture-grid/ehime.webp");
+}
+
+.prefecture-block.kagawa .prefecture-header {
+  background-image: url("../images/prefecture-grid/kagawa.webp");
+}
