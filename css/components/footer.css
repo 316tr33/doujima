@@ -110,7 +110,7 @@ footer .social-links a:hover {
 }
 
 /* レスポンシブ対応 */
-@media (max-width: 1024px) {
+@media (max-width: 1024px) /* --bp-lg */ {
   .footer-content {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -124,7 +124,7 @@ footer .social-links a:hover {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) /* --bp-sm */ {
   footer {
     padding: 3rem 1rem 1.5rem;
   }

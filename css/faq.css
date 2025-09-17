@@ -133,8 +133,8 @@ body {
 
 .faq-header p {
   color: #666;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 /* FAQ項目 */
@@ -217,20 +217,16 @@ body {
   background: rgba(248, 246, 240, 0.8);
 }
 
-.faq-answer-content {
-  padding: 0 25px 25px 30px;
-  animation: fadeIn 0.5s ease;
-}
-
 .faq-answer p {
   margin: 0;
+  padding: 20px 25px 25px 30px;
   line-height: 1.8;
   color: #555;
   font-size: 1.05rem;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 500px;
+  max-height: 1000px;
   padding-top: 10px;
 }
 
@@ -387,7 +383,7 @@ body {
 @media screen and (max-width: 768px) {
   .faq-container {
     padding: 30px 20px;
-    margin: 30px 15px;
+    margin: 20px 15px;
   }
 
   .faq-header h2 {
@@ -395,12 +391,16 @@ body {
   }
 
   .faq-question {
-    font-size: 1rem;
+    font-size: 0.95rem;
     padding: 15px 20px;
   }
 
   .faq-answer p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+  }
+
+  .faq-search-container {
+    margin: 40px auto 20px;
   }
 
   .faq-categories {
@@ -408,11 +408,14 @@ body {
     overflow-x: auto;
     flex-wrap: nowrap;
     padding-bottom: 10px;
+    gap: 8px;
   }
 
   .category-btn {
     white-space: nowrap;
     flex-shrink: 0;
+    padding: 8px 16px;
+    font-size: 0.85rem;
   }
 
   .faq-stats {
@@ -425,11 +428,36 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-  .faq-question span {
-    font-size: 0.95rem;
+  .faq-question {
+    font-size: 0.9rem;
+    padding: 12px 15px;
   }
 
-  .faq-answer-content {
-    padding: 0 15px 20px 20px;
+  .faq-question span {
+    font-size: 1.1rem;
+  }
+
+  .faq-answer p {
+    font-size: 1rem;
+    line-height: 1.8;
+    padding: 15px 15px 20px 20px;
+  }
+
+  .faq-search-container {
+    margin: 30px auto 15px;
+  }
+
+  .faq-container {
+    margin: 15px 10px;
+  }
+
+  .faq-categories {
+    gap: 6px;
+  }
+
+  .category-btn {
+    padding: 8px 14px;
+    font-size: 1rem;
+    border-radius: 23px;
   }
 }

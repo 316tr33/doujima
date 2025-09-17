@@ -2,7 +2,7 @@
 
 /* デスクトップ デフォルトは3列 - ohenro.cssで定義済み */
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) /* --bp-lg */ {
   .booking-features {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
@@ -54,7 +54,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) /* --bp-sm */ {
   .booking-section {
     padding: 2.5rem 0;
   }

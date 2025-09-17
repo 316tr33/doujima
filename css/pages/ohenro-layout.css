@@ -40,16 +40,16 @@
   margin: 4rem 0;
 }
 
-/* 四国4県ブロック */
+/* 四国4県ブロック（モバイルファースト） */
 .prefecture-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: 1fr; /* モバイルは1列 */
+  gap: var(--spacing-lg-mobile);
   flex: 1;
   align-content: center;
-  max-width: 1200px;
+  max-width: var(--container-sm);
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--spacing-lg-mobile);
 }
 
 /* レイアウトシフト防止 */
@@ -63,15 +63,15 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 4rem 2rem;
-  margin-bottom: 4rem;
+  padding: var(--spacing-2xl-mobile) var(--spacing-md-mobile);
+  margin-bottom: var(--spacing-2xl-mobile);
   background: linear-gradient(
     135deg,
     rgba(250, 248, 243, 0.4) 0%,
     rgba(248, 246, 240, 0.6) 100%
   );
   position: relative;
-  min-height: 80vh;
+  min-height: 60vh; /* モバイルでは高さを減らす */
 }
 
 .layout-header {
@@ -109,4 +109,48 @@
 
 .prefecture-block.kagawa .prefecture-header {
   background-image: url("../../images/prefecture-grid/kagawa.webp");
+}
+
+/* ===============================================
+   レスポンシブレイアウト（モバイルファースト）
+   =============================================== */
+
+@media (min-width: 768px) { /* --bp-md */
+  .prefecture-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    max-width: var(--container-md);
+    padding: var(--spacing-2xl);
+  }
+  
+  .layout-section {
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+    margin-bottom: var(--spacing-3xl);
+    min-height: 80vh;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+  }
+  
+  .quote-section {
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+  }
+  
+  .vertical-text-section {
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+  }
+}
+
+@media (min-width: 1024px) { /* --bp-lg */
+  .prefecture-grid {
+    max-width: var(--container-lg);
+  }
+}
+
+@media (min-width: 1440px) { /* --bp-xl */
+  .prefecture-grid {
+    max-width: 1200px;
+  }
 }

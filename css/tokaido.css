@@ -5,3 +5,5 @@
 @import url('base/variables.css');
 @import url('components/buttons.css');
 @import url('pages/tokaido-components.css');
+@import url('pages/tokaido-layout.css');
+@import url('pages/tokaido-responsive.css');

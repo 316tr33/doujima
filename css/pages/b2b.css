@@ -615,7 +615,7 @@
 }
 
 /* レスポンシブ対応 - B2B版 */
-@media (max-width: 1024px) {
+@media (max-width: 1024px) /* --bp-lg */ {
   .contact-content,
   .company-grid {
     grid-template-columns: 1fr;
@@ -650,7 +650,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) /* --bp-sm */ {
   .services-section,
   .results-section,
   .guides-section,

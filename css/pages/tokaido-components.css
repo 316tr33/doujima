@@ -264,7 +264,7 @@ footer {
   color: rgba(51, 51, 51, 0.8) !important;
   font-size: 0.9rem;
   letter-spacing: 1px;
-}/* エリアタイトルとエリア説明のスタイル */
+} /* エリアタイトルとエリア説明のスタイル */
 .area-title {
   display: flex;
   flex-direction: column;
@@ -510,9 +510,13 @@ footer {
   .attraction-highlights {
     justify-content: center;
   }
+
+  .tokaido-about-section .section-intro {
+    padding: 0 1rem;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) /* --bp-sm */ {
   .tokaido-attractions {
     gap: 2.5rem;
   }
@@ -531,6 +535,10 @@ footer {
 
   .attraction-content p {
     font-size: 1rem;
+  }
+
+  .tokaido-about-section .section-intro {
+    padding: 0 0.8rem;
   }
 }
 
@@ -616,7 +624,7 @@ footer {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) /* --bp-sm */ {
   .tokaido-detailed-info {
     margin-top: 1.5rem;
   }
@@ -673,7 +681,7 @@ footer {
 
 .timeline {
   position: relative;
-  padding: 2rem 0;
+  padding: 0.6rem 0;
 }
 
 .timeline::before {
@@ -693,7 +701,7 @@ footer {
 
 .timeline-item {
   position: relative;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   width: 100%;
 }
 
@@ -776,7 +784,7 @@ footer {
 
 /* ��n}W������ */
 .modern-experience {
-  margin-top: 4rem;
+  margin-top: 2rem;
   text-align: center;
 }
 
@@ -857,9 +865,9 @@ footer {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) /* --bp-sm */ {
   .tokaido-timeline-section {
-    padding: 3rem 1rem;
+    padding: 1.8rem 1rem;
   }
 
   .timeline-title {
@@ -987,13 +995,13 @@ footer {
 
 /* �ꢻ���� */
 .area-section {
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 }
 
 .area-title {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0rem;
   margin-bottom: 2rem;
   padding: 1.5rem 2rem;
   background: linear-gradient(
@@ -1248,7 +1256,7 @@ footer {
 /* �h�4:9˻���� */
 .featured-stations-section {
   background: #ffffff;
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   position: relative;
 }
 
@@ -1399,7 +1407,7 @@ footer {
 /* �h�4:�����n������ */
 @media (max-width: 768px) {
   .featured-stations-section {
-    padding: 3rem 1.5rem;
+    padding: 2rem 1.5rem 1.4rem;
   }
 
   .stations-grid {
@@ -1429,7 +1437,7 @@ footer {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) /* --bp-sm */ {
   .stations-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -1663,7 +1671,7 @@ footer {
 .section-title,
 .route-selection-section .section-title {
   color: var(--primary-gold);
-  font-size: 2.8rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
   text-align: center;
   font-weight: 600;
@@ -2141,7 +2149,7 @@ textarea:focus,
 /* ===== ���������� ===== */
 
 .guide-index-section {
-  padding: 4rem 2rem;
+  padding: 3rem 1rem;
   background: linear-gradient(180deg, #f8f6f0 0%, #f5f3ef 100%);
 }
 
@@ -2155,7 +2163,7 @@ textarea:focus,
 .guide-index-card {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 18px;
-  padding: 2.5rem;
+  padding: 0.5rem;
   border: 2px solid rgba(212, 175, 55, 0.15);
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -2232,7 +2240,7 @@ textarea:focus,
 }
 
 .guide-section {
-  padding: 4rem 2rem;
+  padding: 1rem 1rem;
   border-bottom: 1px solid rgba(212, 175, 55, 0.1);
 }
 
@@ -2243,13 +2251,13 @@ textarea:focus,
 .guide-header {
   display: flex;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   justify-content: center;
 }
 
 .guide-icon {
-  font-size: 3rem;
+  font-size: 1.8rem;
   margin-right: 1.5rem;
   color: var(--primary-gold);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -3145,7 +3153,7 @@ textarea:focus,
 }
 
 /* ������n������ */
-@media (max-width: 1024px) {
+@media (max-width: 1024px) /* --bp-lg */ {
   .guide-content-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -3208,7 +3216,7 @@ textarea:focus,
 }
 
 .booking-header {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .booking-title {
@@ -3230,7 +3238,7 @@ textarea:focus,
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 1.4rem 0;
 }
 
 .feature-item {
@@ -3296,7 +3304,8 @@ textarea:focus,
   }
 
   .booking-content {
-    padding: 2rem;
+    padding: 1.8rem 1.5rem 1.4rem;
+    margin: -1rem 1.2rem -1rem;
   }
 
   .booking-title {
@@ -3696,7 +3705,7 @@ textarea:focus,
   color: #666;
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 0.1rem;
   line-height: 1.6;
   white-space: nowrap;
   overflow: hidden;
@@ -3745,7 +3754,7 @@ textarea:focus,
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   max-width: 800px;
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding: 0 1rem;
 }
 
@@ -3790,7 +3799,7 @@ textarea:focus,
 @media (max-width: 768px) {
   .experience-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 0 0.5rem;
   }
 
@@ -3864,7 +3873,7 @@ textarea:focus,
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) /* --bp-sm */ {
   .hero.stations-hero {
     height: 45vh;
     min-height: 350px;

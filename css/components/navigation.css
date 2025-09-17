@@ -1,16 +1,15 @@
 /* ===========================================
-   ナビゲーションコンポーネント
-   ヘッダー・メニュー・モバイル対応
+   ナビゲーションコンポーネント（モバイルファースト）
    =========================================== */
 
-/* ヘッダー */
+/* ヘッダー（モバイル） */
 header {
   position: fixed;
   top: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.95);
   z-index: var(--z-fixed);
-  padding: 1rem 0;
+  padding: var(--spacing-sm-mobile) 0;
   border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
@@ -18,22 +17,23 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: var(--margin-auto);
-  padding: 0 2rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .logo {
-  color: #b2932f;
-  font-size: 1.3rem;
-  font-weight: bold;
+  color: #d4af37;
+  font-size: 1.2rem;
+  font-weight: 700;
   letter-spacing: 1px;
 }
 
+/* デスクトップナビゲーション（初期表示は非表示） */
 .nav-links {
-  display: flex;
+  display: none;
   list-style: none;
-  gap: 0.5rem;
+  gap: var(--spacing-xs);
   position: relative;
   align-items: center;
 }
@@ -48,13 +48,17 @@ nav {
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.8px;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s ease;
   padding: 0.8rem 1.2rem;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .nav-links a::before {
@@ -205,26 +209,28 @@ nav {
   left: 100%;
 }
 
-/* モバイルナビゲーション */
+/* モバイルメニュートグル（デフォルト表示） */
 .mobile-menu-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0;
-  z-index: var(--z-dropdown);
+  padding: 8px;
+  z-index: 1000;
   position: relative;
   transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .hamburger-line {
   width: 25px;
   height: 3px;
-  background-color: var(--primary-gold);
+  background-color: #d4af37;
   display: block;
   transition: all 0.3s ease;
   transform-origin: center;
@@ -265,13 +271,16 @@ nav {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 280px;
-  height: 100%;
+  width: min(280px, 80vw);
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height */
   background: rgba(0, 0, 0, 0.95);
   z-index: var(--z-modal);
-  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: right var(--transition-normal);
   border-left: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-card);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-menu.active {
@@ -314,15 +323,18 @@ nav {
 }
 
 .mobile-menu-link {
-  display: block;
+  display: flex;
+  align-items: center;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
+  padding: 1.5rem 2rem;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   transition: all 0.3s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 48px;
+  touch-action: manipulation;
 }
 
 .mobile-menu-link:hover,
@@ -337,14 +349,66 @@ nav {
   border-bottom: none;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-  /* ナビゲーション切り替え */
+/* ===============================================
+   タブレット以上で適用（モバイルファースト）
+   =============================================== */
+
+@media (min-width: 768px) { /* --bp-md */
+  header {
+    padding: 1rem 0 !important;
+  }
+  
+  nav {
+    max-width: 1200px !important;
+    padding: 0 2rem !important;
+  }
+  
+  .logo {
+    font-size: 1.5rem !important;
+  }
+  
+  /* デスクトップナビゲーション表示 */
   .nav-links {
+    display: flex !important;
+    gap: 0.5rem !important;
+  }
+  
+  .nav-links a {
+    padding: 0.8rem 1.2rem !important;
+    font-size: 0.95rem !important;
+  }
+  
+  /* モバイルメニュー非表示 */
+  .mobile-menu-toggle {
     display: none;
   }
+  
+  /* ドロップダウンメニューの表示制御 */
+  .nav-links > li:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(5px);
+    pointer-events: auto;
+  }
+}
 
-  .mobile-menu-toggle {
-    display: flex;
+@media (min-width: 1024px) { /* --bp-lg */
+  nav {
+    max-width: 1200px !important;
+    padding: 0 2rem !important;
+  }
+  
+  .nav-links {
+    gap: 1rem !important;
+  }
+  
+  .nav-links a {
+    padding: 1rem 1.5rem !important;
+  }
+}
+
+@media (min-width: 1440px) { /* --bp-xl */
+  nav {
+    max-width: var(--container-xl);
   }
 }

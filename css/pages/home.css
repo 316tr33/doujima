@@ -13,7 +13,7 @@
       rgba(0, 0, 0, 0.7) 0%,
       rgba(20, 20, 20, 0.8) 100%
     ),
-    url('../../images/shosanji.webp');
+    url("../../images/shosanji.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -176,6 +176,7 @@
   font-weight: 500;
   margin-bottom: 1rem;
   letter-spacing: 0.05em;
+  white-space: pre-line; /* HTMLの<br>タグを有効にする */
 }
 
 .hero-description {
@@ -196,7 +197,11 @@
 }
 
 .cta-primary {
-  background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+  background: linear-gradient(
+    135deg,
+    var(--primary-gold),
+    var(--secondary-gold)
+  );
   color: white;
   padding: 1.2rem 2.5rem;
   border-radius: 8px;
@@ -281,21 +286,25 @@
     align-items: center;
     gap: 1rem;
   }
-  
+
   .hero-features {
     flex-direction: column;
     gap: 1rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) /* --bp-sm */ {
   .hero-section {
     height: 70vh;
     margin-top: 70px;
   }
 
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: 2.2rem !important; /* 小画面用（29px）強制適用 */
+    letter-spacing: 0.03em !important; /* 文字間隔をより狭く */
+    line-height: 1.25 !important; /* 行間を調整 */
+    max-width: 100% !important; /* 最大幅制限、強制適用 */
+    word-break: break-word !important; /* 必要に応じて単語を分割 */
   }
 
   .business-card {
@@ -305,6 +314,45 @@
   .company-overview,
   .news-section {
     padding: 2.5rem 1rem;
+  }
+
+  .hero-features {
+    flex-direction: row !important; /* モバイルでも横並び */
+    flex-wrap: wrap !important; /* 必要時に折り返し */
+    justify-content: center !important; /* 中央配置 */
+    gap: 1rem !important; /* 適度な間隔 */
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    padding: 0.9rem 1.8rem !important; /* モバイル用の小さなサイズ */
+    font-size: 1rem !important; /* フォントサイズを小さく */
+  }
+
+  .stat-card {
+    padding: 1.5rem !important; /* モバイル用のコンパクトなpadding */
+  }
+
+  .stat-number {
+    font-size: 2.2rem !important; /* モバイル用の小さなフォントサイズ */
+    margin-bottom: 0.3rem !important; /* マージンを縮小 */
+  }
+
+  .stat-label {
+    font-size: 1rem !important; /* モバイル用の小さなフォントサイズ */
+    margin-bottom: 0.5rem !important; /* マージンを縮小 */
+  }
+
+  .stat-card p {
+    font-size: 0.9rem !important; /* モバイル用の小さなフォントサイズ */
+  }
+
+  .news-section {
+    padding: 1.5rem 1rem !important; /* モバイル用のコンパクトなパディング */
+  }
+
+  .hero-section {
+    background-attachment: scroll !important; /* モバイルでfixedの代わりにscroll */
   }
 }
 
@@ -321,7 +369,7 @@
       rgba(0, 0, 0, 0.7) 0%,
       rgba(20, 20, 20, 0.8) 100%
     ),
-    url('../../images/shosanji.webp');
+    url("../../images/shosanji.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -355,15 +403,17 @@
   font-size: 4rem;
   font-weight: 700;
   color: #d4af37;
-  margin-bottom: 1rem;
+  margin: 1rem auto; /* 左右を auto に変更 */
   letter-spacing: 0.1em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-align: center; /* 明示的に中央配置 */
+  width: 100%; /* 幅を100%に設定 */
 }
 
 .hero-content > p {
   font-size: 1.4rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   letter-spacing: 0.05em;
 }
 
@@ -439,7 +489,11 @@
 
 .cta-button {
   display: inline-block;
-  background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+  background: linear-gradient(
+    135deg,
+    var(--primary-gold),
+    var(--secondary-gold)
+  );
   color: white;
   padding: 1rem 2rem;
   border-radius: 8px;
@@ -469,6 +523,7 @@
 .news-section .container {
   max-width: 800px;
   margin: var(--margin-auto);
+  margin-bottom: 2rem;
 }
 
 .news-section h2,
@@ -477,7 +532,7 @@
 .contact-section h2 {
   font-size: 2rem;
   color: #b8860b;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-align: center;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -519,7 +574,11 @@
 
 /* フッター */
 footer {
-  background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.9) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(20, 20, 20, 0.95) 0%,
+    rgba(40, 40, 40, 0.9) 100%
+  );
   padding: 4rem 2rem 2rem;
   position: relative;
   color: #fff;
@@ -604,198 +663,123 @@ footer .social-links a:hover {
   transform: translateY(-2px);
 }
 
-/* モバイルナビゲーション */
-.mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 30px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1000;
-  position: relative;
-  transition: all 0.3s ease;
+/* ===============================================
+   企業ページ レスポンシブ対応（モバイルファースト）
+   =============================================== */
+
+/* モバイル（デフォルト） */
+.hero-section {
+  height: 70vh;
+  margin-top: 70px;
 }
 
-.hamburger-line {
-  width: 25px;
-  height: 3px;
-  background-color: var(--primary-gold);
-  display: block;
-  transition: all 0.3s ease;
-  transform-origin: center;
-  border-radius: 2px;
+.hero-content h1 {
+  font-size: 2.2rem; /* モバイル用サイズに変更（35px） */
+  letter-spacing: 0.05em; /* 文字間隔調整 */
+  line-height: 1.3; /* 行間調整 */
+  max-width: 100%; /* 最大幅制限 */
 }
 
-.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+.hero-content > p {
+  font-size: var(--font-md-mobile);
 }
 
-.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
-  opacity: 0;
+.business-links {
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg-mobile);
+  padding: 0 var(--spacing-md-mobile);
 }
 
-.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+.business-card {
+  padding: var(--spacing-lg-mobile);
 }
 
-.mobile-menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
+.company-overview,
+.news-section {
+  padding: var(--spacing-xl-mobile) var(--spacing-md-mobile);
 }
 
-.mobile-menu-overlay.active {
-  opacity: 1;
-  visibility: visible;
+.footer-content {
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl-mobile);
+  text-align: center;
 }
 
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 280px;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  z-index: 1001;
-  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border-left: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
-}
-
-.mobile-menu.active {
-  right: 0;
-}
-
-.mobile-menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.mobile-menu-title {
-  color: #d4af37;
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-}
-
-.mobile-menu-close {
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  transition: color 0.3s ease;
-}
-
-.mobile-menu-close:hover {
-  color: #d4af37;
-}
-
-.mobile-menu-nav {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 0;
-}
-
-.mobile-menu-link {
-  display: block;
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mobile-menu-link:hover,
-.mobile-menu-link:focus {
-  color: #d4af37;
-  background: rgba(212, 175, 55, 0.1);
-  padding-left: 2.5rem;
-  border-left: 3px solid #d4af37;
-}
-
-.mobile-menu-link:last-child {
-  border-bottom: none;
-}
-
-/* 企業ページ レスポンシブ対応 */
-@media (max-width: 768px) {
-  /* ナビゲーション切り替え */
-  .nav-links {
-    display: none;
-  }
-
-  .mobile-menu-toggle {
-    display: flex;
+/* タブレット以上 */
+@media (min-width: 768px) {
+  /* --bp-md */
+  .hero-section {
+    height: 80vh;
+    margin-top: 80px;
   }
 
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem !important; /* デスクトップで大きく、強制適用 */
+    margin: 2rem auto !important; /* 左右を auto に変更、強制適用 */
+    text-align: center !important; /* 明示的に中央配置、強制適用 */
+    width: 100% !important; /* 幅を100%に設定、強制適用 */
   }
 
   .hero-content > p {
-    font-size: 1.1rem;
+    font-size: var(--font-lg);
+  }
+
+  .hero-subtitle {
+    writing-mode: vertical-rl; /* 縦書き */
+    text-orientation: upright;
+    height: auto; /* 高さを自動調整 */
+    font-size: 1.3rem;
+    margin: 1.5rem auto;
+    letter-spacing: 0.2em;
+    white-space: pre-line; /* HTMLの<br>タグを有効にする */
+    line-height: 1.5; /* 行間を調整 */
   }
 
   .business-links {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-section {
-    height: 70vh;
-    margin-top: 70px;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    padding: 0;
   }
 
   .business-card {
-    padding: 1.5rem;
+    padding: var(--spacing-xl);
   }
 
   .company-overview,
   .news-section {
-    padding: 2.5rem 1rem;
+    padding: var(--spacing-2xl) var(--spacing-xl);
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* --bp-lg */
+  .hero-content h1 {
+    font-size: 4.5rem !important; /* 大画面でさらに大きく、強制適用 */
+    margin: 2rem auto !important; /* 左右を auto に変更、強制適用 */
+    text-align: center !important; /* 明示的に中央配置、強制適用 */
+    width: 100% !important; /* 幅を100%に設定、強制適用 */
   }
 }
 
 /* B2B企業ページ専用スタイル */
 
-/* ヒーローセクション - B2B版 */
-.hero-subtitle {
-  font-size: 1.1rem;
-  color: rgba(212, 175, 55, 0.9);
-  font-weight: 500;
-  margin-bottom: 1rem;
-  letter-spacing: 0.05em;
+/* ヒーローセクション - B2B版（モバイル専用） */
+@media (max-width: 767px) {
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(212, 175, 55, 0.9);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    white-space: pre-line; /* HTMLの<br>タグを有効にする */
+    writing-mode: horizontal-tb; /* モバイルでは横書き */
+    text-orientation: mixed;
+  }
 }
 
 .hero-description {
@@ -812,11 +796,15 @@ footer .social-links a:hover {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .cta-primary {
-  background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+  background: linear-gradient(
+    135deg,
+    var(--primary-gold),
+    var(--secondary-gold)
+  );
   color: white;
   padding: 1.2rem 2.5rem;
   border-radius: 8px;
@@ -884,14 +872,18 @@ footer .social-links a:hover {
 /* サービスセクション */
 .services-section {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, rgba(250, 248, 245, 0.95), rgba(248, 246, 240, 0.95));
+  background: linear-gradient(
+    135deg,
+    rgba(250, 248, 245, 0.95),
+    rgba(248, 246, 240, 0.95)
+  );
 }
 
 .section-description {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(60, 60, 60, 0.8);
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   line-height: 1.6;
 }
 
@@ -899,7 +891,7 @@ footer .social-links a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 }
 
 .service-card {
@@ -1025,7 +1017,11 @@ footer .social-links a:hover {
 /* 実績セクション */
 .results-section {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, rgba(184, 134, 11, 0.05), rgba(212, 175, 55, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(184, 134, 11, 0.05),
+    rgba(212, 175, 55, 0.05)
+  );
 }
 
 .stats-grid {
@@ -1296,7 +1292,7 @@ footer .social-links a:hover {
 
 .company-message {
   background: white;
-  padding: 2.5rem;
+  padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
@@ -1318,7 +1314,11 @@ footer .social-links a:hover {
 /* お問い合わせセクション */
 .contact-section {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, rgba(184, 134, 11, 0.08), rgba(212, 175, 55, 0.08));
+  background: linear-gradient(
+    135deg,
+    rgba(184, 134, 11, 0.08),
+    rgba(212, 175, 55, 0.08)
+  );
 }
 
 .contact-content {
@@ -1472,7 +1472,11 @@ footer .social-links a:hover {
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+  background: linear-gradient(
+    135deg,
+    var(--primary-gold),
+    var(--secondary-gold)
+  );
   color: white;
   padding: 1rem 2.5rem;
   border: none;
@@ -1545,17 +1549,17 @@ footer .social-links a:hover {
 }
 
 /* レスポンシブ対応 - B2B版 */
-@media (max-width: 1024px) {
+@media (max-width: 1024px) /* --bp-lg */ {
   .hero-features {
     gap: 2rem;
   }
-  
+
   .contact-content,
   .company-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -1568,57 +1572,76 @@ footer .social-links a:hover {
     align-items: center;
     gap: 1rem;
   }
-  
-  .hero-features {
-    flex-direction: column;
-    gap: 1rem;
+
+  .feature-item {
+    flex: 0 1 auto; /* フレキシブルサイズ */
+    min-width: fit-content; /* 内容に応じた最小幅 */
+    font-size: 0.9rem; /* モバイルで少し小さく */
   }
-  
+
+  .feature-item i {
+    font-size: 1.2rem; /* アイコンも少し小さく */
+  }
+
+  .feature-item span {
+    font-size: 0.85rem; /* テキストサイズ調整 */
+  }
+
   .services-grid,
   .stats-grid,
   .cert-grid,
   .guides-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .flow-steps {
     grid-template-columns: 1fr;
   }
-  
+
   .testimonial-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .contact-features,
   .response-promise {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .form-row {
     grid-template-columns: 1fr;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) /* --bp-sm */ {
   .services-section,
   .results-section,
   .guides-section,
   .company-section,
   .contact-section {
-    padding: 3rem 1rem;
+    padding: 1.5rem 1rem;
   }
-  
+
   .service-card,
   .guide-card,
   .contact-info,
   .contact-form {
     padding: 1.5rem;
+  }
+
+  /* フッターのパディングを調整してセンタリング修正 */
+  footer {
+    padding: 3rem 1rem 1.5rem !important; /* 左右パディングを統一 */
+  }
+
+  .footer-content {
+    margin: 0 auto !important; /* 左マージンをリセットして中央配置 */
+    max-width: 100% !important; /* 最大幅を調整 */
   }
 }
 

@@ -36,6 +36,26 @@ body[data-page="tokaido"] .hero-content h1 {
   display: block !important;
 }
 
+/* 東海道ページ デスクトップでより大きなヒーロー */
+@media (min-width: 1024px) { /* --bp-lg */
+  body[data-page="tokaido"] .hero-content h1 {
+    font-size: 7rem !important; /* より大きく */
+  }
+  
+  body[data-page="tokaido"] .hero-subtitle {
+    font-size: 1.6rem !important;
+  }
+  
+  body[data-page="tokaido"] .hero-description {
+    font-size: 1.5rem !important;
+  }
+  
+  .tokaido-hero .hero-content h1,
+  .tokaido-hero .hero-title {
+    font-size: 7rem !important;
+  }
+}
+
 .stations-title {
   text-align: center !important;
   margin: 2rem auto !important;
