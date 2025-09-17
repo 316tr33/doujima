@@ -1,0 +1,71 @@
+/* 
+   ohenro-base.css - お遍路ページ基盤設定
+   変数・ベース設定・パフォーマンス最適化
+*/
+
+/* CSS変数定義 */
+:root {
+  --primary-gold: #b8860b;
+  --secondary-gold: #8b6914;
+  --accent-gold: #d4af37;
+  --text-white: #2c2c2c;
+  --text-gray: #555;
+  --border-gold: 2px solid rgba(212, 175, 55, 0.3);
+  --margin-auto: 0 auto;
+  --shadow-text: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  --bg-dark: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.9) 100%);
+  --border-radius: 12px;
+  --shadow-card: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* パフォーマンス最適化 - GPU使用率削減 */
+*,
+*::before,
+*::after {
+  will-change: auto;
+  contain: layout;
+}
+
+/* 軽量化されたアニメーション */
+* {
+  transition-property: transform, opacity, color, background-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* レイアウトシフト防止 */
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+
+/* パフォーマンス重視設定 */
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "kern" 1, "jp04" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Noto Serif JP', serif;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* 軽量化されたボタン */
+button, .btn {
+  cursor: pointer;
+  border: none;
+}
+
+/* プレースホルダー画像共通化 */
+.placeholder-image {
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}

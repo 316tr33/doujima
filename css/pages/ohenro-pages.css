@@ -1,0 +1,268 @@
+/* 
+   ohenro-pages.css - お遍路ページ専用スタイル
+   特定ページ向けの専用スタイル・ヒーローセクション・学習システム
+*/
+
+/* ===============================================
+   shikoku.html専用最適化
+   =============================================== */
+
+.simple-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(250, 248, 243, 0.85) 0%,
+    rgba(248, 246, 240, 0.9) 100%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ===============================================
+   コンパクトオリジナルレイアウト（STEP学習システム）
+   =============================================== */
+
+.compact-original-learning {
+  max-width: 1200px;
+  margin: var(--margin-auto);
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(250, 248, 243, 0.4) 0%,
+    #c49b25 25%,
+    var(--secondary-gold) 75%,
+    #a67c0a 100%
+  );
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+}
+
+.compact-step {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.step-number {
+  background: linear-gradient(
+    135deg,
+    var(--primary-gold),
+    var(--secondary-gold),
+    var(--primary-gold)
+  );
+  color: #333;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-right: 1.5rem;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.step-title {
+  color: var(--secondary-gold);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.step-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.step-video {
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.step-video::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    var(--primary-gold),
+    var(--secondary-gold),
+    var(--primary-gold)
+  );
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.step-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+.step-description {
+  padding: 1rem;
+}
+
+.step-description h4 {
+  color: var(--secondary-gold);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.step-description p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+/* 学習システム内の特別要素 */
+.quick-points {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--primary-gold);
+  font-size: 0.9rem;
+  padding: 0.8rem 1.2rem;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.worship-flow {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--accent-gold);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.worship-flow .flow-item {
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ===============================================
+   STEP1学習コンテンツ内ショップリンク
+   =============================================== */
+
+.shop-link-container {
+  background: linear-gradient(135deg, rgba(250, 248, 243, 0.9), rgba(248, 246, 240, 0.95));
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+}
+
+.shop-link-title {
+  color: var(--primary-gold);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* ===============================================
+   お遍路ページのヒーロースライド背景画像
+   =============================================== */
+
+body[data-page="ohenro"] .hero-slide:nth-child(1) {
+  background-image: url("../../images/index-hero/slide1.webp") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+body[data-page="ohenro"] .hero-slide:nth-child(2) {
+  background-image: url("../../images/index-hero/slide2.webp") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+body[data-page="ohenro"] .hero-slide:nth-child(3) {
+  background-image: url("../../images/index-hero/slide3.webp") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+body[data-page="ohenro"] .hero-slide:nth-child(4) {
+  background-image: url("../../images/index-hero/slide4.webp") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+body[data-page="ohenro"] .hero-slide:nth-child(5) {
+  background-image: url("../../images/index-hero/slide5.webp") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* ===============================================
+   お遍路ページのヒーロー文字色修正
+   =============================================== */
+
+body[data-page="ohenro"] .hero-content h1 {
+  color: #d4af37 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* お遍路ページ デスクトップでより大きなヒーロー */
+@media (min-width: 1024px) { /* --bp-lg */
+  body[data-page="ohenro"] .hero-content h1 {
+    font-size: 7rem !important; /* より大きく */
+  }
+  
+  body[data-page="ohenro"] .hero-subtitle {
+    font-size: 1.6rem !important;
+  }
+  
+  body[data-page="ohenro"] .hero-description {
+    font-size: 1.5rem !important;
+  }
+}
+
+body[data-page="ohenro"] .hero-subtitle {
+  color: #d4af37 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+body[data-page="ohenro"] .hero-description {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+}

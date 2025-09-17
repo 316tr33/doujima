@@ -8,7 +8,6 @@ function initSlideshow() {
   const slides = document.querySelectorAll(".hero-slide");
   const dots = document.querySelectorAll(".slide-dot");
   const slideInfo = document.getElementById("slideInfo");
-  const progressFill = document.querySelector(".progress-line-fill");
 
   totalSlides = slides.length;
   let slideInterval = null;
@@ -70,19 +69,7 @@ function initSlideshow() {
       }
     }
 
-    // プログレスバー更新（requestAnimationFrameで最適化）
-    requestAnimationFrame(() => {
-      updateHorizontalProgress(index + 1, totalSlides);
-    });
-
     currentSlide = index;
-  }
-
-  function updateHorizontalProgress(current, total) {
-    if (progressFill) {
-      const progressWidth = (current / total) * 100;
-      progressFill.style.width = `${progressWidth}%`;
-    }
   }
 
   function nextSlide() {
@@ -92,8 +79,16 @@ function initSlideshow() {
 
   function startSlideshow() {
     if (slideInterval || totalSlides <= 1) return;
-    // 8秒間隔に最適化（CPU負荷軽減）
-    slideInterval = setInterval(nextSlide, 8000);
+    // 最初のスライドは3秒、その後は5.5秒で切り替え
+    const firstSlideDelay = 2600; // 3秒
+    const normalSlideDelay = 6300; // 6秒
+
+    // 最初のスライドのタイマー（3秒）
+    slideInterval = setTimeout(() => {
+      nextSlide();
+      // 通常のインターバル開始（5秒間隔）
+      slideInterval = setInterval(nextSlide, normalSlideDelay);
+    }, firstSlideDelay);
   }
 
   function pauseSlideshow() {
@@ -106,25 +101,31 @@ function initSlideshow() {
   // ドットクリックイベント（最適化されたリセット）
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
+      // クリック時のトランジション速度（調整可能）
+      const clickTransitionTime = "1.5s"; // ここで速度調整（例: "0.5s", "0.8s", "1s", "1.2s", "1.5s"）
+      const clickTransitionMs = parseFloat(clickTransitionTime) * 1000; // ミリ秒に変換
+
+      // クリック時は調整可能な速度のトランジションを適用
+      slides.forEach((slide) => {
+        slide.style.transition = `opacity ${clickTransitionTime} ease-in-out`;
+      });
+
       showSlide(index);
-      resetProgress();
+
+      // トランジション完了後に通常の速度に戻す
+      setTimeout(() => {
+        slides.forEach((slide) => {
+          slide.style.transition = "opacity var(--transition-slow)";
+        });
+      }, clickTransitionMs);
+
       // 手動操作時はスライドショーをリスタート
       pauseSlideshow();
-      startSlideshow();
+
+      // クリックされた場合は長めに表示（6.3秒）してから次のスライドへ
+      slideInterval = setInterval(nextSlide, 6300);
     });
   });
-
-  // 進行バーのリセット機能
-  function resetProgress() {
-    if (progressFill) {
-      progressFill.style.animation = "none";
-      progressFill.style.width = "0%";
-
-      requestAnimationFrame(() => {
-        progressFill.style.animation = "horizontalProgress 8s linear infinite";
-      });
-    }
-  }
 
   // ページ非表示時のリソース管理
   document.addEventListener("visibilitychange", () => {
@@ -135,9 +136,7 @@ function initSlideshow() {
     }
   });
 
-  // 初期設定
-  resetProgress();
-  updateHorizontalProgress(1, totalSlides);
+  // 初期設定（最初のスライドは3秒）
 
   // メモリリーク防止のクリーンアップ関数を返す
   window.slideshowCleanup = () => {
@@ -157,7 +156,6 @@ function initSlideshow() {
 
   console.log("Optimized slideshow initialized with", totalSlides, "slides");
 }
-
 
 // アクティブナビゲーション管理（DOM キャッシュ最適化版）
 let cachedSections = null;
@@ -202,7 +200,6 @@ function updateActiveNav() {
       }
     }
   });
-
 }
 
 // 改善されたナビゲーションハイライト効果
@@ -582,26 +579,32 @@ document.addEventListener("DOMContentLoaded", function () {
     initHeaderCache(); // ヘッダーキャッシュ初期化
     initYoutubeLazyLoading(); // YouTube遅延読み込み初期化
     initTempleFilter(); // 重要霊場フィルター初期化
-    
+    initFAQFunctionality(); // FAQ機能初期化
+
     // Tokaido専用機能の初期化（routes.htmlでのみ実行）
-    if (typeof initRouteDetails === 'function') {
+    if (typeof initRouteDetails === "function") {
       initRouteDetails();
       console.log("Route details system initialized");
     }
-    
+
     updateActiveNav();
-    
+
     // パフォーマンス監視初期化（開発環境のみ）
-    if (typeof PerformanceMonitor === 'function' && 
-        (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
-      console.log('Performance monitoring enabled');
-      
+    if (
+      typeof PerformanceMonitor === "function" &&
+      (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+    ) {
+      console.log("Performance monitoring enabled");
+
       // 5秒後にメモリ使用量チェック
       setTimeout(() => {
         window.performanceMonitor.checkMemoryUsage();
-        console.log('Performance Stats:', window.performanceMonitor.getPerformanceStats());
+        console.log(
+          "Performance Stats:",
+          window.performanceMonitor.getPerformanceStats()
+        );
       }, 5000);
-      
+
       // FPS測定開始
       window.performanceMonitor.measureFPS();
     }
@@ -671,12 +674,8 @@ function initMobileNavigation() {
   // メニューリンククリック時にメニューを閉じる
   mobileMenuLinks.forEach((link) => {
     link.addEventListener("click", function () {
-      // ページ内リンクの場合のみメニューを閉じる
-      if (this.getAttribute("href").startsWith("#")) {
-        setTimeout(closeMobileMenu, 300);
-      } else {
-        closeMobileMenu();
-      }
+      // どちらのリンクタイプでも即座にメニューを閉じる
+      closeMobileMenu();
     });
   });
 
@@ -752,39 +751,162 @@ window.addEventListener(
 
 // 重要霊場フィルター機能
 function initTempleFilter() {
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.card');
-  
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".card, .station-card");
+
   if (!filterButtons.length || !cards.length) {
     return;
   }
-  
-  filterButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const filter = this.getAttribute('data-filter');
-      
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const filter = this.getAttribute("data-filter");
+
       // アクティブボタンの切り替え
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      this.classList.add('active');
-      
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
+
       // カードのフィルタリング
-      cards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        const shouldShow = filter === 'all' || 
-                          (filter === 'special' && cardCategory === 'special') ||
-                          card.classList.contains(filter) ||
-                          card.querySelector('[data-prefecture="' + filter + '"]');
-        
+      cards.forEach((card) => {
+        const cardCategory = card.getAttribute("data-category");
+        const shouldShow =
+          filter === "all" ||
+          (filter === "special" && cardCategory === "special") ||
+          card.classList.contains(filter) ||
+          card.querySelector('[data-prefecture="' + filter + '"]');
+
         if (shouldShow) {
-          card.style.display = 'block';
-          card.style.opacity = '1';
+          card.style.display = "block";
+          card.style.opacity = "1";
         } else {
-          card.style.display = 'none';
-          card.style.opacity = '0';
+          card.style.display = "none";
+          card.style.opacity = "0";
         }
       });
     });
   });
-  
-  console.log('Temple filter system initialized');
+
+  console.log("Temple filter system initialized");
+}
+
+// FAQ機能
+function initFAQFunctionality() {
+  const faqQuestions = document.querySelectorAll(".faq-question");
+  const faqItems = document.querySelectorAll(".faq-item");
+  const searchInput = document.querySelector(".faq-search");
+  const categoryButtons = document.querySelectorAll(".category-btn");
+  const noResults = document.querySelector(".no-results");
+
+  if (!faqQuestions.length) {
+    console.log("FAQ elements not found");
+    return;
+  }
+
+  // FAQ項目の開閉
+  faqQuestions.forEach((question) => {
+    question.addEventListener("click", function () {
+      const faqItem = this.closest(".faq-item");
+      const faqAnswer = faqItem.querySelector(".faq-answer");
+      const isActive = faqItem.classList.contains("active");
+
+      // 他のFAQ項目を閉じる
+      faqItems.forEach((item) => {
+        if (item !== faqItem) {
+          item.classList.remove("active");
+          const answer = item.querySelector(".faq-answer");
+          if (answer) {
+            answer.style.maxHeight = "0";
+          }
+        }
+      });
+
+      // 現在の項目をトグル
+      if (isActive) {
+        faqItem.classList.remove("active");
+        faqAnswer.style.maxHeight = "0";
+      } else {
+        faqItem.classList.add("active");
+        // scrollHeightに余裕を持たせて全文が表示されるようにする
+        const contentHeight = faqAnswer.scrollHeight + 50;
+        faqAnswer.style.maxHeight = contentHeight + "px";
+      }
+    });
+  });
+
+  // 検索機能
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      const searchTerm = this.value.toLowerCase();
+      let visibleCount = 0;
+
+      faqItems.forEach((item) => {
+        const questionText = item
+          .querySelector(".faq-question span")
+          .textContent.toLowerCase();
+        const answerText = item
+          .querySelector(".faq-answer p")
+          .textContent.toLowerCase();
+
+        if (
+          questionText.includes(searchTerm) ||
+          answerText.includes(searchTerm)
+        ) {
+          item.style.display = "block";
+          visibleCount++;
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      // 検索結果なしメッセージの表示/非表示
+      if (noResults) {
+        noResults.style.display =
+          visibleCount === 0 && searchTerm !== "" ? "block" : "none";
+      }
+    });
+  }
+
+  // カテゴリフィルター
+  categoryButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const category = this.getAttribute("data-category");
+
+      // アクティブボタンの切り替え
+      categoryButtons.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
+
+      // 検索ボックスをクリア
+      if (searchInput) {
+        searchInput.value = "";
+      }
+
+      let visibleCount = 0;
+
+      // カテゴリフィルタリング
+      faqItems.forEach((item) => {
+        const itemCategory = item.getAttribute("data-category");
+
+        if (category === "all" || itemCategory === category) {
+          item.style.display = "block";
+          visibleCount++;
+        } else {
+          item.style.display = "none";
+        }
+
+        // アクティブ状態をリセット
+        item.classList.remove("active");
+        const answer = item.querySelector(".faq-answer");
+        if (answer) {
+          answer.style.maxHeight = "0";
+        }
+      });
+
+      // 検索結果なしメッセージを隠す
+      if (noResults) {
+        noResults.style.display = "none";
+      }
+    });
+  });
+
+  console.log("FAQ functionality initialized with", faqItems.length, "items");
 }

@@ -1,0 +1,203 @@
+/* ===========================================
+   カードコンポーネント・グリッドシステム
+   =========================================== */
+
+/* セクション共通 - 画像背景対応 */
+.section {
+  background: rgba(250, 248, 245, 0.75);
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* セクション背景画像用クラス */
+.section.has-bg-image {
+  background-blend-mode: overlay;
+}
+
+.section.has-bg-image::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(245, 245, 245, 0.5) 50%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(245, 245, 245, 0.3) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: var(--margin-auto);
+}
+
+.section-title {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #b8860b;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  font-feature-settings: "kern" 1, "jp04" 1, "jp78" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.section-intro {
+  text-align: center;
+  font-size: 1.25rem;
+  color: rgba(40, 40, 40, 0.85);
+  font-weight: 400;
+  line-height: 2.2;
+  letter-spacing: 0.06em;
+  margin: 0 auto 1.5rem;
+  max-width: 680px;
+  font-feature-settings: "palt" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+  word-break: auto-phrase;
+  overflow-wrap: break-word;
+  text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.3);
+}
+
+/* カードグリッド */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.card {
+  background: rgba(250, 248, 245, 0.92);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(184, 134, 11, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translate3d(0, -10px, 0);
+  box-shadow: 0 8px 20px rgba(184, 134, 11, 0.25);
+}
+
+.card-image {
+  aspect-ratio: 16/9;
+  background: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.card-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.card:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card h3 {
+  color: #d4af37;
+  font-size: 1.35rem;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-feature-settings: "kern" 1, "jp04" 1;
+  text-rendering: optimizeLegibility;
+  word-break: keep-all;
+}
+
+.card p {
+  color: rgba(40, 40, 40, 0.9);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  font-feature-settings: "palt" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+  word-break: auto-phrase;
+  text-indent: 1em;
+}
+
+/* 大きな画像セクション - 奥行き演出 */
+.hero-image-section {
+  height: 80vh;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin: 4rem 0;
+}
+
+.hero-image-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-image-content {
+  text-align: center;
+  z-index: 3;
+}
+
+.hero-image-content h2 {
+  font-size: 3rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  letter-spacing: 6px;
+}
+
+.hero-image-content p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 2px;
+  line-height: 2;
+}

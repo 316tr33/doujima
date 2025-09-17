@@ -2,7 +2,10 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
     <title>東海道ウォーク - 江戸と京都を結ぶ歴史街道の旅</title>
     <meta
       name="description"
@@ -31,7 +34,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components/navigation.css" />
+    <link rel="stylesheet" href="../css/components/slideshow.css" />
     <link rel="stylesheet" href="../css/tokaido.css" />
+    <link rel="stylesheet" href="../css/pages/tokaido-layout.css" />
+    <link rel="stylesheet" href="../css/pages/tokaido-responsive.css" />
     <script src="../js/performance-monitor.js" defer></script>
   </head>
   <body>
@@ -40,16 +47,14 @@
         <div class="logo">堂島フロント企画</div>
         <ul class="nav-links">
           <li>
-            <a href="#home">東海道ウォーク</a>
+            <a href="index.html">東海道ウォーク</a>
           </li>
           <li>
             <a href="stations.html">宿場町のご案内</a>
             <div class="dropdown">
-              <a href="stations.html#edo-kanagawa">江戸〜神奈川</a>
-              <a href="stations.html#shizuoka">静岡</a>
-              <a href="stations.html#aichi">愛知</a>
-              <a href="stations.html#mie">三重</a>
-              <a href="stations.html#shiga-kyoto">滋賀〜京都</a>
+              <a href="stations.html#edo-area">江戸（1-15宿）</a>
+              <a href="stations.html#tokaido-area">東海道（16-35宿）</a>
+              <a href="stations.html#kinki-area">近畿（36-53宿）</a>
             </div>
           </li>
           <li>
@@ -92,10 +97,8 @@
       </div>
       <nav class="mobile-menu-nav">
         <a href="#home" class="mobile-menu-link">東海道ウォーク</a>
-        <a href="#about" class="mobile-menu-link">東海道とは</a>
         <a href="stations.html" class="mobile-menu-link">宿場町のご案内</a>
-        <a href="#journey" class="mobile-menu-link">ウォーキング体験</a>
-        <a href="#contact" class="mobile-menu-link">お問い合わせ</a>
+        <a href="guide.html" class="mobile-menu-link">歩き方ガイド</a>
         <a href="../Ohenro/index.html" class="mobile-menu-link">四国お遍路</a>
         <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
       </nav>
@@ -132,13 +135,6 @@
       </div>
 
       <!-- 水平進行バー -->
-      <div class="horizontal-progress">
-        <div class="progress-line-container">
-          <div class="progress-line-bg"></div>
-          <div class="progress-line-fill"></div>
-          <div class="progress-center-point"></div>
-        </div>
-      </div>
 
       <div class="hero-content">
         <div class="hero-subtitle">東海道五十三次の旅</div>
@@ -596,7 +592,7 @@
     </section>
 
     <!-- 東海道の魅力紹介セクション -->
-    <section class="tokaido-section" style="padding: 4rem 2rem">
+    <section class="tokaido-section" style="padding: 0.5rem 2rem">
       <div class="section-content">
         <!-- 東海道の魅力紹介 -->
         <div class="tokaido-attractions">
@@ -717,7 +713,7 @@
       style="
         background: rgba(250, 248, 245, 0.95);
         border-radius: 15px;
-        padding: 3rem;
+        padding: 1rem;
         margin-top: 4rem;
         border: 2px solid rgba(212, 175, 55, 0.3);
         text-align: center;

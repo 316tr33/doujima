@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Noto Serif JP", "Yu Mincho", "YuMincho", "Hiragino Mincho Pro",
+    "Times New Roman", serif;
+  line-height: 1.8;
+  color: #333;
+  font-feature-settings: "palt" 1, "kern" 1, "jp90" 1; /* ×íİü·çÊëáÈê¯¹ + «üËó° + &øMWb */
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #faf8f3 0%, #f8f6f0 100%);
+  position: relative;
+}

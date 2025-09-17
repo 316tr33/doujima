@@ -1,0 +1,66 @@
+/* 
+   tokaido-base.css - 東海道ページ基盤設定
+   CSS変数・ベース設定・パフォーマンス最適化
+*/
+
+/* CSS変数定義 */
+:root {
+  --primary-gold: #b8860b;
+  --secondary-gold: #8b6914;
+  --accent-gold: #d4af37;
+  --text-white: #2c2c2c;
+  --text-gray: #555;
+  --border-radius: 12px;
+  --shadow-card: 0 4px 15px rgba(212, 175, 55, 0.3);
+  --gradient-gold: linear-gradient(135deg, #d4af37, #b8860b);
+}
+
+/* パフォーマンス最適化 */
+*,
+*::before,
+*::after {
+  will-change: auto;
+  /* contain: layout; ← position:fixedを阻害するためコメントアウト */
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "kern" 1, "jp04" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Noto Serif JP', serif;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* ボタン・リンク基本設定 */
+button, .btn {
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* 画像・動画設定 */
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+
+/* プレースホルダー画像 */
+.placeholder-image {
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}

@@ -2,9 +2,13 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
     <title>よくあるご質問 - 四国遍路</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components/navigation.css" />
     <link rel="stylesheet" href="../css/ohenro.css" />
     <link rel="stylesheet" href="../css/faq.css" />
     <link
@@ -15,6 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../css/pages/ohenro-responsive.css" />
   </head>
   <body>
     <header>
@@ -34,7 +39,7 @@
             </div>
           </li>
           <li>
-            <a href="faq.html">よくあるご質問</a>
+            <a href="faq.html" class="active">よくあるご質問</a>
           </li>
           <li>
             <a href="../Tokaido/index.html">東海道ウォーク</a>
@@ -43,13 +48,49 @@
             <a href="../index.html">企業トップページ</a>
           </li>
         </ul>
+        <!-- ハンバーガーメニューボタン（モバイル用） -->
+        <button
+          class="mobile-menu-toggle"
+          id="mobileMenuToggle"
+          aria-label="メニューを開く"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </nav>
     </header>
 
+    <!-- モバイル用メニューオーバーレイ -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- モバイル用メニューコンテンツ -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">メニュー</span>
+        <button
+          class="mobile-menu-close"
+          id="mobileMenuClose"
+          aria-label="メニューを閉じる"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="index.html" class="mobile-menu-link">四国お遍路</a>
+        <a href="shikoku.html" class="mobile-menu-link">各霊場のご案内</a>
+        <a href="faq.html" class="mobile-menu-link active">よくあるご質問</a>
+        <a href="../Tokaido/index.html" class="mobile-menu-link"
+          >東海道ウォーク</a
+        >
+        <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
+      </nav>
+    </div>
+
     <section class="hero" style="height: 50vh; min-height: 300px">
       <div class="hero-content" style="padding-top: 15vh">
-        <h1 style="font-size: 3rem">よくあるご質問</h1>
-        <p class="hero-description" style="font-size: 1.2rem">
+        <h1 class="faq-title">よくあるご質問</h1>
+        <p class="hero-description faq-description">
           四国遍路に関するよくあるご質問とその回答をまとめました。
         </p>
       </div>
@@ -80,7 +121,7 @@
       <div class="faq-header">
         <h2>よくあるご質問</h2>
         <p>
-          四国遍路に関する疑問や不安を解決するために、<br />よくお寄せいただく質問とその回答をまとめました。
+          四国遍路に関する疑問や不安を解決するために、よくお寄せいただく質問とその回答をまとめました。
         </p>
       </div>
 
@@ -551,11 +592,6 @@
       </div>
     </main>
 
-    <!-- スクロールトップボタン -->
-    <div class="scroll-top">
-      <i class="fas fa-arrow-up"></i>
-    </div>
-
     <footer id="contact">
       <div class="contact-info">
         <p><i class="fas fa-phone"></i> お問い合わせ: 0774-46-8762</p>
@@ -574,6 +610,6 @@
         南無大師遍照金剛 - 同行二人の精神で、安全な巡礼をサポートいたします
       </p>
     </footer>
-    <script src="../js/faq.js"></script>
+    <script src="../js/script.js"></script>
   </body>
 </html>

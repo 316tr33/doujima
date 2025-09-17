@@ -2,7 +2,10 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
     <title>東海道五十三次 宿場町のご案内 - 堂島フロント企画</title>
     <meta
       name="description"
@@ -79,9 +82,7 @@
       </div>
       <nav class="mobile-menu-nav">
         <a href="index.html" class="mobile-menu-link">東海道ウォーク</a>
-        <a href="#edo-area" class="mobile-menu-link">江戸（1-15宿）</a>
-        <a href="#tokaido-area" class="mobile-menu-link">東海道（16-35宿）</a>
-        <a href="#kinki-area" class="mobile-menu-link">近畿（36-53宿）</a>
+        <a href="stations.html" class="mobile-menu-link">宿場町のご案内</a>
         <a href="guide.html" class="mobile-menu-link">歩き方ガイド</a>
         <a href="../Ohenro/index.html" class="mobile-menu-link">四国お遍路</a>
         <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
@@ -124,12 +125,15 @@
             <input
               type="text"
               id="stationSearch"
-              placeholder="宿場町を検索（番号、名前、特徴で検索）"
+              placeholder="宿場町を検索（名前・番号・都道府県）"
               autocomplete="off"
             />
           </div>
           <div class="quick-filters">
             <button class="filter-btn active" data-filter="all">すべて</button>
+            <button class="filter-btn" data-filter="edo">江戸（1-15）</button>
+            <button class="filter-btn" data-filter="tokaido">東海道（16-35）</button>
+            <button class="filter-btn" data-filter="kinki">近畿（36-53）</button>
             <button class="filter-btn" data-filter="scenic">風景名所</button>
             <button class="filter-btn" data-filter="onsen">温泉宿場</button>
             <button class="filter-btn" data-filter="history">歴史名所</button>
@@ -2851,10 +2855,15 @@
               const features = card.dataset.features.toLowerCase();
               const number = card.dataset.number;
 
+              // 都道府県情報を取得（location spanの内容）
+              const locationElement = card.querySelector(".detail-item .fas.fa-map-marker-alt").nextElementSibling;
+              const location = locationElement ? locationElement.textContent.toLowerCase() : "";
+
               const isVisible =
                 stationName.includes(searchTerm) ||
                 features.includes(searchTerm) ||
-                number.includes(searchTerm);
+                number.includes(searchTerm) ||
+                location.includes(searchTerm);
 
               card.style.display = isVisible ? "block" : "none";
             });
@@ -2881,7 +2890,6 @@
             });
           });
         });
-
       });
     </script>
   </body>
