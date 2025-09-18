@@ -487,7 +487,7 @@ footer {
   border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-/* ������ */
+/* レスポンシブ */
 @media (max-width: 768px) {
   .attraction-block,
   .attraction-block.reverse {
@@ -542,7 +542,7 @@ footer {
   }
 }
 
-/* qwS�����(���� */
+/* 東海道セクション関連 */
 .tokaido-about-section {
   background: #f8f9fa;
   padding: 2rem 2rem;
@@ -560,7 +560,7 @@ footer {
   position: relative;
 }
 
-/* qwSs0�1���� */
+/* 東海道詳細情報 */
 .tokaido-detailed-info {
   margin-top: 2rem;
 }
@@ -603,7 +603,7 @@ footer {
   letter-spacing: 0.03em;
 }
 
-/* qwSs0�1n������ */
+/* 東海道詳細のレスポンシブ */
 @media (max-width: 768px) {
   .info-grid {
     grid-template-columns: 1fr;
@@ -649,7 +649,7 @@ footer {
   }
 }
 
-/* qwS����󻯷�� */
+/* 東海道タイムライン */
 .tokaido-timeline-section {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   padding: 4rem 2rem;
@@ -782,7 +782,7 @@ footer {
   z-index: 10;
 }
 
-/* ��n}W������ */
+/* 現代の体験 */
 .modern-experience {
   margin-top: 2rem;
   text-align: center;
@@ -834,7 +834,7 @@ footer {
   line-height: 1.6;
 }
 
-/* �����n������ */
+/* タイムラインのレスポンシブ */
 @media (max-width: 768px) {
   .timeline::before {
     left: 30px;
@@ -901,7 +901,7 @@ footer {
   }
 }
 
-/* qwS�4:���(���� */
+/* 東海道宿場関連 */
 .stations-hero {
   background: linear-gradient(
       135deg,
@@ -924,7 +924,7 @@ footer {
   margin-bottom: 2rem;
 }
 
-/* ���Ӳ���� */
+/* エリアナビゲーション */
 .area-nav {
   position: fixed;
   right: -200px;
@@ -987,13 +987,13 @@ footer {
   color: rgba(60, 60, 60, 0.7);
 }
 
-/* "���� */
+/* 検索機能 */
 .station-search-container {
   max-width: 600px;
   margin: 0 auto;
 }
 
-/* �ꢻ���� */
+/* 宿場町エリア */
 .area-section {
   margin-bottom: 1rem;
 }
@@ -1038,7 +1038,7 @@ footer {
   font-style: italic;
 }
 
-/* �4:��� */
+/* 宿場町カード */
 .stations-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1224,7 +1224,7 @@ footer {
   border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-/* U�k��ܿ� */
+/* もっと読むボタン */
 .load-more-btn {
   background: var(--secondary-gold);
   color: #333;
@@ -1253,7 +1253,7 @@ footer {
   margin-top: 1rem;
 }
 
-/* �h�4:9˻���� */
+/* 注目宿場町セクション */
 .featured-stations-section {
   background: #ffffff;
   padding: 3rem 2rem;
@@ -1357,7 +1357,7 @@ footer {
   border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-/* ��Ӳ���� */
+/* ページナビゲーション */
 .stations-navigation {
   display: flex;
   justify-content: center;
@@ -1404,7 +1404,7 @@ footer {
   box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
 }
 
-/* �h�4:�����n������ */
+/* 注目宿場町のレスポンシブ */
 @media (max-width: 768px) {
   .featured-stations-section {
     padding: 2rem 1.5rem 1.4rem;
@@ -1462,7 +1462,7 @@ footer {
   }
 }
 
-/* ===== ���x�������� ===== */
+/* ===== ルート選択関連 ===== */
 
 .route-selection-section {
   padding: 4rem 2rem;
@@ -1667,7 +1667,7 @@ footer {
     0 0 0 3px rgba(212, 175, 55, 0.3);
 }
 
-/* �������q ���� */
+/* セクションタイトル */
 .section-title,
 .route-selection-section .section-title {
   color: var(--primary-gold);
@@ -1708,7 +1708,7 @@ footer {
   letter-spacing: 0.01em;
 }
 
-/* ���s0����� */
+/* ルート詳細情報 */
 .route-details-section {
   padding: 3rem 2rem;
   background: rgba(250, 248, 243, 0.7);
@@ -2054,14 +2054,14 @@ textarea:focus,
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
-/* ������Ӳ����(���� */
+/* ボタンコンポーネント関連 */
 .keyboard-focus a:focus,
 .keyboard-focus button:focus {
   outline: 3px solid #ff6b6b;
   outline-offset: 3px;
 }
 
-/* ����������� */
+/* プライマリボタン */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2074,7 +2074,7 @@ textarea:focus,
   border: 0;
 }
 
-/* س������ */
+/* セカンダリボタン */
 @media (prefers-contrast: high) {
   .station-card,
   .route-card,
@@ -2090,7 +2090,7 @@ textarea:focus,
   }
 }
 
-/* �������J�� */
+/* レスポンシブ対応 */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -2105,7 +2105,7 @@ textarea:focus,
   }
 }
 
-/* ���x����n������ */
+/* ルート関連のレスポンシブ */
 @media (max-width: 768px) {
   .route-cards-grid {
     grid-template-columns: 1fr;
@@ -2146,7 +2146,7 @@ textarea:focus,
   }
 }
 
-/* ===== ���������� ===== */
+/* ===== フッタースタイル ===== */
 
 .guide-index-section {
   padding: 3rem 1rem;
@@ -2582,7 +2582,7 @@ textarea:focus,
   font-size: 0.85rem;
 }
 
-/* ř����� */
+/* 検索結果なし */
 .equipment-categories {
   display: flex;
   flex-direction: column;
@@ -2715,7 +2715,7 @@ textarea:focus,
   margin-bottom: 0.5rem;
 }
 
-/* �h�V����� */
+/* 注目スポット */
 .safety-alerts {
   display: flex;
   flex-direction: column;
@@ -2841,7 +2841,7 @@ textarea:focus,
   text-align: left;
 }
 
-/* ��������� */
+/* アクセス情報 */
 .accommodation-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -2921,7 +2921,7 @@ textarea:focus,
   margin-bottom: 0.5rem;
 }
 
-/* ������ */
+/* 安全対策 */
 .railway-lines,
 .car-considerations {
   background: rgba(0, 0, 0, 0.3);
@@ -3019,7 +3019,7 @@ textarea:focus,
   margin: 0;
 }
 
-/* ���j�Ļ���� */
+/* 宿泊施設関連 */
 .tips-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
