@@ -3,6 +3,8 @@
 /* 各コンポーネントは専用ファイルで管理 */
 
 @import url('base/variables.css');
+@import url('base/responsive-system.css');
+@import url('base/gentle-fix.css');
 @import url('components/buttons.css');
 @import url('pages/tokaido-components.css');
 @import url('pages/tokaido-layout.css');

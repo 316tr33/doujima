@@ -271,7 +271,8 @@ nav {
   position: fixed;
   top: 0;
   right: -100%;
-  width: min(280px, 80vw);
+  width: min(280px, 75vw);
+  max-width: 280px;
   height: 100vh;
   height: 100dvh; /* Dynamic viewport height */
   background: rgba(0, 0, 0, 0.95);
@@ -280,7 +281,9 @@ nav {
   border-left: 1px solid rgba(212, 175, 55, 0.3);
   box-shadow: var(--shadow-card);
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 
 .mobile-menu.active {

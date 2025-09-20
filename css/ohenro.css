@@ -2,5 +2,8 @@
 /* 変数は統一variables.cssに移行済み */
 
 @import url('base/variables.css');
+@import url('base/responsive-system.css');
+/* @import url('base/simple-fix.css'); 一旦無効化 */
+@import url('base/gentle-fix.css');
 @import url('components/cards.css');
 @import url('pages/ohenro-components.css');
