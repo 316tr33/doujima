@@ -1,0 +1,241 @@
+/* 
+   responsive-system.css - 統一レスポンシブシステム
+   全デバイス対応のブレークポイント定義
+*/
+
+/* ===============================================
+   CSS変数によるブレークポイント管理
+   =============================================== */
+:root {
+  /* 標準ブレークポイント */
+  --bp-xs: 375px;   /* iPhone SE, small phones */
+  --bp-sm: 480px;   /* Large phones */
+  --bp-md: 768px;   /* Tablets */
+  --bp-lg: 1024px;  /* Small laptops */
+  --bp-xl: 1280px;  /* Desktop */
+  --bp-2xl: 1440px; /* Large desktop */
+  
+  /* 特定デバイス対応 */
+  --device-iphone-12-pro-max: 428px;
+  --device-ipad-mini: 768px;
+  --device-ipad-pro: 1024px;
+  --device-macbook-13: 1280px;
+  
+  /* レスポンシブ余白システム */
+  --spacing-mobile: 1rem;
+  --spacing-tablet: 1.5rem;
+  --spacing-desktop: 2rem;
+  
+  /* コンテナ幅 */
+  --container-xs: 100%;
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-2xl: 1320px;
+}
+
+/* ===============================================
+   モバイルファーストアプローチ（ベース）
+   =============================================== */
+
+/* Extra Small (< 480px) - すべてのモバイル端末 */
+.container {
+  width: 100%;
+  padding-left: var(--spacing-mobile);
+  padding-right: var(--spacing-mobile);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===============================================
+   Progressive Enhancement メディアクエリ
+   =============================================== */
+
+/* Small devices (480px and up) */
+@media (min-width: 480px) {
+  .container {
+    max-width: var(--container-sm);
+  }
+  
+  /* フォントサイズ調整 */
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Medium devices (768px and up) - タブレット */
+@media (min-width: 768px) {
+  .container {
+    max-width: var(--container-md);
+    padding-left: var(--spacing-tablet);
+    padding-right: var(--spacing-tablet);
+  }
+  
+  /* グリッドレイアウト調整 */
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Large devices (1024px and up) - ラップトップ */
+@media (min-width: 1024px) {
+  .container {
+    max-width: var(--container-lg);
+    padding-left: var(--spacing-desktop);
+    padding-right: var(--spacing-desktop);
+  }
+  
+  /* グリッドレイアウト調整 */
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Extra large devices (1280px and up) - デスクトップ */
+@media (min-width: 1280px) {
+  .container {
+    max-width: var(--container-xl);
+  }
+  
+  /* グリッドレイアウト調整 */
+  .grid-responsive {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 2X Extra large devices (1440px and up) - 大型デスクトップ */
+@media (min-width: 1440px) {
+  .container {
+    max-width: var(--container-2xl);
+  }
+}
+
+/* ===============================================
+   特定デバイス対応（フォールバック）
+   =============================================== */
+
+/* iPhone 12 Pro Max 特有の調整 */
+@media (width: 428px) {
+  .mobile-specific-adjust {
+    padding: calc(var(--spacing-mobile) * 1.1);
+  }
+}
+
+/* iPad特有の調整 */
+@media (width: 768px) and (orientation: portrait) {
+  .ipad-portrait-adjust {
+    padding: calc(var(--spacing-tablet) * 1.2);
+  }
+}
+
+@media (width: 1024px) and (orientation: landscape) {
+  .ipad-landscape-adjust {
+    padding: calc(var(--spacing-tablet) * 1.3);
+  }
+}
+
+/* ===============================================
+   ユーティリティクラス
+   =============================================== */
+
+/* 表示制御 */
+.mobile-only { display: block; }
+.tablet-up { display: none; }
+.desktop-up { display: none; }
+
+@media (min-width: 768px) {
+  .mobile-only { display: none; }
+  .tablet-up { display: block; }
+}
+
+@media (min-width: 1024px) {
+  .tablet-only { display: none; }
+  .desktop-up { display: block; }
+}
+
+/* フレックスボックスレスポンシブ */
+.flex-responsive {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-mobile);
+}
+
+@media (min-width: 768px) {
+  .flex-responsive {
+    flex-direction: row;
+    gap: var(--spacing-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .flex-responsive {
+    gap: var(--spacing-desktop);
+  }
+}
+
+/* テキストサイズレスポンシブ */
+.text-responsive {
+  font-size: clamp(0.875rem, 2vw + 0.5rem, 1.125rem);
+}
+
+.heading-responsive {
+  font-size: clamp(1.5rem, 4vw + 0.5rem, 3rem);
+}
+
+/* パディングレスポンシブ */
+.padding-responsive {
+  padding: var(--spacing-mobile);
+}
+
+@media (min-width: 768px) {
+  .padding-responsive {
+    padding: var(--spacing-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .padding-responsive {
+    padding: var(--spacing-desktop);
+  }
+}
+
+/* ===============================================
+   デバッグ用クラス（開発時のみ使用）
+   =============================================== */
+.debug-responsive::after {
+  content: "XS";
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@media (min-width: 480px) {
+  .debug-responsive::after { content: "SM (480px+)"; background: rgba(255, 127, 0, 0.7); }
+}
+
+@media (min-width: 768px) {
+  .debug-responsive::after { content: "MD (768px+)"; background: rgba(255, 255, 0, 0.7); }
+}
+
+@media (min-width: 1024px) {
+  .debug-responsive::after { content: "LG (1024px+)"; background: rgba(0, 255, 0, 0.7); }
+}
+
+@media (min-width: 1280px) {
+  .debug-responsive::after { content: "XL (1280px+)"; background: rgba(0, 127, 255, 0.7); }
+}
+
+@media (min-width: 1440px) {
+  .debug-responsive::after { content: "2XL (1440px+)"; background: rgba(127, 0, 255, 0.7); }
+}

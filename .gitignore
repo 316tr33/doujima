@@ -21,3 +21,8 @@ npm-debug.log*
 
 # Claude Code分析・レポートファイル
 claudedocs/
+
+# レスポンシブテスト・デバッグファイル
+responsive-test.html
+responsive-auto-test.html
+js/responsive-debug.js
