@@ -28,7 +28,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `Ohenro/shikoku.html` - 各霊場の詳細ページ
 - `Tokaido/index.html` - 東海道ウォーク事業ページ
 - `recruit.html` - 採用情報ページ
-- `refactoring-docs/` - プロジェクト改善ドキュメント
+- `docs/` - 開発ドキュメント（継続使用）
+- `refactoring-docs/` - 特定リファクタリングプロジェクト用
 
 ### CSS モジュラー構造
 
@@ -39,6 +40,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `css/base/reset.css` - ブラウザリセット
 - `css/base/typography.css` - フォント・テキスト設定
 - `css/base/utilities.css` - ユーティリティクラス
+- `css/base/gentle-fix.css` - レスポンシブ修正（モバイル対応）
 
 #### Components層（コンポーネント）
 - `css/components/navigation.css` - ナビゲーション（固定ヘッダー、サイドナビ）
@@ -154,9 +156,28 @@ shikoku.htmlの検索・フィルター機能の修正ルール：
 - YouTube遅延読み込みでページ速度向上
 - DOM要素キャッシュでリピート検索を最小化
 
+### レスポンシブ対応
+
+#### ヒーローセクション高さ修正（重要）
+- **企業ページ**: `.hero-section` は `min-height: calc(100vh - 80px)` + `height: auto`
+- **お遍路ページ**: `.shikoku-hero` は `min-height: calc(100vh - 80px)` + `height: auto`
+- **固定高さ禁止**: 小画面で内容が切れるため、vhやpx固定値は使用しない
+- **ヘッダー分調整**: デスクトップ80px、モバイル70px差し引く
+
+#### テストサイズ
+レスポンシブテストは `docs/responsive-testing.md` を参照。重要サイズ：
+- 360px (Galaxy S8+) - 最終防衛ライン
+- 375px (iPhone SE) - CSS設計基準点
+- 390px (iPhone 12 Pro) - 最重要サイズ
+
 ### デザインテーマ
 
 - **カラーパレット**: 金色（#b8860b, #d4af37）+ 黒背景
 - **フォント**: Noto Serif JP（縦書き対応）
 - **レスポンシブ**: 3段階（1024px, 768px, 480px）
 - **統一感**: 全事業で共通のブランドイメージ維持
+
+## 開発ドキュメント
+
+- **レスポンシブテスト**: `docs/responsive-testing.md` - デバイスサイズ別確認チェックリスト
+- **開発ガイド**: `docs/README.md` - ドキュメント構造の説明

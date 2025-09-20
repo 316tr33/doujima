@@ -1,0 +1,201 @@
+/* 
+   gentle-fix.css - 既存デザインを壊さない穏やかな修正
+   段階的なレスポンシブ改善
+*/
+
+/* ===============================================
+   画像の基本対応（既存を壊さない）
+   =============================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===============================================
+   コンテナの柔軟性向上（既存スタイルを尊重）
+   =============================================== */
+
+/* 幅の問題のみ修正（高さやレイアウトはそのまま） */
+.container:not([style*="width"]) {
+  max-width: 100%;
+}
+
+section:not([style*="width"]) {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===============================================
+   タッチターゲットの最小サイズ確保
+   =============================================== */
+
+/* ボタンのタッチサイズのみ修正 */
+@media (max-width: 768px) {
+  button:not(.custom-size),
+  .button:not(.custom-size),
+  a[role="button"]:not(.custom-size),
+  .mobile-menu-link,
+  nav a {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1rem !important;
+    box-sizing: border-box;
+  }
+
+  /* リンクの特別処理 */
+  nav a,
+  .mobile-menu-link {
+    text-decoration: none;
+    line-height: 1.2;
+  }
+}
+
+/* ===============================================
+   フォントサイズの微調整（既存を尊重）
+   =============================================== */
+
+/* 非常に小さい画面でのフォント調整のみ */
+@media (max-width: 375px) {
+  body {
+    font-size: max(14px, 1em);
+  }
+  
+  h1 {
+    font-size: max(1.5rem, calc(100% + 0.5rem));
+  }
+  
+  h2 {
+    font-size: max(1.3rem, calc(100% + 0.3rem));
+  }
+}
+
+/* ===============================================
+   横スクロール防止（最小限）
+   =============================================== */
+
+/* 横スクロールバーが出る要素のみ修正 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ===============================================
+   特定の問題要素の修正
+   =============================================== */
+
+/* グリッドレイアウトが崩れる場合の最小修正 */
+@media (max-width: 480px) {
+  .prefecture-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===============================================
+   小画面でのヒーロー調整（320×568px以下）
+   =============================================== */
+
+@media (max-width: 320px), (max-height: 568px) {
+  .hero-section {
+    min-height: calc(100vh - 70px) !important;
+    padding: 1rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-content {
+    max-height: calc(100vh - 140px) !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 1rem !important;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .hero-description {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-cta {
+    gap: 0.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-cta a {
+    padding: 0.6rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .hero-features {
+    gap: 1rem !important;
+  }
+
+  .feature-item {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* ===============================================
+   横向き対応（高さが低い場合のみ）
+   =============================================== */
+
+@media (orientation: landscape) and (max-height: 500px) {
+  /* ヘッダーの高さのみ調整 */
+  header {
+    padding: 0.5rem 0;
+  }
+
+  /* セクション間の余白を削減 */
+  section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  /* ヒーローセクションの特別調整 */
+  .hero-section {
+    min-height: calc(100vh - 60px) !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  .hero-content {
+    max-height: calc(100vh - 120px) !important;
+  }
+
+  .hero-content h1 {
+    font-size: 1.4rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .hero-subtitle, .hero-description {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .hero-cta {
+    margin-bottom: 0.5rem !important;
+  }
+}

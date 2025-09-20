@@ -471,7 +471,8 @@
 
 /* ベースヒーロースタイル */
 .shikoku-hero {
-  min-height: 60vh;
+  min-height: calc(100vh - 80px);
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -546,7 +547,8 @@
 /* タブレット対応 (max-width: 1024px) */
 @media (max-width: 1024px) {
   .shikoku-hero {
-    min-height: 50vh;
+    min-height: calc(100vh - 80px);
+    height: auto;
     padding: 2.5rem 1.5rem;
   }
 
@@ -563,7 +565,8 @@
 /* モバイル対応 (max-width: 768px) */
 @media (max-width: 768px) {
   .shikoku-hero {
-    min-height: 55vh;
+    min-height: calc(100vh - 70px);
+    height: auto;
     padding: 1.5rem 1rem;
     align-items: center;
     padding-top: 5rem; /* ヘッダー分のスペース確保 */
@@ -620,7 +623,8 @@
 /* 小画面モバイル対応 (max-width: 480px) */
 @media (max-width: 480px) {
   .shikoku-hero {
-    min-height: 50vh;
+    min-height: calc(100vh - 70px);
+    height: auto;
     padding: 1.2rem 0.8rem;
     padding-top: 4rem;
   }

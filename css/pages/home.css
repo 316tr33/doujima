@@ -4,7 +4,8 @@
 
 /* 企業ヒーローセクション */
 .hero-section {
-  height: 80vh;
+  min-height: calc(100vh - 80px);
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -295,7 +296,8 @@
 
 @media (max-width: 480px) /* --bp-sm */ {
   .hero-section {
-    height: 70vh;
+    min-height: calc(100vh - 70px);
+    height: auto;
     margin-top: 70px;
   }
 
@@ -360,7 +362,8 @@
 
 /* 企業ヒーローセクション */
 .hero-section {
-  height: 80vh;
+  min-height: calc(100vh - 80px);
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -669,7 +672,8 @@ footer .social-links a:hover {
 
 /* モバイル（デフォルト） */
 .hero-section {
-  height: 70vh;
+  min-height: calc(100vh - 70px);
+  height: auto;
   margin-top: 70px;
 }
 

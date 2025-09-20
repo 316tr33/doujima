@@ -533,8 +533,8 @@
 }
 
 .shikoku-hero {
-  height: 50vh;
-  min-height: 300px;
+  min-height: calc(100vh - 80px);
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -571,8 +571,8 @@
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   .shikoku-hero {
-    height: 40vh;
-    min-height: 250px;
+    min-height: calc(100vh - 70px);
+    height: auto;
   }
 
   .shikoku-hero-content {
