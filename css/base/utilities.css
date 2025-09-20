@@ -36,7 +36,26 @@
 .mb-sm-mobile { margin-bottom: var(--spacing-sm-mobile) !important; }
 .mb-md-mobile { margin-bottom: var(--spacing-md-mobile) !important; }
 
-/* 既存ユーティリティ（下位互換） */
+/* ===============================================
+   レスポンシブ画像・メディア（即効性修正）
+   =============================================== */
+
+/* 画像の基本レスポンシブ対応 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 動画・iframe等のメディア対応 */
+video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===============================================
+   既存ユーティリティ（下位互換）
+   =============================================== */
+
 .flex-center {
   display: flex;
   justify-content: center;
@@ -73,6 +92,17 @@
   max-width: var(--container-sm);
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+/* 基本コンテナとセクションの統一 */
+.container,
+.main-content,
+section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 /* ===============================================
