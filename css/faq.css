@@ -16,16 +16,48 @@ body {
 /* ヒーロー背景画像 */
 .hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../../images/landscape2.webp");
+    url("../images/landscape2.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
 }
 
-.hero .hero-content h1 {
+/* FAQページ専用ヒーロー高さ設定 */
+.faq-hero {
+  height: 35vh !important;
+  min-height: 280px !important;
+  max-height: 400px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.faq-hero .hero-content {
+  text-align: center;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+}
+
+.faq-hero .hero-content h1 {
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  padding: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .hero .hero-description {
@@ -381,6 +413,11 @@ body {
 
 /* レスポンシブデザイン */
 @media screen and (max-width: 768px) {
+  /* FAQヒーロー高さをモバイル調整 */
+  .faq-hero {
+    height: 40vh;
+    min-height: 250px;
+  }
   .faq-container {
     padding: 30px 20px;
     margin: 20px 15px;
@@ -388,6 +425,10 @@ body {
 
   .faq-header h2 {
     font-size: 1.5rem;
+  }
+
+  .faq-hero .hero-content h1 {
+    font-size: 2rem;
   }
 
   .faq-question {

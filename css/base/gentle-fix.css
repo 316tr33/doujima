@@ -52,24 +52,144 @@ section:not([style*="width"]) {
     text-decoration: none;
     line-height: 1.2;
   }
+
+  /* フッターリンクとその他のテキストリンクのタッチサイズ確保 */
+  footer a,
+  .footer a,
+  a:not([role="button"]):not(.hero-cta a):not(.logo) {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0.5rem 0.8rem !important;
+    box-sizing: border-box;
+    line-height: 1.2;
+  }
+
+  /* CTAボタンの確実なサイズ確保 */
+  .hero-cta a,
+  .cta-button,
+  .btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    padding: 0.8rem 1.2rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box;
+  }
+
+  /* 小さなアイコンリンクの特別処理 */
+  .social-link,
+  .icon-link {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.5rem !important;
+  }
 }
 
 /* ===============================================
    フォントサイズの微調整（既存を尊重）
    =============================================== */
 
+/* モバイル全般でのフォント階層統一 */
+@media (max-width: 480px) {
+  /* 見出し階層 */
+  h1 {
+    font-size: 1.8rem !important; /* h1: 主要見出し */
+  }
+
+  h2 {
+    font-size: 1.4rem !important; /* h2: セクション見出し */
+  }
+
+  h3 {
+    font-size: 1.2rem !important; /* h3: サブ見出し */
+  }
+
+  /* 大きすぎるテキスト要素を調整（1.5rem以上） */
+  .hero-subtitle {
+    font-size: 1.3rem !important;
+  }
+
+  /* hero-description の特別な小サイズ設定 */
+  .hero-description {
+    font-size: 1rem !important;
+  }
+
+  /* hero-subtitle の金色統一（強制適用） */
+  .hero-subtitle {
+    color: #d4af37 !important;
+  }
+
+  .company-overview p,
+  .service-card h3,
+  .guide-card h3 {
+    font-size: 1.3rem !important;
+  }
+
+  /* 非常に大きなテキスト（2rem以上）を抑制 */
+  .hero-content h1,
+  .company-overview h2,
+  .news-section h2,
+  .services-section h2,
+  .results-section h2,
+  .contact-section h2 {
+    font-size: 1.6rem !important; /* 特別な見出し */
+  }
+
+  /* ===============================================
+     セクション余白のコンパクト化（形を保持）
+     =============================================== */
+
+  /* セクション間の余白を75%に圧縮 */
+  section,
+  .company-overview,
+  .news-section,
+  .services-section,
+  .results-section,
+  .contact-section {
+    padding-top: calc(var(--spacing-2xl, 3rem) * 0.75) !important;
+    padding-bottom: calc(var(--spacing-2xl, 3rem) * 0.75) !important;
+  }
+
+  /* 要素間の余白を80%に圧縮 */
+  h1,
+  h2,
+  h3 {
+    margin-bottom: calc(1rem * 0.8) !important;
+  }
+
+  /* カード・ボックス内の余白を75%に圧縮 */
+  .business-card,
+  .news-item,
+  .service-card,
+  .stat-card {
+    padding: calc(1.5rem * 0.75) !important;
+  }
+
+  /* リスト・グリッド間隔を80%に圧縮 */
+  .business-links,
+  .news-list,
+  .services-grid {
+    gap: calc(1.5rem * 0.8) !important;
+  }
+}
+
 /* 非常に小さい画面でのフォント調整のみ */
 @media (max-width: 375px) {
   body {
     font-size: max(14px, 1em);
   }
-  
+
   h1 {
     font-size: max(1.5rem, calc(100% + 0.5rem));
   }
-  
+
   h2 {
-    font-size: max(1.3rem, calc(100% + 0.3rem));
+    font-size: max(1.2rem, calc(100% + 0.2rem));
   }
 }
 
@@ -95,7 +215,7 @@ body {
   .prefecture-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .gallery-grid {
     grid-template-columns: 1fr;
   }
@@ -128,15 +248,17 @@ body {
     font-size: 1.6rem !important;
     line-height: 1.3 !important;
     margin-bottom: 0.8rem !important;
+    color: #d4af37 !important; /* メインタイトル：金色で統一 */
   }
 
   .hero-subtitle {
     font-size: 0.9rem !important;
     margin-bottom: 0.8rem !important;
+    color: #d4af37 !important; /* サブタイトル：金色で統一 */
   }
 
   .hero-description {
-    font-size: 0.85rem !important;
+    font-size: 0.75rem !important;
     line-height: 1.4 !important;
     margin-bottom: 1rem !important;
   }
@@ -161,41 +283,167 @@ body {
 }
 
 /* ===============================================
-   横向き対応（高さが低い場合のみ）
+   デスクトップヒーロー統一対応（美しいフルサイズ維持）
    =============================================== */
 
-@media (orientation: landscape) and (max-height: 500px) {
-  /* ヘッダーの高さのみ調整 */
-  header {
-    padding: 0.5rem 0;
-  }
-
-  /* セクション間の余白を削減 */
-  section {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  /* ヒーローセクションの特別調整 */
+/* デスクトップでは常に美しいフルサイズヒーローを維持（縦幅に関係なく） */
+@media (min-width: 1024px) {
+  /* ヒーローは常に美しいフルサイズで表示 */
+  .hero,
   .hero-section {
-    min-height: calc(100vh - 60px) !important;
-    padding: 0.5rem 0 !important;
+    min-height: calc(
+      100vh - 80px
+    ) !important; /* ヘッダー分を差し引いた美しいフルサイズ */
+    height: auto !important; /* 内容に応じて自動調整 */
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
+  .hero-section {
+    margin-top: 80px !important; /* ヘッダー分 */
+  }
+
+  /* ヒーローコンテンツは美しいサイズで統一 */
   .hero-content {
-    max-height: calc(100vh - 120px) !important;
+    max-width: 800px !important;
+    padding: 2rem !important;
+    text-align: center !important;
+    z-index: 2 !important;
   }
 
-  .hero-content h1 {
-    font-size: 1.4rem !important;
-    margin-bottom: 0.5rem !important;
+  /* コンテンツサイズは常に美しく読みやすいサイズを維持 */
+  .hero-content h1,
+  .hero-section h1 {
+    font-size: 3.2rem !important; /* 51px - 美しく迫力のあるサイズ */
+    margin-bottom: 1.5rem !important;
+    line-height: 1.2 !important;
+    color: #d4af37 !important; /* メインタイトル：金色で統一 */
   }
 
-  .hero-subtitle, .hero-description {
-    margin-bottom: 0.5rem !important;
+  .hero-subtitle {
+    font-size: 1.2rem !important; /* 19px */
+    margin-bottom: 1rem !important;
+    color: #d4af37 !important; /* サブタイトル：金色で統一 */
+  }
+
+  .hero-description {
+    font-size: 1.3rem !important; /* 21px */
+    margin-bottom: 2.5rem !important;
+    line-height: 1.7 !important;
+    color: rgba(255, 255, 255, 0.9) !important; /* 説明文：白色で読みやすく */
   }
 
   .hero-cta {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 3rem !important;
+    gap: 1.5rem !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .hero-cta a {
+    padding: 1.2rem 2.5rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+  }
+
+  .hero-features {
+    gap: 3rem !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .feature-item {
+    font-size: 1rem !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .feature-item i {
+    font-size: 1.5rem !important;
+    color: var(--accent-gold) !important;
+  }
+}
+
+/* ===============================================
+   非常に狭い画面対応（500px以下の高さ）
+   =============================================== */
+
+/* 縦幅が狭い画面でも美しいフルサイズヒーローを維持 */
+@media (min-width: 1024px) and (max-height: 650px) {
+  /* ヒーローは美しいフルサイズを維持（最小700px確保） */
+  .hero,
+  .hero-section {
+    min-height: 700px !important; /* コンテンツが収まる最小サイズ */
+    height: auto !important; /* 内容に応じて自動調整 */
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-section {
+    margin-top: 75px !important; /* ヘッダー分 */
+  }
+
+  /* ヘッダーを適度なサイズに維持 */
+  header {
+    padding: 0.75rem 0 !important;
+    height: 75px !important;
+  }
+
+  /* ヒーローコンテンツは美しいサイズを維持 */
+  .hero-content {
+    max-width: 800px !important;
+    padding: 3rem 2rem !important; /* 余裕を持たせる */
+  }
+
+  /* 重要: 縦幅が狭い時は横書きに戻して正しい順序で表示 */
+  .hero-subtitle {
+    writing-mode: horizontal-tb !important; /* 横書きに変更 */
+    text-orientation: mixed !important;
+    direction: ltr !important; /* 左から右へ（正しい日本語順序） */
+    height: auto !important;
+    margin: 1rem auto !important;
+    text-align: center !important;
+  }
+
+  .hero-content h1,
+  .hero-section h1 {
+    font-size: 3rem !important; /* 美しい大きさを維持 */
+    margin-bottom: 1.5rem !important;
+    line-height: 1.2 !important;
+    color: #d4af37 !important; /* メインタイトル：金色で統一 */
+    white-space: normal !important; /* 改行を許可 */
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem !important;
+    margin-bottom: 1rem !important;
+    color: #d4af37 !important; /* サブタイトル：金色で統一 */
+  }
+
+  .hero-description {
+    font-size: 1.25rem !important;
+    margin-bottom: 2.5rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .hero-cta {
+    margin-bottom: 2.5rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .hero-cta a {
+    padding: 1.1rem 2.2rem !important;
+    font-size: 1.05rem !important;
+  }
+
+  .hero-features {
+    gap: 2.5rem !important;
+  }
+
+  .feature-item {
+    font-size: 0.95rem !important;
   }
 }
