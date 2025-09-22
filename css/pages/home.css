@@ -180,8 +180,8 @@
   white-space: pre-line; /* HTMLの<br>タグを有効にする */
 }
 
+/* hero-description のフォントサイズはgentle-fix.cssで管理（重複削除） */
 .hero-description {
-  font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
   margin-bottom: 2.5rem;
@@ -786,8 +786,8 @@ footer .social-links a:hover {
   }
 }
 
+/* hero-description のフォントサイズはgentle-fix.cssで管理（重複削除） */
 .hero-description {
-  font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
   margin-bottom: 2.5rem;

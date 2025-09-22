@@ -904,7 +904,7 @@
   border-radius: var(--border-radius);
   padding: 0.8rem 1rem;
   text-align: center;
-  margin: 2rem 0 1rem 0;
+  margin: 1rem 0 1rem 0;
 }
 
 .guide-description h4 {
@@ -1475,7 +1475,7 @@
 .nokyo-prices h5 {
   color: var(--secondary-gold);
   font-size: 1rem;
-  margin: -1rem 0 0 0;
+  margin: 1rem 0 0 0;
   font-weight: 600;
   line-height: 1;
   padding: 0;
@@ -1855,7 +1855,7 @@
   /* 動画・県ブロックセクションのレスポンシブ */
   .video-prefecture-content {
     gap: 2rem;
-    padding: 2rem;
+    padding: 1rem;
   }
 
   .step-video {
@@ -2121,6 +2121,7 @@ footer {
 .temples-cta-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
   background: linear-gradient(
     135deg,
@@ -2434,6 +2435,7 @@ footer {
 .booking-cta-button.enhanced {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   background: linear-gradient(135deg, #d4af37 0%, #f4cf57 50%, #d4af37 100%);
   background-size: 200% 100%;
@@ -2449,6 +2451,11 @@ footer {
   position: relative;
   overflow: hidden;
   letter-spacing: 1px;
+}
+
+/* デスクトップでCTAテキストを矢印の分だけ左に調整 */
+.booking-cta-button.enhanced .cta-text {
+  margin-right: 1.5rem; /* 矢印分のスペースを確保 */
 }
 
 .booking-cta-button.enhanced::before {
@@ -2483,28 +2490,7 @@ footer {
   z-index: 1;
 }
 
-.cta-arrow {
-  display: flex;
-  align-items: center;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  z-index: 1;
-}
-
-.booking-cta-button.enhanced:hover .cta-arrow {
-  transform: translateX(5px);
-  animation: pulse-arrow 1s ease infinite;
-}
-
-@keyframes pulse-arrow {
-  0%,
-  100% {
-    transform: translateX(5px);
-  }
-  50% {
-    transform: translateX(8px);
-  }
-}
+/* booking用cta-arrowは削除 - ECコンポーネントのスタイルを使用 */
 
 .cta-note {
   color: rgba(255, 255, 255, 0.7);
@@ -3302,6 +3288,11 @@ a.ec-cta-button.enhanced {
   transition: all 0.3s ease;
 }
 
+/* booking-cta用の矢印ホバー効果 */
+.booking-cta-button.enhanced:hover .cta-arrow {
+  transform: translateY(-50%) translateX(5px);
+}
+
 a.ec-cta-button.enhanced::before {
   content: "";
   position: absolute;
@@ -3416,7 +3407,7 @@ a.ec-cta-button.enhanced:hover .cta-arrow {
 
   .ec-categories {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
     margin-bottom: 2.5rem;
     max-width: 450px;
   }
@@ -3438,10 +3429,22 @@ a.ec-cta-button.enhanced:hover .cta-arrow {
     font-size: 1.3rem;
   }
 
-  .ec-cta-button.enhanced {
-    padding: 1.5rem 2.5rem;
+  /* ECボタンの縦横サイズ調整 - 見た目向上のため */
+  body
+    .cta-container
+    .cta-buttons
+    a.ec-cta-button.enhanced[href*="doujimafront.stores.jp"] {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    min-width: 350px !important;
+    min-height: 65px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
 
+  /* 元のECボタンのスタイルを完全に復元（カスタム修正を全て削除） */
   .cta-text {
     font-size: 1.1rem;
   }
@@ -3483,7 +3486,7 @@ a.ec-cta-button.enhanced:hover .cta-arrow {
   }
 
   .ec-categories {
-    gap: 1.2rem;
+    gap: 2.6rem;
     max-width: 350px;
   }
 
@@ -3674,6 +3677,15 @@ a.ec-cta-button.enhanced:hover .cta-arrow {
   .shikoku-description {
     font-size: 1.2rem;
     margin-bottom: 2.5rem;
+  }
+
+  /* CTAボタンをタブレットサイズで横幅拡張 */
+  .booking-cta-button.enhanced,
+  a.ec-cta-button.enhanced,
+  .temples-cta-button {
+    padding: 1.3rem 4rem !important; /* 横のパディングを3rem→4remに拡張 */
+    min-width: 300px; /* 最小幅を指定 */
+    justify-content: center; /* テキストを中央に配置 */
   }
 }
 

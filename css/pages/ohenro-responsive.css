@@ -24,6 +24,12 @@
    =============================================== */
 
 @media (max-width: 768px) /* --bp-md */ {
+  /* ヒーローテキストサイズ - お遍路専用（横幅連動） */
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 11vw, 2.8rem) !important;
+    line-height: 1.2 !important;
+  }
+
   /* セクション間の余白調整 */
   .section {
     padding: 3rem 1.5rem;
@@ -85,7 +91,7 @@
 
   .step-content {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 0rem;
   }
 
   .step-video {
@@ -158,6 +164,12 @@
    =============================================== */
 
 @media (max-width: 480px) /* --bp-sm */ {
+  /* ヒーローテキストサイズ - お遍路小画面（横幅連動） */
+  .hero-content h1 {
+    font-size: clamp(1.6rem, 10vw, 2.4rem) !important;
+    line-height: 1.1 !important;
+  }
+
   /* セクション間の余白調整 */
   .section {
     padding: 2rem 1rem 3rem 1rem;
@@ -171,14 +183,19 @@
   .layout-header {
     font-size: 1.2rem;
     padding: 0.8rem 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   /* STEP学習システム - スマートフォン */
   .compact-original-learning {
-    padding: 1.5rem 1rem;
-    margin-bottom: 1rem;
+    padding: 1.5rem 0rem 0.5rem 0rem; /* 下パディングを大幅に縮小 */
+    margin-bottom: 0.5rem; /* 下マージンも縮小 */
     border-radius: 15px;
+  }
+
+  /* お遍路学習セクション全体の調整 */
+  #about {
+    padding-bottom: 1.5rem !important; /* デフォルトの48pxから大幅に縮小 */
   }
 
   .compact-step {
@@ -231,6 +248,8 @@
 
   .prefecture-header {
     padding: 0.8rem;
+    min-height: 150px !important; /* iPad miniサイズで画像を大きく表示 */
+    aspect-ratio: 16/9 !important; /* アスペクト比を調整 */
   }
 
   .prefecture-simple {
@@ -293,12 +312,9 @@
   }
 
   /* FAQ ヒーロー - モバイル */
-  .faq-title {
-    font-size: 2.4rem !important;
-  }
-
-  .faq-description {
-    font-size: 1.2rem !important;
+  .faq-hero {
+    height: 40vh !important;
+    min-height: 250px !important;
   }
 
   /* テキスト・引用 - スマートフォン */
@@ -337,6 +353,36 @@
     display: block;
   }
 
+  /* ECボタンのモバイル修正 - テキストと矢印の重なり防止 */
+  .ec-cta-button.enhanced {
+    padding: 1.2rem 3.5rem 1.2rem 2rem !important; /* 右側に余裕を持たせる */
+  }
+
+  .ec-cta-button.enhanced .cta-text {
+    margin-right: 1.5rem; /* 矢印分のスペース確保 */
+    font-size: 0.95rem !important;
+  }
+
+  .ec-cta-button.enhanced .cta-subtext {
+    font-size: 0.8rem !important;
+  }
+
+  .ec-cta-button.enhanced .cta-arrow {
+    right: 1.2rem !important; /* 右端から少し離す */
+    font-size: 0.9rem !important;
+  }
+
+  /* 予約ボタンのモバイル修正 - テキスト中央配置 */
+  .booking-cta-button.enhanced {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  .booking-cta-button.enhanced .cta-text {
+    text-align: center !important;
+    margin: 0 !important;
+  }
+
   /* YouTube動画 - スマートフォン */
   .youtube-placeholder {
     min-height: 150px;
@@ -346,6 +392,12 @@
   .youtube-placeholder::before {
     font-size: 2rem;
     margin-right: 0.5rem;
+  }
+
+  /* prefecture-grid - スマートフォン最適化 */
+  .prefecture-header {
+    min-height: 120px !important; /* モバイルでも適切なサイズ確保 */
+    aspect-ratio: 3/2 !important; /* より正方形に近い比率 */
   }
 }
 
@@ -419,12 +471,9 @@
   }
 
   /* FAQ ヒーロー - 小画面モバイル */
-  .faq-title {
-    font-size: 1.6rem !important;
-  }
-
-  .faq-description {
-    font-size: 0.9rem !important;
+  .faq-hero {
+    height: 35vh !important;
+    min-height: 200px !important;
   }
 
   .quote-text {
@@ -482,9 +531,36 @@
   padding: 3rem 2rem;
 }
 
-/* FAQ ヒーロー - デスクトップ */
-.faq-title {
-  font-size: 3rem;
+/* FAQ ヒーロー背景画像中央の中央配置 - 上下完全中央 */
+.faq-hero {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.faq-hero .hero-content {
+  position: absolute !important;
+  top: calc(50% + 46px) !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+  text-align: center !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 1000 !important;
+}
+
+.faq-hero .hero-content h1 {
+  font-size: 3rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #fff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+  line-height: 1.2 !important;
 }
 
 .faq-description {
@@ -666,5 +742,18 @@
     padding: 0.5rem 0.8rem;
     font-size: 0.85rem;
     min-width: 65px;
+  }
+
+  /* FAQ ヒーローモバイル - 見えている部分の中央配置 */
+  .faq-hero .hero-content {
+    top: calc(50% + 35px) !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .faq-hero .hero-content h1 {
+    font-size: 2.3rem !important;
   }
 }
