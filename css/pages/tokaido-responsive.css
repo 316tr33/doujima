@@ -68,6 +68,69 @@
   line-height: 1.6;
 }
 
+/* サポートセンターセクション - モバイル対応 */
+.section + div[style*="margin-top: 4rem"] {
+  margin-top: 2rem !important;
+}
+
+@media (max-width: 768px) {
+  .section + div[style*="margin-top: 4rem"] {
+    margin-top: 1.5rem !important;
+  }
+
+  /* 東海道ヒーロータイトル - モバイル（横幅連動） */
+  .hero-content h1 {
+    font-size: clamp(2rem, 12vw, 3.2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* stations.html専用ヒーロー調整 */
+  .stations-hero {
+    padding-top: 6.5rem !important; /* ヘッダー分を十分に確保 */
+    padding-bottom: 3rem !important;
+  }
+
+  .stations-hero-content {
+    padding-top: 1rem !important;
+  }
+
+  .stations-title {
+    margin-top: 0.5rem !important;
+    font-size: clamp(2rem, 12vw, 3.2rem) !important;
+    line-height: 1.2 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 東海道ヒーローモバイル専用（横幅連動） */
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 11vw, 2.6rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  /* stations.html小画面専用調整 */
+  .stations-hero {
+    padding-top: 7rem !important; /* 小画面でも確実にヘッダー分確保 */
+    padding-bottom: 2rem !important;
+  }
+
+  .stations-hero-content {
+    padding-top: 1rem !important;
+    margin-top: 4.5rem !important; /* 追加の上部マージン */
+  }
+
+  .stations-title {
+    margin-top: 0.5rem !important;
+    font-size: clamp(1.6rem, 10vw, 2.4rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  .stations-description {
+    margin-top: 0.8rem !important;
+    font-size: 1rem !important;
+  }
+}
+
 /* モバイルファースト設定 */
 .attraction-block,
 .attraction-block.reverse {
@@ -116,7 +179,7 @@
 }
 
 .tokaido-attractions {
-  padding: 1rem 1rem;
+  padding: 0rem 0rem;
   gap: 2rem;
 }
 
@@ -300,10 +363,10 @@
   .hero.stations-hero {
     background-attachment: scroll !important; /* fixedからscrollに変更 */
   }
-  
+
   /* area-titleの上マージンを調整 */
   .area-title {
-    margin-top: 2rem !important; /* 48px → 24px程度に削減 */
+    margin-top: 1rem !important; /* 48px → 24px程度に削減 */
   }
 
   .tokaido-attractions {
@@ -448,6 +511,18 @@
    =============================================== */
 
 @media (max-width: 360px) /* --bp-xs-small */ {
+  /* stations.html極小画面専用調整 */
+  .stations-hero {
+    padding-top: 7.5rem !important; /* 極小画面でさらに余裕を持たせる */
+  }
+
+  .stations-hero-content {
+    margin-top: 5rem !important;
+  }
+
+  .stations-title {
+    font-size: clamp(1.4rem, 9vw, 2rem) !important;
+  }
   .attraction-block {
     padding: 1rem 0.8rem;
   }
