@@ -356,57 +356,61 @@ nav {
    タブレット以上で適用（モバイルファースト）
    =============================================== */
 
-@media (min-width: 768px) { /* --bp-md */
+/* タブレットではモバイルレイアウトを維持（1024px以上でデスクトップに切り替え） */
+@media (min-width: 1024px) { /* --bp-lg デスクトップ以上のみ */
   header {
     padding: 1rem 0 !important;
   }
-  
+
   nav {
     max-width: 1200px !important;
     padding: 0 2rem !important;
   }
-  
+
   .logo {
     font-size: 1.5rem !important;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    height: auto !important;
+    width: auto !important;
+    display: inline-block !important;
+    line-height: normal !important;
   }
-  
+
+  /* 縦書きスタイルを強制無効化 */
+  .logo,
+  .logo * {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+
   /* デスクトップナビゲーション表示 */
   .nav-links {
     display: flex !important;
     gap: 0.5rem !important;
   }
-  
+
   .nav-links a {
     padding: 0.8rem 1.2rem !important;
     font-size: 0.95rem !important;
   }
-  
+
   /* モバイルメニュー非表示 */
   .mobile-menu-toggle {
     display: none;
   }
-  
+
+  /* モバイルナビゲーション完全非表示 */
+  .mobile-menu-nav {
+    display: none !important;
+  }
+
   /* ドロップダウンメニューの表示制御 */
   .nav-links > li:hover .dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(5px);
     pointer-events: auto;
-  }
-}
-
-@media (min-width: 1024px) { /* --bp-lg */
-  nav {
-    max-width: 1200px !important;
-    padding: 0 2rem !important;
-  }
-  
-  .nav-links {
-    gap: 1rem !important;
-  }
-  
-  .nav-links a {
-    padding: 1rem 1.5rem !important;
   }
 }
 
