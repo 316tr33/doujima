@@ -407,7 +407,7 @@
 
 @media (max-width: 360px) /* --bp-xs-small */ {
   .compact-original-learning {
-    padding: 1rem 0.8rem;
+    padding: 1rem 0rem;
   }
 
   .compact-step {
