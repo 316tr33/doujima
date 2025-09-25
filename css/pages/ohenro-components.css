@@ -1765,17 +1765,20 @@
     letter-spacing: 2px;
   }
   .image-text-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
     padding: 2rem 1rem;
     min-height: auto;
   }
   .video-prefecture-content {
     order: 1;
+    width: 100%;
+    max-width: 100%;
   }
   .text-content {
     order: 2;
-    max-width: none;
+    width: 100%;
+    max-width: 100%;
     padding: 2rem 1.5rem;
   }
   .text-content h3 {
@@ -3769,5 +3772,13 @@ a.ec-cta-button.enhanced:hover .cta-arrow {
     margin-top: 0.2rem;
     margin-bottom: 0.5rem;
     padding: 0.6rem;
+  }
+
+  /* 狭幅画面でのtemples-cta-buttonオーバーフロー修正 */
+  .temples-cta-button {
+    min-width: auto !important; /* タブレット用の300px固定を解除 */
+    width: 100% !important; /* 親コンテナに合わせる */
+    max-width: calc(100vw - 2rem) !important; /* ビューポート幅から余白分を差し引く */
+    padding: 1rem 1.5rem !important; /* パディングも狭い画面用に調整 */
   }
 }

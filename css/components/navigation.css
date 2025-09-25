@@ -271,8 +271,8 @@ nav {
   position: fixed;
   top: 0;
   right: -100%;
-  width: min(280px, 75vw);
-  max-width: 280px;
+  width: min(200px, 65vw);
+  max-width: 200px;
   height: 100vh;
   height: 100dvh; /* Dynamic viewport height */
   background: rgba(0, 0, 0, 0.95);
@@ -294,8 +294,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 1rem 0.8rem;
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .mobile-menu-title {
@@ -322,7 +325,10 @@ nav {
 .mobile-menu-nav {
   display: flex;
   flex-direction: column;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .mobile-menu-link {
@@ -330,7 +336,7 @@ nav {
   align-items: center;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  padding: 1.5rem 2rem;
+  padding: 1rem 0.8rem;
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.05em;
@@ -338,13 +344,19 @@ nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   min-height: 48px;
   touch-action: manipulation;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .mobile-menu-link:hover,
 .mobile-menu-link:focus {
   color: #d4af37;
   background: rgba(212, 175, 55, 0.1);
-  padding-left: 2.5rem;
+  padding-left: 1.8rem;
   border-left: 3px solid #d4af37;
 }
 
