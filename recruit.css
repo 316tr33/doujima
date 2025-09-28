@@ -10,19 +10,21 @@
   --text-gray: #555;
 }
 
-/* リセット・基本設定 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* 基本設定 - グローバルリセットは削除（style.cssで定義済み） */
 body {
     font-family: 'Noto Serif JP', serif;
     line-height: 1.6;
     background: #f8f8f8;
     color: #2a2a2a;
     overflow-x: hidden;
+}
+
+/* モバイルメニューのbox-sizing修正 */
+.mobile-menu,
+.mobile-menu *,
+.mobile-menu-nav,
+.mobile-menu-link {
+    box-sizing: border-box !important;
 }
 
 /* 採用ページ専用のcontainerクラス（ヘッダーには影響しない） */
@@ -962,7 +964,7 @@ footer {
         gap: 20px;
     }
     
-    nav {
+    header nav {
         gap: 15px;
         flex-wrap: wrap;
         justify-content: center;
