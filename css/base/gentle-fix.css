@@ -332,7 +332,7 @@ body {
     font-size: 1.3rem !important; /* 21px */
     margin-bottom: 2.5rem !important;
     line-height: 1.7 !important;
-    color: rgba(255, 255, 255, 0.9) !important; /* 説明文：白色で読みやすく */
+    color: #333 !important; /* 説明文：白色で読みやすく */
   }
 
   .hero-cta {
@@ -356,7 +356,7 @@ body {
 
   .feature-item {
     font-size: 1rem !important;
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: #333 !important;
   }
 
   .feature-item i {
