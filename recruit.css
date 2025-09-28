@@ -1,7 +1,5 @@
 /* 採用情報ページ専用CSS - 堂島フロント企画 */
-
-@import url('css/base/responsive-system.css');
-@import url('css/base/gentle-fix.css');
+/* style.cssの後に読み込まれる採用ページ専用スタイル */
 
 :root {
   /* カラーパレット - 企業サイトと統一 */
@@ -27,90 +25,30 @@ body {
     overflow-x: hidden;
 }
 
-.container {
+/* 採用ページ専用のcontainerクラス（ヘッダーには影響しない） */
+main .container,
+footer .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* ヘッダー */
-header {
-    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-    padding: 20px 0;
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 3px solid var(--accent-gold);
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo h1 {
-    font-size: 1.3rem;
-    color: var(--accent-gold);
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.logo span {
-    font-size: 0.9rem;
-    color: var(--primary-gold);
-    display: block;
-}
-
-nav {
-    display: flex;
-    gap: 30px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #f8f8f8;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-nav a:hover {
-    color: var(--accent-gold);
-    background: rgba(212, 175, 55, 0.1);
-    transform: translateY(-2px);
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--accent-gold);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-nav a:hover::after {
-    width: 80%;
-}
+/* ヘッダーは navigation.css と style.css から継承 */
 
 /* ヒーローセクション */
 .hero {
     background: #f8f9fa;
-    padding: 80px 0;
     text-align: center;
     color: #495057;
     border-bottom: 1px solid #dee2e6;
+    /* コンパクトな高さに調整 */
+    min-height: 400px !important; /* デスクトップ：コンパクトサイズ */
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 2rem 1rem !important; /* 最小パディング確保 */
+    margin-top: 80px !important; /* デスクトップ：固定ヘッダー分のマージン */
 }
 
 .hero::before {
@@ -129,18 +67,18 @@ nav a:hover::after {
 }
 
 .hero h2 {
-    font-size: 2.4rem;
+    font-size: 2rem;  /* 2.4rem → 2rem */
     font-weight: 600;
     color: #495057;
-    margin-bottom: 20px;
+    margin-bottom: 15px;  /* 20px → 15px */
     line-height: 1.3;
 }
 
 .hero p {
-    font-size: 1.1rem;
+    font-size: 1rem;  /* 1.1rem → 1rem */
     color: #6c757d;
     max-width: 600px;
-    margin: 0 auto 30px;
+    margin: 0 auto 20px;  /* 30px → 20px */
     line-height: 1.6;
 }
 
@@ -1031,15 +969,24 @@ footer {
     }
     
     .hero {
-        padding: 80px 0;
+        min-height: 350px !important; /* タブレット：コンパクトサイズ */
+        padding: 1.5rem 1rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-top: 70px !important; /* タブレット：固定ヘッダー分のマージン */
     }
-    
+
     .hero h2 {
-        font-size: 2.2rem;
+        font-size: 1.8rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.4 !important;
     }
-    
+
     .hero p {
-        font-size: 1.1rem;
+        font-size: 0.95rem !important;
+        line-height: 1.7 !important;
+        margin-bottom: 0 !important;
     }
 
     .hero-highlights {
@@ -1173,12 +1120,21 @@ footer {
         padding: 0 15px;
     }
     
-    .hero h2 {
-        font-size: 1.8rem;
+    .hero {
+        min-height: 300px !important; /* モバイル：コンパクトサイズ */
+        padding: 1rem 0.75rem !important;
+        margin-top: 70px !important; /* モバイル：固定ヘッダー分のマージン */
     }
-    
+
+    .hero h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
     .hero p {
-        font-size: 1rem;
+        font-size: 0.9rem !important;
+        max-width: 280px !important;
+        margin: 0 auto !important;
     }
 
     .hero-highlights {
@@ -1240,5 +1196,20 @@ footer {
     
     .qualification-tag {
         text-align: center;
+    }
+}
+
+/* ========================================
+   ヘッダー調整（採用ページ専用）
+   ======================================== */
+
+/* モバイル・タブレットでのヘッダー修正 */
+header nav {
+    justify-content: space-between !important;
+}
+
+@media (max-width: 1023px) {
+    header nav {
+        justify-content: space-between !important;
     }
 }
