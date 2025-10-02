@@ -43,6 +43,16 @@ nav {
   object-fit: contain;
 }
 
+.logo-text {
+  display: inline;
+  margin-left: 0.8rem;
+  color: #d4af37;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
 /* デスクトップナビゲーション（初期表示は非表示） */
 .nav-links {
   display: none;
@@ -415,7 +425,9 @@ nav {
     text-orientation: mixed !important;
     height: auto !important;
     width: auto !important;
-    display: inline-block !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
     line-height: normal !important;
     white-space: nowrap !important;
   }
@@ -430,6 +442,12 @@ nav {
   /* デスクトップ版ロゴ画像サイズ */
   .logo img {
     height: 50px !important;
+  }
+
+  /* デスクトップでは企業名をJavaScriptで動的制御（デフォルトは非表示） */
+  .logo-text {
+    display: none;
+    transition: opacity 0.3s ease;
   }
 
   /* デスクトップナビゲーション表示 */
