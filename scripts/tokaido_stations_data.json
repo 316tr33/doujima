@@ -1,0 +1,1382 @@
+{
+  "special_stations": [
+    {
+      "type": "special",
+      "classes": "edo scenic history special",
+      "data_number": 0,
+      "data_features": "起点,歴史,名所",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/1-Nihonbashi.webp",
+      "image_alt": "日本橋 - 歌川広重浮世絵",
+      "display_number": "起点",
+      "badges": [
+        "起点",
+        "歴史名所"
+      ],
+      "name": "日本橋",
+      "reading": "にほんばし",
+      "description": "東海道五十三次の起点として、五街道すべての始まりとなる歴史的な橋。江戸時代から現在まで日本の交通と商業の中心地として栄え、多くの旅人がここから長い旅路に出発しました。",
+      "address": "東京都中央区日本橋室町～日本橋",
+      "station_info": "日本橋駅（東京メトロ）/三越前駅",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "五街道起点",
+        "日本の道路元標",
+        "江戸・東京中心"
+      ]
+    },
+    {
+      "type": "special",
+      "classes": "kinki scenic history special",
+      "data_number": 54,
+      "data_features": "終点,橋,京都",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/55-Kyoto.webp",
+      "image_alt": "三条大橋 - 歌川広重浮世絵",
+      "display_number": "終点",
+      "badges": [
+        "歴史名所",
+        "風景名所",
+        "特別"
+      ],
+      "name": "三条大橋",
+      "reading": "さんじょうおおはし",
+      "description": "東海道の終点となる京都の三条大橋。天正18年（1590年）に豊臣秀吉の命により架けられ、江戸時代には東海道の西の起終点として多くの旅人が行き交いました。現在も鴨川に架かる歴史的な橋です。",
+      "address": "京都府京都市中京区三条大橋界隈",
+      "station_info": "三条駅（京阪）/京都市役所前駅（地下鉄）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "東海道完歩地点",
+        "豊臣秀吉建立",
+        "鴨川の名橋"
+      ]
+    }
+  ],
+  "regular_stations": [
+    {
+      "comment_number": 1,
+      "comment_name": "品川",
+      "classes": "edo scenic history",
+      "data_number": 1,
+      "data_features": "歴史,名所,出発",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/2-Shinagawa.webp",
+      "image_alt": "品川 - 歌川広重浮世絵",
+      "display_number": 1,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "品川",
+      "reading": "しながわ",
+      "description": "東海道第一の宿場町。江戸時代には遊郭や茶屋が立ち並び、多くの旅人で賑わいました。",
+      "address": "東京都品川区北品川・南品川一帯",
+      "station_info": "北品川駅（京急）",
+      "visit_time": "見学時間：1–1.5時間",
+      "highlights": [
+        "商業中心",
+        "江戸文化",
+        "現代の名所"
+      ]
+    },
+    {
+      "comment_number": 2,
+      "comment_name": "川崎",
+      "classes": "edo history gourmet",
+      "data_number": 2,
+      "data_features": "歴史,名物,宿場",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/3-Kawasaki.webp",
+      "image_alt": "川崎 - 歌川広重浮世絵",
+      "display_number": 2,
+      "badges": [
+        "歴史名所",
+        "名物グルメ"
+      ],
+      "name": "川崎",
+      "reading": "かわさき",
+      "description": "多摩川の六郷の渡しで有名な宿場。武蔵の名所として多くの旅人が往来しました。",
+      "address": "神奈川県川崎市川崎区本町～堀之内町周辺",
+      "station_info": "川崎駅（JR）/京急川崎駅",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "海苔",
+        "宿場文化",
+        "商店街"
+      ]
+    },
+    {
+      "comment_number": 3,
+      "comment_name": "神奈川",
+      "classes": "edo history scenic",
+      "data_number": 3,
+      "data_features": "歴史,開港場,横浜",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/4-Kanagawa.webp",
+      "image_alt": "神奈川 - 歌川広重浮世絵",
+      "display_number": 3,
+      "badges": [
+        "歴史名所",
+        "開港場"
+      ],
+      "name": "神奈川",
+      "reading": "かながわ",
+      "description": "幕末の開港場として歴史的に重要な宿場。現在の横浜市神奈川区に位置し、外国人居留地として栄えました。",
+      "address": "神奈川県横浜市神奈川区神奈川本町周辺",
+      "station_info": "神奈川駅（京急）/東神奈川駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "神奈川台関門跡",
+        "開港史跡",
+        "本覚寺"
+      ]
+    },
+    {
+      "comment_number": 4,
+      "comment_name": "保土ケ谷",
+      "classes": "edo history scenic",
+      "data_number": 4,
+      "data_features": "歴史,難所,権太坂",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/5-Hodogaya.webp",
+      "image_alt": "保土ケ谷 - 歌川広重浮世絵",
+      "display_number": 4,
+      "badges": [
+        "歴史名所",
+        "難所"
+      ],
+      "name": "保土ケ谷",
+      "reading": "ほどがや",
+      "description": "権太坂の難所で知られる宿場町。東海道の古道が現在も残り、歌川広重の浮世絵にも描かれました。",
+      "address": "神奈川県横浜市保土ケ谷区保土ケ谷町周辺",
+      "station_info": "保土ケ谷駅（JR）/天王町駅（相鉄）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "権太坂の急坂",
+        "東海道古道",
+        "宿場の歴史道"
+      ]
+    },
+    {
+      "comment_number": 5,
+      "comment_name": "戸塚",
+      "classes": "edo history beginner",
+      "data_number": 5,
+      "data_features": "歴史,大宿場,交通要衝",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/6-Totsuka.webp",
+      "image_alt": "戸塚 - 歌川広重浮世絵",
+      "display_number": 5,
+      "badges": [
+        "歴史名所",
+        "初心者向け"
+      ],
+      "name": "戸塚",
+      "reading": "とつか",
+      "description": "東海道有数の大宿場町。鎌倉道との分岐点として交通の要衝を担い、多くの旅人で賑わいました。",
+      "address": "神奈川県横浜市戸塚区戸塚町周辺",
+      "station_info": "戸塚駅（JR・市営地下鉄）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "宿場まつり",
+        "鎌倉道分岐点",
+        "本陣・脇本陣跡"
+      ]
+    },
+    {
+      "comment_number": 6,
+      "comment_name": "藤沢",
+      "classes": "edo history scenic",
+      "data_number": 6,
+      "data_features": "遊行寺,江島道,門前町",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/7-Fujisawa.webp",
+      "image_alt": "藤沢 - 歌川広重浮世絵",
+      "display_number": 6,
+      "badges": [
+        "歴史名所",
+        "門前町"
+      ],
+      "name": "藤沢",
+      "reading": "ふじさわ",
+      "description": "遊行寺の門前町として栄えた宿場。江島神社への参詣道である江島道の分岐点でもありました。",
+      "address": "神奈川県藤沢市藤沢～本町周辺",
+      "station_info": "藤沢駅（JR・小田急・江ノ電）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "遊行寺",
+        "江島道分岐",
+        "本陣跡"
+      ]
+    },
+    {
+      "comment_number": 7,
+      "comment_name": "平塚",
+      "classes": "edo scenic beginner",
+      "data_number": 7,
+      "data_features": "相模川,渡船場,平野部",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/8-Hiratsuka.webp",
+      "image_alt": "平塚 - 歌川広重浮世絵",
+      "display_number": 7,
+      "badges": [
+        "風景名所",
+        "初心者向け"
+      ],
+      "name": "平塚",
+      "reading": "ひらつか",
+      "description": "相模川の渡船場として重要な宿場町。相模平野の中央に位置し、現在は七夕まつりで有名です。江戸時代には東海道の要衝として栄えました。",
+      "address": "神奈川県平塚市明石町～紅谷町周辺",
+      "station_info": "平塚駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "相模川渡し場跡",
+        "平塚八幡宮",
+        "七夕まつり"
+      ]
+    },
+    {
+      "comment_number": 8,
+      "comment_name": "大磯",
+      "classes": "edo scenic onsen",
+      "data_number": 8,
+      "data_features": "松並木,海岸,別荘地",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/9-Ōiso.webp",
+      "image_alt": "大磯 - 歌川広重浮世絵",
+      "display_number": 8,
+      "badges": [
+        "風景名所",
+        "海岸宿場"
+      ],
+      "name": "大磯",
+      "reading": "おおいそ",
+      "description": "相模湾を望む美しい松並木の宿場。明治時代には政治家や文人の別荘地として愛され、現在も温泉地として多くの観光客が訪れます。",
+      "address": "神奈川県中郡大磯町東小磯～西小磯周辺",
+      "station_info": "大磯駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "東海道松並木",
+        "日本初海水浴場",
+        "旧伊藤博文邸"
+      ]
+    },
+    {
+      "comment_number": 9,
+      "comment_name": "小田原",
+      "classes": "edo history scenic special",
+      "data_number": 9,
+      "data_features": "城下町,小田原城,関東最後",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/10-Odawara.webp",
+      "image_alt": "小田原 - 歌川広重浮世絵",
+      "display_number": 9,
+      "badges": [
+        "城下町",
+        "特別"
+      ],
+      "name": "小田原",
+      "reading": "おだわら",
+      "description": "戦国大名北条氏の城下町として栄えた関東地方最後の大宿場。小田原城を中心とした歴史ある観光地で、かまぼこや梅干しなどの名産品でも知られています。箱根の険しい山道を前に、旅人がここで英気を養いました。",
+      "address": "神奈川県小田原市本町～城山周辺",
+      "station_info": "小田原駅（JR・小田急・箱根登山・大雄山）",
+      "visit_time": "見学時間：1–1.5時間",
+      "highlights": [
+        "小田原城",
+        "宿場交流館",
+        "かまぼこ博物館"
+      ]
+    },
+    {
+      "comment_number": 10,
+      "comment_name": "箱根",
+      "classes": "edo scenic onsen special",
+      "data_number": 10,
+      "data_features": "温泉,関所,山岳宿場,東海道最大難所",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/11-Hakone.webp",
+      "image_alt": "箱根 - 歌川広重浮世絵",
+      "display_number": 10,
+      "badges": [
+        "風景名所",
+        "温泉宿場",
+        "特別"
+      ],
+      "name": "箱根",
+      "reading": "はこね",
+      "description": "東海道最大の難所として恐れられた山間の関所宿場。箱根八里の険しい山道を越える旅人の重要な休息地で、現在も日本屈指の温泉観光地として世界中から愛され続けています。",
+      "address": "神奈川県足柄下郡箱根町湯本～塔之沢周辺",
+      "station_info": "箱根湯本駅（箱根登山）",
+      "visit_time": "見学時間：1.5–2.5時間",
+      "highlights": [
+        "箱根関所",
+        "芦ノ湖と富士山",
+        "17の温泉地"
+      ]
+    },
+    {
+      "comment_number": 11,
+      "comment_name": "三島",
+      "classes": "edo history scenic",
+      "data_number": 11,
+      "data_features": "湧水,神社,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/12-Mishima.webp",
+      "image_alt": "三島 - 歌川広重浮世絵",
+      "display_number": 11,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "三島",
+      "reading": "みしま",
+      "description": "富士山の湧水で有名な宿場。三嶋大社の門前町として古くから栄えた地です。",
+      "address": "静岡県三島市本町～大宮町周辺",
+      "station_info": "三島駅（JR）/三島広小路駅（伊豆箱根鉄道）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "三嶋大社",
+        "富士山湧水",
+        "門前町"
+      ]
+    },
+    {
+      "comment_number": 12,
+      "comment_name": "沼津",
+      "classes": "edo gourmet scenic",
+      "data_number": 12,
+      "data_features": "海産物,港町,グルメ",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/13-Numazu.webp",
+      "image_alt": "沼津 - 歌川広重浮世絵",
+      "display_number": 12,
+      "badges": [
+        "名物グルメ",
+        "風景名所"
+      ],
+      "name": "沼津",
+      "reading": "ぬまづ",
+      "description": "駿河湾に面した港町で新鮮な海産物が自慢。干物発祥の地としても知られ、富士山を望む絶景スポットとしても人気です。",
+      "address": "静岡県沼津市上土～大手町周辺",
+      "station_info": "沼津駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "駿河湾",
+        "干物",
+        "海産物"
+      ]
+    },
+    {
+      "comment_number": 13,
+      "comment_name": "原",
+      "classes": "edo scenic history",
+      "data_number": 13,
+      "data_features": "富士山,景観,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/14-Hara.webp",
+      "image_alt": "原 - 歌川広重浮世絵",
+      "display_number": 13,
+      "badges": [
+        "風景名所",
+        "歴史名所"
+      ],
+      "name": "原",
+      "reading": "はら",
+      "description": "富士山の絶景を望む宿場として歌川広重の浮世絵にも描かれた名所。現在も美しい景観が残ります。",
+      "address": "静岡県沼津市原周辺",
+      "station_info": "原駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "富士山景観",
+        "浮世絵",
+        "歌川広重"
+      ]
+    },
+    {
+      "comment_number": 14,
+      "comment_name": "吉原",
+      "classes": "edo history gourmet",
+      "data_number": 14,
+      "data_features": "歴史,文化,名物",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/15-Yoshiwara.webp",
+      "image_alt": "吉原 - 歌川広重浮世絵",
+      "display_number": 14,
+      "badges": [
+        "歴史名所",
+        "名物グルメ"
+      ],
+      "name": "吉原",
+      "reading": "よしわら",
+      "description": "富士山の麓に位置する宿場町。江戸時代の文化と歴史が色濃く残る地域です。",
+      "address": "静岡県富士市吉原本町周辺",
+      "station_info": "吉原本町駅（岳南電車）/吉原駅（JR）",
+      "visit_time": "見学時間：1–1.5時間",
+      "highlights": [
+        "富士山麓の宿場",
+        "岳南電車の街",
+        "製紙産業の歴史"
+      ]
+    },
+    {
+      "comment_number": 15,
+      "comment_name": "蒲原",
+      "classes": "tokaido scenic history",
+      "data_number": 15,
+      "data_features": "富士山,景観,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/16-Kambara.webp",
+      "image_alt": "蒲原 - 歌川広重浮世絵",
+      "display_number": 15,
+      "badges": [
+        "風景名所",
+        "歴史名所"
+      ],
+      "name": "蒲原",
+      "reading": "かんばら",
+      "description": "歌川広重の雪景色で有名な宿場。富士山の美しい眺望と歴史ある街並みが魅力です。",
+      "address": "静岡県静岡市清水区蒲原周辺",
+      "station_info": "新蒲原駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "雪景色",
+        "富士山眺望",
+        "歌川広重"
+      ]
+    },
+    {
+      "comment_number": 16,
+      "comment_name": "由比",
+      "classes": "tokaido scenic gourmet",
+      "data_number": 16,
+      "data_features": "桜えび,駿河湾,名物",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/17-Yui.webp",
+      "image_alt": "由比 - 歌川広重浮世絵",
+      "display_number": 16,
+      "badges": [
+        "風景名所",
+        "名物グルメ"
+      ],
+      "name": "由比",
+      "reading": "ゆい",
+      "description": "桜えびで有名な駿河湾沿いの小さな宿場。美しい海岸線と富士山の絶景が楽しめ、歌川広重の浮世絵にも描かれた景勝地です。",
+      "address": "静岡県静岡市清水区由比周辺",
+      "station_info": "由比駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "桜えび",
+        "駿河湾",
+        "海岸線"
+      ]
+    },
+    {
+      "comment_number": 17,
+      "comment_name": "興津",
+      "classes": "tokaido history beginner",
+      "data_number": 17,
+      "data_features": "政治家,別荘,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/18-Okitsu-gawa.webp",
+      "image_alt": "興津 - 歌川広重浮世絵",
+      "display_number": 17,
+      "badges": [
+        "歴史名所",
+        "初心者向け"
+      ],
+      "name": "興津",
+      "reading": "おきつ",
+      "description": "明治時代に政治家たちの別荘地として栄えた宿場。歴史と政治の舞台となった場所です。",
+      "address": "静岡県静岡市清水区興津中町周辺",
+      "station_info": "興津駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "別荘地",
+        "政治史",
+        "明治時代"
+      ]
+    },
+    {
+      "comment_number": 18,
+      "comment_name": "江尻",
+      "classes": "tokaido history gourmet",
+      "data_number": 18,
+      "data_features": "港町,茶,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/19-Ejiri.webp",
+      "image_alt": "江尻 - 歌川広重浮世絵",
+      "display_number": 18,
+      "badges": [
+        "歴史名所",
+        "名物グルメ"
+      ],
+      "name": "江尻",
+      "reading": "えじり",
+      "description": "現在の清水港として機能する港町。静岡茶の集散地として重要な役割を担いました。",
+      "address": "静岡県静岡市清水区港町・巴町周辺",
+      "station_info": "清水駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "清水港",
+        "静岡茶",
+        "港町文化"
+      ]
+    },
+    {
+      "comment_number": 19,
+      "comment_name": "府中",
+      "classes": "tokaido history scenic",
+      "data_number": 19,
+      "data_features": "駿府城,歴史,政治",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/20-Fuchu.webp",
+      "image_alt": "府中 - 歌川広重浮世絵",
+      "display_number": 19,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "府中",
+      "reading": "ふちゅう",
+      "description": "駿府城の城下町として発展。徳川家康が晩年を過ごした政治の中心地でもありました。",
+      "address": "静岡県静岡市葵区呉服町～追手町周辺",
+      "station_info": "静岡駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "駿府城",
+        "徳川家康",
+        "政治中心"
+      ]
+    },
+    {
+      "comment_number": 20,
+      "comment_name": "丸子",
+      "classes": "tokaido gourmet beginner",
+      "data_number": 20,
+      "data_features": "とろろ汁,名物,初心者",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/21-Mariko.webp",
+      "image_alt": "丸子 - 歌川広重浮世絵",
+      "display_number": 20,
+      "badges": [
+        "名物グルメ",
+        "初心者向け"
+      ],
+      "name": "丸子",
+      "reading": "まりこ",
+      "description": "とろろ汁で有名な宿場。松尾芭蕉も立ち寄ったとされる歴史ある名物料理の発祥地で、現在も多くの観光客が名物を求めて訪れます。",
+      "address": "静岡県静岡市駿河区丸子周辺",
+      "station_info": "安倍川駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "とろろ汁",
+        "松尾芭蕉",
+        "名物料理"
+      ]
+    },
+    {
+      "comment_number": 21,
+      "comment_name": "岡部",
+      "classes": "tokaido history beginner",
+      "data_number": 21,
+      "data_features": "茶畑,歴史,自然",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/22-Okabe.webp",
+      "image_alt": "岡部 - 歌川広重浮世絵",
+      "display_number": 21,
+      "badges": [
+        "歴史名所",
+        "初心者向け"
+      ],
+      "name": "岡部",
+      "reading": "おかべ",
+      "description": "静岡茶の産地として知られる山間の宿場。美しい茶畑の風景が広がる地です。",
+      "address": "静岡県藤枝市岡部町岡部～内谷周辺",
+      "station_info": "藤枝駅（JR）※バス利用",
+      "visit_time": "見学時間：1–1.5時間",
+      "highlights": [
+        "茶畑景観",
+        "静岡茶",
+        "山間宿場"
+      ]
+    },
+    {
+      "comment_number": 22,
+      "comment_name": "藤枝",
+      "classes": "tokaido gourmet beginner",
+      "data_number": 22,
+      "data_features": "茶,サッカー,現代",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/23-Fujieda.webp",
+      "image_alt": "藤枝 - 歌川広重浮世絵",
+      "display_number": 22,
+      "badges": [
+        "名物グルメ",
+        "初心者向け"
+      ],
+      "name": "藤枝",
+      "reading": "ふじえだ",
+      "description": "静岡茶とサッカーで有名な現代的な宿場町。伝統と現代が融合した魅力ある地域で、藤の花の名所としても知られています。",
+      "address": "静岡県藤枝市藤枝～本町周辺",
+      "station_info": "藤枝駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "静岡茶",
+        "サッカー",
+        "現代文化"
+      ]
+    },
+    {
+      "comment_number": 23,
+      "comment_name": "島田",
+      "classes": "tokaido history scenic",
+      "data_number": 23,
+      "data_features": "大井川,川越,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/24-Shimada.webp",
+      "image_alt": "島田 - 歌川広重浮世絵",
+      "display_number": 23,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "島田",
+      "reading": "しまだ",
+      "description": "大井川の川越で栄えた宿場。「箱根八里は馬でも越すが、越すに越されぬ大井川」の舞台です。",
+      "address": "静岡県島田市本通～大井町周辺",
+      "station_info": "島田駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "大井川",
+        "川越",
+        "諺の舞台"
+      ]
+    },
+    {
+      "comment_number": 24,
+      "comment_name": "金谷",
+      "classes": "tokaido gourmet onsen",
+      "data_number": 24,
+      "data_features": "茶,温泉,SL",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/25-Kanaya.webp",
+      "image_alt": "金谷 - 歌川広重浮世絵",
+      "display_number": 24,
+      "badges": [
+        "名物グルメ",
+        "温泉宿場"
+      ],
+      "name": "金谷",
+      "reading": "かなや",
+      "description": "大井川鐵道のSLで有名な宿場。茶畑と温泉に恵まれた観光地として人気で、大井川を越える旅人の重要な拠点でした。",
+      "address": "静岡県島田市金谷本町周辺",
+      "station_info": "金谷駅（JR/大井川鐵道）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "SL列車",
+        "茶畑",
+        "大井川温泉"
+      ]
+    },
+    {
+      "comment_number": 25,
+      "comment_name": "日坂",
+      "classes": "tokaido history scenic",
+      "data_number": 25,
+      "data_features": "峠,歴史,夜泣き石",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/26-Nissaka.webp",
+      "image_alt": "日坂 - 歌川広重浮世絵",
+      "display_number": 25,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "日坂",
+      "reading": "にっさか",
+      "description": "夜泣き石伝説で有名な山間の宿場。小夜の中山峠の麓に位置する歴史ある宿場です。",
+      "address": "静岡県掛川市日坂周辺",
+      "station_info": "掛川駅（JR）※バス利用",
+      "visit_time": "見学時間：1–1.5時間",
+      "highlights": [
+        "夜泣き石",
+        "小夜の中山",
+        "峠道"
+      ]
+    },
+    {
+      "comment_number": 26,
+      "comment_name": "掛川",
+      "classes": "tokaido history scenic",
+      "data_number": 26,
+      "data_features": "城,茶,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/27-Kakegawa.webp",
+      "image_alt": "掛川 - 歌川広重浮世絵",
+      "display_number": 26,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "掛川",
+      "reading": "かけがわ",
+      "description": "掛川城の城下町として栄えた宿場。現在も美しく復元された天守閣が見どころです。",
+      "address": "静岡県掛川市連雀～中町周辺",
+      "station_info": "掛川駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "掛川城",
+        "天守閣",
+        "城下町"
+      ]
+    },
+    {
+      "comment_number": 27,
+      "comment_name": "袋井",
+      "classes": "tokaido beginner gourmet",
+      "data_number": 27,
+      "data_features": "どまん中,茶,初心者",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/28-Fukuroi.webp",
+      "image_alt": "袋井 - 歌川広重浮世絵",
+      "display_number": 27,
+      "badges": [
+        "初心者向け",
+        "名物グルメ"
+      ],
+      "name": "袋井",
+      "reading": "ふくろい",
+      "description": "東海道五十三次の真ん中「どまん中」として有名な宿場。茶産業で栄える現代的な地域で、遠州三山の霊場巡りの起点でもあります。",
+      "address": "静岡県袋井市袋井～高尾町周辺",
+      "station_info": "袋井駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "どまん中",
+        "茶産業",
+        "中間地点"
+      ]
+    },
+    {
+      "comment_number": 28,
+      "comment_name": "見付",
+      "classes": "tokaido history scenic",
+      "data_number": 28,
+      "data_features": "天竜川,歴史,渡し",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/29-Mitsuke.webp",
+      "image_alt": "見付 - 歌川広重浮世絵",
+      "display_number": 28,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "見付",
+      "reading": "みつけ",
+      "description": "天竜川の渡し場として重要な役割を果たした宿場。遠州灘を望む風光明媚な場所です。",
+      "address": "静岡県磐田市見付～中泉周辺",
+      "station_info": "磐田駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "天竜川",
+        "渡し場",
+        "遠州灘"
+      ]
+    },
+    {
+      "comment_number": 29,
+      "comment_name": "浜松",
+      "classes": "tokaido history gourmet",
+      "data_number": 29,
+      "data_features": "うなぎ,城下町,楽器",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/30-Hamamatsu.webp",
+      "image_alt": "浜松 - 歌川広重浮世絵",
+      "display_number": 29,
+      "badges": [
+        "歴史名所",
+        "名物グルメ"
+      ],
+      "name": "浜松",
+      "reading": "はままつ",
+      "description": "うなぎ料理で有名な城下町。楽器産業でも栄える静岡県西部の中心都市です。",
+      "address": "静岡県浜松市中央区（旧中区）中心部",
+      "station_info": "浜松駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "うなぎ料理",
+        "浜松城",
+        "楽器産業"
+      ]
+    },
+    {
+      "comment_number": 30,
+      "comment_name": "舞坂",
+      "classes": "tokaido scenic gourmet",
+      "data_number": 30,
+      "data_features": "浜名湖,渡し,海産物",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/31-Maisaka.webp",
+      "image_alt": "舞坂 - 歌川広重浮世絵",
+      "display_number": 30,
+      "badges": [
+        "風景名所",
+        "名物グルメ"
+      ],
+      "name": "舞坂",
+      "reading": "まいさか",
+      "description": "浜名湖の渡し場として栄えた宿場。現在も美しい湖景色と新鮮な海産物が楽しめ、うなぎ料理が特に有名です。",
+      "address": "静岡県浜松市中央区舞阪町舞阪周辺",
+      "station_info": "舞阪駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "浜名湖",
+        "湖景色",
+        "渡し舟"
+      ]
+    },
+    {
+      "comment_number": 31,
+      "comment_name": "新居",
+      "classes": "tokaido history scenic",
+      "data_number": 31,
+      "data_features": "関所,歴史,検問",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/32-Arai.webp",
+      "image_alt": "新居 - 歌川広重浮世絵",
+      "display_number": 31,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "新居",
+      "reading": "あらい",
+      "description": "箱根と並ぶ重要な関所があった宿場。厳しい検問で知られる歴史的に重要な地点です。",
+      "address": "静岡県湖西市新居町新居周辺",
+      "station_info": "新居町駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "関所",
+        "検問所",
+        "歴史遺跡"
+      ]
+    },
+    {
+      "comment_number": 32,
+      "comment_name": "白須賀",
+      "classes": "tokaido beginner scenic",
+      "data_number": 32,
+      "data_features": "海岸,初心者,景観",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/33-Shirasuka.webp",
+      "image_alt": "白須賀 - 歌川広重浮世絵",
+      "display_number": 32,
+      "badges": [
+        "初心者向け",
+        "風景名所"
+      ],
+      "name": "白須賀",
+      "reading": "しらすか",
+      "description": "遠州灘に面した海岸線の宿場。潮風を感じながら歩ける初心者向けのルートで、太平洋の雄大な景色が広がります。",
+      "address": "静岡県湖西市白須賀周辺",
+      "station_info": "新所原駅（JR・天浜線）※バス等",
+      "visit_time": "見学時間：1–1.5時間",
+      "highlights": [
+        "海岸線",
+        "遠州灘",
+        "潮風"
+      ]
+    },
+    {
+      "comment_number": 33,
+      "comment_name": "二川",
+      "classes": "tokaido history beginner",
+      "data_number": 33,
+      "data_features": "本陣,歴史,初心者",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/34-Futagawa.webp",
+      "image_alt": "二川 - 歌川広重浮世絵",
+      "display_number": 33,
+      "badges": [
+        "歴史名所",
+        "初心者向け"
+      ],
+      "name": "二川",
+      "reading": "ふたがわ",
+      "description": "本陣建物が現存する貴重な宿場。江戸時代の宿場町の雰囲気を色濃く残しています。",
+      "address": "愛知県豊橋市二川町周辺",
+      "station_info": "二川駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "本陣現存",
+        "江戸時代",
+        "宿場町"
+      ]
+    },
+    {
+      "comment_number": 34,
+      "comment_name": "吉田",
+      "classes": "tokaido history scenic",
+      "data_number": 34,
+      "data_features": "城下町,吉田城,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/35-Yoshida.webp",
+      "image_alt": "吉田 - 歌川広重浮世絵",
+      "display_number": 34,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "吉田",
+      "reading": "よしだ",
+      "description": "吉田城の城下町として栄えた三河国への入口。現在の豊橋市として発展しています。",
+      "address": "愛知県豊橋市札木町～魚町周辺",
+      "station_info": "豊橋駅（JR/名鉄）/札木停留場（路面電車）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "吉田城",
+        "三河国",
+        "城下町"
+      ]
+    },
+    {
+      "comment_number": 35,
+      "comment_name": "御油",
+      "classes": "kinki history gourmet",
+      "data_number": 35,
+      "data_features": "松並木,歴史,名物",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/36-Goyu.webp",
+      "image_alt": "御油 - 歌川広重浮世絵",
+      "display_number": 35,
+      "badges": [
+        "歴史名所",
+        "名物グルメ"
+      ],
+      "name": "御油",
+      "reading": "ごゆ",
+      "description": "美しい松並木で有名な宿場。三河国の政治・文化の中心地として栄えました。",
+      "address": "愛知県豊川市御油町周辺",
+      "station_info": "名電御油駅（名鉄）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "松並木",
+        "三河国",
+        "文化中心"
+      ]
+    },
+    {
+      "comment_number": 36,
+      "comment_name": "赤坂",
+      "classes": "kinki history beginner",
+      "data_number": 36,
+      "data_features": "杉並木,歴史,初心者",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/37-Akasaka.webp",
+      "image_alt": "赤坂 - 歌川広重浮世絵",
+      "display_number": 36,
+      "badges": [
+        "歴史名所",
+        "初心者向け"
+      ],
+      "name": "赤坂",
+      "reading": "あかさか",
+      "description": "御油宿に隣接する小さな宿場。歴史的な杉並木が美しく保存されている地です。",
+      "address": "愛知県豊川市赤坂町周辺",
+      "station_info": "名電赤坂駅（名鉄）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "杉並木",
+        "小宿場",
+        "自然保護"
+      ]
+    },
+    {
+      "comment_number": 37,
+      "comment_name": "藤川",
+      "classes": "kinki scenic history",
+      "data_number": 37,
+      "data_features": "むらさき麦,歴史,景観",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/38-Fujikawa.webp",
+      "image_alt": "藤川 - 歌川広重浮世絵",
+      "display_number": 37,
+      "badges": [
+        "風景名所",
+        "歴史名所"
+      ],
+      "name": "藤川",
+      "reading": "ふじかわ",
+      "description": "むらさき麦で有名な宿場。広重の浮世絵にも描かれた美しい田園風景が魅力です。",
+      "address": "愛知県岡崎市藤川町周辺",
+      "station_info": "藤川駅（名鉄）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "むらさき麦",
+        "田園風景",
+        "浮世絵"
+      ]
+    },
+    {
+      "comment_number": 38,
+      "comment_name": "岡崎",
+      "classes": "kinki history scenic",
+      "data_number": 38,
+      "data_features": "徳川家康,岡崎城,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/39-Okazaki.webp",
+      "image_alt": "岡崎 - 歌川広重浮世絵",
+      "display_number": 38,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "岡崎",
+      "reading": "おかざき",
+      "description": "徳川家康の生誕地として有名な城下町。岡崎城を中心とした歴史ある観光地です。",
+      "address": "愛知県岡崎市康生町～本町周辺",
+      "station_info": "東岡崎駅（名鉄）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "徳川家康",
+        "岡崎城",
+        "生誕地"
+      ]
+    },
+    {
+      "comment_number": 39,
+      "comment_name": "池鯉鮒",
+      "classes": "kinki history gourmet",
+      "data_number": 39,
+      "data_features": "知立神社,歴史,祭り",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/40-Chiryu.webp",
+      "image_alt": "池鯉鮒 - 歌川広重浮世絵",
+      "display_number": 39,
+      "badges": [
+        "歴史名所",
+        "名物グルメ"
+      ],
+      "name": "池鯉鮒",
+      "reading": "ちりゅう",
+      "description": "現在の知立市。知立神社と馬市で有名な宿場として多くの商人が集まりました。",
+      "address": "愛知県知立市中町～本町周辺",
+      "station_info": "知立駅（名鉄）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "知立神社",
+        "馬市",
+        "商業中心"
+      ]
+    },
+    {
+      "comment_number": 40,
+      "comment_name": "鳴海",
+      "classes": "kinki history gourmet",
+      "data_number": 40,
+      "data_features": "絞り,伝統工芸,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/41-Narumi.webp",
+      "image_alt": "鳴海 - 歌川広重浮世絵",
+      "display_number": 40,
+      "badges": [
+        "歴史名所",
+        "名物グルメ"
+      ],
+      "name": "鳴海",
+      "reading": "なるみ",
+      "description": "鳴海絞りで有名な伝統工芸の宿場。美しい藍染めの技術が今も受け継がれています。",
+      "address": "愛知県名古屋市緑区鳴海町周辺",
+      "station_info": "鳴海駅（名鉄）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "鳴海絞り",
+        "藍染め",
+        "伝統工芸"
+      ]
+    },
+    {
+      "comment_number": 41,
+      "comment_name": "宮",
+      "classes": "kinki history scenic",
+      "data_number": 41,
+      "data_features": "熱田神宮,歴史,神社",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/42-Miya.webp",
+      "image_alt": "宮 - 歌川広重浮世絵",
+      "display_number": 41,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "宮",
+      "reading": "みや",
+      "description": "熱田神宮の門前町として発展した宿場。草薙剣で有名な日本三大神社の一つです。",
+      "address": "愛知県名古屋市熱田区神宮・伝馬町周辺",
+      "station_info": "神宮前駅（名鉄）/熱田神宮伝馬町駅（地下鉄）",
+      "visit_time": "見学時間：1–1.5時間",
+      "highlights": [
+        "熱田神宮",
+        "草薙剣",
+        "三大神社"
+      ]
+    },
+    {
+      "comment_number": 42,
+      "comment_name": "桑名",
+      "classes": "kinki history gourmet",
+      "data_number": 42,
+      "data_features": "七里の渡し,蛤,城下町",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/43-Kuwana.webp",
+      "image_alt": "桑名 - 歌川広重浮世絵",
+      "display_number": 42,
+      "badges": [
+        "歴史名所",
+        "名物グルメ"
+      ],
+      "name": "桑名",
+      "reading": "くわな",
+      "description": "七里の渡しで有名な伊勢湾の港町。蛤料理で知られる城下町として栄えました。",
+      "address": "三重県桑名市船場町～京町周辺",
+      "station_info": "桑名駅（JR/近鉄）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "七里の渡し",
+        "蛤料理",
+        "桑名城"
+      ]
+    },
+    {
+      "comment_number": 43,
+      "comment_name": "四日市",
+      "classes": "kinki history gourmet",
+      "data_number": 43,
+      "data_features": "港町,商業,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/44-Yokkaichi.webp",
+      "image_alt": "四日市 - 歌川広重浮世絵",
+      "display_number": 43,
+      "badges": [
+        "歴史名所",
+        "名物グルメ"
+      ],
+      "name": "四日市",
+      "reading": "よっかいち",
+      "description": "商業港として発展した宿場。現在も三重県の工業都市として重要な地位を占めています。",
+      "address": "三重県四日市市諏訪栄～元町周辺",
+      "station_info": "近鉄四日市駅（近鉄）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "商業港",
+        "工業都市",
+        "港町文化"
+      ]
+    },
+    {
+      "comment_number": 44,
+      "comment_name": "石薬師",
+      "classes": "kinki beginner scenic",
+      "data_number": 44,
+      "data_features": "田園,初心者,自然",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/45-Ishiyakushi.webp",
+      "image_alt": "石薬師 - 歌川広重浮世絵",
+      "display_number": 44,
+      "badges": [
+        "初心者向け",
+        "風景名所"
+      ],
+      "name": "石薬師",
+      "reading": "いしやくし",
+      "description": "美しい田園風景が広がる小さな宿場。のどかな農村地帯を歩く癒やしのルートで、四季折々の自然が楽しめます。",
+      "address": "三重県鈴鹿市石薬師町周辺",
+      "station_info": "加佐登駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "田園風景",
+        "農村地帯",
+        "癒やし"
+      ]
+    },
+    {
+      "comment_number": 45,
+      "comment_name": "庄野",
+      "classes": "kinki beginner scenic",
+      "data_number": 45,
+      "data_features": "自然,初心者,田舎",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/46-Shōno.webp",
+      "image_alt": "庄野 - 歌川広重浮世絵",
+      "display_number": 45,
+      "badges": [
+        "初心者向け",
+        "風景名所"
+      ],
+      "name": "庄野",
+      "reading": "しょうの",
+      "description": "静かな農村地帯に位置する小さな宿場。昔ながらの日本の田舎風景が残る場所で、ゆったりとした時間が流れます。",
+      "address": "三重県鈴鹿市庄野町周辺",
+      "station_info": "加佐登駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "農村風景",
+        "田舎道",
+        "静寂"
+      ]
+    },
+    {
+      "comment_number": 46,
+      "comment_name": "亀山",
+      "classes": "kinki history scenic",
+      "data_number": 46,
+      "data_features": "城下町,亀山城,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/47-Kameyama.webp",
+      "image_alt": "亀山 - 歌川広重浮世絵",
+      "display_number": 46,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "亀山",
+      "reading": "かめやま",
+      "description": "亀山城の城下町として栄えた宿場。東海道と伊勢街道の分岐点としても重要でした。",
+      "address": "三重県亀山市本町～東町周辺",
+      "station_info": "亀山駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "亀山城",
+        "街道分岐",
+        "城下町"
+      ]
+    },
+    {
+      "comment_number": 47,
+      "comment_name": "関",
+      "classes": "kinki history scenic",
+      "data_number": 47,
+      "data_features": "関宿,歴史保存,街並み",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/48-Seki.webp",
+      "image_alt": "関 - 歌川広重浮世絵",
+      "display_number": 47,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "関",
+      "reading": "せき",
+      "description": "江戸時代の街並みが最も美しく保存された宿場。重要伝統的建造物群保存地区に指定されています。",
+      "address": "三重県亀山市関町木崎～中町周辺",
+      "station_info": "関駅（JR）",
+      "visit_time": "見学時間：2–3時間",
+      "highlights": [
+        "歴史保存地区",
+        "江戸街並み",
+        "伝統建造物"
+      ]
+    },
+    {
+      "comment_number": 48,
+      "comment_name": "坂下",
+      "classes": "kinki beginner history",
+      "data_number": 48,
+      "data_features": "峠,初心者,山間",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/49-Sakanoshita.webp",
+      "image_alt": "坂下 - 歌川広重浮世絵",
+      "display_number": 48,
+      "badges": [
+        "初心者向け",
+        "歴史名所"
+      ],
+      "name": "坂下",
+      "reading": "さかした",
+      "description": "鈴鹿峠の麓に位置する山間の宿場。関宿のすぐ隣にあり、峠越えの拠点として栄えました。",
+      "address": "三重県亀山市関町坂下周辺",
+      "station_info": "関駅（JR）※タクシー等",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "鈴鹿峠",
+        "山間宿場",
+        "峠越え拠点"
+      ]
+    },
+    {
+      "comment_number": 49,
+      "comment_name": "土山",
+      "classes": "kinki history scenic",
+      "data_number": 49,
+      "data_features": "茶,山間,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/50-Tsuchiyama.webp",
+      "image_alt": "土山 - 歌川広重浮世絵",
+      "display_number": 49,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "土山",
+      "reading": "つちやま",
+      "description": "鈴鹿峠を越えて近江国に入る最初の宿場。土山茶で有名な茶の産地でもあります。",
+      "address": "滋賀県甲賀市土山町頓宮～北土山周辺",
+      "station_info": "貴生川駅（近江鉄道/JR）※バス等",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "土山茶",
+        "近江国",
+        "山間宿場"
+      ]
+    },
+    {
+      "comment_number": 50,
+      "comment_name": "水口",
+      "classes": "kinki history scenic",
+      "data_number": 50,
+      "data_features": "城下町,水口城,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/51-Minakuchi.webp",
+      "image_alt": "水口 - 歌川広重浮世絵",
+      "display_number": 50,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "水口",
+      "reading": "みなくち",
+      "description": "水口城の城下町として栄えた宿場。徳川将軍の上洛時の宿泊地として格式高い歴史を持ちます。",
+      "address": "滋賀県甲賀市水口町本町～京町周辺",
+      "station_info": "水口石橋駅（近江鉄道）",
+      "visit_time": "見学時間：1–1.5時間",
+      "highlights": [
+        "水口城",
+        "水源豊富",
+        "近江国"
+      ]
+    },
+    {
+      "comment_number": 51,
+      "comment_name": "石部",
+      "classes": "kinki beginner gourmet",
+      "data_number": 51,
+      "data_features": "初心者,農村,名物",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/52-Ishibe.webp",
+      "image_alt": "石部 - 歌川広重浮世絵",
+      "display_number": 51,
+      "badges": [
+        "初心者向け",
+        "名物グルメ"
+      ],
+      "name": "石部",
+      "reading": "いしべ",
+      "description": "「石部の佐吉」で有名な石部宿。小さな宿場ながら交通の要衝として重要な役割を果たし、近江国の入り口として知られました。",
+      "address": "滋賀県湖南市石部中央～石部口周辺",
+      "station_info": "石部駅（JR）",
+      "visit_time": "見学時間：0.5–1時間",
+      "highlights": [
+        "最終休憩地",
+        "近江牛",
+        "名産地"
+      ]
+    },
+    {
+      "comment_number": 52,
+      "comment_name": "草津",
+      "classes": "kinki history scenic",
+      "data_number": 52,
+      "data_features": "交通要衝,中山道,本陣",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/53-Kusatsu.webp",
+      "image_alt": "草津 - 歌川広重浮世絵",
+      "display_number": 52,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "草津",
+      "reading": "くさつ",
+      "description": "東海道と中山道が合流する交通の要衝。本陣が保存され往時の姿を伝えています。",
+      "address": "滋賀県草津市草津～大路周辺",
+      "station_info": "草津駅（JR）",
+      "visit_time": "見学時間：1–1.5時間",
+      "highlights": [
+        "交通要衝",
+        "本陣保存",
+        "大宿場"
+      ]
+    },
+    {
+      "comment_number": 53,
+      "comment_name": "大津",
+      "classes": "kinki history scenic",
+      "data_number": 53,
+      "data_features": "琵琶湖,終点,歴史",
+      "image_src": "../images/tokaido/Tokaido-gojusan-tsugi/54-Ōtsū.webp",
+      "image_alt": "大津 - 歌川広重浮世絵",
+      "display_number": 53,
+      "badges": [
+        "歴史名所",
+        "風景名所"
+      ],
+      "name": "大津",
+      "reading": "おおつ",
+      "description": "東海道最後の宿場。琵琶湖畔に位置し、大津絵で有名な文化的な宿場町です。",
+      "address": "滋賀県大津市中央～丸屋町周辺",
+      "station_info": "大津駅（JR）",
+      "visit_time": "見学時間：1–1.5時間",
+      "highlights": [
+        "53番目宿",
+        "琵琶湖",
+        "文化的"
+      ]
+    }
+  ],
+  "total": 55
+}
