@@ -7,18 +7,22 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  height: 70px;
   background: rgba(0, 0, 0, 0.95);
   z-index: var(--z-fixed);
   padding: var(--spacing-sm-mobile) 0;
   border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
 }
 
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   max-width: 100%;
-  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  margin: 0;
   padding: 0 1rem;
 }
 
@@ -27,6 +31,16 @@ nav {
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 1px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* デスクトップナビゲーション（初期表示は非表示） */
@@ -220,6 +234,7 @@ nav {
   border: none;
   cursor: pointer;
   padding: 8px;
+  margin-left: auto;
   z-index: 1000;
   position: relative;
   transition: all 0.3s ease;
@@ -294,7 +309,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0.8rem;
+  padding: 0.5rem 0.8rem;
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
   width: 100%;
   max-width: 100%;
@@ -303,7 +318,7 @@ nav {
 
 .mobile-menu-title {
   color: #d4af37;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.1em;
 }
@@ -325,7 +340,7 @@ nav {
 .mobile-menu-nav {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 0;
+  padding: 0;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -334,15 +349,16 @@ nav {
 .mobile-menu-link {
   display: flex;
   align-items: center;
+  justify-content: center;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  padding: 1rem 0.8rem;
-  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.85rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   transition: all 0.3s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  min-height: 48px;
+  min-height: 44px;
   touch-action: manipulation;
   width: 100%;
   max-width: 100%;
@@ -356,7 +372,6 @@ nav {
 .mobile-menu-link:focus {
   color: #d4af37;
   background: rgba(212, 175, 55, 0.1);
-  padding-left: 1.8rem;
   border-left: 3px solid #d4af37;
 }
 
@@ -368,15 +383,30 @@ nav {
    タブレット以上で適用（モバイルファースト）
    =============================================== */
 
+/* タブレット: モバイルメニューの幅を広げる */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .mobile-menu {
+    width: min(280px, 70vw);
+    max-width: 280px;
+  }
+}
+
 /* タブレットではモバイルレイアウトを維持（1024px以上でデスクトップに切り替え） */
 @media (min-width: 1024px) { /* --bp-lg デスクトップ以上のみ */
   header {
-    padding: 1rem 0 !important;
+    height: 80px !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   nav {
-    max-width: 1200px !important;
+    max-width: 100% !important;
+    width: 100% !important;
     padding: 0 2rem !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
   }
 
   .logo {
@@ -387,6 +417,7 @@ nav {
     width: auto !important;
     display: inline-block !important;
     line-height: normal !important;
+    white-space: nowrap !important;
   }
 
   /* 縦書きスタイルを強制無効化 */
@@ -396,15 +427,21 @@ nav {
     text-orientation: mixed !important;
   }
 
+  /* デスクトップ版ロゴ画像サイズ */
+  .logo img {
+    height: 50px !important;
+  }
+
   /* デスクトップナビゲーション表示 */
   .nav-links {
     display: flex !important;
     gap: 0.5rem !important;
+    margin-left: auto !important;
   }
 
   .nav-links a {
-    padding: 0.8rem 1.2rem !important;
-    font-size: 0.95rem !important;
+    padding: 0.6rem 1rem !important;
+    font-size: 0.85rem !important;
   }
 
   /* モバイルメニュー非表示 */
@@ -426,8 +463,112 @@ nav {
   }
 }
 
+/* 大画面（1280px以上）でナビリンクを元のサイズに戻す */
+@media (min-width: 1280px) {
+  .nav-links a {
+    padding: 0.8rem 1.2rem !important;
+    font-size: 0.95rem !important;
+  }
+}
+
 @media (min-width: 1440px) { /* --bp-xl */
   nav {
     max-width: var(--container-xl);
   }
+}
+
+/* ===============================================
+   言語切り替えボタン（Language Switcher）
+   固定フローティングボタン - 画面右上に常に表示
+   =============================================== */
+
+/* モバイル・タブレット・デスクトップ共通: 画面右上に固定表示 */
+.language-switcher {
+  display: block;
+  position: fixed;
+  top: 80px; /* ヘッダー（70px）の少し下 */
+  right: 15px;
+  z-index: 1035; /* ヘッダー(1030)より上、モーダル(1050)より下 */
+}
+
+.language-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 0;
+}
+
+.language-btn i {
+  font-size: 1.2rem;
+  color: #d4af37;
+  transition: transform 0.3s ease;
+}
+
+.language-btn:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #d4af37;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.language-btn:hover i {
+  transform: rotate(20deg);
+}
+
+.language-btn:active {
+  transform: scale(1.05);
+}
+
+/* テキストは常に非表示（フローティングボタンのため） */
+.lang-text {
+  display: none;
+}
+
+/* デスクトップ: 1024px以上で位置とサイズを調整 */
+@media (min-width: 1024px) {
+  .language-switcher {
+    top: 90px; /* ヘッダー（80px）の少し下 */
+    right: 20px;
+  }
+
+  .language-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .language-btn i {
+    font-size: 1.3rem;
+  }
+}
+
+/* 1440px以上: 少し大きめのボタン */
+@media (min-width: 1440px) {
+  .language-switcher {
+    top: 95px;
+    right: 25px;
+  }
+
+  .language-btn {
+    width: 55px;
+    height: 55px;
+  }
+
+  .language-btn i {
+    font-size: 1.4rem;
+  }
+}
+
+/* モバイルメニュー内の言語切り替えリンクは非表示（固定フローティングボタンを使用） */
+#mobileLangToggle {
+  display: none;
 }

@@ -159,10 +159,12 @@ function initSlideshow() {
 
 // アクティブナビゲーション管理（DOM キャッシュ最適化版）
 let cachedSections = null;
+let cachedNavLinks = null;
 
 function initNavigationCache() {
   // DOM要素を初期化時に1回だけ取得してキャッシュ
   cachedSections = document.querySelectorAll("section[id]");
+  cachedNavLinks = document.querySelectorAll(".nav-links a");
 }
 
 function updateActiveNav() {

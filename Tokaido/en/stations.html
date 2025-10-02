@@ -25,11 +25,14 @@
     />
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/tokaido.css" />
+    <script src="../../js/language-switcher.js" defer></script>
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo">堂島フロント企画</div>
+        <a href="../../index.html" class="logo">
+          <img src="../../images/doujima-logo.webp" alt="堂島フロント企画" />
+        </a>
         <ul class="nav-links">
           <li>
             <a href="index.html">Tokaido Walk</a>
@@ -65,6 +68,14 @@
       </nav>
     </header>
 
+    <!-- Fixed floating language switcher button -->
+    <div class="language-switcher">
+      <button id="languageToggle" class="language-btn" aria-label="Switch Language / 言語切り替え">
+        <i class="fas fa-globe"></i>
+        <span class="lang-text">日本語</span>
+      </button>
+    </div>
+
     <!-- Mobile overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
@@ -86,6 +97,9 @@
         <a href="guide.html" class="mobile-menu-link">Walking Guide</a>
         <a href="../Ohenro/index.html" class="mobile-menu-link">Shikoku Pilgrimage</a>
         <a href="../index.html" class="mobile-menu-link">Corporate Homepage</a>
+        <a href="#" id="mobileLangToggle" class="mobile-menu-link">
+          <i class="fas fa-globe"></i> 日本語
+        </a>
       </nav>
     </div>
 

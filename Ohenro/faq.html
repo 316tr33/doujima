@@ -20,11 +20,14 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/pages/ohenro-responsive.css" />
+    <script src="../js/language-switcher.js" defer></script>
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo">堂島フロント企画</div>
+        <a href="../index.html" class="logo">
+          <img src="../images/doujima-logo.webp" alt="堂島フロント企画" />
+        </a>
         <ul class="nav-links">
           <li>
             <a href="index.html">四国お遍路</a>
@@ -61,6 +64,14 @@
       </nav>
     </header>
 
+    <!-- 固定フローティング言語切り替えボタン -->
+    <div class="language-switcher">
+      <button id="languageToggle" class="language-btn" aria-label="言語切り替え / Switch Language">
+        <i class="fas fa-globe"></i>
+        <span class="lang-text">English</span>
+      </button>
+    </div>
+
     <!-- モバイル用メニューオーバーレイ -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
@@ -84,6 +95,9 @@
           >東海道ウォーク</a
         >
         <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
+        <a href="#" id="mobileLangToggle" class="mobile-menu-link">
+          <i class="fas fa-globe"></i> English
+        </a>
       </nav>
     </div>
 
