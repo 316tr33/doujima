@@ -361,3 +361,51 @@ body[data-page="ohenro"] .hero-slide:nth-child(5) {
     transition: none;
   }
 }
+
+/* ===============================================
+   英語版ページ用オーバーライド
+   =============================================== */
+
+/* 英語ページでは常に横書き */
+html[lang="en"] .hero-subtitle,
+html[lang="en"] .hero-description,
+html[lang="en"] .slide-info {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+}
+
+/* 英語版のサブタイトルとdescriptionの調整 */
+@media (min-width: 768px) {
+  html[lang="en"] .hero-subtitle {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    height: auto !important;
+    margin: 0 auto 1.5rem !important;
+  }
+
+  html[lang="en"] .hero-description {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+
+  html[lang="en"] .slide-info {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    bottom: 3rem !important;
+    right: 3rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  html[lang="en"] .hero-subtitle {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    height: auto !important;
+    margin: 0 auto 2rem !important;
+  }
+
+  html[lang="en"] .hero-description {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+}
