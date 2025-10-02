@@ -119,6 +119,7 @@
   font-size: 1.1rem; /* モバイルサイズ */
   line-height: 1.6;
   margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.95) !important;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 

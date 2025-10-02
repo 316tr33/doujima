@@ -86,18 +86,61 @@
 
   /* stations.html専用ヒーロー調整 */
   .stations-hero {
+    min-height: 70vh !important; /* タブレットで十分な高さを確保 */
+    height: auto !important;
     padding-top: 6.5rem !important; /* ヘッダー分を十分に確保 */
     padding-bottom: 3rem !important;
+    display: flex !important;
+    align-items: center !important;
   }
 
   .stations-hero-content {
     padding-top: 1rem !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .stations-title {
     margin-top: 0.5rem !important;
-    font-size: clamp(2rem, 12vw, 3.2rem) !important;
+    font-size: clamp(2rem, 8vw, 3rem) !important;
     line-height: 1.2 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .stations-description {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 1rem !important;
+  }
+
+  .station-search-container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    margin-top: 2rem !important;
+  }
+
+  .quick-filters {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.6rem !important;
+    justify-content: center !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1.2rem !important;
+    font-size: 0.9rem !important;
+    min-width: auto !important;
+    white-space: nowrap !important;
   }
 }
 
