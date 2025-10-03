@@ -291,9 +291,7 @@ body {
   /* ヒーローは常に美しいフルサイズで表示 */
   .hero,
   .hero-section {
-    min-height: calc(
-      100vh - 80px
-    ) !important; /* ヘッダー分を差し引いた美しいフルサイズ */
+    min-height: 100vh !important; /* 画面全体の高さで表示 */
     height: auto !important; /* 内容に応じて自動調整 */
     position: relative !important;
     display: flex !important;
@@ -309,6 +307,7 @@ body {
   .hero-content {
     max-width: 800px !important;
     padding: 2rem !important;
+    margin-top: 3rem !important; /* コンテンツを少し下に配置 */
     text-align: center !important;
     z-index: 2 !important;
   }
@@ -332,7 +331,7 @@ body {
     font-size: 1.3rem !important; /* 21px */
     margin-bottom: 2.5rem !important;
     line-height: 1.7 !important;
-    color: #333 !important; /* 説明文：白色で読みやすく */
+    color: rgba(255, 255, 255, 0.95) !important; /* 説明文：白色で読みやすく */
   }
 
   .hero-cta {
