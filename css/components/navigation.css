@@ -362,13 +362,13 @@ nav {
   justify-content: center;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  padding: 0.5rem 0.8rem;
-  font-size: 0.85rem;
+  padding: 1rem 1rem;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   transition: all 0.3s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  min-height: 44px;
+  min-height: 48px;
   touch-action: manipulation;
   width: 100%;
   max-width: 100%;
@@ -402,7 +402,8 @@ nav {
 }
 
 /* タブレットではモバイルレイアウトを維持（1024px以上でデスクトップに切り替え） */
-@media (min-width: 1024px) { /* --bp-lg デスクトップ以上のみ */
+@media (min-width: 1024px) {
+  /* --bp-lg デスクトップ以上のみ */
   header {
     height: 80px !important;
     padding: 0 !important;
@@ -489,7 +490,8 @@ nav {
   }
 }
 
-@media (min-width: 1440px) { /* --bp-xl */
+@media (min-width: 1440px) {
+  /* --bp-xl */
   nav {
     max-width: var(--container-xl);
   }

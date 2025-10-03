@@ -35,7 +35,6 @@ section:not([style*="width"]) {
   button:not(.custom-size),
   .button:not(.custom-size),
   a[role="button"]:not(.custom-size),
-  .mobile-menu-link,
   nav a {
     min-height: 44px !important;
     min-width: 44px !important;
@@ -43,6 +42,17 @@ section:not([style*="width"]) {
     align-items: center;
     justify-content: center;
     padding: 0.8rem 1rem !important;
+    box-sizing: border-box;
+  }
+
+  /* モバイルメニューリンクの特別処理（縦幅拡張） */
+  .mobile-menu-link {
+    min-height: 60px !important;
+    min-width: 44px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem !important;
     box-sizing: border-box;
   }
 
@@ -56,7 +66,7 @@ section:not([style*="width"]) {
   /* フッターリンクとその他のテキストリンクのタッチサイズ確保 */
   footer a,
   .footer a,
-  a:not([role="button"]):not(.hero-cta a):not(.logo) {
+  a:not([role="button"]):not(.hero-cta a):not(.logo):not(.mobile-menu-link) {
     min-height: 44px !important;
     display: inline-flex !important;
     align-items: center !important;
