@@ -257,13 +257,20 @@ function checkLanguageOnLoad() {
 }
 
 // DOMContentLoaded時の初期化
-document.addEventListener('DOMContentLoaded', function() {
-  // 言語チェックと自動リダイレクト
-  checkLanguageOnLoad();
+// ページが既に読み込まれている場合は即座に実行、そうでなければDOMContentLoadedを待つ
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() {
+    // 言語チェックと自動リダイレクト
+    checkLanguageOnLoad();
 
-  // 言語切り替えシステム初期化
+    // 言語切り替えシステム初期化
+    initLanguageSwitcher();
+  });
+} else {
+  // DOMが既に読み込まれている場合は即座に実行
+  checkLanguageOnLoad();
   initLanguageSwitcher();
-});
+}
 
 // グローバルスコープに公開（必要に応じて）
 window.switchLanguage = switchLanguage;
