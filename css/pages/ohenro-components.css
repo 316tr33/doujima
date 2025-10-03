@@ -2306,7 +2306,7 @@ footer {
   opacity: 0;
   animation: fadeInUp 1s ease 0.9s forwards;
   justify-items: center;
-  align-items: start;
+  align-items: stretch;
 }
 
 @keyframes fadeInUp {
@@ -2332,6 +2332,9 @@ footer {
   min-width: 250px;
   backdrop-filter: blur(5px);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .feature-card::before {
