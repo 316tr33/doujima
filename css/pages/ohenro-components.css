@@ -1182,6 +1182,29 @@
   margin: var(--margin-auto);
   position: relative;
   z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* 動画アイテム */
+.video-item {
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.video-item iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .compact-step {
@@ -1661,6 +1684,12 @@
 }
 /* レスポンシブ 768px */
 @media (max-width: 768px) {
+  /* 動画グリッドのレスポンシブ */
+  .compact-original-learning {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
   .essential-video-section,
   .more-info-section {
     grid-template-columns: 1fr;
@@ -1820,6 +1849,13 @@
 }
 
 @media (max-width: 480px) /* --bp-sm */ {
+  /* 動画グリッドのレスポンシブ（モバイル） */
+  .compact-original-learning {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
   .essential-learning {
     margin: 0 1rem;
   }
@@ -3037,24 +3073,219 @@ footer {
 }
 
 .ec-category {
-  background: rgba(255, 255, 255, 0.95);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: 2px solid rgba(212, 175, 55, 0.25);
-  border-bottom: none;
-  border-radius: 16px 16px 0 0;
-  padding: 0.5rem 1.5rem 2.5rem 1.5rem;
-  min-height: 260px;
+  background: #fff;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.03),
-    0 -1px 4px rgba(212, 175, 55, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  text-align: center;
+}
+
+/* グラデーションデザイン用スタイル */
+.ec-category.gradient-design {
+  background: linear-gradient(135deg, #fff 0%, #f9f6f0 100%);
+  min-height: 180px;
+  padding: 40px 25px;
+}
+
+.ec-category.gradient-design[data-step="1"] {
+  border-color: #d4af37;
+}
+
+.ec-category.gradient-design[data-step="2"] {
+  border-color: #b8860b;
+}
+
+.ec-category.gradient-design[data-step="3"] {
+  border-color: #cd853f;
+}
+
+.ec-category.gradient-design[data-step="4"] {
+  border-color: #daa520;
+}
+
+.category-number-large {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  font-size: 120px;
+  font-weight: 700;
+  color: rgba(212, 175, 55, 0.1);
+  line-height: 1;
+  font-family: 'Noto Serif JP', serif;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.category-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.category-content h3 {
+  font-size: 1.1rem;
+  color: #333;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.category-subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.ec-category.gradient-design:hover .category-number-large {
+  color: rgba(212, 175, 55, 0.25);
+}
+
+/* 和紋パターンデザイン */
+.ec-category.pattern-design {
+  background: #fff;
+  border: 2px solid #d4af37;
+  padding: 30px 25px;
+  min-height: 200px;
+}
+
+.pattern-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  opacity: 0.08;
+  z-index: 1;
+}
+
+/* 菊紋パターン（01: 四国） */
+.ec-category[data-pattern="kiku"] .pattern-bg {
+  background:
+    radial-gradient(circle at center, #d4af37 15%, transparent 15%),
+    radial-gradient(circle at 50% 10%, #d4af37 8%, transparent 8%),
+    radial-gradient(circle at 90% 50%, #d4af37 8%, transparent 8%),
+    radial-gradient(circle at 50% 90%, #d4af37 8%, transparent 8%),
+    radial-gradient(circle at 10% 50%, #d4af37 8%, transparent 8%),
+    radial-gradient(circle at 25% 25%, #d4af37 6%, transparent 6%),
+    radial-gradient(circle at 75% 25%, #d4af37 6%, transparent 6%),
+    radial-gradient(circle at 75% 75%, #d4af37 6%, transparent 6%),
+    radial-gradient(circle at 25% 75%, #d4af37 6%, transparent 6%);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+/* 桜紋パターン（02: 別格） */
+.ec-category[data-pattern="sakura"] .pattern-bg {
+  background:
+    radial-gradient(circle at 30% 30%, #d4af37 12%, transparent 12%),
+    radial-gradient(circle at 70% 30%, #d4af37 12%, transparent 12%),
+    radial-gradient(circle at 30% 70%, #d4af37 12%, transparent 12%),
+    radial-gradient(circle at 70% 70%, #d4af37 12%, transparent 12%),
+    radial-gradient(circle at 50% 50%, #d4af37 18%, transparent 18%);
+}
+
+/* 梅紋パターン（03: 西国） */
+.ec-category[data-pattern="ume"] .pattern-bg {
+  background:
+    radial-gradient(circle at 50% 20%, #d4af37 10%, transparent 10%),
+    radial-gradient(circle at 80% 40%, #d4af37 10%, transparent 10%),
+    radial-gradient(circle at 80% 80%, #d4af37 10%, transparent 10%),
+    radial-gradient(circle at 20% 80%, #d4af37 10%, transparent 10%),
+    radial-gradient(circle at 20% 40%, #d4af37 10%, transparent 10%);
+}
+
+/* 蓮紋パターン（04: 坂東秩父） */
+.ec-category[data-pattern="hasu"] .pattern-bg {
+  background:
+    radial-gradient(ellipse 40px 20px at 50% 30%, #d4af37 20%, transparent 20%),
+    radial-gradient(ellipse 40px 20px at 30% 60%, #d4af37 20%, transparent 20%),
+    radial-gradient(ellipse 40px 20px at 70% 60%, #d4af37 20%, transparent 20%),
+    radial-gradient(circle at 50% 70%, #d4af37 15%, transparent 15%);
+}
+
+/* 数字バッジは削除 - カテゴリー名を強調 */
+
+.ec-category.pattern-design .category-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.ec-category.pattern-design:hover .pattern-bg {
+  opacity: 0.15;
+  transition: opacity 0.3s ease;
+}
+
+/* コンパクトデザイン - ボタン風 */
+.ec-category.compact-design {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  border: 2px solid #d4af37;
+  padding: 1.5rem 1.25rem;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.15);
+}
+
+.ec-category.compact-design::after {
+  content: "→";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #d4af37;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.ec-category.compact-design h3 {
+  font-size: 1.15rem;
+  color: #333;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.6;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+  padding: 0 2.5rem;
+}
+
+.ec-category.compact-design:hover {
+  border-color: #b8860b;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
+  background: linear-gradient(135deg, #fffef8 0%, #fef9e7 100%);
+}
+
+.ec-category.compact-design:hover h3 {
+  color: #b8860b;
+}
+
+.ec-category.compact-design:hover::after {
+  right: 0.7rem;
+  opacity: 1;
+  color: #b8860b;
 }
 
 .ec-category::before {
@@ -3064,57 +3295,28 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(248, 249, 250, 0) 0%,
-    rgba(248, 249, 250, 0) 35%,
-    rgba(248, 249, 250, 0.1) 45%,
-    rgba(248, 249, 250, 0.4) 55%,
-    rgba(248, 249, 250, 0.8) 68%,
-    rgba(248, 249, 250, 0.9) 80%,
-    rgba(248, 249, 250, 0.95) 90%,
-    #f8f9fa 100%
-  );
-  transition: all 0.6s ease;
-  z-index: 1;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
 }
 
-/* 各カテゴリーの背景画像 */
-.ec-category[data-step="1"] {
-  background-image: url("../../images/hakui.webp");
-}
-
-.ec-category[data-step="2"] {
-  background-image: url("../../images/nokyocho.webp");
-}
-
-.ec-category[data-step="3"] {
-  background-image: url("../../images/kongozue.webp");
-}
-
+/* 各カテゴリーの背景 - 画像なしデザイン */
+.ec-category[data-step="1"],
+.ec-category[data-step="2"],
+.ec-category[data-step="3"],
 .ec-category[data-step="4"] {
-  background-image: url("../../images/senko.webp");
+  background: #fff;
 }
 
 .ec-category:hover {
-  border-color: rgba(212, 175, 55, 0.5);
-  transform: translateY(-5px);
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05),
-    0 -2px 6px rgba(212, 175, 55, 0.08), 0 12px 35px rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.6);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(212, 175, 55, 0.2);
 }
 
 .ec-category:hover::before {
-  background: linear-gradient(
-    to bottom,
-    rgba(248, 249, 250, 0) 0%,
-    rgba(248, 249, 250, 0) 35%,
-    rgba(248, 249, 250, 0.1) 45%,
-    rgba(248, 249, 250, 0.4) 55%,
-    rgba(248, 249, 250, 0.8) 68%,
-    rgba(248, 249, 250, 0.9) 80%,
-    rgba(248, 249, 250, 0.95) 90%,
-    #f8f9fa 100%
-  );
+  opacity: 1;
 }
 
 /* テキスト要素をオーバーレイより上に配置 */
@@ -3125,27 +3327,34 @@ footer {
 
 .category-number {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 50px;
-  height: 50px;
+  top: 10px;
+  right: 10px;
+  width: 45px;
+  height: 45px;
   background: linear-gradient(135deg, #d4af37, #b8860b);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #fff;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
   z-index: 10;
-  border: 3px solid #fff;
+  border: 2px solid #fff;
 }
 
 .category-icon-bg {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+  border-radius: 50%;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .category-icon-bg::before {
@@ -3171,46 +3380,35 @@ footer {
 }
 
 .category-icon-bg i {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #d4af37;
   z-index: 2;
   position: relative;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
 }
 
 .ec-category:hover .category-icon-bg {
-  background: linear-gradient(
-    135deg,
-    rgba(212, 175, 55, 0.15),
-    rgba(184, 134, 11, 0.08)
-  );
-  border-color: rgba(212, 175, 55, 0.4);
-  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(184, 134, 11, 0.1));
+  transform: scale(1.05);
 }
 
 .ec-category:hover .category-icon-bg i {
   color: #b8860b;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .ec-category h3 {
-  font-size: 1.2rem;
-  color: #b8860b;
+  font-size: 1.1rem;
+  color: #333;
   font-family: "Noto Serif JP", serif;
   font-weight: 600;
-  position: absolute;
-  bottom: 1.2rem;
-  left: 1.5rem;
-  right: 1.5rem;
-  margin: 0 0 0.6rem 0;
-  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9),
-    0 0 8px rgba(255, 255, 255, 0.7), 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  line-height: 1.4;
   transition: all 0.3s ease;
 }
 
 .ec-category:hover h3 {
-  color: #996f0a;
-  transform: translateY(-2px);
+  color: #b8860b;
 }
 
 .ec-category p {
