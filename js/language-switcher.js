@@ -17,7 +17,7 @@ const DEFAULT_LANGUAGE = 'ja'; // デフォルト言語
  * @returns {string} 'ja' または 'en'
  */
 function detectCurrentLanguage() {
-  const currentPath = window.location.pathname;
+  const currentPath = window.location.pathname.toLowerCase();
 
   // URLに '/en/' が含まれている場合は英語
   if (currentPath.includes('/en/')) {
@@ -64,20 +64,22 @@ function getTranslatedURL(currentURL, targetLang) {
 
   // 日本語→英語
   if (currentLang === 'ja' && targetLang === 'en') {
-    // Ohenro/xxx.html → Ohenro/en/xxx.html
-    // Tokaido/xxx.html → Tokaido/en/xxx.html
+    // ohenro/xxx.html → ohenro/en/xxx.html
+    // tokaido/xxx.html → tokaido/en/xxx.html
+    // 大文字小文字を区別しない（case-insensitive）
     return currentURL.replace(
-      /(Ohenro|Tokaido)\//,
+      /(ohenro|tokaido)\//i,
       '$1/en/'
     );
   }
 
   // 英語→日本語
   if (currentLang === 'en' && targetLang === 'ja') {
-    // Ohenro/en/xxx.html → Ohenro/xxx.html
-    // Tokaido/en/xxx.html → Tokaido/xxx.html
+    // ohenro/en/xxx.html → ohenro/xxx.html
+    // tokaido/en/xxx.html → tokaido/xxx.html
+    // 大文字小文字を区別しない（case-insensitive）
     return currentURL.replace(
-      /(Ohenro|Tokaido)\/en\//,
+      /(ohenro|tokaido)\/en\//i,
       '$1/'
     );
   }
@@ -96,15 +98,24 @@ function switchLanguage(targetLang) {
   }
 
   const currentURL = window.location.pathname;
+  const currentLang = detectCurrentLanguage();
   const translatedURL = getTranslatedURL(currentURL, targetLang);
+
+  console.log(`🌐 言語切り替え開始:`);
+  console.log(`  現在の言語: ${currentLang}`);
+  console.log(`  切り替え先: ${targetLang}`);
+  console.log(`  現在のURL: ${currentURL}`);
+  console.log(`  変換後URL: ${translatedURL}`);
 
   // 言語設定を保存
   saveLanguagePreference(targetLang);
 
   // 変換後のURLにリダイレクト
   if (translatedURL !== currentURL) {
-    console.log(`言語切り替え: ${currentURL} → ${translatedURL}`);
+    console.log(`✅ リダイレクト実行: ${currentURL} → ${translatedURL}`);
     window.location.href = translatedURL;
+  } else {
+    console.warn(`⚠️ URLが同じため、リダイレクトをスキップしました`);
   }
 }
 
@@ -123,23 +134,23 @@ function updateNavigationLinks() {
       return;
     }
 
-    // お遍路・東海道のページリンクを変換
-    if (href.includes('Ohenro/') || href.includes('Tokaido/')) {
+    // お遍路・東海道のページリンクを変換（大文字小文字を区別しない）
+    if (href.toLowerCase().includes('ohenro/') || href.toLowerCase().includes('tokaido/')) {
       let newHref = href;
 
       if (currentLang === 'en') {
         // 日本語版リンク→英語版リンクに変換
-        if (!href.includes('/en/')) {
+        if (!href.toLowerCase().includes('/en/')) {
           newHref = href.replace(
-            /(Ohenro|Tokaido)\//,
+            /(ohenro|tokaido)\//i,
             '$1/en/'
           );
         }
       } else {
         // 英語版リンク→日本語版リンクに変換
-        if (href.includes('/en/')) {
+        if (href.toLowerCase().includes('/en/')) {
           newHref = href.replace(
-            /(Ohenro|Tokaido)\/en\//,
+            /(ohenro|tokaido)\/en\//i,
             '$1/'
           );
         }
@@ -202,9 +213,13 @@ function initLanguageSwitcher() {
   if (desktopButton) {
     desktopButton.addEventListener('click', function(e) {
       e.preventDefault();
+      console.log('🖱️ デスクトップ言語切り替えボタンがクリックされました');
       const targetLang = currentLang === 'ja' ? 'en' : 'ja';
       switchLanguage(targetLang);
     });
+    console.log('✅ デスクトップボタンのイベントリスナーを設定');
+  } else {
+    console.warn('⚠️ デスクトップ言語切り替えボタン (#languageToggle) が見つかりません');
   }
 
   // モバイル用言語切り替えボタンのイベントリスナー
@@ -212,48 +227,47 @@ function initLanguageSwitcher() {
   if (mobileButton) {
     mobileButton.addEventListener('click', function(e) {
       e.preventDefault();
+      console.log('📱 モバイル言語切り替えボタンがクリックされました');
       const targetLang = currentLang === 'ja' ? 'en' : 'ja';
       switchLanguage(targetLang);
     });
+    console.log('✅ モバイルボタンのイベントリスナーを設定');
+  } else {
+    console.warn('⚠️ モバイル言語切り替えボタン (#mobileLangToggle) が見つかりません');
   }
 
   console.log('言語切り替えシステムを初期化完了');
 }
 
 /**
- * ページ読み込み時の言語チェックと自動リダイレクト
- * 注: 企業トップページ（index.html）は日本語のみのため除外
+ * ページ読み込み時の言語チェック
+ * 注: 自動リダイレクトは行わず、現在のページの言語をそのまま表示
+ * ユーザーの明示的な言語選択のみをLocalStorageに記憶
  */
 function checkLanguageOnLoad() {
   const currentPath = window.location.pathname;
+  const currentPathLower = currentPath.toLowerCase();
 
   // 企業トップページまたはrecruitページの場合はスキップ
-  if (currentPath.includes('index.html') &&
-      !currentPath.includes('Ohenro') &&
-      !currentPath.includes('Tokaido')) {
+  if (currentPathLower.includes('index.html') &&
+      !currentPathLower.includes('ohenro') &&
+      !currentPathLower.includes('tokaido')) {
     console.log('企業トップページ: 言語チェックをスキップ');
     return;
   }
 
-  if (currentPath.includes('recruit.html')) {
+  if (currentPathLower.includes('recruit.html')) {
     console.log('採用ページ: 言語チェックをスキップ');
     return;
   }
 
   const currentLang = detectCurrentLanguage();
-  const savedLang = getLanguagePreference();
 
-  // お遍路・東海道ページで、保存された言語と現在の言語が異なる場合
-  if ((currentPath.includes('Ohenro') || currentPath.includes('Tokaido')) &&
-      currentLang !== savedLang) {
-    console.log(`言語設定不一致: 現在=${currentLang}, 設定=${savedLang}`);
-    const translatedURL = getTranslatedURL(currentPath, savedLang);
+  // 現在のページの言語をLocalStorageに保存
+  // これにより、次のページ遷移時に言語が継承される
+  saveLanguagePreference(currentLang);
 
-    if (translatedURL !== currentPath) {
-      console.log(`自動リダイレクト: ${currentPath} → ${translatedURL}`);
-      window.location.href = translatedURL;
-    }
-  }
+  console.log(`現在のページ言語を保存: ${currentLang}`);
 }
 
 // DOMContentLoaded時の初期化
