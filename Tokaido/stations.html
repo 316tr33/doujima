@@ -43,6 +43,7 @@
             <a href="stations.html" class="active">宿場町のご案内</a>
             <div class="dropdown">
               <a href="#kinki-area">近畿（山城国・近江国・伊勢国）</a>
+              <a href="#chubu-area">中部（尾張国・三河国・遠江国・駿河国）</a>
               <a href="#edo-area">江戸（1-15宿）</a>
               <a href="#tokaido-area">東海道（16-35宿）</a>
             </div>
@@ -113,6 +114,11 @@
           <span class="nav-name">近畿</span>
           <span class="nav-description">京都到着</span>
         </a>
+        <a href="#chubu-area" class="area-nav-btn" data-area="chubu">
+          <span class="nav-number">尾張・三河・遠江・駿河</span>
+          <span class="nav-name">中部</span>
+          <span class="nav-description">名古屋から富士</span>
+        </a>
         <a href="#edo-area" class="area-nav-btn" data-area="edo">
           <span class="nav-number">1-15</span>
           <span class="nav-name">江戸</span>
@@ -149,6 +155,9 @@
             <button class="filter-btn active" data-filter="all">すべて</button>
             <button class="filter-btn" data-filter="kinki">
               近畿（山城・近江・伊勢）
+            </button>
+            <button class="filter-btn" data-filter="chubu">
+              中部（尾張・三河・遠江・駿河）
             </button>
             <button class="filter-btn" data-filter="edo">江戸（1-15）</button>
             <button class="filter-btn" data-filter="tokaido">
@@ -463,6 +472,223 @@
                   七里の渡しで有名な伊勢湾の港町。蛤料理で知られる城下町として栄えました。
                 </p>
 </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 中部エリア（尾張国・三河国・遠江国・駿河国） -->
+        <div class="area-section" id="chubu-area">
+          <h2 class="area-title">
+            <span class="area-number">尾張国・三河国・遠江国・駿河国</span>
+            中部エリア
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >名古屋から富士山麓まで、東海道の中心地</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- 41宿 宮 -->
+            <div
+              class="station-card chubu history gourmet"
+              data-number="41"
+              data-features="熱田神宮,門前町,三大神社"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/42-Miya.webp"
+                  alt="宮 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>宮</h3>
+                <div class="station-reading">みや</div>
+                <p class="station-description">
+                  熱田神宮の門前町として発展した宿場。草薙剣で有名な日本三大神社の一つです。
+                </p>
+              </div>
+            </div>
+
+            <!-- 40宿 鳴海 -->
+            <div
+              class="station-card chubu history gourmet"
+              data-number="40"
+              data-features="鳴海絞り,伝統工芸,藍染め"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/41-Narumi.webp"
+                  alt="鳴海 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>鳴海</h3>
+                <div class="station-reading">なるみ</div>
+                <p class="station-description">
+                  鳴海絞りで有名な伝統工芸の宿場。美しい藍染めの技術が今も受け継がれています。
+                </p>
+              </div>
+            </div>
+
+            <!-- 39宿 池鯉鮒 -->
+            <div
+              class="station-card chubu history scenic"
+              data-number="39"
+              data-features="知立神社,馬市,商業"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/40-Chiryu.webp"
+                  alt="池鯉鮒 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>池鯉鮒</h3>
+                <div class="station-reading">ちりゅう</div>
+                <p class="station-description">
+                  現在の知立市。知立神社と馬市で有名な宿場として多くの商人が集まりました。
+                </p>
+              </div>
+            </div>
+
+            <!-- 38宿 岡崎 -->
+            <div
+              class="station-card chubu history scenic special"
+              data-number="38"
+              data-features="徳川家康,城下町,岡崎城"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/39-Okazaki.webp"
+                  alt="岡崎 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>岡崎</h3>
+                <div class="station-reading">おかざき</div>
+                <p class="station-description">
+                  徳川家康の生誕地として有名な城下町。岡崎城を中心とした歴史ある観光地です。
+                </p>
+              </div>
+            </div>
+
+            <!-- 37宿 藤川 -->
+            <div
+              class="station-card chubu beginner scenic"
+              data-number="37"
+              data-features="むらさき麦,田園風景,浮世絵"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/38-Fujikawa.webp"
+                  alt="藤川 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>藤川</h3>
+                <div class="station-reading">ふじかわ</div>
+                <p class="station-description">
+                  むらさき麦で有名な宿場。広重の浮世絵にも描かれた美しい田園風景が魅力です。
+                </p>
+              </div>
+            </div>
+
+            <!-- 36宿 赤坂 -->
+            <div
+              class="station-card chubu beginner scenic"
+              data-number="36"
+              data-features="杉並木,歴史,初心者"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/37-Akasaka.webp"
+                  alt="赤坂 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>赤坂</h3>
+                <div class="station-reading">あかさか</div>
+                <p class="station-description">
+                  御油宿に隣接する小さな宿場。歴史的な杉並木が美しく保存されている地です。
+                </p>
+              </div>
+            </div>
+
+            <!-- 35宿 御油 -->
+            <div
+              class="station-card chubu history scenic"
+              data-number="35"
+              data-features="松並木,政治,文化"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/36-Goyu.webp"
+                  alt="御油 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>御油</h3>
+                <div class="station-reading">ごゆ</div>
+                <p class="station-description">
+                  美しい松並木で有名な宿場。三河国の政治・文化の中心地として栄えました。
+                </p>
+              </div>
+            </div>
+
+            <!-- 34宿 吉田 -->
+            <div
+              class="station-card chubu history scenic"
+              data-number="34"
+              data-features="城下町,吉田城,歴史"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/35-Yoshida.webp"
+                  alt="吉田 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>吉田</h3>
+                <div class="station-reading">よしだ</div>
+                <p class="station-description">
+                  吉田城の城下町として栄えた三河国への入口。現在の豊橋市として発展しています。
+                </p>
+              </div>
+            </div>
+
+            <!-- 33宿 二川 -->
+            <div
+              class="station-card chubu history beginner"
+              data-number="33"
+              data-features="本陣,歴史,初心者"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/34-Futagawa.webp"
+                  alt="二川 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>二川</h3>
+                <div class="station-reading">ふたがわ</div>
+                <p class="station-description">
+                  本陣建物が現存する貴重な宿場。江戸時代の宿場町の雰囲気を色濃く残しています。
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -1225,50 +1451,6 @@
                 <div class="station-reading">しらすか</div>
                 <p class="station-description">
                   遠州灘に面した海岸線の宿場。潮風を感じながら歩ける初心者向けのルートで、太平洋の雄大な景色が広がります。
-                </p>
-</div>
-            </div>
-
-            <!-- 33宿 二川 -->
-            <div
-              class="station-card tokaido history beginner"
-              data-number="33"
-              data-features="本陣,歴史,初心者"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/34-Futagawa.webp"
-                  alt="二川 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>二川</h3>
-                <div class="station-reading">ふたがわ</div>
-                <p class="station-description">
-                  本陣建物が現存する貴重な宿場。江戸時代の宿場町の雰囲気を色濃く残しています。
-                </p>
-</div>
-            </div>
-
-            <!-- 34宿 吉田 -->
-            <div
-              class="station-card tokaido history scenic"
-              data-number="34"
-              data-features="城下町,吉田城,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/35-Yoshida.webp"
-                  alt="吉田 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>吉田</h3>
-                <div class="station-reading">よしだ</div>
-                <p class="station-description">
-                  吉田城の城下町として栄えた三河国への入口。現在の豊橋市として発展しています。
                 </p>
 </div>
             </div>
