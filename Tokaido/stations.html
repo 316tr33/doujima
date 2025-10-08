@@ -42,9 +42,9 @@
           <li>
             <a href="stations.html" class="active">宿場町のご案内</a>
             <div class="dropdown">
+              <a href="#kinki-area">近畿（山城国・近江国・伊勢国）</a>
               <a href="#edo-area">江戸（1-15宿）</a>
               <a href="#tokaido-area">東海道（16-35宿）</a>
-              <a href="#kinki-area">近畿（36-53宿）</a>
             </div>
           </li>
           <li>
@@ -108,6 +108,11 @@
     <!-- エリア別ナビゲーション -->
     <div class="area-nav" id="areaNav">
       <div class="area-nav-container">
+        <a href="#kinki-area" class="area-nav-btn" data-area="kinki">
+          <span class="nav-number">山城・近江・伊勢</span>
+          <span class="nav-name">近畿</span>
+          <span class="nav-description">京都到着</span>
+        </a>
         <a href="#edo-area" class="area-nav-btn" data-area="edo">
           <span class="nav-number">1-15</span>
           <span class="nav-name">江戸</span>
@@ -117,11 +122,6 @@
           <span class="nav-number">16-35</span>
           <span class="nav-name">東海道</span>
           <span class="nav-description">中心区間</span>
-        </a>
-        <a href="#kinki-area" class="area-nav-btn" data-area="kinki">
-          <span class="nav-number">36-53</span>
-          <span class="nav-name">近畿</span>
-          <span class="nav-description">京都到着</span>
         </a>
       </div>
     </div>
@@ -147,21 +147,14 @@
           </div>
           <div class="quick-filters">
             <button class="filter-btn active" data-filter="all">すべて</button>
+            <button class="filter-btn" data-filter="kinki">
+              近畿（山城・近江・伊勢）
+            </button>
             <button class="filter-btn" data-filter="edo">江戸（1-15）</button>
             <button class="filter-btn" data-filter="tokaido">
               東海道（16-35）
             </button>
-            <button class="filter-btn" data-filter="kinki">
-              近畿（36-53）
-            </button>
-            <button class="filter-btn" data-filter="scenic">風景名所</button>
-            <button class="filter-btn" data-filter="onsen">温泉宿場</button>
-            <button class="filter-btn" data-filter="history">歴史名所</button>
-            <button class="filter-btn" data-filter="gourmet">名物グルメ</button>
-            <button class="filter-btn" data-filter="beginner">
-              初心者向け
-            </button>
-          </div>
+</div>
         </div>
       </div>
     </section>
@@ -169,6 +162,311 @@
     <!-- 宿場町メイン情報 -->
     <section class="stations-main-content">
       <div class="section-content">
+        <!-- 近畿エリア（山城国・近江国・伊勢国） -->
+        <div class="area-section" id="kinki-area">
+          <h2 class="area-title">
+            <span class="area-number">山城国・近江国・伊勢国</span>
+            近畿エリア
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >京都から伊勢湾まで、歴史と文化の中心地</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- 終点：三条大橋 -->
+            <div
+              class="station-card kinki scenic history special"
+              data-number="54"
+              data-features="終点,橋,京都"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/55-Kyoto.webp"
+                  alt="三条大橋 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>三条大橋</h3>
+                <div class="station-reading">さんじょうおおはし</div>
+                <p class="station-description">
+                  東海道の終点となる京都の三条大橋。天正18年（1590年）に豊臣秀吉の命により架けられ、江戸時代には東海道の西の起終点として多くの旅人が行き交いました。現在も鴨川に架かる歴史的な橋です。
+                </p>
+</div>
+            </div>
+
+            <!-- 53宿 大津 -->
+            <div
+              class="station-card kinki history scenic"
+              data-number="53"
+              data-features="琵琶湖,終点,歴史"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/54-Ōtsū.webp"
+                  alt="大津 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>大津</h3>
+                <div class="station-reading">おおつ</div>
+                <p class="station-description">
+                  東海道最後の宿場。琵琶湖畔に位置し、大津絵で有名な文化的な宿場町です。
+                </p>
+</div>
+            </div>
+
+            <!-- 52宿 草津 -->
+            <div
+              class="station-card kinki history scenic"
+              data-number="52"
+              data-features="交通要衝,中山道,本陣"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/53-Kusatsu.webp"
+                  alt="草津 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>草津</h3>
+                <div class="station-reading">くさつ</div>
+                <p class="station-description">
+                  東海道と中山道が合流する交通の要衝。本陣が保存され往時の姿を伝えています。
+                </p>
+</div>
+            </div>
+
+            <!-- 51宿 石部 -->
+            <div
+              class="station-card kinki beginner gourmet"
+              data-number="51"
+              data-features="初心者,農村,名物"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/52-Ishibe.webp"
+                  alt="石部 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>石部</h3>
+                <div class="station-reading">いしべ</div>
+                <p class="station-description">
+                  「石部の佐吉」で有名な石部宿。小さな宿場ながら交通の要衝として重要な役割を果たし、近江国の入り口として知られました。
+                </p>
+</div>
+            </div>
+
+            <!-- 50宿 水口 -->
+            <div
+              class="station-card kinki history scenic"
+              data-number="50"
+              data-features="城下町,水口城,歴史"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/51-Minakuchi.webp"
+                  alt="水口 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>水口</h3>
+                <div class="station-reading">みなくち</div>
+                <p class="station-description">
+                  水口城の城下町として栄えた宿場。徳川将軍の上洛時の宿泊地として格式高い歴史を持ちます。
+                </p>
+</div>
+            </div>
+
+            <!-- 49宿 土山 -->
+            <div
+              class="station-card kinki history scenic"
+              data-number="49"
+              data-features="茶,山間,歴史"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/50-Tsuchiyama.webp"
+                  alt="土山 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>土山</h3>
+                <div class="station-reading">つちやま</div>
+                <p class="station-description">
+                  鈴鹿峠を越えて近江国に入る最初の宿場。土山茶で有名な茶の産地でもあります。
+                </p>
+</div>
+            </div>
+
+            <!-- 48宿 坂下 -->
+            <div
+              class="station-card kinki beginner history"
+              data-number="48"
+              data-features="峠,初心者,山間"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/49-Sakanoshita.webp"
+                  alt="坂下 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>坂下</h3>
+                <div class="station-reading">さかした</div>
+                <p class="station-description">
+                  鈴鹿峠の麓に位置する山間の宿場。関宿のすぐ隣にあり、峠越えの拠点として栄えました。
+                </p>
+</div>
+            </div>
+
+            <!-- 47宿 関 -->
+            <div
+              class="station-card kinki history scenic"
+              data-number="47"
+              data-features="関宿,歴史保存,街並み"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/48-Seki.webp"
+                  alt="関 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>関</h3>
+                <div class="station-reading">せき</div>
+                <p class="station-description">
+                  江戸時代の街並みが最も美しく保存された宿場。重要伝統的建造物群保存地区に指定されています。
+                </p>
+</div>
+            </div>
+
+            <!-- 46宿 亀山 -->
+            <div
+              class="station-card kinki history scenic"
+              data-number="46"
+              data-features="城下町,亀山城,歴史"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/47-Kameyama.webp"
+                  alt="亀山 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>亀山</h3>
+                <div class="station-reading">かめやま</div>
+                <p class="station-description">
+                  亀山城の城下町として栄えた宿場。東海道と伊勢街道の分岐点としても重要でした。
+                </p>
+</div>
+            </div>
+
+            <!-- 45宿 庄野 -->
+            <div
+              class="station-card kinki beginner scenic"
+              data-number="45"
+              data-features="自然,初心者,田舎"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/46-Shōno.webp"
+                  alt="庄野 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>庄野</h3>
+                <div class="station-reading">しょうの</div>
+                <p class="station-description">
+                  静かな農村地帯に位置する小さな宿場。昔ながらの日本の田舎風景が残る場所で、ゆったりとした時間が流れます。
+                </p>
+</div>
+            </div>
+
+            <!-- 44宿 石薬師 -->
+            <div
+              class="station-card kinki beginner scenic"
+              data-number="44"
+              data-features="田園,初心者,自然"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/45-Ishiyakushi.webp"
+                  alt="石薬師 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>石薬師</h3>
+                <div class="station-reading">いしやくし</div>
+                <p class="station-description">
+                  美しい田園風景が広がる小さな宿場。のどかな農村地帯を歩く癒やしのルートで、四季折々の自然が楽しめます。
+                </p>
+</div>
+            </div>
+
+            <!-- 43宿 四日市 -->
+            <div
+              class="station-card kinki history gourmet"
+              data-number="43"
+              data-features="港町,商業,歴史"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/44-Yokkaichi.webp"
+                  alt="四日市 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>四日市</h3>
+                <div class="station-reading">よっかいち</div>
+                <p class="station-description">
+                  商業港として発展した宿場。現在も三重県の工業都市として重要な地位を占めています。
+                </p>
+</div>
+            </div>
+
+            <!-- 42宿 桑名 -->
+            <div
+              class="station-card kinki history gourmet"
+              data-number="42"
+              data-features="七里の渡し,蛤,城下町"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/43-Kuwana.webp"
+                  alt="桑名 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+</div>
+              <div class="station-info">
+                <h3>桑名</h3>
+                <div class="station-reading">くわな</div>
+                <p class="station-description">
+                  七里の渡しで有名な伊勢湾の港町。蛤料理で知られる城下町として栄えました。
+                </p>
+</div>
+            </div>
+          </div>
+        </div>
+
         <!-- 江戸エリア（1-15宿） -->
         <div class="area-section" id="edo-area">
           <h2 class="area-title">
@@ -198,38 +496,14 @@
                   alt="日本橋 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">起点</div>
-                <div class="station-badges">
-                  <span class="badge history">起点</span>
-                  <span class="badge scenic">歴史名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>日本橋</h3>
                 <div class="station-reading">にほんばし</div>
                 <p class="station-description">
                   東海道五十三次の起点として、五街道すべての始まりとなる歴史的な橋。江戸時代から現在まで日本の交通と商業の中心地として栄え、多くの旅人がここから長い旅路に出発しました。
                 </p>
-                <div class="station-details">
-                  <div class="detail-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>東京都中央区日本橋室町～日本橋</span>
-                  </div>
-                  <div class="detail-item">
-                    <i class="fas fa-train"></i>
-                    <span>日本橋駅（東京メトロ）/三越前駅</span>
-                  </div>
-                  <div class="detail-item">
-                    <i class="fas fa-clock"></i>
-                    <span>見学時間：0.5–1時間</span>
-                  </div>
-                </div>
-                <div class="station-highlights">
-                  <span>五街道起点</span>
-                  <span>日本の道路元標</span>
-                  <span>江戸・東京中心</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 1宿 品川 -->
@@ -244,53 +518,14 @@
                   alt="品川 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">1</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>品川</h3>
                 <div class="station-reading">しながわ</div>
                 <p class="station-description">
                   東海道第一の宿場町。江戸時代には遊郭や茶屋が立ち並び、多くの旅人で賑わいました。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>東京都品川区北品川・南品川一帯</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>北品川駅（京急）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：1–1.5時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>商業中心</span>
-                  <span>江戸文化</span>
-                  <span>現代の名所</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 2宿 川崎 -->
@@ -305,53 +540,14 @@
                   alt="川崎 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">2</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>川崎</h3>
                 <div class="station-reading">かわさき</div>
                 <p class="station-description">
                   多摩川の六郷の渡しで有名な宿場。武蔵の名所として多くの旅人が往来しました。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>神奈川県川崎市川崎区本町～堀之内町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>川崎駅（JR）/京急川崎駅</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>海苔</span>
-                  <span>宿場文化</span>
-                  <span>商店街</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 3宿 神奈川 -->
@@ -366,53 +562,14 @@
                   alt="神奈川 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">3</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">開港場</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>神奈川</h3>
                 <div class="station-reading">かながわ</div>
                 <p class="station-description">
                   幕末の開港場として歴史的に重要な宿場。現在の横浜市神奈川区に位置し、外国人居留地として栄えました。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>神奈川県横浜市神奈川区神奈川本町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>神奈川駅（京急）/東神奈川駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>神奈川台関門跡</span>
-                  <span>開港史跡</span>
-                  <span>本覚寺</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 4宿 保土ケ谷 -->
@@ -427,53 +584,14 @@
                   alt="保土ケ谷 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">4</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">難所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>保土ケ谷</h3>
                 <div class="station-reading">ほどがや</div>
                 <p class="station-description">
                   権太坂の難所で知られる宿場町。東海道の古道が現在も残り、歌川広重の浮世絵にも描かれました。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>神奈川県横浜市保土ケ谷区保土ケ谷町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>保土ケ谷駅（JR）/天王町駅（相鉄）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>権太坂の急坂</span>
-                  <span>東海道古道</span>
-                  <span>宿場の歴史道</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 5宿 戸塚 -->
@@ -488,53 +606,14 @@
                   alt="戸塚 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">5</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge beginner">初心者向け</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>戸塚</h3>
                 <div class="station-reading">とつか</div>
                 <p class="station-description">
                   東海道有数の大宿場町。鎌倉道との分岐点として交通の要衝を担い、多くの旅人で賑わいました。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>神奈川県横浜市戸塚区戸塚町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>戸塚駅（JR・市営地下鉄）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>宿場まつり</span>
-                  <span>鎌倉道分岐点</span>
-                  <span>本陣・脇本陣跡</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 6宿 藤沢 -->
@@ -549,53 +628,14 @@
                   alt="藤沢 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">6</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">門前町</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>藤沢</h3>
                 <div class="station-reading">ふじさわ</div>
                 <p class="station-description">
                   遊行寺の門前町として栄えた宿場。江島神社への参詣道である江島道の分岐点でもありました。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>神奈川県藤沢市藤沢～本町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>藤沢駅（JR・小田急・江ノ電）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>遊行寺</span>
-                  <span>江島道分岐</span>
-                  <span>本陣跡</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 7宿 平塚 -->
@@ -610,53 +650,14 @@
                   alt="平塚 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">7</div>
-                <div class="station-badges">
-                  <span class="badge scenic">風景名所</span>
-                  <span class="badge beginner">初心者向け</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>平塚</h3>
                 <div class="station-reading">ひらつか</div>
                 <p class="station-description">
                   相模川の渡船場として重要な宿場町。相模平野の中央に位置し、現在は七夕まつりで有名です。江戸時代には東海道の要衝として栄えました。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>神奈川県平塚市明石町～紅谷町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>平塚駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>相模川渡し場跡</span>
-                  <span>平塚八幡宮</span>
-                  <span>七夕まつり</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 8宿 大磯 -->
@@ -671,53 +672,14 @@
                   alt="大磯 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">8</div>
-                <div class="station-badges">
-                  <span class="badge scenic">風景名所</span>
-                  <span class="badge onsen">海岸宿場</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>大磯</h3>
                 <div class="station-reading">おおいそ</div>
                 <p class="station-description">
                   相模湾を望む美しい松並木の宿場。明治時代には政治家や文人の別荘地として愛され、現在も温泉地として多くの観光客が訪れます。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>神奈川県中郡大磯町東小磯～西小磯周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>大磯駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>東海道松並木</span>
-                  <span>日本初海水浴場</span>
-                  <span>旧伊藤博文邸</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 9宿 小田原 -->
@@ -732,53 +694,14 @@
                   alt="小田原 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">9</div>
-                <div class="station-badges">
-                  <span class="badge history">城下町</span>
-                  <span class="badge special">特別</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>小田原</h3>
                 <div class="station-reading">おだわら</div>
                 <p class="station-description">
                   戦国大名北条氏の城下町として栄えた関東地方最後の大宿場。小田原城を中心とした歴史ある観光地で、かまぼこや梅干しなどの名産品でも知られています。箱根の険しい山道を前に、旅人がここで英気を養いました。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>神奈川県小田原市本町～城山周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>小田原駅（JR・小田急・箱根登山・大雄山）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：1–1.5時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>小田原城</span>
-                  <span>宿場交流館</span>
-                  <span>かまぼこ博物館</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 10宿 箱根 -->
@@ -793,54 +716,14 @@
                   alt="箱根 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">10</div>
-                <div class="station-badges">
-                  <span class="badge scenic">風景名所</span>
-                  <span class="badge onsen">温泉宿場</span>
-                  <span class="badge special">特別</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>箱根</h3>
                 <div class="station-reading">はこね</div>
                 <p class="station-description">
                   東海道最大の難所として恐れられた山間の関所宿場。箱根八里の険しい山道を越える旅人の重要な休息地で、現在も日本屈指の温泉観光地として世界中から愛され続けています。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>神奈川県足柄下郡箱根町湯本～塔之沢周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>箱根湯本駅（箱根登山）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：1.5–2.5時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>箱根関所</span>
-                  <span>芦ノ湖と富士山</span>
-                  <span>17の温泉地</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 11宿 三島 -->
@@ -855,53 +738,14 @@
                   alt="三島 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">11</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>三島</h3>
                 <div class="station-reading">みしま</div>
                 <p class="station-description">
                   富士山の湧水で有名な宿場。三嶋大社の門前町として古くから栄えた地です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県三島市本町～大宮町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>三島駅（JR）/三島広小路駅（伊豆箱根鉄道）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>三嶋大社</span>
-                  <span>富士山湧水</span>
-                  <span>門前町</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 12宿 沼津 -->
@@ -916,53 +760,14 @@
                   alt="沼津 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">12</div>
-                <div class="station-badges">
-                  <span class="badge gourmet">名物グルメ</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>沼津</h3>
                 <div class="station-reading">ぬまづ</div>
                 <p class="station-description">
                   駿河湾に面した港町で新鮮な海産物が自慢。干物発祥の地としても知られ、富士山を望む絶景スポットとしても人気です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県沼津市上土～大手町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>沼津駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>駿河湾</span>
-                  <span>干物</span>
-                  <span>海産物</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 13宿 原 -->
@@ -977,53 +782,14 @@
                   alt="原 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">13</div>
-                <div class="station-badges">
-                  <span class="badge scenic">風景名所</span>
-                  <span class="badge history">歴史名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>原</h3>
                 <div class="station-reading">はら</div>
                 <p class="station-description">
                   富士山の絶景を望む宿場として歌川広重の浮世絵にも描かれた名所。現在も美しい景観が残ります。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県沼津市原周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>原駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>富士山景観</span>
-                  <span>浮世絵</span>
-                  <span>歌川広重</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 14宿 吉原 -->
@@ -1038,53 +804,14 @@
                   alt="吉原 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">14</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>吉原</h3>
                 <div class="station-reading">よしわら</div>
                 <p class="station-description">
                   富士山の麓に位置する宿場町。江戸時代の文化と歴史が色濃く残る地域です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県富士市吉原本町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>吉原本町駅（岳南電車）/吉原駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：1–1.5時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>富士山麓の宿場</span>
-                  <span>岳南電車の街</span>
-                  <span>製紙産業の歴史</span>
-                </div>
-              </div>
+</div>
             </div>
           </div>
         </div>
@@ -1118,53 +845,14 @@
                   alt="蒲原 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">15</div>
-                <div class="station-badges">
-                  <span class="badge scenic">風景名所</span>
-                  <span class="badge history">歴史名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>蒲原</h3>
                 <div class="station-reading">かんばら</div>
                 <p class="station-description">
                   歌川広重の雪景色で有名な宿場。富士山の美しい眺望と歴史ある街並みが魅力です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県静岡市清水区蒲原周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>新蒲原駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>雪景色</span>
-                  <span>富士山眺望</span>
-                  <span>歌川広重</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 16宿 由比 -->
@@ -1179,53 +867,14 @@
                   alt="由比 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">16</div>
-                <div class="station-badges">
-                  <span class="badge scenic">風景名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>由比</h3>
                 <div class="station-reading">ゆい</div>
                 <p class="station-description">
                   桜えびで有名な駿河湾沿いの小さな宿場。美しい海岸線と富士山の絶景が楽しめ、歌川広重の浮世絵にも描かれた景勝地です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県静岡市清水区由比周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>由比駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>桜えび</span>
-                  <span>駿河湾</span>
-                  <span>海岸線</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 17宿 興津 -->
@@ -1240,53 +889,14 @@
                   alt="興津 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">17</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge beginner">初心者向け</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>興津</h3>
                 <div class="station-reading">おきつ</div>
                 <p class="station-description">
                   明治時代に政治家たちの別荘地として栄えた宿場。歴史と政治の舞台となった場所です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県静岡市清水区興津中町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>興津駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>別荘地</span>
-                  <span>政治史</span>
-                  <span>明治時代</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 18宿 江尻 -->
@@ -1301,53 +911,14 @@
                   alt="江尻 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">18</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>江尻</h3>
                 <div class="station-reading">えじり</div>
                 <p class="station-description">
                   現在の清水港として機能する港町。静岡茶の集散地として重要な役割を担いました。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県静岡市清水区港町・巴町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>清水駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>清水港</span>
-                  <span>静岡茶</span>
-                  <span>港町文化</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 19宿 府中 -->
@@ -1362,53 +933,14 @@
                   alt="府中 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">19</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>府中</h3>
                 <div class="station-reading">ふちゅう</div>
                 <p class="station-description">
                   駿府城の城下町として発展。徳川家康が晩年を過ごした政治の中心地でもありました。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県静岡市葵区呉服町～追手町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>静岡駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>駿府城</span>
-                  <span>徳川家康</span>
-                  <span>政治中心</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 20宿 丸子 -->
@@ -1423,53 +955,14 @@
                   alt="丸子 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">20</div>
-                <div class="station-badges">
-                  <span class="badge gourmet">名物グルメ</span>
-                  <span class="badge beginner">初心者向け</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>丸子</h3>
                 <div class="station-reading">まりこ</div>
                 <p class="station-description">
                   とろろ汁で有名な宿場。松尾芭蕉も立ち寄ったとされる歴史ある名物料理の発祥地で、現在も多くの観光客が名物を求めて訪れます。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県静岡市駿河区丸子周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>安倍川駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>とろろ汁</span>
-                  <span>松尾芭蕉</span>
-                  <span>名物料理</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 21宿 岡部 -->
@@ -1484,53 +977,14 @@
                   alt="岡部 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">21</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge beginner">初心者向け</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>岡部</h3>
                 <div class="station-reading">おかべ</div>
                 <p class="station-description">
                   静岡茶の産地として知られる山間の宿場。美しい茶畑の風景が広がる地です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県藤枝市岡部町岡部～内谷周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>藤枝駅（JR）※バス利用</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：1–1.5時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>茶畑景観</span>
-                  <span>静岡茶</span>
-                  <span>山間宿場</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 22宿 藤枝 -->
@@ -1545,53 +999,14 @@
                   alt="藤枝 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">22</div>
-                <div class="station-badges">
-                  <span class="badge gourmet">名物グルメ</span>
-                  <span class="badge beginner">初心者向け</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>藤枝</h3>
                 <div class="station-reading">ふじえだ</div>
                 <p class="station-description">
                   静岡茶とサッカーで有名な現代的な宿場町。伝統と現代が融合した魅力ある地域で、藤の花の名所としても知られています。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県藤枝市藤枝～本町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>藤枝駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>静岡茶</span>
-                  <span>サッカー</span>
-                  <span>現代文化</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 23宿 島田 -->
@@ -1606,53 +1021,14 @@
                   alt="島田 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">23</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>島田</h3>
                 <div class="station-reading">しまだ</div>
                 <p class="station-description">
                   大井川の川越で栄えた宿場。「箱根八里は馬でも越すが、越すに越されぬ大井川」の舞台です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県島田市本通～大井町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>島田駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>大井川</span>
-                  <span>川越</span>
-                  <span>諺の舞台</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 24宿 金谷 -->
@@ -1667,53 +1043,14 @@
                   alt="金谷 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">24</div>
-                <div class="station-badges">
-                  <span class="badge gourmet">名物グルメ</span>
-                  <span class="badge onsen">温泉宿場</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>金谷</h3>
                 <div class="station-reading">かなや</div>
                 <p class="station-description">
                   大井川鐵道のSLで有名な宿場。茶畑と温泉に恵まれた観光地として人気で、大井川を越える旅人の重要な拠点でした。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県島田市金谷本町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>金谷駅（JR/大井川鐵道）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>SL列車</span>
-                  <span>茶畑</span>
-                  <span>大井川温泉</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 25宿 日坂 -->
@@ -1728,53 +1065,14 @@
                   alt="日坂 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">25</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>日坂</h3>
                 <div class="station-reading">にっさか</div>
                 <p class="station-description">
                   夜泣き石伝説で有名な山間の宿場。小夜の中山峠の麓に位置する歴史ある宿場です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県掛川市日坂周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>掛川駅（JR）※バス利用</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：1–1.5時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>夜泣き石</span>
-                  <span>小夜の中山</span>
-                  <span>峠道</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 26宿 掛川 -->
@@ -1789,53 +1087,14 @@
                   alt="掛川 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">26</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>掛川</h3>
                 <div class="station-reading">かけがわ</div>
                 <p class="station-description">
                   掛川城の城下町として栄えた宿場。現在も美しく復元された天守閣が見どころです。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県掛川市連雀～中町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>掛川駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>掛川城</span>
-                  <span>天守閣</span>
-                  <span>城下町</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 27宿 袋井 -->
@@ -1850,53 +1109,14 @@
                   alt="袋井 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">27</div>
-                <div class="station-badges">
-                  <span class="badge beginner">初心者向け</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>袋井</h3>
                 <div class="station-reading">ふくろい</div>
                 <p class="station-description">
                   東海道五十三次の真ん中「どまん中」として有名な宿場。茶産業で栄える現代的な地域で、遠州三山の霊場巡りの起点でもあります。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県袋井市袋井～高尾町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>袋井駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>どまん中</span>
-                  <span>茶産業</span>
-                  <span>中間地点</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 28宿 見付 -->
@@ -1911,53 +1131,14 @@
                   alt="見付 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">28</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>見付</h3>
                 <div class="station-reading">みつけ</div>
                 <p class="station-description">
                   天竜川の渡し場として重要な役割を果たした宿場。遠州灘を望む風光明媚な場所です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県磐田市見付～中泉周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>磐田駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>天竜川</span>
-                  <span>渡し場</span>
-                  <span>遠州灘</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 29宿 浜松 -->
@@ -1972,53 +1153,14 @@
                   alt="浜松 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">29</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>浜松</h3>
                 <div class="station-reading">はままつ</div>
                 <p class="station-description">
                   うなぎ料理で有名な城下町。楽器産業でも栄える静岡県西部の中心都市です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県浜松市中央区（旧中区）中心部</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>浜松駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>うなぎ料理</span>
-                  <span>浜松城</span>
-                  <span>楽器産業</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 30宿 舞坂 -->
@@ -2033,53 +1175,14 @@
                   alt="舞坂 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">30</div>
-                <div class="station-badges">
-                  <span class="badge scenic">風景名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>舞坂</h3>
                 <div class="station-reading">まいさか</div>
                 <p class="station-description">
                   浜名湖の渡し場として栄えた宿場。現在も美しい湖景色と新鮮な海産物が楽しめ、うなぎ料理が特に有名です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県浜松市中央区舞阪町舞阪周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>舞阪駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>浜名湖</span>
-                  <span>湖景色</span>
-                  <span>渡し舟</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 31宿 新居 -->
@@ -2094,53 +1197,14 @@
                   alt="新居 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">31</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>新居</h3>
                 <div class="station-reading">あらい</div>
                 <p class="station-description">
                   箱根と並ぶ重要な関所があった宿場。厳しい検問で知られる歴史的に重要な地点です。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県湖西市新居町新居周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>新居町駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>関所</span>
-                  <span>検問所</span>
-                  <span>歴史遺跡</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 32宿 白須賀 -->
@@ -2155,53 +1219,14 @@
                   alt="白須賀 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">32</div>
-                <div class="station-badges">
-                  <span class="badge beginner">初心者向け</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>白須賀</h3>
                 <div class="station-reading">しらすか</div>
                 <p class="station-description">
                   遠州灘に面した海岸線の宿場。潮風を感じながら歩ける初心者向けのルートで、太平洋の雄大な景色が広がります。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>静岡県湖西市白須賀周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>新所原駅（JR・天浜線）※バス等</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：1–1.5時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>海岸線</span>
-                  <span>遠州灘</span>
-                  <span>潮風</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 33宿 二川 -->
@@ -2216,53 +1241,14 @@
                   alt="二川 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">33</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge beginner">初心者向け</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>二川</h3>
                 <div class="station-reading">ふたがわ</div>
                 <p class="station-description">
                   本陣建物が現存する貴重な宿場。江戸時代の宿場町の雰囲気を色濃く残しています。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>愛知県豊橋市二川町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>二川駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>本陣現存</span>
-                  <span>江戸時代</span>
-                  <span>宿場町</span>
-                </div>
-              </div>
+</div>
             </div>
 
             <!-- 34宿 吉田 -->
@@ -2277,1278 +1263,14 @@
                   alt="吉田 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-                <div class="station-number">34</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
+</div>
               <div class="station-info">
                 <h3>吉田</h3>
                 <div class="station-reading">よしだ</div>
                 <p class="station-description">
                   吉田城の城下町として栄えた三河国への入口。現在の豊橋市として発展しています。
                 </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>愛知県豊橋市札木町～魚町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>豊橋駅（JR/名鉄）/札木停留場（路面電車）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>吉田城</span>
-                  <span>三河国</span>
-                  <span>城下町</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 近畿エリア（36-53宿） -->
-        <div class="area-section" id="kinki-area">
-          <h2 class="area-title">
-            <span class="area-number">36-53</span>
-            近畿エリア
-            <span
-              class="area-description"
-              style="
-                color: #333 !important;
-                font-weight: 500 !important;
-                font-size: 1rem !important;
-              "
-              >京都への最終区間、古都の文化が色濃いエリア</span
-            >
-          </h2>
-
-          <div class="stations-grid">
-            <!-- 35宿 御油 -->
-            <div
-              class="station-card kinki history gourmet"
-              data-number="35"
-              data-features="松並木,歴史,名物"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/36-Goyu.webp"
-                  alt="御油 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">35</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>御油</h3>
-                <div class="station-reading">ごゆ</div>
-                <p class="station-description">
-                  美しい松並木で有名な宿場。三河国の政治・文化の中心地として栄えました。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>愛知県豊川市御油町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>名電御油駅（名鉄）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>松並木</span>
-                  <span>三河国</span>
-                  <span>文化中心</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 36宿 赤坂 -->
-            <div
-              class="station-card kinki history beginner"
-              data-number="36"
-              data-features="杉並木,歴史,初心者"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/37-Akasaka.webp"
-                  alt="赤坂 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">36</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge beginner">初心者向け</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>赤坂</h3>
-                <div class="station-reading">あかさか</div>
-                <p class="station-description">
-                  御油宿に隣接する小さな宿場。歴史的な杉並木が美しく保存されている地です。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>愛知県豊川市赤坂町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>名電赤坂駅（名鉄）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>杉並木</span>
-                  <span>小宿場</span>
-                  <span>自然保護</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 37宿 藤川 -->
-            <div
-              class="station-card kinki scenic history"
-              data-number="37"
-              data-features="むらさき麦,歴史,景観"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/38-Fujikawa.webp"
-                  alt="藤川 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">37</div>
-                <div class="station-badges">
-                  <span class="badge scenic">風景名所</span>
-                  <span class="badge history">歴史名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>藤川</h3>
-                <div class="station-reading">ふじかわ</div>
-                <p class="station-description">
-                  むらさき麦で有名な宿場。広重の浮世絵にも描かれた美しい田園風景が魅力です。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>愛知県岡崎市藤川町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>藤川駅（名鉄）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>むらさき麦</span>
-                  <span>田園風景</span>
-                  <span>浮世絵</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 38宿 岡崎 -->
-            <div
-              class="station-card kinki history scenic"
-              data-number="38"
-              data-features="徳川家康,岡崎城,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/39-Okazaki.webp"
-                  alt="岡崎 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">38</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>岡崎</h3>
-                <div class="station-reading">おかざき</div>
-                <p class="station-description">
-                  徳川家康の生誕地として有名な城下町。岡崎城を中心とした歴史ある観光地です。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>愛知県岡崎市康生町～本町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>東岡崎駅（名鉄）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>徳川家康</span>
-                  <span>岡崎城</span>
-                  <span>生誕地</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 39宿 池鯉鮒 -->
-            <div
-              class="station-card kinki history gourmet"
-              data-number="39"
-              data-features="知立神社,歴史,祭り"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/40-Chiryu.webp"
-                  alt="池鯉鮒 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">39</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>池鯉鮒</h3>
-                <div class="station-reading">ちりゅう</div>
-                <p class="station-description">
-                  現在の知立市。知立神社と馬市で有名な宿場として多くの商人が集まりました。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>愛知県知立市中町～本町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>知立駅（名鉄）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>知立神社</span>
-                  <span>馬市</span>
-                  <span>商業中心</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 40宿 鳴海 -->
-            <div
-              class="station-card kinki history gourmet"
-              data-number="40"
-              data-features="絞り,伝統工芸,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/41-Narumi.webp"
-                  alt="鳴海 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">40</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>鳴海</h3>
-                <div class="station-reading">なるみ</div>
-                <p class="station-description">
-                  鳴海絞りで有名な伝統工芸の宿場。美しい藍染めの技術が今も受け継がれています。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>愛知県名古屋市緑区鳴海町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>鳴海駅（名鉄）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>鳴海絞り</span>
-                  <span>藍染め</span>
-                  <span>伝統工芸</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 41宿 宮 -->
-            <div
-              class="station-card kinki history scenic"
-              data-number="41"
-              data-features="熱田神宮,歴史,神社"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/42-Miya.webp"
-                  alt="宮 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">41</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>宮</h3>
-                <div class="station-reading">みや</div>
-                <p class="station-description">
-                  熱田神宮の門前町として発展した宿場。草薙剣で有名な日本三大神社の一つです。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>愛知県名古屋市熱田区神宮・伝馬町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>神宮前駅（名鉄）/熱田神宮伝馬町駅（地下鉄）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：1–1.5時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>熱田神宮</span>
-                  <span>草薙剣</span>
-                  <span>三大神社</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 42宿 桑名 -->
-            <div
-              class="station-card kinki history gourmet"
-              data-number="42"
-              data-features="七里の渡し,蛤,城下町"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/43-Kuwana.webp"
-                  alt="桑名 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">42</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>桑名</h3>
-                <div class="station-reading">くわな</div>
-                <p class="station-description">
-                  七里の渡しで有名な伊勢湾の港町。蛤料理で知られる城下町として栄えました。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>三重県桑名市船場町～京町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>桑名駅（JR/近鉄）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>七里の渡し</span>
-                  <span>蛤料理</span>
-                  <span>桑名城</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 43宿 四日市 -->
-            <div
-              class="station-card kinki history gourmet"
-              data-number="43"
-              data-features="港町,商業,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/44-Yokkaichi.webp"
-                  alt="四日市 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">43</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>四日市</h3>
-                <div class="station-reading">よっかいち</div>
-                <p class="station-description">
-                  商業港として発展した宿場。現在も三重県の工業都市として重要な地位を占めています。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>三重県四日市市諏訪栄～元町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>近鉄四日市駅（近鉄）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>商業港</span>
-                  <span>工業都市</span>
-                  <span>港町文化</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 44宿 石薬師 -->
-            <div
-              class="station-card kinki beginner scenic"
-              data-number="44"
-              data-features="田園,初心者,自然"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/45-Ishiyakushi.webp"
-                  alt="石薬師 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">44</div>
-                <div class="station-badges">
-                  <span class="badge beginner">初心者向け</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>石薬師</h3>
-                <div class="station-reading">いしやくし</div>
-                <p class="station-description">
-                  美しい田園風景が広がる小さな宿場。のどかな農村地帯を歩く癒やしのルートで、四季折々の自然が楽しめます。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>三重県鈴鹿市石薬師町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>加佐登駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>田園風景</span>
-                  <span>農村地帯</span>
-                  <span>癒やし</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 45宿 庄野 -->
-            <div
-              class="station-card kinki beginner scenic"
-              data-number="45"
-              data-features="自然,初心者,田舎"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/46-Shōno.webp"
-                  alt="庄野 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">45</div>
-                <div class="station-badges">
-                  <span class="badge beginner">初心者向け</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>庄野</h3>
-                <div class="station-reading">しょうの</div>
-                <p class="station-description">
-                  静かな農村地帯に位置する小さな宿場。昔ながらの日本の田舎風景が残る場所で、ゆったりとした時間が流れます。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>三重県鈴鹿市庄野町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>加佐登駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>農村風景</span>
-                  <span>田舎道</span>
-                  <span>静寂</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 46宿 亀山 -->
-            <div
-              class="station-card kinki history scenic"
-              data-number="46"
-              data-features="城下町,亀山城,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/47-Kameyama.webp"
-                  alt="亀山 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">46</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>亀山</h3>
-                <div class="station-reading">かめやま</div>
-                <p class="station-description">
-                  亀山城の城下町として栄えた宿場。東海道と伊勢街道の分岐点としても重要でした。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>三重県亀山市本町～東町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>亀山駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>亀山城</span>
-                  <span>街道分岐</span>
-                  <span>城下町</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 47宿 関 -->
-            <div
-              class="station-card kinki history scenic"
-              data-number="47"
-              data-features="関宿,歴史保存,街並み"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/48-Seki.webp"
-                  alt="関 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">47</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>関</h3>
-                <div class="station-reading">せき</div>
-                <p class="station-description">
-                  江戸時代の街並みが最も美しく保存された宿場。重要伝統的建造物群保存地区に指定されています。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>三重県亀山市関町木崎～中町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>関駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：2–3時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>歴史保存地区</span>
-                  <span>江戸街並み</span>
-                  <span>伝統建造物</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 48宿 坂下 -->
-            <div
-              class="station-card kinki beginner history"
-              data-number="48"
-              data-features="峠,初心者,山間"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/49-Sakanoshita.webp"
-                  alt="坂下 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">48</div>
-                <div class="station-badges">
-                  <span class="badge beginner">初心者向け</span>
-                  <span class="badge history">歴史名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>坂下</h3>
-                <div class="station-reading">さかした</div>
-                <p class="station-description">
-                  鈴鹿峠の麓に位置する山間の宿場。関宿のすぐ隣にあり、峠越えの拠点として栄えました。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>三重県亀山市関町坂下周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>関駅（JR）※タクシー等</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>鈴鹿峠</span>
-                  <span>山間宿場</span>
-                  <span>峠越え拠点</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 49宿 土山 -->
-            <div
-              class="station-card kinki history scenic"
-              data-number="49"
-              data-features="茶,山間,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/50-Tsuchiyama.webp"
-                  alt="土山 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">49</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>土山</h3>
-                <div class="station-reading">つちやま</div>
-                <p class="station-description">
-                  鈴鹿峠を越えて近江国に入る最初の宿場。土山茶で有名な茶の産地でもあります。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>滋賀県甲賀市土山町頓宮～北土山周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>貴生川駅（近江鉄道/JR）※バス等</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>土山茶</span>
-                  <span>近江国</span>
-                  <span>山間宿場</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 50宿 水口 -->
-            <div
-              class="station-card kinki history scenic"
-              data-number="50"
-              data-features="城下町,水口城,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/51-Minakuchi.webp"
-                  alt="水口 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">50</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>水口</h3>
-                <div class="station-reading">みなくち</div>
-                <p class="station-description">
-                  水口城の城下町として栄えた宿場。徳川将軍の上洛時の宿泊地として格式高い歴史を持ちます。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>滋賀県甲賀市水口町本町～京町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>水口石橋駅（近江鉄道）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：1–1.5時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>水口城</span>
-                  <span>水源豊富</span>
-                  <span>近江国</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 51宿 石部 -->
-            <div
-              class="station-card kinki beginner gourmet"
-              data-number="51"
-              data-features="初心者,農村,名物"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/52-Ishibe.webp"
-                  alt="石部 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">51</div>
-                <div class="station-badges">
-                  <span class="badge beginner">初心者向け</span>
-                  <span class="badge gourmet">名物グルメ</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>石部</h3>
-                <div class="station-reading">いしべ</div>
-                <p class="station-description">
-                  「石部の佐吉」で有名な石部宿。小さな宿場ながら交通の要衝として重要な役割を果たし、近江国の入り口として知られました。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>滋賀県湖南市石部中央～石部口周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>石部駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：0.5–1時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>最終休憩地</span>
-                  <span>近江牛</span>
-                  <span>名産地</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 52宿 草津 -->
-            <div
-              class="station-card kinki history scenic"
-              data-number="52"
-              data-features="交通要衝,中山道,本陣"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/53-Kusatsu.webp"
-                  alt="草津 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">52</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>草津</h3>
-                <div class="station-reading">くさつ</div>
-                <p class="station-description">
-                  東海道と中山道が合流する交通の要衝。本陣が保存され往時の姿を伝えています。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>滋賀県草津市草津～大路周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>草津駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：1–1.5時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>交通要衝</span>
-                  <span>本陣保存</span>
-                  <span>大宿場</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 53宿 大津 -->
-            <div
-              class="station-card kinki history scenic"
-              data-number="53"
-              data-features="琵琶湖,終点,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/54-Ōtsū.webp"
-                  alt="大津 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">53</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>大津</h3>
-                <div class="station-reading">おおつ</div>
-                <p class="station-description">
-                  東海道最後の宿場。琵琶湖畔に位置し、大津絵で有名な文化的な宿場町です。
-                </p>
-                
-                <div class="station-details">
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-                    <span>滋賀県大津市中央～丸屋町周辺</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-train"></i>
-
-                    <span>大津駅（JR）</span>
-
-                  </div>
-
-                  <div class="detail-item">
-
-                    <i class="fas fa-clock"></i>
-
-                    <span>見学時間：1–1.5時間</span>
-
-                  </div>
-
-                </div>
-
-                <div class="station-highlights">
-                  <span>53番目宿</span>
-                  <span>琵琶湖</span>
-                  <span>文化的</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- 終点：三条大橋 -->
-            <div
-              class="station-card kinki scenic history special"
-              data-number="54"
-              data-features="終点,橋,京都"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/55-Kyoto.webp"
-                  alt="三条大橋 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-                <div class="station-number">終点</div>
-                <div class="station-badges">
-                  <span class="badge history">歴史名所</span>
-                  <span class="badge scenic">風景名所</span>
-                  <span class="badge special">特別</span>
-                </div>
-              </div>
-              <div class="station-info">
-                <h3>三条大橋</h3>
-                <div class="station-reading">さんじょうおおはし</div>
-                <p class="station-description">
-                  東海道の終点となる京都の三条大橋。天正18年（1590年）に豊臣秀吉の命により架けられ、江戸時代には東海道の西の起終点として多くの旅人が行き交いました。現在も鴨川に架かる歴史的な橋です。
-                </p>
-                <div class="station-details">
-                  <div class="detail-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>京都府京都市中京区三条大橋界隈</span>
-                  </div>
-                  <div class="detail-item">
-                    <i class="fas fa-train"></i>
-                    <span>三条駅（京阪）/京都市役所前駅（地下鉄）</span>
-                  </div>
-                  <div class="detail-item">
-                    <i class="fas fa-clock"></i>
-                    <span>見学時間：0.5–1時間</span>
-                  </div>
-                </div>
-                <div class="station-highlights">
-                  <span>東海道完歩地点</span>
-                  <span>豊臣秀吉建立</span>
-                  <span>鴨川の名橋</span>
-                </div>
-              </div>
+</div>
             </div>
           </div>
         </div>
