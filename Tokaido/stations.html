@@ -42,9 +42,16 @@
           <li>
             <a href="stations.html" class="active">宿場町のご案内</a>
             <div class="dropdown">
-              <a href="#kinki-area">近畿（山城国・近江国・伊勢国）</a>
-              <a href="#chubu-area">中部（尾張国・三河国・遠江国・駿河国）</a>
-              <a href="#kanto-area">関東（伊豆国・相模国・武蔵国）</a>
+              <a href="#yamashiro-area">山城国</a>
+              <a href="#oumi-area">近江国</a>
+              <a href="#ise-area">伊勢国</a>
+              <a href="#owari-area">尾張国</a>
+              <a href="#mikawa-area">三河国</a>
+              <a href="#totomi-area">遠江国</a>
+              <a href="#suruga-area">駿河国</a>
+              <a href="#izu-area">伊豆国</a>
+              <a href="#sagami-area">相模国</a>
+              <a href="#musashi-area">武蔵国</a>
             </div>
           </li>
           <li>
@@ -105,27 +112,6 @@
       </nav>
     </div>
 
-    <!-- エリア別ナビゲーション -->
-    <div class="area-nav" id="areaNav">
-      <div class="area-nav-container">
-        <a href="#kinki-area" class="area-nav-btn" data-area="kinki">
-          <span class="nav-number">山城・近江・伊勢</span>
-          <span class="nav-name">近畿</span>
-          <span class="nav-description">京都到着</span>
-        </a>
-        <a href="#chubu-area" class="area-nav-btn" data-area="chubu">
-          <span class="nav-number">尾張・三河・遠江・駿河</span>
-          <span class="nav-name">中部</span>
-          <span class="nav-description">名古屋から富士</span>
-        </a>
-        <a href="#kanto-area" class="area-nav-btn" data-area="kanto">
-          <span class="nav-number">伊豆・相模・武蔵</span>
-          <span class="nav-name">関東</span>
-          <span class="nav-description">箱根から江戸</span>
-        </a>
-      </div>
-    </div>
-
     <!-- ヒーローセクション -->
     <section class="hero stations-hero">
       <div class="hero-content stations-hero-content">
@@ -147,15 +133,16 @@
           </div>
           <div class="quick-filters">
             <button class="filter-btn active" data-filter="all">すべて</button>
-            <button class="filter-btn" data-filter="kinki">
-              近畿（山城・近江・伊勢）
-            </button>
-            <button class="filter-btn" data-filter="chubu">
-              中部（尾張・三河・遠江・駿河）
-            </button>
-            <button class="filter-btn" data-filter="kanto">
-              関東（伊豆・相模・武蔵）
-            </button>
+            <button class="filter-btn" data-filter="yamashiro">山城国</button>
+            <button class="filter-btn" data-filter="oumi">近江国</button>
+            <button class="filter-btn" data-filter="ise">伊勢国</button>
+            <button class="filter-btn" data-filter="owari">尾張国</button>
+            <button class="filter-btn" data-filter="mikawa">三河国</button>
+            <button class="filter-btn" data-filter="totomi">遠江国</button>
+            <button class="filter-btn" data-filter="suruga">駿河国</button>
+            <button class="filter-btn" data-filter="izu">伊豆国</button>
+            <button class="filter-btn" data-filter="sagami">相模国</button>
+            <button class="filter-btn" data-filter="musashi">武蔵国</button>
           </div>
         </div>
       </div>
@@ -164,11 +151,10 @@
     <!-- 宿場町メイン情報 -->
     <section class="stations-main-content">
       <div class="section-content">
-        <!-- 近畿エリア（山城国・近江国・伊勢国） -->
-        <div class="area-section" id="kinki-area">
+        <!-- 山城国エリア -->
+        <div class="area-section" id="yamashiro-area">
           <h2 class="area-title">
-            <span class="area-number">山城国・近江国・伊勢国</span>
-            近畿エリア
+            <span class="area-number">山城国</span>
             <span
               class="area-description"
               style="
@@ -176,14 +162,14 @@
                 font-weight: 500 !important;
                 font-size: 1rem !important;
               "
-              >京都から伊勢湾まで、歴史と文化の中心地</span
+              >東海道の終点、京都の玄関口</span
             >
           </h2>
 
           <div class="stations-grid">
             <!-- 終点：三条大橋 -->
             <div
-              class="station-card kinki scenic history special"
+              class="station-card yamashiro scenic history special"
               data-number="54"
               data-features="終点,橋,京都"
             >
@@ -198,14 +184,32 @@
                 <h3>三条大橋</h3>
                 <div class="station-reading">さんじょうおおはし</div>
                 <p class="station-description">
-                  東海道の終点となる京都の三条大橋。天正18年（1590年）に豊臣秀吉の命により架けられ、江戸時代には東海道の西の起終点として多くの旅人が行き交いました。現在も鴨川に架かる歴史的な橋です。
+                  東海道の終点となる京都の三条大橋。天正18年（1590年）に豊臣秀吉の命により架けられ、江戸時代には東海道の��の起終点として多くの旅人が行き交いました。現在も鴨川に架かる歴史的な橋です。
                 </p>
 </div>
             </div>
+          </div>
+        </div>
 
+        <!-- 近江国エリア -->
+        <div class="area-section" id="oumi-area">
+          <h2 class="area-title">
+            <span class="area-number">近江国</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >琵琶湖畔の宿場町、東海道と中山道の合流点</span
+            >
+          </h2>
+
+          <div class="stations-grid">
             <!-- 53宿 大津 -->
             <div
-              class="station-card kinki history scenic"
+              class="station-card oumi history scenic"
               data-number="53"
               data-features="琵琶湖,終点,歴史"
             >
@@ -227,7 +231,7 @@
 
             <!-- 52宿 草津 -->
             <div
-              class="station-card kinki history scenic"
+              class="station-card oumi history scenic"
               data-number="52"
               data-features="交通要衝,中山道,本陣"
             >
@@ -249,7 +253,7 @@
 
             <!-- 51宿 石部 -->
             <div
-              class="station-card kinki beginner gourmet"
+              class="station-card oumi beginner gourmet"
               data-number="51"
               data-features="初心者,農村,名物"
             >
@@ -271,7 +275,7 @@
 
             <!-- 50宿 水口 -->
             <div
-              class="station-card kinki history scenic"
+              class="station-card oumi history scenic"
               data-number="50"
               data-features="城下町,水口城,歴史"
             >
@@ -293,7 +297,7 @@
 
             <!-- 49宿 土山 -->
             <div
-              class="station-card kinki history scenic"
+              class="station-card oumi history scenic"
               data-number="49"
               data-features="茶,山間,歴史"
             >
@@ -312,10 +316,28 @@
                 </p>
 </div>
             </div>
+          </div>
+        </div>
 
+        <!-- 伊勢国エリア -->
+        <div class="area-section" id="ise-area">
+          <h2 class="area-title">
+            <span class="area-number">伊勢国</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >伊勢湾に面した歴史の宿場群</span
+            >
+          </h2>
+
+          <div class="stations-grid">
             <!-- 48宿 坂下 -->
             <div
-              class="station-card kinki beginner history"
+              class="station-card ise beginner history"
               data-number="48"
               data-features="峠,初心者,山間"
             >
@@ -337,7 +359,7 @@
 
             <!-- 47宿 関 -->
             <div
-              class="station-card kinki history scenic"
+              class="station-card ise history scenic"
               data-number="47"
               data-features="関宿,歴史保存,街並み"
             >
@@ -359,7 +381,7 @@
 
             <!-- 46宿 亀山 -->
             <div
-              class="station-card kinki history scenic"
+              class="station-card ise history scenic"
               data-number="46"
               data-features="城下町,亀山城,歴史"
             >
@@ -381,7 +403,7 @@
 
             <!-- 45宿 庄野 -->
             <div
-              class="station-card kinki beginner scenic"
+              class="station-card ise beginner scenic"
               data-number="45"
               data-features="自然,初心者,田舎"
             >
@@ -403,7 +425,7 @@
 
             <!-- 44宿 石薬師 -->
             <div
-              class="station-card kinki beginner scenic"
+              class="station-card ise beginner scenic"
               data-number="44"
               data-features="田園,初心者,自然"
             >
@@ -425,7 +447,7 @@
 
             <!-- 43宿 四日市 -->
             <div
-              class="station-card kinki history gourmet"
+              class="station-card ise history gourmet"
               data-number="43"
               data-features="港町,商業,歴史"
             >
@@ -447,7 +469,7 @@
 
             <!-- 42宿 桑名 -->
             <div
-              class="station-card kinki history gourmet"
+              class="station-card ise history gourmet"
               data-number="42"
               data-features="七里の渡し,蛤,城下町"
             >
@@ -469,11 +491,10 @@
           </div>
         </div>
 
-        <!-- 中部エリア（尾張国・三河国・遠江国・駿河国） -->
-        <div class="area-section" id="chubu-area">
+        <!-- 尾張国エリア -->
+        <div class="area-section" id="owari-area">
           <h2 class="area-title">
-            <span class="area-number">尾張国・三河国・遠江国・駿河国</span>
-            中部エリア
+            <span class="area-number">尾張国</span>
             <span
               class="area-description"
               style="
@@ -481,14 +502,14 @@
                 font-weight: 500 !important;
                 font-size: 1rem !important;
               "
-              >名古屋から富士山麓まで、東海道の中心地</span
+              >熱田神宮の門前町、名古屋の中心地</span
             >
           </h2>
 
           <div class="stations-grid">
             <!-- 41宿 宮 -->
             <div
-              class="station-card chubu history gourmet"
+              class="station-card owari history gourmet"
               data-number="41"
               data-features="熱田神宮,門前町,三大神社"
             >
@@ -510,7 +531,7 @@
 
             <!-- 40宿 鳴海 -->
             <div
-              class="station-card chubu history gourmet"
+              class="station-card owari history gourmet"
               data-number="40"
               data-features="鳴海絞り,伝統工芸,藍染め"
             >
@@ -529,10 +550,28 @@
                 </p>
               </div>
             </div>
+          </div>
+        </div>
 
+        <!-- 三河国エリア -->
+        <div class="area-section" id="mikawa-area">
+          <h2 class="area-title">
+            <span class="area-number">三河国</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >徳川家康生誕の地、三河武士の故郷</span
+            >
+          </h2>
+
+          <div class="stations-grid">
             <!-- 39宿 池鯉鮒 -->
             <div
-              class="station-card chubu history scenic"
+              class="station-card mikawa history scenic"
               data-number="39"
               data-features="知立神社,馬市,商業"
             >
@@ -554,7 +593,7 @@
 
             <!-- 38宿 岡崎 -->
             <div
-              class="station-card chubu history scenic special"
+              class="station-card mikawa history scenic special"
               data-number="38"
               data-features="徳川家康,城下町,岡崎城"
             >
@@ -576,7 +615,7 @@
 
             <!-- 37宿 藤川 -->
             <div
-              class="station-card chubu beginner scenic"
+              class="station-card mikawa beginner scenic"
               data-number="37"
               data-features="むらさき麦,田園風景,浮世絵"
             >
@@ -598,7 +637,7 @@
 
             <!-- 36宿 赤坂 -->
             <div
-              class="station-card chubu beginner scenic"
+              class="station-card mikawa beginner scenic"
               data-number="36"
               data-features="杉並木,歴史,初心者"
             >
@@ -620,7 +659,7 @@
 
             <!-- 35宿 御油 -->
             <div
-              class="station-card chubu history scenic"
+              class="station-card mikawa history scenic"
               data-number="35"
               data-features="松並木,政治,文化"
             >
@@ -642,7 +681,7 @@
 
             <!-- 34宿 吉田 -->
             <div
-              class="station-card chubu history scenic"
+              class="station-card mikawa history scenic"
               data-number="34"
               data-features="城下町,吉田城,歴史"
             >
@@ -664,7 +703,7 @@
 
             <!-- 33宿 二川 -->
             <div
-              class="station-card chubu history beginner"
+              class="station-card mikawa history beginner"
               data-number="33"
               data-features="本陣,歴史,初心者"
             >
@@ -683,10 +722,28 @@
                 </p>
               </div>
             </div>
+          </div>
+        </div>
 
+        <!-- 遠江国エリア -->
+        <div class="area-section" id="totomi-area">
+          <h2 class="area-title">
+            <span class="area-number">遠江国</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >浜名湖と天竜川、遠州灘沿いの宿場群</span
+            >
+          </h2>
+
+          <div class="stations-grid">
             <!-- 32宿 白須賀 -->
             <div
-              class="station-card chubu beginner scenic"
+              class="station-card totomi beginner scenic"
               data-number="32"
               data-features="海岸,初心者,景観"
             >
@@ -708,7 +765,7 @@
 
             <!-- 31宿 新居 -->
             <div
-              class="station-card chubu history scenic"
+              class="station-card totomi history scenic"
               data-number="31"
               data-features="関所,歴史,検問"
             >
@@ -730,7 +787,7 @@
 
             <!-- 30宿 舞坂 -->
             <div
-              class="station-card chubu scenic gourmet"
+              class="station-card totomi scenic gourmet"
               data-number="30"
               data-features="浜名湖,渡し,海産物"
             >
@@ -745,14 +802,14 @@
                 <h3>舞坂</h3>
                 <div class="station-reading">まいさか</div>
                 <p class="station-description">
-                  浜名湖の渡し場として栄えた宿場。現在も美しい湖景色と新鮮な海産物が楽しめ、うなぎ料理が特に有名です。
+                  浜名湖の渡し場として栄えた宿場。現在も美しい湖景���と新鮮な海産物が楽しめ、うなぎ料理が特に有名です。
                 </p>
               </div>
             </div>
 
             <!-- 29宿 浜松 -->
             <div
-              class="station-card chubu history gourmet"
+              class="station-card totomi history gourmet"
               data-number="29"
               data-features="うなぎ,城下町,楽器"
             >
@@ -774,7 +831,7 @@
 
             <!-- 28宿 見付 -->
             <div
-              class="station-card chubu history scenic"
+              class="station-card totomi history scenic"
               data-number="28"
               data-features="天竜川,歴史,渡し"
             >
@@ -796,7 +853,7 @@
 
             <!-- 27宿 袋井 -->
             <div
-              class="station-card chubu beginner gourmet"
+              class="station-card totomi beginner gourmet"
               data-number="27"
               data-features="どまん中,茶,初心者"
             >
@@ -818,7 +875,7 @@
 
             <!-- 26宿 掛川 -->
             <div
-              class="station-card chubu history scenic"
+              class="station-card totomi history scenic"
               data-number="26"
               data-features="城,茶,歴史"
             >
@@ -840,7 +897,7 @@
 
             <!-- 25宿 日坂 -->
             <div
-              class="station-card chubu history scenic"
+              class="station-card totomi history scenic"
               data-number="25"
               data-features="峠,歴史,夜泣き石"
             >
@@ -862,7 +919,7 @@
 
             <!-- 24宿 金谷 -->
             <div
-              class="station-card chubu gourmet onsen"
+              class="station-card totomi gourmet onsen"
               data-number="24"
               data-features="茶,温泉,SL"
             >
@@ -881,10 +938,28 @@
                 </p>
               </div>
             </div>
+          </div>
+        </div>
 
+        <!-- 駿河国エリア -->
+        <div class="area-section" id="suruga-area">
+          <h2 class="area-title">
+            <span class="area-number">駿河国</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >富士山の麓、駿河湾沿いの景勝地</span
+            >
+          </h2>
+
+          <div class="stations-grid">
             <!-- 23宿 島田 -->
             <div
-              class="station-card chubu history scenic"
+              class="station-card suruga history scenic"
               data-number="23"
               data-features="大井川,川越,歴史"
             >
@@ -906,7 +981,7 @@
 
             <!-- 22宿 藤枝 -->
             <div
-              class="station-card chubu gourmet beginner"
+              class="station-card suruga gourmet beginner"
               data-number="22"
               data-features="茶,サッカー,現代"
             >
@@ -928,7 +1003,7 @@
 
             <!-- 21宿 岡部 -->
             <div
-              class="station-card chubu history beginner"
+              class="station-card suruga history beginner"
               data-number="21"
               data-features="茶畑,歴史,自然"
             >
@@ -950,7 +1025,7 @@
 
             <!-- 20宿 鞠子 -->
             <div
-              class="station-card chubu gourmet beginner"
+              class="station-card suruga gourmet beginner"
               data-number="20"
               data-features="とろろ汁,名物,初心者"
             >
@@ -972,7 +1047,7 @@
 
             <!-- 19宿 府中 -->
             <div
-              class="station-card chubu history scenic"
+              class="station-card suruga history scenic"
               data-number="19"
               data-features="駿府城,歴史,政治"
             >
@@ -994,7 +1069,7 @@
 
             <!-- 18宿 江尻 -->
             <div
-              class="station-card chubu history gourmet"
+              class="station-card suruga history gourmet"
               data-number="18"
               data-features="港町,茶,歴史"
             >
@@ -1016,7 +1091,7 @@
 
             <!-- 17宿 興津 -->
             <div
-              class="station-card chubu history beginner"
+              class="station-card suruga history beginner"
               data-number="17"
               data-features="政治家,別荘,歴史"
             >
@@ -1038,7 +1113,7 @@
 
             <!-- 16宿 由比 -->
             <div
-              class="station-card chubu scenic gourmet"
+              class="station-card suruga scenic gourmet"
               data-number="16"
               data-features="桜えび,駿河湾,名物"
             >
@@ -1060,7 +1135,7 @@
 
             <!-- 15宿 蒲原 -->
             <div
-              class="station-card chubu scenic history"
+              class="station-card suruga scenic history"
               data-number="15"
               data-features="富士山,景観,歴史"
             >
@@ -1082,7 +1157,7 @@
 
             <!-- 14宿 吉原 -->
             <div
-              class="station-card chubu history gourmet"
+              class="station-card suruga history gourmet"
               data-number="14"
               data-features="歴史,文化,名物"
             >
@@ -1104,7 +1179,7 @@
 
             <!-- 13宿 原 -->
             <div
-              class="station-card chubu scenic history"
+              class="station-card suruga scenic history"
               data-number="13"
               data-features="富士山,景観,歴史"
             >
@@ -1126,7 +1201,7 @@
 
             <!-- 12宿 沼津 -->
             <div
-              class="station-card chubu gourmet scenic"
+              class="station-card suruga gourmet scenic"
               data-number="12"
               data-features="海産物,港町,グルメ"
             >
@@ -1148,11 +1223,10 @@
           </div>
         </div>
 
-        <!-- 関東エリア（伊豆国・相模国・武蔵国） -->
-        <div class="area-section" id="kanto-area">
+        <!-- 伊豆国エリア -->
+        <div class="area-section" id="izu-area">
           <h2 class="area-title">
-            <span class="area-number">伊豆国・相模国・武蔵国</span>
-            関東エリア
+            <span class="area-number">伊豆国</span>
             <span
               class="area-description"
               style="
@@ -1160,14 +1234,14 @@
                 font-weight: 500 !important;
                 font-size: 1rem !important;
               "
-              >箱根から江戸まで、旅の終着点へ</span
+              >富士山の湧水、箱根への入口</span
             >
           </h2>
 
           <div class="stations-grid">
             <!-- 11宿 三島 -->
             <div
-              class="station-card kanto history"
+              class="station-card izu history"
               data-number="11"
               data-features="湧水,神社,歴史"
             >
@@ -1186,10 +1260,28 @@
                 </p>
               </div>
             </div>
+          </div>
+        </div>
 
+        <!-- 相模国エリア -->
+        <div class="area-section" id="sagami-area">
+          <h2 class="area-title">
+            <span class="area-number">相模国</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >箱根の関所と相模湾の風光明媚な宿場</span
+            >
+          </h2>
+
+          <div class="stations-grid">
             <!-- 10宿 箱根 -->
             <div
-              class="station-card kanto scenic history"
+              class="station-card sagami scenic history"
               data-number="10"
               data-features="温泉,関所,山岳宿場,東海道最大難所"
             >
@@ -1211,7 +1303,7 @@
 
             <!-- 9宿 小田原 -->
             <div
-              class="station-card kanto history"
+              class="station-card sagami history"
               data-number="9"
               data-features="城下町,小田原城,関東最後"
             >
@@ -1233,7 +1325,7 @@
 
             <!-- 8宿 大磯 -->
             <div
-              class="station-card kanto scenic"
+              class="station-card sagami scenic"
               data-number="8"
               data-features="松並木,海岸,別荘地"
             >
@@ -1255,7 +1347,7 @@
 
             <!-- 7宿 平塚 -->
             <div
-              class="station-card kanto history"
+              class="station-card sagami history"
               data-number="7"
               data-features="相模川,渡船場,平野部"
             >
@@ -1277,7 +1369,7 @@
 
             <!-- 6宿 藤沢 -->
             <div
-              class="station-card kanto history"
+              class="station-card sagami history"
               data-number="6"
               data-features="遊行寺,江島道,門前町"
             >
@@ -1299,7 +1391,7 @@
 
             <!-- 5宿 戸塚 -->
             <div
-              class="station-card kanto history"
+              class="station-card sagami history"
               data-number="5"
               data-features="歴史,大宿場,交通要衝"
             >
@@ -1318,10 +1410,28 @@
                 </p>
               </div>
             </div>
+          </div>
+        </div>
 
+        <!-- 武蔵国エリア -->
+        <div class="area-section" id="musashi-area">
+          <h2 class="area-title">
+            <span class="area-number">武蔵国</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >江戸への入口、東海道の起点へ</span
+            >
+          </h2>
+
+          <div class="stations-grid">
             <!-- 4宿 保土ケ谷 -->
             <div
-              class="station-card kanto history"
+              class="station-card musashi history"
               data-number="4"
               data-features="歴史,難所,権太坂"
             >
@@ -1343,7 +1453,7 @@
 
             <!-- 3宿 神奈川 -->
             <div
-              class="station-card kanto history"
+              class="station-card musashi history"
               data-number="3"
               data-features="歴史,開港場,横浜"
             >
@@ -1365,7 +1475,7 @@
 
             <!-- 2宿 川崎 -->
             <div
-              class="station-card kanto history"
+              class="station-card musashi history"
               data-number="2"
               data-features="歴史,名物,宿場"
             >
@@ -1387,7 +1497,7 @@
 
             <!-- 1宿 品川 -->
             <div
-              class="station-card kanto history"
+              class="station-card musashi history"
               data-number="1"
               data-features="歴史,名所,出発"
             >
@@ -1409,7 +1519,7 @@
 
             <!-- 起点 日本橋 -->
             <div
-              class="station-card kanto history special"
+              class="station-card musashi history special"
               data-number="0"
               data-features="起点,歴史,名所"
             >
@@ -1505,9 +1615,9 @@
               // 都道府県情報を取得（location spanの内容）
               const locationElement = card.querySelector(
                 ".detail-item .fas.fa-map-marker-alt"
-              ).nextElementSibling;
-              const location = locationElement
-                ? locationElement.textContent.toLowerCase()
+              );
+              const location = locationElement && locationElement.nextElementSibling
+                ? locationElement.nextElementSibling.textContent.toLowerCase()
                 : "";
 
               const isVisible =
