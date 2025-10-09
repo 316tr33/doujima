@@ -44,8 +44,7 @@
             <div class="dropdown">
               <a href="#kinki-area">近畿（山城国・近江国・伊勢国）</a>
               <a href="#chubu-area">中部（尾張国・三河国・遠江国・駿河国）</a>
-              <a href="#edo-area">江戸（1-15宿）</a>
-              <a href="#tokaido-area">東海道（16-35宿）</a>
+              <a href="#kanto-area">関東（伊豆国・相模国・武蔵国）</a>
             </div>
           </li>
           <li>
@@ -119,15 +118,10 @@
           <span class="nav-name">中部</span>
           <span class="nav-description">名古屋から富士</span>
         </a>
-        <a href="#edo-area" class="area-nav-btn" data-area="edo">
-          <span class="nav-number">1-15</span>
-          <span class="nav-name">江戸</span>
-          <span class="nav-description">出発点</span>
-        </a>
-        <a href="#tokaido-area" class="area-nav-btn" data-area="tokaido">
-          <span class="nav-number">16-35</span>
-          <span class="nav-name">東海道</span>
-          <span class="nav-description">中心区間</span>
+        <a href="#kanto-area" class="area-nav-btn" data-area="kanto">
+          <span class="nav-number">伊豆・相模・武蔵</span>
+          <span class="nav-name">関東</span>
+          <span class="nav-description">箱根から江戸</span>
         </a>
       </div>
     </div>
@@ -159,11 +153,10 @@
             <button class="filter-btn" data-filter="chubu">
               中部（尾張・三河・遠江・駿河）
             </button>
-            <button class="filter-btn" data-filter="edo">江戸（1-15）</button>
-            <button class="filter-btn" data-filter="tokaido">
-              東海道（16-35）
+            <button class="filter-btn" data-filter="kanto">
+              関東（伊豆・相模・武蔵）
             </button>
-</div>
+          </div>
         </div>
       </div>
     </section>
@@ -1155,11 +1148,11 @@
           </div>
         </div>
 
-        <!-- 江戸エリア（1-15宿） -->
-        <div class="area-section" id="edo-area">
+        <!-- 関東エリア（伊豆国・相模国・武蔵国） -->
+        <div class="area-section" id="kanto-area">
           <h2 class="area-title">
-            <span class="area-number">1-15</span>
-            江戸エリア
+            <span class="area-number">伊豆国・相模国・武蔵国</span>
+            関東エリア
             <span
               class="area-description"
               style="
@@ -1167,14 +1160,256 @@
                 font-weight: 500 !important;
                 font-size: 1rem !important;
               "
-              >旅の出発点となる江戸の風情を残すエリア</span
+              >箱根から江戸まで、旅の終着点へ</span
             >
           </h2>
 
           <div class="stations-grid">
+            <!-- 11宿 三島 -->
+            <div
+              class="station-card kanto history"
+              data-number="11"
+              data-features="湧水,神社,歴史"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/12-Mishima.webp"
+                  alt="三島宿 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>三島宿</h3>
+                <div class="station-reading">みしま</div>
+                <p class="station-description">
+                  富士山の湧水で有名な宿場。三嶋大社の門前町として古くから栄えた地です。
+                </p>
+              </div>
+            </div>
+
+            <!-- 10宿 箱根 -->
+            <div
+              class="station-card kanto scenic history"
+              data-number="10"
+              data-features="温泉,関所,山岳宿場,東海道最大難所"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/11-Hakone.webp"
+                  alt="箱根宿 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>箱根宿</h3>
+                <div class="station-reading">はこね</div>
+                <p class="station-description">
+                  東海道最大の難所として恐れられた山間の関所宿場。箱根八里の険しい山道を越える旅人の重要な休息地で、現在も日本屈指の温泉観光地として世界中から愛され続けています。
+                </p>
+              </div>
+            </div>
+
+            <!-- 9宿 小田原 -->
+            <div
+              class="station-card kanto history"
+              data-number="9"
+              data-features="城下町,小田原城,関東最後"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/10-Odawara.webp"
+                  alt="小田原宿 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>小田原宿</h3>
+                <div class="station-reading">おだわら</div>
+                <p class="station-description">
+                  戦国大名北条氏の城下町として栄えた関東地方最後の大宿場。小田原城を中心とした歴史ある観光地で、かまぼこや梅干しなどの名産品でも知られています。箱根の険しい山道を前に、旅人がここで英気を養いました。
+                </p>
+              </div>
+            </div>
+
+            <!-- 8宿 大磯 -->
+            <div
+              class="station-card kanto scenic"
+              data-number="8"
+              data-features="松並木,海岸,別荘地"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/9-Ōiso.webp"
+                  alt="大磯宿 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>大磯宿</h3>
+                <div class="station-reading">おおいそ</div>
+                <p class="station-description">
+                  相模湾を望む美しい松並木の宿場。明治時代には政治家や文人の別荘地として愛され、現在も温泉地として多くの観光客が訪れます。
+                </p>
+              </div>
+            </div>
+
+            <!-- 7宿 平塚 -->
+            <div
+              class="station-card kanto history"
+              data-number="7"
+              data-features="相模川,渡船場,平野部"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/8-Hiratsuka.webp"
+                  alt="平塚宿 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>平塚宿</h3>
+                <div class="station-reading">ひらつか</div>
+                <p class="station-description">
+                  相模川の渡船場として重要な宿場町。相模平野の中央に位置し、現在は七夕まつりで有名です。江戸時代には東海道の要衝として栄えました。
+                </p>
+              </div>
+            </div>
+
+            <!-- 6宿 藤沢 -->
+            <div
+              class="station-card kanto history"
+              data-number="6"
+              data-features="遊行寺,江島道,門前町"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/7-Fujisawa.webp"
+                  alt="藤沢宿 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>藤沢宿</h3>
+                <div class="station-reading">ふじさわ</div>
+                <p class="station-description">
+                  遊行寺の門前町として栄えた宿場。江島神社への参詣道である江島道の分岐点でもありました。
+                </p>
+              </div>
+            </div>
+
+            <!-- 5宿 戸塚 -->
+            <div
+              class="station-card kanto history"
+              data-number="5"
+              data-features="歴史,大宿場,交通要衝"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/6-Totsuka.webp"
+                  alt="戸塚宿 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>戸塚宿</h3>
+                <div class="station-reading">とつか</div>
+                <p class="station-description">
+                  東海道有数の大宿場町。鎌倉道との分岐点として交通の要衝を担い、多くの旅人で賑わいました。
+                </p>
+              </div>
+            </div>
+
+            <!-- 4宿 保土ケ谷 -->
+            <div
+              class="station-card kanto history"
+              data-number="4"
+              data-features="歴史,難所,権太坂"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/5-Hodogaya.webp"
+                  alt="保土ケ谷宿 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>保土ケ谷宿</h3>
+                <div class="station-reading">ほどがや</div>
+                <p class="station-description">
+                  権太坂の難所で知られる宿場町。東海道の古道が現在も残り、歌川広重の浮世絵にも描かれました。
+                </p>
+              </div>
+            </div>
+
+            <!-- 3宿 神奈川 -->
+            <div
+              class="station-card kanto history"
+              data-number="3"
+              data-features="歴史,開港場,横浜"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/4-Kanagawa.webp"
+                  alt="神奈川宿 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>神奈川宿</h3>
+                <div class="station-reading">かながわ</div>
+                <p class="station-description">
+                  幕末の開港場として歴史的に重要な宿場。現在の横浜市神奈川区に位置し、外国人居留地として栄えました。
+                </p>
+              </div>
+            </div>
+
+            <!-- 2宿 川崎 -->
+            <div
+              class="station-card kanto history"
+              data-number="2"
+              data-features="歴史,名物,宿場"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/3-Kawasaki.webp"
+                  alt="川崎宿 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>川崎宿</h3>
+                <div class="station-reading">かわさき</div>
+                <p class="station-description">
+                  多摩川の六郷の渡しで有名な宿場。武蔵の名所として多くの旅人が往来しました。
+                </p>
+              </div>
+            </div>
+
+            <!-- 1宿 品川 -->
+            <div
+              class="station-card kanto history"
+              data-number="1"
+              data-features="歴史,名所,出発"
+            >
+              <div class="station-image">
+                <img
+                  src="../images/tokaido/Tokaido-gojusan-tsugi/2-Shinagawa.webp"
+                  alt="品川宿 - 歌川広重浮世絵"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>品川宿</h3>
+                <div class="station-reading">しながわ</div>
+                <p class="station-description">
+                  東海道第一の宿場町。江戸時代には遊郭や茶屋が立ち並び、多くの旅人で賑わいました。
+                </p>
+              </div>
+            </div>
+
             <!-- 起点 日本橋 -->
             <div
-              class="station-card edo scenic history special"
+              class="station-card kanto history special"
               data-number="0"
               data-features="起点,歴史,名所"
             >
@@ -1184,737 +1419,14 @@
                   alt="日本橋 - 歌川広重浮世絵"
                   loading="lazy"
                 />
-</div>
+              </div>
               <div class="station-info">
                 <h3>日本橋</h3>
                 <div class="station-reading">にほんばし</div>
                 <p class="station-description">
                   東海道五十三次の起点として、五街道すべての始まりとなる歴史的な橋。江戸時代から現在まで日本の交通と商業の中心地として栄え、多くの旅人がここから長い旅路に出発しました。
                 </p>
-</div>
-            </div>
-
-            <!-- 1宿 品川 -->
-            <div
-              class="station-card edo scenic history"
-              data-number="1"
-              data-features="歴史,名所,出発"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/2-Shinagawa.webp"
-                  alt="品川 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>品川</h3>
-                <div class="station-reading">しながわ</div>
-                <p class="station-description">
-                  東海道第一の宿場町。江戸時代には遊郭や茶屋が立ち並び、多くの旅人で賑わいました。
-                </p>
-</div>
-            </div>
-
-            <!-- 2宿 川崎 -->
-            <div
-              class="station-card edo history gourmet"
-              data-number="2"
-              data-features="歴史,名物,宿場"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/3-Kawasaki.webp"
-                  alt="川崎 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>川崎</h3>
-                <div class="station-reading">かわさき</div>
-                <p class="station-description">
-                  多摩川の六郷の渡しで有名な宿場。武蔵の名所として多くの旅人が往来しました。
-                </p>
-</div>
-            </div>
-
-            <!-- 3宿 神奈川 -->
-            <div
-              class="station-card edo history scenic"
-              data-number="3"
-              data-features="歴史,開港場,横浜"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/4-Kanagawa.webp"
-                  alt="神奈川 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>神奈川</h3>
-                <div class="station-reading">かながわ</div>
-                <p class="station-description">
-                  幕末の開港場として歴史的に重要な宿場。現在の横浜市神奈川区に位置し、外国人居留地として栄えました。
-                </p>
-</div>
-            </div>
-
-            <!-- 4宿 保土ケ谷 -->
-            <div
-              class="station-card edo history scenic"
-              data-number="4"
-              data-features="歴史,難所,権太坂"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/5-Hodogaya.webp"
-                  alt="保土ケ谷 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>保土ケ谷</h3>
-                <div class="station-reading">ほどがや</div>
-                <p class="station-description">
-                  権太坂の難所で知られる宿場町。東海道の古道が現在も残り、歌川広重の浮世絵にも描かれました。
-                </p>
-</div>
-            </div>
-
-            <!-- 5宿 戸塚 -->
-            <div
-              class="station-card edo history beginner"
-              data-number="5"
-              data-features="歴史,大宿場,交通要衝"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/6-Totsuka.webp"
-                  alt="戸塚 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>戸塚</h3>
-                <div class="station-reading">とつか</div>
-                <p class="station-description">
-                  東海道有数の大宿場町。鎌倉道との分岐点として交通の要衝を担い、多くの旅人で賑わいました。
-                </p>
-</div>
-            </div>
-
-            <!-- 6宿 藤沢 -->
-            <div
-              class="station-card edo history scenic"
-              data-number="6"
-              data-features="遊行寺,江島道,門前町"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/7-Fujisawa.webp"
-                  alt="藤沢 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>藤沢</h3>
-                <div class="station-reading">ふじさわ</div>
-                <p class="station-description">
-                  遊行寺の門前町として栄えた宿場。江島神社への参詣道である江島道の分岐点でもありました。
-                </p>
-</div>
-            </div>
-
-            <!-- 7宿 平塚 -->
-            <div
-              class="station-card edo scenic beginner"
-              data-number="7"
-              data-features="相模川,渡船場,平野部"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/8-Hiratsuka.webp"
-                  alt="平塚 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>平塚</h3>
-                <div class="station-reading">ひらつか</div>
-                <p class="station-description">
-                  相模川の渡船場として重要な宿場町。相模平野の中央に位置し、現在は七夕まつりで有名です。江戸時代には東海道の要衝として栄えました。
-                </p>
-</div>
-            </div>
-
-            <!-- 8宿 大磯 -->
-            <div
-              class="station-card edo scenic onsen"
-              data-number="8"
-              data-features="松並木,海岸,別荘地"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/9-Ōiso.webp"
-                  alt="大磯 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>大磯</h3>
-                <div class="station-reading">おおいそ</div>
-                <p class="station-description">
-                  相模湾を望む美しい松並木の宿場。明治時代には政治家や文人の別荘地として愛され、現在も温泉地として多くの観光客が訪れます。
-                </p>
-</div>
-            </div>
-
-            <!-- 9宿 小田原 -->
-            <div
-              class="station-card edo history scenic special"
-              data-number="9"
-              data-features="城下町,小田原城,関東最後"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/10-Odawara.webp"
-                  alt="小田原 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>小田原</h3>
-                <div class="station-reading">おだわら</div>
-                <p class="station-description">
-                  戦国大名北条氏の城下町として栄えた関東地方最後の大宿場。小田原城を中心とした歴史ある観光地で、かまぼこや梅干しなどの名産品でも知られています。箱根の険しい山道を前に、旅人がここで英気を養いました。
-                </p>
-</div>
-            </div>
-
-            <!-- 10宿 箱根 -->
-            <div
-              class="station-card edo scenic onsen special"
-              data-number="10"
-              data-features="温泉,関所,山岳宿場,東海道最大難所"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/11-Hakone.webp"
-                  alt="箱根 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>箱根</h3>
-                <div class="station-reading">はこね</div>
-                <p class="station-description">
-                  東海道最大の難所として恐れられた山間の関所宿場。箱根八里の険しい山道を越える旅人の重要な休息地で、現在も日本屈指の温泉観光地として世界中から愛され続けています。
-                </p>
-</div>
-            </div>
-
-            <!-- 11宿 三島 -->
-            <div
-              class="station-card edo history scenic"
-              data-number="11"
-              data-features="湧水,神社,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/12-Mishima.webp"
-                  alt="三島 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>三島</h3>
-                <div class="station-reading">みしま</div>
-                <p class="station-description">
-                  富士山の湧水で有名な宿場。三嶋大社の門前町として古くから栄えた地です。
-                </p>
-</div>
-            </div>
-
-            <!-- 12宿 沼津 -->
-            <div
-              class="station-card edo gourmet scenic"
-              data-number="12"
-              data-features="海産物,港町,グルメ"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/13-Numazu.webp"
-                  alt="沼津 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>沼津</h3>
-                <div class="station-reading">ぬまづ</div>
-                <p class="station-description">
-                  駿河湾に面した港町で新鮮な海産物が自慢。干物発祥の地としても知られ、富士山を望む絶景スポットとしても人気です。
-                </p>
-</div>
-            </div>
-
-            <!-- 13宿 原 -->
-            <div
-              class="station-card edo scenic history"
-              data-number="13"
-              data-features="富士山,景観,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/14-Hara.webp"
-                  alt="原 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>原</h3>
-                <div class="station-reading">はら</div>
-                <p class="station-description">
-                  富士山の絶景を望む宿場として歌川広重の浮世絵にも描かれた名所。現在も美しい景観が残ります。
-                </p>
-</div>
-            </div>
-
-            <!-- 14宿 吉原 -->
-            <div
-              class="station-card edo history gourmet"
-              data-number="14"
-              data-features="歴史,文化,名物"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/15-Yoshiwara.webp"
-                  alt="吉原 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>吉原</h3>
-                <div class="station-reading">よしわら</div>
-                <p class="station-description">
-                  富士山の麓に位置する宿場町。江戸時代の文化と歴史が色濃く残る地域です。
-                </p>
-</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 東海道エリア（16-35宿） -->
-        <div class="area-section" id="tokaido-area">
-          <h2 class="area-title">
-            <span class="area-number">16-35</span>
-            東海道エリア
-            <span
-              class="area-description"
-              style="
-                color: #333 !important;
-                font-weight: 500 !important;
-                font-size: 1rem !important;
-              "
-              >富士山を仰ぎ見る東海道の中心区間</span
-            >
-          </h2>
-
-          <div class="stations-grid">
-            <!-- 15宿 蒲原 -->
-            <div
-              class="station-card tokaido scenic history"
-              data-number="15"
-              data-features="富士山,景観,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/16-Kambara.webp"
-                  alt="蒲原 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>蒲原</h3>
-                <div class="station-reading">かんばら</div>
-                <p class="station-description">
-                  歌川広重の雪景色で有名な宿場。富士山の美しい眺望と歴史ある街並みが魅力です。
-                </p>
-</div>
-            </div>
-
-            <!-- 16宿 由比 -->
-            <div
-              class="station-card tokaido scenic gourmet"
-              data-number="16"
-              data-features="桜えび,駿河湾,名物"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/17-Yui.webp"
-                  alt="由比 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>由比</h3>
-                <div class="station-reading">ゆい</div>
-                <p class="station-description">
-                  桜えびで有名な駿河湾沿いの小さな宿場。美しい海岸線と富士山の絶景が楽しめ、歌川広重の浮世絵にも描かれた景勝地です。
-                </p>
-</div>
-            </div>
-
-            <!-- 17宿 興津 -->
-            <div
-              class="station-card tokaido history beginner"
-              data-number="17"
-              data-features="政治家,別荘,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/18-Okitsu-gawa.webp"
-                  alt="興津 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>興津</h3>
-                <div class="station-reading">おきつ</div>
-                <p class="station-description">
-                  明治時代に政治家たちの別荘地として栄えた宿場。歴史と政治の舞台となった場所です。
-                </p>
-</div>
-            </div>
-
-            <!-- 18宿 江尻 -->
-            <div
-              class="station-card tokaido history gourmet"
-              data-number="18"
-              data-features="港町,茶,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/19-Ejiri.webp"
-                  alt="江尻 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>江尻</h3>
-                <div class="station-reading">えじり</div>
-                <p class="station-description">
-                  現在の清水港として機能する港町。静岡茶の集散地として重要な役割を担いました。
-                </p>
-</div>
-            </div>
-
-            <!-- 19宿 府中 -->
-            <div
-              class="station-card tokaido history scenic"
-              data-number="19"
-              data-features="駿府城,歴史,政治"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/20-Fuchu.webp"
-                  alt="府中 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>府中</h3>
-                <div class="station-reading">ふちゅう</div>
-                <p class="station-description">
-                  駿府城の城下町として発展。徳川家康が晩年を過ごした政治の中心地でもありました。
-                </p>
-</div>
-            </div>
-
-            <!-- 20宿 丸子 -->
-            <div
-              class="station-card tokaido gourmet beginner"
-              data-number="20"
-              data-features="とろろ汁,名物,初心者"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/21-Mariko.webp"
-                  alt="丸子 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>丸子</h3>
-                <div class="station-reading">まりこ</div>
-                <p class="station-description">
-                  とろろ汁で有名な宿場。松尾芭蕉も立ち寄ったとされる歴史ある名物料理の発祥地で、現在も多くの観光客が名物を求めて訪れます。
-                </p>
-</div>
-            </div>
-
-            <!-- 21宿 岡部 -->
-            <div
-              class="station-card tokaido history beginner"
-              data-number="21"
-              data-features="茶畑,歴史,自然"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/22-Okabe.webp"
-                  alt="岡部 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>岡部</h3>
-                <div class="station-reading">おかべ</div>
-                <p class="station-description">
-                  静岡茶の産地として知られる山間の宿場。美しい茶畑の風景が広がる地です。
-                </p>
-</div>
-            </div>
-
-            <!-- 22宿 藤枝 -->
-            <div
-              class="station-card tokaido gourmet beginner"
-              data-number="22"
-              data-features="茶,サッカー,現代"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/23-Fujieda.webp"
-                  alt="藤枝 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>藤枝</h3>
-                <div class="station-reading">ふじえだ</div>
-                <p class="station-description">
-                  静岡茶とサッカーで有名な現代的な宿場町。伝統と現代が融合した魅力ある地域で、藤の花の名所としても知られています。
-                </p>
-</div>
-            </div>
-
-            <!-- 23宿 島田 -->
-            <div
-              class="station-card tokaido history scenic"
-              data-number="23"
-              data-features="大井川,川越,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/24-Shimada.webp"
-                  alt="島田 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>島田</h3>
-                <div class="station-reading">しまだ</div>
-                <p class="station-description">
-                  大井川の川越で栄えた宿場。「箱根八里は馬でも越すが、越すに越されぬ大井川」の舞台です。
-                </p>
-</div>
-            </div>
-
-            <!-- 24宿 金谷 -->
-            <div
-              class="station-card tokaido gourmet onsen"
-              data-number="24"
-              data-features="茶,温泉,SL"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/25-Kanaya.webp"
-                  alt="金谷 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>金谷</h3>
-                <div class="station-reading">かなや</div>
-                <p class="station-description">
-                  大井川鐵道のSLで有名な宿場。茶畑と温泉に恵まれた観光地として人気で、大井川を越える旅人の重要な拠点でした。
-                </p>
-</div>
-            </div>
-
-            <!-- 25宿 日坂 -->
-            <div
-              class="station-card tokaido history scenic"
-              data-number="25"
-              data-features="峠,歴史,夜泣き石"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/26-Nissaka.webp"
-                  alt="日坂 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>日坂</h3>
-                <div class="station-reading">にっさか</div>
-                <p class="station-description">
-                  夜泣き石伝説で有名な山間の宿場。小夜の中山峠の麓に位置する歴史ある宿場です。
-                </p>
-</div>
-            </div>
-
-            <!-- 26宿 掛川 -->
-            <div
-              class="station-card tokaido history scenic"
-              data-number="26"
-              data-features="城,茶,歴史"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/27-Kakegawa.webp"
-                  alt="掛川 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>掛川</h3>
-                <div class="station-reading">かけがわ</div>
-                <p class="station-description">
-                  掛川城の城下町として栄えた宿場。現在も美しく復元された天守閣が見どころです。
-                </p>
-</div>
-            </div>
-
-            <!-- 27宿 袋井 -->
-            <div
-              class="station-card tokaido beginner gourmet"
-              data-number="27"
-              data-features="どまん中,茶,初心者"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/28-Fukuroi.webp"
-                  alt="袋井 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>袋井</h3>
-                <div class="station-reading">ふくろい</div>
-                <p class="station-description">
-                  東海道五十三次の真ん中「どまん中」として有名な宿場。茶産業で栄える現代的な地域で、遠州三山の霊場巡りの起点でもあります。
-                </p>
-</div>
-            </div>
-
-            <!-- 28宿 見付 -->
-            <div
-              class="station-card tokaido history scenic"
-              data-number="28"
-              data-features="天竜川,歴史,渡し"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/29-Mitsuke.webp"
-                  alt="見付 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>見付</h3>
-                <div class="station-reading">みつけ</div>
-                <p class="station-description">
-                  天竜川の渡し場として重要な役割を果たした宿場。遠州灘を望む風光明媚な場所です。
-                </p>
-</div>
-            </div>
-
-            <!-- 29宿 浜松 -->
-            <div
-              class="station-card tokaido history gourmet"
-              data-number="29"
-              data-features="うなぎ,城下町,楽器"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/30-Hamamatsu.webp"
-                  alt="浜松 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>浜松</h3>
-                <div class="station-reading">はままつ</div>
-                <p class="station-description">
-                  うなぎ料理で有名な城下町。楽器産業でも栄える静岡県西部の中心都市です。
-                </p>
-</div>
-            </div>
-
-            <!-- 30宿 舞坂 -->
-            <div
-              class="station-card tokaido scenic gourmet"
-              data-number="30"
-              data-features="浜名湖,渡し,海産物"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/31-Maisaka.webp"
-                  alt="舞坂 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>舞坂</h3>
-                <div class="station-reading">まいさか</div>
-                <p class="station-description">
-                  浜名湖の渡し場として栄えた宿場。現在も美しい湖景色と新鮮な海産物が楽しめ、うなぎ料理が特に有名です。
-                </p>
-</div>
-            </div>
-
-            <!-- 31宿 新居 -->
-            <div
-              class="station-card tokaido history scenic"
-              data-number="31"
-              data-features="関所,歴史,検問"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/32-Arai.webp"
-                  alt="新居 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>新居</h3>
-                <div class="station-reading">あらい</div>
-                <p class="station-description">
-                  箱根と並ぶ重要な関所があった宿場。厳しい検問で知られる歴史的に重要な地点です。
-                </p>
-</div>
-            </div>
-
-            <!-- 32宿 白須賀 -->
-            <div
-              class="station-card tokaido beginner scenic"
-              data-number="32"
-              data-features="海岸,初心者,景観"
-            >
-              <div class="station-image">
-                <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/33-Shirasuka.webp"
-                  alt="白須賀 - 歌川広重浮世絵"
-                  loading="lazy"
-                />
-</div>
-              <div class="station-info">
-                <h3>白須賀</h3>
-                <div class="station-reading">しらすか</div>
-                <p class="station-description">
-                  遠州灘に面した海岸線の宿場。潮風を感じながら歩ける初心者向けのルートで、太平洋の雄大な景色が広がります。
-                </p>
-</div>
+              </div>
             </div>
           </div>
         </div>
