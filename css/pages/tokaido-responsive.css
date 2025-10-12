@@ -314,9 +314,10 @@
   }
 
   .stations-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, 320px);
     gap: 2rem;
     padding: 0 1rem;
+    justify-content: center;
   }
 
   .tokaido-attractions {
@@ -349,7 +350,7 @@
 
   /* 宿場町グリッド - デスクトップ */
   .stations-grid {
-    grid-template-columns: repeat(2, 350px);
+    grid-template-columns: repeat(auto-fill, 320px);
     gap: 2rem;
     max-width: 800px;
     margin: 0 auto;
@@ -618,8 +619,9 @@
   }
 
   .stations-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, 320px);
     gap: 2.5rem;
+    justify-content: center;
   }
 
   .stations-title {
