@@ -45,6 +45,21 @@ function initializeFiltering() {
         }
       });
 
+      // Auto-scroll to the selected area section (except for "all")
+      if (filter !== 'all') {
+        const targetSection = document.querySelector(`#${filter}-area`);
+        if (targetSection) {
+          const headerOffset = 80;
+          const elementPosition = targetSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+
       console.log(`Filter applied: ${filter}`);
     });
   });
