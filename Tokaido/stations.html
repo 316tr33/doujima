@@ -1653,6 +1653,17 @@
                 card.style.display = hasFilter ? "block" : "none";
               }
             });
+
+            // エリアセクションの表示/非表示を制御
+            const areaSections = document.querySelectorAll(".area-section");
+            areaSections.forEach((section) => {
+              const visibleCards = section.querySelectorAll(
+                ".station-card:not([style*='display: none'])"
+              );
+
+              // 該当するカードが1枚もない場合はエリアごと非表示
+              section.style.display = visibleCards.length > 0 ? "block" : "none";
+            });
           });
         });
       });
