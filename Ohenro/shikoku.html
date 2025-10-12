@@ -104,8 +104,7 @@
         <!-- 県別ナビゲーション -->
         <div class="temple-search-container">
           <div class="quick-navigation">
-            <button class="nav-btn active" data-filter="all">すべて</button>
-            <button class="nav-btn" data-filter="tokushima">徳島</button>
+            <button class="nav-btn active" data-filter="tokushima">徳島</button>
             <button class="nav-btn" data-filter="kouchi">高知</button>
             <button class="nav-btn" data-filter="ehime">愛媛</button>
             <button class="nav-btn" data-filter="kagawa">香川</button>
@@ -1493,15 +1492,6 @@
             // アクティブボタンを切り替え
             navBtns.forEach((b) => b.classList.remove("active"));
             this.classList.add("active");
-
-            // 「すべて」ボタンの場合はページトップへ
-            if (filter === "all") {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-              });
-              return;
-            }
 
             // 対応するエリアへスムーススクロール
             const targetSection = document.querySelector(`#${filter}`);

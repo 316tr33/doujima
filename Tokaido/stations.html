@@ -127,8 +127,7 @@
         <!-- 国別ナビゲーション -->
         <div class="station-search-container">
           <div class="quick-navigation">
-            <button class="nav-btn active" data-filter="all">すべて</button>
-            <button class="nav-btn" data-filter="yamashiro">山城国</button>
+            <button class="nav-btn active" data-filter="yamashiro">山城国</button>
             <button class="nav-btn" data-filter="oumi">近江国</button>
             <button class="nav-btn" data-filter="ise">伊勢国</button>
             <button class="nav-btn" data-filter="owari">尾張国</button>
@@ -1608,15 +1607,6 @@
             // アクティブボタンを切り替え
             navBtns.forEach((b) => b.classList.remove("active"));
             this.classList.add("active");
-
-            // 「すべて」ボタンの場合はページトップへ
-            if (filter === "all") {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-              });
-              return;
-            }
 
             // 対応するエリアへスムーススクロール
             const targetSection = document.querySelector(`#${filter}-area`);

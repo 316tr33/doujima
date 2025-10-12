@@ -156,8 +156,7 @@
             />
           </div>
           <div class="quick-filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="edo">Edo (1-15)</button>
+            <button class="filter-btn active" data-filter="edo">Edo (1-15)</button>
             <button class="filter-btn" data-filter="tokaido">
               Tokaido (16-35)
             </button>
@@ -4046,15 +4045,10 @@
               const areaSection = card.closest(".area-section");
               const areaId = areaSection ? areaSection.id : null;
 
-              if (filter === "all") {
-                card.style.display = "block";
-                if (areaId) areaVisibility[areaId] = true;
-              } else {
-                const hasFilter = card.classList.contains(filter);
-                card.style.display = hasFilter ? "block" : "none";
-                if (hasFilter && areaId) {
-                  areaVisibility[areaId] = true;
-                }
+              const hasFilter = card.classList.contains(filter);
+              card.style.display = hasFilter ? "block" : "none";
+              if (hasFilter && areaId) {
+                areaVisibility[areaId] = true;
               }
             });
 
