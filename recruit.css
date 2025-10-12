@@ -1217,65 +1217,53 @@ header nav {
 }
 
 /* ========================================
-   先達詳細セクション内CTAカード
+   先達詳細セクション内リンクボックス
    ======================================== */
 
-.detail-cta-card {
-    margin-top: 30px;
-    padding: 25px;
-    background: linear-gradient(135deg, #f5f1e8 0%, #fff9f0 100%);
-    border: 2px solid var(--primary-gold);
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+.detail-link-box {
+    margin-top: 20px;
+    padding: 22px;
+    background: #fffbf5;
+    border: 1px solid #e8d5b7;
+    border-left: 5px solid var(--primary-gold);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(184, 134, 11, 0.08);
+    transition: all 0.3s;
 }
 
-.detail-cta-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.2);
+.detail-link-box:hover {
+    border-left-width: 7px;
+    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.15);
+    transform: translateX(3px);
 }
 
-.detail-cta-card h5 {
-    color: var(--primary-gold);
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.detail-cta-card p {
-    color: #555;
-    margin-bottom: 20px;
+.detail-link-box p {
+    color: #6c757d;
+    margin-bottom: 12px;
     line-height: 1.6;
+    font-size: 0.9rem;
 }
 
-.detail-cta-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background: var(--primary-gold);
-    color: white;
+.detail-link-arrow {
+    color: var(--primary-gold);
     text-decoration: none;
-    border-radius: 5px;
     font-weight: 500;
-    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+    transition: transform 0.2s, color 0.2s;
 }
 
-.detail-cta-button:hover {
-    background: var(--secondary-gold);
-    transform: scale(1.05);
+.detail-link-arrow:hover {
+    color: var(--secondary-gold);
+    transform: translateX(4px);
 }
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
-    .detail-cta-card {
-        padding: 20px 15px;
+    .detail-link-box {
+        padding: 18px;
     }
 
-    .detail-cta-card h5 {
-        font-size: 1.1rem;
-    }
-
-    .detail-cta-button {
-        padding: 10px 20px;
-        font-size: 0.95rem;
+    .detail-link-box p {
+        font-size: 0.85rem;
     }
 }
