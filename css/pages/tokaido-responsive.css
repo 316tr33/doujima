@@ -128,7 +128,7 @@
     margin-top: 2rem !important;
   }
 
-  .quick-filters {
+  .quick-navigation {
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 0.6rem !important;
@@ -449,7 +449,7 @@
     padding: 0; /* パディングを削除して親の制約を除去 */
   }
 
-  .quick-filters {
+  .quick-navigation {
     width: 100vw; /* フル幅でスクロールを有効に */
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%); /* 右側も画面端まで拡張 */
@@ -464,16 +464,16 @@
   }
 
   /* 最初のボタンに左マージンを追加 */
-  .quick-filters .filter-btn:first-child {
+  .quick-navigation .filter-btn:first-child {
     margin-left: 1rem; /* 左端ボタンの左マージン */
   }
 
   /* 最後のボタンに右マージンを追加して画面端まで表示 */
-  .quick-filters .filter-btn:last-child {
+  .quick-navigation .filter-btn:last-child {
     margin-right: 0; /* 右端余白なしで画面端まで表示 */
   }
 
-  .quick-filters::-webkit-scrollbar {
+  .quick-navigation::-webkit-scrollbar {
     display: none;
   }
 
@@ -499,7 +499,7 @@
   }
 
   /* モバイル横スクロールフィルター */
-  .quick-filters {
+  .quick-navigation {
     display: flex;
     overflow-x: auto;
     gap: 0.1rem;
@@ -510,7 +510,7 @@
     -ms-overflow-style: none; /* IE */
   }
 
-  .quick-filters::-webkit-scrollbar {
+  .quick-navigation::-webkit-scrollbar {
     display: none; /* Chrome, Safari */
   }
 
@@ -626,5 +626,31 @@
 
   .stations-title {
     font-size: 5rem;
+  }
+}
+
+/* ===============================================
+   トップに戻るボタン - レスポンシブ対応
+   =============================================== */
+
+/* モバイル対応（768px以下） */
+@media (max-width: 768px) {
+  .back-to-top {
+    width: 48px;
+    height: 48px;
+    bottom: 80px; /* 言語切り替えボタンとの競合回避 */
+    right: 16px;
+    font-size: 18px;
+  }
+}
+
+/* 極小画面対応（360px以下） */
+@media (max-width: 360px) {
+  .back-to-top {
+    width: 44px;
+    height: 44px;
+    bottom: 75px;
+    right: 12px;
+    font-size: 16px;
   }
 }

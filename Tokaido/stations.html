@@ -124,29 +124,20 @@
           江戸から京都まで53の宿場町をご案内
         </p>
 
-        <!-- 宿場町検索 -->
+        <!-- 国別ナビゲーション -->
         <div class="station-search-container">
-          <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input
-              type="text"
-              id="stationSearch"
-              placeholder="宿場町を検索（名前・番号・都道府県）"
-              autocomplete="off"
-            />
-          </div>
-          <div class="quick-filters">
-            <button class="filter-btn active" data-filter="all">すべて</button>
-            <button class="filter-btn" data-filter="yamashiro">山城国</button>
-            <button class="filter-btn" data-filter="oumi">近江国</button>
-            <button class="filter-btn" data-filter="ise">伊勢国</button>
-            <button class="filter-btn" data-filter="owari">尾張国</button>
-            <button class="filter-btn" data-filter="mikawa">三河国</button>
-            <button class="filter-btn" data-filter="totomi">遠江国</button>
-            <button class="filter-btn" data-filter="suruga">駿河国</button>
-            <button class="filter-btn" data-filter="izu">伊豆国</button>
-            <button class="filter-btn" data-filter="sagami">相模国</button>
-            <button class="filter-btn" data-filter="musashi">武蔵国</button>
+          <div class="quick-navigation">
+            <button class="nav-btn active" data-filter="all">すべて</button>
+            <button class="nav-btn" data-filter="yamashiro">山城国</button>
+            <button class="nav-btn" data-filter="oumi">近江国</button>
+            <button class="nav-btn" data-filter="ise">伊勢国</button>
+            <button class="nav-btn" data-filter="owari">尾張国</button>
+            <button class="nav-btn" data-filter="mikawa">三河国</button>
+            <button class="nav-btn" data-filter="totomi">遠江国</button>
+            <button class="nav-btn" data-filter="suruga">駿河国</button>
+            <button class="nav-btn" data-filter="izu">伊豆国</button>
+            <button class="nav-btn" data-filter="sagami">相模国</button>
+            <button class="nav-btn" data-filter="musashi">武蔵国</button>
           </div>
         </div>
       </div>
@@ -1596,76 +1587,120 @@
       </p>
     </footer>
 
+    <!-- トップに戻るボタン -->
+    <button id="backToTopBtn" class="back-to-top" aria-label="ページトップへ戻る">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="../js/script.js"></script>
     <script>
       // 東海道宿場 JavaScript専用の処理
       document.addEventListener("DOMContentLoaded", function () {
-        // 検索機能の初期化
-        const searchInput = document.getElementById("stationSearch");
-        const filterBtns = document.querySelectorAll(".filter-btn");
+        // ナビゲーション機能の初期化
+        const navBtns = document.querySelectorAll(".nav-btn");
         const stationCards = document.querySelectorAll(".station-card");
 
-        // リアルタイム検索機能
-        if (searchInput) {
-          searchInput.addEventListener("input", function () {
-            const searchTerm = this.value.toLowerCase();
-            stationCards.forEach((card) => {
-              const stationName = card
-                .querySelector("h3")
-                .textContent.toLowerCase();
-              const features = card.dataset.features.toLowerCase();
-              const number = card.dataset.number;
-
-              // 都道府県情報を取得（location spanの内容）
-              const locationElement = card.querySelector(
-                ".detail-item .fas.fa-map-marker-alt"
-              );
-              const location = locationElement && locationElement.nextElementSibling
-                ? locationElement.nextElementSibling.textContent.toLowerCase()
-                : "";
-
-              const isVisible =
-                stationName.includes(searchTerm) ||
-                features.includes(searchTerm) ||
-                number.includes(searchTerm) ||
-                location.includes(searchTerm);
-
-              card.style.display = isVisible ? "block" : "none";
-            });
-          });
-        }
-
-        // フィルター機能
-        filterBtns.forEach((btn) => {
+        // ナビゲーションボタン機能
+        navBtns.forEach((btn) => {
           btn.addEventListener("click", function () {
             const filter = this.dataset.filter;
 
             // アクティブボタンを切り替え
-            filterBtns.forEach((b) => b.classList.remove("active"));
+            navBtns.forEach((b) => b.classList.remove("active"));
             this.classList.add("active");
 
-            // 絞り込み表示
-            stationCards.forEach((card) => {
-              if (filter === "all") {
-                card.style.display = "block";
-              } else {
-                const hasFilter = card.classList.contains(filter);
-                card.style.display = hasFilter ? "block" : "none";
-              }
-            });
+            // 「すべて」ボタンの場合はページトップへ
+            if (filter === "all") {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              });
+              return;
+            }
 
-            // エリアセクションの表示/非表示を制御
-            const areaSections = document.querySelectorAll(".area-section");
-            areaSections.forEach((section) => {
-              const visibleCards = section.querySelectorAll(
-                ".station-card:not([style*='display: none'])"
-              );
+            // 対応するエリアへスムーススクロール
+            const targetSection = document.querySelector(`#${filter}-area`);
+            if (targetSection) {
+              const headerOffset = 80; // 固定ヘッダー高さ
+              const elementPosition = targetSection.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-              // 該当するカードが1枚もない場合はエリアごと非表示
-              section.style.display = visibleCards.length > 0 ? "block" : "none";
-            });
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+              });
+            }
           });
         });
+
+        // ===== トップに戻るボタン機能 =====
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        if (backToTopBtn) {
+          // スクロール閾値の設定（レスポンシブ対応）
+          function getScrollThreshold() {
+            const width = window.innerWidth;
+            if (width >= 1024) return 1000; // デスクトップ
+            if (width >= 768) return 800;   // タブレット
+            return 600;                      // モバイル
+          }
+
+          // スクロールイベントハンドラー（パフォーマンス最適化）
+          let isScrolling = false;
+
+          function handleScroll() {
+            if (!isScrolling) {
+              window.requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                const threshold = getScrollThreshold();
+
+                if (scrolled > threshold) {
+                  backToTopBtn.classList.add("show");
+                } else {
+                  backToTopBtn.classList.remove("show");
+                }
+
+                isScrolling = false;
+              });
+
+              isScrolling = true;
+            }
+          }
+
+          // スクロールイベントリスナー
+          window.addEventListener("scroll", handleScroll, { passive: true });
+
+          // ボタンクリックイベント
+          backToTopBtn.addEventListener("click", function () {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          });
+
+          // キーボードナビゲーション（アクセシビリティ）
+          backToTopBtn.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              });
+            }
+          });
+
+          // ウィンドウリサイズ時の閾値再計算
+          let resizeTimer;
+          window.addEventListener("resize", function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+              handleScroll();
+            }, 150);
+          });
+
+          // 初期状態の確認
+          handleScroll();
+        }
       });
     </script>
     <script src="../js/script.js"></script>
