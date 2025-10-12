@@ -121,7 +121,7 @@ section:not([style*="width"]) {
 
   /* 大きすぎるテキスト要素を調整（1.5rem以上） */
   .hero-subtitle {
-    font-size: 1.3rem !important;
+    font-size: 1.6rem !important;
   }
 
   /* hero-description の特別な小サイズ設定 */
@@ -262,7 +262,7 @@ body {
   }
 
   .hero-subtitle {
-    font-size: 0.9rem !important;
+    font-size: 1.5rem !important;
     margin-bottom: 0.8rem !important;
     color: #d4af37 !important; /* サブタイトル：金色で統一 */
   }

@@ -326,11 +326,11 @@ body[data-page="ohenro"] .hero-slide:nth-child(5) {
   }
 
   .hero-subtitle {
-    font-size: 1.5rem !important; /* より大きく、強制適用 */
+    font-size: 2rem !important; /* より大きく、強制適用 */
     font-weight: 500 !important;
     letter-spacing: 0.3em !important;
     color: #d4af37 !important;
-    margin: 0 auto 1rem !important;
+    margin: 0 auto 10rem !important;
     height: auto !important; /* 高さを自動に変更、強制適用 */
     opacity: 0.95 !important;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
