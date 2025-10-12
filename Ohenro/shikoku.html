@@ -101,23 +101,14 @@
           四国八十八ヶ所霊場の詳細情報
         </p>
         
-        <!-- 霊場検索機能 -->
+        <!-- 県別ナビゲーション -->
         <div class="temple-search-container">
-          <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input
-              type="text"
-              id="templeSearch"
-              placeholder="札所を検索（番号、名前、県名）"
-              autocomplete="off"
-            >
-          </div>
-          <div class="quick-filters">
-            <button class="filter-btn active" data-filter="all">すべて</button>
-            <button class="filter-btn" data-filter="tokushima">徳島</button>
-            <button class="filter-btn" data-filter="kouchi">高知</button>
-            <button class="filter-btn" data-filter="ehime">愛媛</button>
-            <button class="filter-btn" data-filter="kagawa">香川</button>
+          <div class="quick-navigation">
+            <button class="nav-btn active" data-filter="all">すべて</button>
+            <button class="nav-btn" data-filter="tokushima">徳島</button>
+            <button class="nav-btn" data-filter="kouchi">高知</button>
+            <button class="nav-btn" data-filter="ehime">愛媛</button>
+            <button class="nav-btn" data-filter="kagawa">香川</button>
           </div>
         </div>
       </div>
@@ -1482,150 +1473,118 @@
       </p>
     </footer>
 
+    <!-- トップに戻るボタン -->
+    <button id="backToTopBtn" class="back-to-top" aria-label="ページトップへ戻る">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="../js/script.js"></script>
     <script>
-      // 霊場検索機能
-      document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.getElementById('templeSearch');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.card');
-        const sections = document.querySelectorAll('.section');
-        
-        // 検索機能
-        searchInput.addEventListener('input', function() {
-          const query = this.value.toLowerCase();
-          filterTemples(query, getCurrentFilter());
-        });
-        
-        // フィルターボタン
-        filterButtons.forEach(btn => {
-          btn.addEventListener('click', function() {
-            filterButtons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            filterTemples(searchInput.value.toLowerCase(), this.dataset.filter);
-          });
-        });
-        
-        function getCurrentFilter() {
-          return document.querySelector('.filter-btn.active').dataset.filter;
-        }
-        
-        // 数字から漢数字に変換する関数
-        function convertToKanji(num) {
-          const kanjiNumbers = {
-            '1': '一', '2': '二', '3': '三', '4': '四', '5': '五',
-            '6': '六', '7': '七', '8': '八', '9': '九', '10': '十',
-            '11': '十一', '12': '十二', '13': '十三', '14': '十四', '15': '十五',
-            '16': '十六', '17': '十七', '18': '十八', '19': '十九', '20': '二十',
-            '21': '二十一', '22': '二十二', '23': '二十三', '24': '二十四', '25': '二十五',
-            '26': '二十六', '27': '二十七', '28': '二十八', '29': '二十九', '30': '三十',
-            '31': '三十一', '32': '三十二', '33': '三十三', '34': '三十四', '35': '三十五',
-            '36': '三十六', '37': '三十七', '38': '三十八', '39': '三十九', '40': '四十',
-            '41': '四十一', '42': '四十二', '43': '四十三', '44': '四十四', '45': '四十五',
-            '46': '四十六', '47': '四十七', '48': '四十八', '49': '四十九', '50': '五十',
-            '51': '五十一', '52': '五十二', '53': '五十三', '54': '五十四', '55': '五十五',
-            '56': '五十六', '57': '五十七', '58': '五十八', '59': '五十九', '60': '六十',
-            '61': '六十一', '62': '六十二', '63': '六十三', '64': '六十四', '65': '六十五',
-            '66': '六十六', '67': '六十七', '68': '六十八', '69': '六十九', '70': '七十',
-            '71': '七十一', '72': '七十二', '73': '七十三', '74': '七十四', '75': '七十五',
-            '76': '七十六', '77': '七十七', '78': '七十八', '79': '七十九', '80': '八十',
-            '81': '八十一', '82': '八十二', '83': '八十三', '84': '八十四', '85': '八十五',
-            '86': '八十六', '87': '八十七', '88': '八十八'
-          };
-          return kanjiNumbers[num] || num;
-        }
+      // 霊場ナビゲーション機能
+      document.addEventListener("DOMContentLoaded", function () {
+        // === ナビゲーション機能の初期化 ===
+        const navBtns = document.querySelectorAll(".nav-btn");
 
-        // 検索テキストマッチング関数（優先順位付き検索）
-        function searchTextMatch(cardText, query, card) {
-          // 重要霊場の検索
-          if (query === '重要' || query === '重要霊場' || query === 'special' || query === '特別') {
-            const isSpecial = card.getAttribute('data-category') === 'special';
-            if (isSpecial) {
-              return true;
-            }
-          }
-          
-          // 霊場番号の完全一致を最優先（「23」→「第二十三番」）
-          if (/^\d+$/.test(query)) {
-            const kanjiNumber = convertToKanji(query);
-            const templeTitle = card.querySelector('h3')?.textContent || '';
-            
-            // 「第〇〇番」の形式で完全一致チェック
-            if (templeTitle.includes(`第${kanjiNumber}番`)) {
-              return true;
-            }
-          }
-          
-          // 「〇番」「第〇番」形式の検索
-          if (/^\d+番$/.test(query) || /^第\d+番$/.test(query)) {
-            const number = query.replace(/[第番]/g, '');
-            const kanjiNumber = convertToKanji(number);
-            const templeTitle = card.querySelector('h3')?.textContent || '';
-            
-            if (templeTitle.includes(`第${kanjiNumber}番`)) {
-              return true;
-            }
-          }
-          
-          // 寺院名での検索（h3タイトルのみ対象）
-          const templeTitle = card.querySelector('h3')?.textContent.toLowerCase() || '';
-          if (templeTitle.includes(query)) {
-            return true;
-          }
-          
-          // 数字が含まれる寺院名検索（「1寺」→「一寺」等）
-          const convertedQuery = query.replace(/\d+/g, (match) => convertToKanji(match));
-          if (convertedQuery !== query && templeTitle.includes(convertedQuery)) {
-            return true;
-          }
-          
-          // 最後に全文検索（住所・電話番号含む）- 他で見つからない場合のみ
-          return false;
-        }
+        // ナビゲーションボタン機能
+        navBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const filter = this.dataset.filter;
 
-        function filterTemples(query, filter) {
-          let visibleCount = 0;
-          
-          // 各カードをチェック
-          cards.forEach(card => {
-            const cardText = card.textContent.toLowerCase();
-            const isSpecial = card.getAttribute('data-category') === 'special';
-            const parentSection = card.closest('.section');
-            let show = true;
-            
-            // テキスト検索（優先順位付き検索）
-            if (query && !searchTextMatch(cardText, query, card)) {
-              show = false;
+            // アクティブボタンを切り替え
+            navBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            // 「すべて」ボタンの場合はページトップへ
+            if (filter === "all") {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              });
+              return;
             }
-            
-            // フィルターチェック
-            if (filter !== 'all') {
-              if (filter === 'special' && !isSpecial) {
-                show = false;
-              } else if (filter !== 'special' && !parentSection.id.includes(filter)) {
-                show = false;
-              }
-            }
-            
-            card.style.display = show ? 'block' : 'none';
-            if (show) visibleCount++;
-          });
-          
-          // セクションの表示/非表示
-          sections.forEach(section => {
-            if (section.id && (section.id === 'tokushima' || section.id === 'kouchi' || section.id === 'ehime' || section.id === 'kagawa')) {
-              const visibleCards = section.querySelectorAll('.card[style="display: block;"], .card:not([style*="display: none"])');
-              section.style.display = (filter === 'all' || filter === section.id || (filter === 'special' && visibleCards.length > 0)) ? 'block' : 'none';
+
+            // 対応するエリアへスムーススクロール
+            const targetSection = document.querySelector(`#${filter}`);
+            if (targetSection) {
+              const headerOffset = 80; // 固定ヘッダー高さ
+              const elementPosition = targetSection.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+              });
             }
           });
-          
-          // 結果表示
-          updateSearchResults(visibleCount, query, filter);
-        }
-        
-        function updateSearchResults(count, query, filter) {
-          // 結果表示用のメッセージを追加できる
-          console.log(`検索結果: ${count}件`);
+        });
+
+        // === トップに戻るボタン機能 ===
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        if (backToTopBtn) {
+          // スクロール閾値の設定（レスポンシブ対応）
+          function getScrollThreshold() {
+            const width = window.innerWidth;
+            if (width >= 1024) return 1000; // デスクトップ
+            if (width >= 768) return 800;   // タブレット
+            return 600;                      // モバイル
+          }
+
+          // スクロールイベントハンドラー（パフォーマンス最適化）
+          let isScrolling = false;
+
+          function handleScroll() {
+            if (!isScrolling) {
+              window.requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                const threshold = getScrollThreshold();
+
+                if (scrolled > threshold) {
+                  backToTopBtn.classList.add("show");
+                } else {
+                  backToTopBtn.classList.remove("show");
+                }
+
+                isScrolling = false;
+              });
+
+              isScrolling = true;
+            }
+          }
+
+          // スクロールイベントリスナー
+          window.addEventListener("scroll", handleScroll, { passive: true });
+
+          // ボタンクリックイベント
+          backToTopBtn.addEventListener("click", function () {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          });
+
+          // キーボードナビゲーション（アクセシビリティ）
+          backToTopBtn.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              });
+            }
+          });
+
+          // ウィンドウリサイズ時の閾値再計算
+          let resizeTimer;
+          window.addEventListener("resize", function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+              handleScroll();
+            }, 150);
+          });
+
+          // 初期状態の確認
+          handleScroll();
         }
       });
     </script>
