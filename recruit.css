@@ -1215,3 +1215,67 @@ header nav {
         justify-content: space-between !important;
     }
 }
+
+/* ========================================
+   先達詳細セクション内CTAカード
+   ======================================== */
+
+.detail-cta-card {
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, #f5f1e8 0%, #fff9f0 100%);
+    border: 2px solid var(--primary-gold);
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.detail-cta-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.2);
+}
+
+.detail-cta-card h5 {
+    color: var(--primary-gold);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.detail-cta-card p {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.detail-cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary-gold);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.detail-cta-button:hover {
+    background: var(--secondary-gold);
+    transform: scale(1.05);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .detail-cta-card {
+        padding: 20px 15px;
+    }
+
+    .detail-cta-card h5 {
+        font-size: 1.1rem;
+    }
+
+    .detail-cta-button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}

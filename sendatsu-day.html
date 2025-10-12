@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>先達業務の一日 - 堂島フロント企画</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="recruit.css">
+    <link rel="stylesheet" href="sendatsu-day.css">
+    <script src="js/responsive-debug.js" defer></script>
+    <script src="js/logo-visibility.js" defer></script>
+</head>
+<body class="debug-responsive">
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+              <img src="images/doujima-logo.webp" alt="堂島フロント企画" />
+              <span class="logo-text">堂島フロント企画</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="Ohenro/index.html">巡礼</a></li>
+                <li><a href="Tokaido/index.html">街道ウォーク</a></li>
+                <li><a href="recruit.html" class="active">採用情報</a></li>
+                <li><a href="https://doujimafront.stores.jp/" target="_blank">オンラインショップ</a></li>
+                <li><a href="index.html#contact">お問い合わせ</a></li>
+            </ul>
+            <!-- ハンバーガーメニューボタン（モバイル用） -->
+            <button
+                class="mobile-menu-toggle"
+                id="mobileMenuToggle"
+                aria-label="メニューを開く"
+            >
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- モバイル用メニューオーバーレイ -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- モバイル用メニューコンテンツ -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">メニュー</span>
+            <button
+                class="mobile-menu-close"
+                id="mobileMenuClose"
+                aria-label="メニューを閉じる"
+            >
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <a href="index.html" class="mobile-menu-link">ホーム</a>
+            <a href="Ohenro/index.html" class="mobile-menu-link">巡礼</a>
+            <a href="Tokaido/index.html" class="mobile-menu-link">街道ウォーク</a>
+            <a href="recruit.html" class="mobile-menu-link active">採用情報</a>
+            <a href="https://doujimafront.stores.jp/" target="_blank" class="mobile-menu-link">オンラインショップ</a>
+            <a href="index.html#contact" class="mobile-menu-link">お問い合わせ</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- ヒーローセクション -->
+        <section class="sendatsu-hero">
+            <div class="container">
+                <h1>先達業務の一日</h1>
+                <p>四国霊場や観音霊場でお客様をご案内する「先達」の一日は、このように進みます。</p>
+            </div>
+        </section>
+
+        <!-- タイムラインコンテンツ -->
+        <div class="timeline-container">
+            <!-- 前日確認 -->
+            <div class="timeline-section">
+                <h3>◆ 前日確認</h3>
+                <p>添乗員から最終の連絡が入ります。</p>
+                <p>連絡先・集合時間・集合場所をしっかり確認し、翌日に備えます。</p>
+            </div>
+
+            <!-- 当日の朝 -->
+            <div class="timeline-section">
+                <h3>◆ 当日の朝</h3>
+                <p>起床後に連絡を入れ、身支度を整えて集合場所へ。</p>
+                <p>先達は常に30分前に到着し、添乗員・アシスタントと打ち合わせを行います。</p>
+            </div>
+
+            <!-- 出発〜移動中 -->
+            <div class="timeline-section">
+                <h3>◆ 出発〜移動中</h3>
+                <p>バス出発後は、まず道中祈願（朝のお勤め）。</p>
+                <p>移動の時間を使って、これから向かう札所の縁起や歴史をご案内します。</p>
+            </div>
+
+            <!-- 札所参拝 -->
+            <div class="timeline-section">
+                <h3>◆ 札所参拝</h3>
+                <p>四国八十八ヶ所では1ヶ寺につき「本堂」と「大師堂」の2箇所を参拝、観音霊場では1箇所でお客様と一緒に読経します。</p>
+                <p>単なるお参りだけでなく、各寺院の見どころや歴史背景も丁寧にご説明します。</p>
+                <p>一日に少なければ1ヶ寺、多い日には7〜8ヶ寺を巡拝することもあります。</p>
+            </div>
+
+            <!-- 行程終了〜帰路 -->
+            <div class="timeline-section">
+                <h3>◆ 行程終了〜帰路</h3>
+                <p>すべての参拝が終わると、降車地でお客様をお見送り。</p>
+                <p>「ありがとうございました」とご挨拶し、業務は完了です。</p>
+            </div>
+
+            <!-- 研修と学び -->
+            <div class="timeline-section">
+                <h3>◆ 研修と学び</h3>
+                <p>先達には定期的な勉強会もあり、新人先達は同乗研修を通じて丁寧に指導を受けます。</p>
+                <p>経験を重ね、より良いご案内ができるよう努めています。</p>
+            </div>
+
+            <!-- 採用情報に戻るリンク -->
+            <div class="back-to-recruit">
+                <a href="recruit.html#sendatsu-details">← 採用情報に戻る</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="company-info">
+                    <h3>株式会社 堂島フロント企画</h3>
+                    <p>お遍路・東海道ウォークツアーの専門企画会社</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">ホーム</a>
+                    <a href="Ohenro/index.html">お遍路事業</a>
+                    <a href="Tokaido/index.html">東海道ウォーク事業</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 堂島フロント企画. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
