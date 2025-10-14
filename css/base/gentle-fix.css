@@ -120,7 +120,8 @@ section:not([style*="width"]) {
   }
 
   /* 大きすぎるテキスト要素を調整（1.5rem以上） */
-  .hero-subtitle {
+  .hero-subtitle,
+  h1.hero-subtitle {
     font-size: 1.6rem !important;
   }
 
@@ -130,7 +131,8 @@ section:not([style*="width"]) {
   }
 
   /* hero-subtitle の金色統一（強制適用） */
-  .hero-subtitle {
+  .hero-subtitle,
+  h1.hero-subtitle {
     color: #d4af37 !important;
   }
 
@@ -217,6 +219,324 @@ body {
 }
 
 /* ===============================================
+   ヒーローセクション完全中央配置（全デバイス対応）
+   =============================================== */
+
+/* 縦向き小画面（≤430px）: 横書きテキスト */
+@media (max-width: 430px) and (orientation: portrait) {
+  .hero-section {
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .hero-content {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    display: block !important;
+    width: fit-content !important;
+    max-width: calc(100% - 30px) !important;
+    text-align: center !important;
+    margin: 1rem auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* 縦向き中〜大画面（≥431px）: 縦書きテキスト */
+@media (min-width: 431px) and (orientation: portrait) {
+  /* スクロールバー幅を無視してフル幅確保 */
+  html,
+  body {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  main {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  .hero-section {
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .hero-content {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    writing-mode: vertical-rl !important;
+    text-orientation: upright !important;
+    width: 62.72px !important; /* 縦書きテキストの実測幅（fontSize 56px + letterSpacing 6.72px） */
+    height: auto !important;
+    margin: 0 !important;
+    padding: 1rem 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* 横向きすべて: 縦書きテキスト */
+@media (orientation: landscape) {
+  .hero-section {
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .hero-content {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    writing-mode: vertical-rl !important;
+    text-orientation: upright !important;
+    display: block !important;
+    width: fit-content !important;
+    height: auto !important;
+    align-self: center !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: translateX(0) !important;
+  }
+}
+
+/* ===============================================
+   横画面で縦幅が短い場合の最適化（768px～850px）
+   =============================================== */
+
+@media (orientation: landscape) and (min-height: 650px) and (max-height: 850px) {
+  .hero-section {
+    min-height: calc(100vh - 70px) !important;
+    max-height: calc(100vh - 70px) !important; /* 最大高さも制限してビューポートに収める */
+    height: auto !important;
+    padding: 1rem 0 !important; /* パディングをさらに縮小 */
+    overflow: visible !important; /* コンテンツがはみ出ても表示 */
+  }
+
+  .hero-content {
+    gap: 0.8rem !important; /* コンテンツ間の余白をさらに縮小 */
+    padding: 0 !important;
+    max-height: calc(100vh - 90px) !important; /* コンテンツ領域も制限 */
+    justify-content: center !important;
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    margin-top: 0.8rem !important;
+    margin-bottom: 0.8rem !important;
+    font-size: 1.7rem !important; /* 1.8rem → 1.7rem に微調整 */
+  }
+
+  .hero-buttons {
+    margin-top: 0.8rem !important;
+    gap: 0.6rem !important;
+  }
+
+  .hero-buttons a {
+    padding: 0.7rem 1.5rem !important; /* ボタンサイズを微調整 */
+    font-size: 0.95rem !important;
+  }
+
+  .hero-features {
+    margin-top: 0.8rem !important;
+    gap: 0.8rem !important;
+  }
+
+  .feature-item {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* ===============================================
+   横画面で極端に縦幅が短い場合の緊急対応（≤650px）
+   =============================================== */
+
+@media (orientation: landscape) and (max-height: 650px) {
+  .hero-section {
+    min-height: calc(100vh - 60px) !important;
+    height: auto !important;
+    padding: 1rem 0 !important;
+  }
+
+  .hero-content {
+    gap: 0.5rem !important;
+    padding: 0 !important;
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    font-size: 1.6rem !important; /* 1.8rem → 1.6rem に縮小 */
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: 0.15em !important;
+  }
+
+  .hero-buttons {
+    margin-top: 0.8rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .hero-buttons a {
+    padding: 0.6rem 1.2rem !important; /* ボタンサイズ縮小 */
+    font-size: 0.9rem !important;
+  }
+
+  .hero-features {
+    margin-top: 0.8rem !important;
+    gap: 0.8rem !important;
+  }
+
+  .feature-item {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ===============================================
+   横画面で縦幅が狭い場合の最適化（デスクトップ・スマホ共通）
+   =============================================== */
+
+/* 横画面で縦幅が狭い場合の共通最適化 */
+@media (orientation: landscape) and (max-height: 650px) {
+  .hero-section {
+    /* 固定の高さではなく、コンテンツに合わせた柔軟な高さ */
+    min-height: auto !important;
+    height: auto !important;
+    /* 最小限のパディング */
+    padding: clamp(0.5rem, 1.5vh, 1rem) 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-content {
+    /* 最小限の余白 */
+    padding: 0 !important;
+    margin-top: clamp(0.5rem, 1vh, 1rem) !important;
+    gap: clamp(0.4rem, 0.8vh, 0.6rem) !important;
+    justify-content: center !important;
+  }
+
+  /* 縦書きテキストのスケーリング - ビューポート高さに基づく */
+  .hero-content h1.hero-subtitle,
+  .hero-content .hero-subtitle {
+    font-size: clamp(1.2rem, 3.5vh, 2.5rem) !important;
+    margin: clamp(0.2rem, 0.5vh, 0.5rem) 0 !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.8 !important;
+  }
+
+  /* ボタングループの最適化 */
+  .hero-cta,
+  .hero-buttons {
+    margin-top: clamp(0.4rem, 1.2vh, 0.8rem) !important;
+    gap: clamp(0.4rem, 1.2vh, 0.6rem) !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  .hero-cta a,
+  .hero-buttons a,
+  .cta-primary,
+  .cta-secondary {
+    padding: clamp(0.4rem, 1.2vh, 0.6rem) clamp(0.7rem, 2vh, 1rem) !important;
+    font-size: clamp(0.75rem, 2vh, 0.9rem) !important;
+    white-space: nowrap !important;
+  }
+
+  /* Feature アイテムの最適化 */
+  .hero-features {
+    margin-top: clamp(0.4rem, 1.2vh, 0.8rem) !important;
+    gap: clamp(0.4rem, 1.2vh, 0.8rem) !important;
+    flex-direction: row !important;
+  }
+
+  .feature-item {
+    font-size: clamp(0.75rem, 2vh, 0.9rem) !important;
+    padding: clamp(0.3rem, 1vh, 0.5rem) !important;
+  }
+
+  .feature-item i {
+    font-size: clamp(1rem, 2.5vh, 1.5rem) !important;
+  }
+}
+
+/* 超狭い横画面（スマホ横画面や極端に低いラップトップ） */
+@media (orientation: landscape) and (max-height: 450px) {
+  .hero-section {
+    padding: clamp(0.5rem, 2vh, 1rem) 0 !important;
+  }
+
+  .hero-content {
+    padding: 0.3rem 0 !important;
+    gap: 0.3rem !important;
+  }
+
+  .hero-content h1.hero-subtitle,
+  .hero-content .hero-subtitle {
+    font-size: clamp(1rem, 3vh, 1.8rem) !important;
+    margin: 0.2rem 0 !important;
+  }
+
+  .hero-cta,
+  .hero-buttons {
+    margin-top: 0.3rem !important;
+    gap: 0.3rem !important;
+  }
+
+  .hero-features {
+    margin-top: 0.3rem !important;
+    gap: 0.4rem !important;
+  }
+}
+
+/* ===============================================
    特定の問題要素の修正
    =============================================== */
 
@@ -251,7 +571,7 @@ body {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 0 1rem !important;
+    padding: 0 !important; /* paddingを削除 - 縦書きテキスト用 */
   }
 
   .hero-content h1 {
@@ -261,7 +581,8 @@ body {
     color: #d4af37 !important; /* メインタイトル：金色で統一 */
   }
 
-  .hero-subtitle {
+  .hero-subtitle,
+  h1.hero-subtitle {
     font-size: 1.5rem !important;
     margin-bottom: 0.8rem !important;
     color: #d4af37 !important; /* サブタイトル：金色で統一 */
@@ -304,9 +625,6 @@ body {
     min-height: 100vh !important; /* 画面全体の高さで表示 */
     height: auto !important; /* 内容に応じて自動調整 */
     position: relative !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
   }
 
   .hero-section {
@@ -315,8 +633,6 @@ body {
 
   /* ヒーローコンテンツは美しいサイズで統一 */
   .hero-content {
-    max-width: 800px !important;
-    padding: 2rem !important;
     margin-top: 3rem !important; /* コンテンツを少し下に配置 */
     text-align: center !important;
     z-index: 2 !important;
@@ -331,9 +647,9 @@ body {
     color: #d4af37 !important; /* メインタイトル：金色で統一 */
   }
 
-  .hero-subtitle {
+  .hero-subtitle,
+  h1.hero-subtitle {
     font-size: 1.2rem !important; /* 19px */
-    margin-bottom: 1rem !important;
     color: #d4af37 !important; /* サブタイトル：金色で統一 */
   }
 
@@ -375,6 +691,26 @@ body {
 }
 
 /* ===============================================
+   大画面横画面の縦書きテキスト中央配置
+   =============================================== */
+/* 重要：上記の1024pxルールの後に配置してwidth設定を上書き */
+@media (min-width: 1024px) and (orientation: landscape) {
+  h1.hero-subtitle {
+    display: inline-block !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 2rem auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    align-self: center !important;
+    writing-mode: vertical-rl !important;
+    text-orientation: upright !important;
+    position: relative !important;
+    left: 7.5px !important; /* 大画面横画面での微調整（15pxの半分） */
+  }
+}
+
+/* ===============================================
    非常に狭い画面対応（500px以下の高さ）
    =============================================== */
 
@@ -408,12 +744,13 @@ body {
   }
 
   /* 重要: 縦幅が狭い時は横書きに戻して正しい順序で表示 */
-  .hero-subtitle {
+  .hero-subtitle,
+  h1.hero-subtitle {
     writing-mode: horizontal-tb !important; /* 横書きに変更 */
     text-orientation: mixed !important;
     direction: ltr !important; /* 左から右へ（正しい日本語順序） */
     height: auto !important;
-    margin: 1rem auto !important;
+    margin: 1rem auto !important; /* 横書き時はautoで中央配置OK */
     text-align: center !important;
   }
 
@@ -426,7 +763,8 @@ body {
     white-space: normal !important; /* 改行を許可 */
   }
 
-  .hero-subtitle {
+  .hero-subtitle,
+  h1.hero-subtitle {
     font-size: 1.15rem !important;
     margin-bottom: 1rem !important;
     color: #d4af37 !important; /* サブタイトル：金色で統一 */
