@@ -996,6 +996,18 @@ footer .social-links a:hover {
   margin-bottom: 4rem;
 }
 
+/* サービスカードリンク */
+.service-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.service-card-link:hover {
+  text-decoration: none;
+}
+
 .service-card {
   background: white;
   padding: 2.5rem;
@@ -1003,12 +1015,24 @@ footer .social-links a:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   border: 1px solid rgba(212, 175, 55, 0.1);
+  cursor: pointer;
 }
 
-.service-card:hover {
+.service-card-link:hover .service-card {
   transform: translateY(-8px);
-  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.2);
-  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+/* 外部リンクアイコン（巡礼用品販売カード用） */
+.service-card-link[target="_blank"] .service-card h3::after {
+  content: "\f35d";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 0.75em;
+  margin-left: 0.5rem;
+  opacity: 0.6;
+  vertical-align: middle;
 }
 
 .service-icon {
