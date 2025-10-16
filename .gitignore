@@ -26,3 +26,6 @@ claudedocs/
 responsive-test.html
 responsive-auto-test.html
 js/responsive-debug.js
+
+# Playwright MCPテストスクリーンショット
+.playwright-mcp/
