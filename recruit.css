@@ -78,7 +78,7 @@ footer .container {
 
 .hero p {
     font-size: 1rem;  /* 1.1rem → 1rem */
-    color: #6c757d;
+    color: #343a40 !important;  /* コントラスト改善: #6c757d → より濃いグレー */
     max-width: 600px;
     margin: 0 auto 20px;  /* 30px → 20px */
     line-height: 1.6;
@@ -987,6 +987,7 @@ footer {
 
     .hero p {
         font-size: 0.95rem !important;
+        color: #343a40 !important;  /* コントラスト改善 */
         line-height: 1.7 !important;
         margin-bottom: 0 !important;
     }
@@ -1135,6 +1136,7 @@ footer {
 
     .hero p {
         font-size: 0.9rem !important;
+        color: #343a40 !important;  /* コントラスト改善 */
         max-width: 280px !important;
         margin: 0 auto !important;
     }
