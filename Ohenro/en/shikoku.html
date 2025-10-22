@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-    <title>Guide to Sacred Sites - Shikoku Pilgrimage</title>
+    <title>Temple Guide - Shikoku Pilgrimage</title>
+    <meta name="description" content="Detailed information about all 88 sacred temples of the Shikoku Pilgrimage. Explore temples by prefecture: Tokushima, Kochi, Ehime, and Kagawa." />
+    <meta name="keywords" content="Shikoku pilgrimage, 88 temples, temple guide, Tokushima, Kochi, Ehime, Kagawa, sacred sites, Kobo Daishi" />
+    <meta property="og:title" content="Temple Guide - Shikoku Pilgrimage" />
+    <meta property="og:description" content="Comprehensive guide to the 88 sacred temples of Shikoku" />
+    <meta property="og:locale" content="en_US" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
@@ -21,35 +26,37 @@
 
     <header>
       <nav>
-        <a href="../../index.html" class="logo">
-          <img src="../../images/doujima-logo.webp" alt="堂島フロント企画" />
-          <span class="logo-text">Doujima Front Kikaku</span>
+        <a href="../../en/index.html" class="logo">
+          <img src="../../images/doujima-logo.webp" alt="Doujima Front Planning" />
+          <span class="logo-text">Doujima Front Planning</span>
         </a>
         <ul class="nav-links">
           <li>
             <a href="index.html">Pilgrimage</a>
           </li>
           <li>
-            <a href="shikoku.html" class="active">Temple Stations</a>
+            <a href="shikoku.html" class="active">Temple Guide</a>
             <div class="dropdown">
-              <a href="#tokushima">Tokushima (Awakening)</a>
-              <a href="#kouchi">Kochi (Training)</a>
-              <a href="#ehime">Ehime (Enlightenment)</a>
-              <a href="#kagawa">Kagawa (Nirvana)</a>
+              <a href="#tokushima">Tokushima (Dojo of Awakening Faith)</a>
+              <a href="#kouchi">Kochi (Dojo of Ascetic Training)</a>
+              <a href="#ehime">Ehime (Dojo of Enlightenment)</a>
+              <a href="#kagawa">Kagawa (Dojo of Nirvana)</a>
             </div>
           </li>
           <li>
             <a href="faq.html">FAQ</a>
           </li>
           <li>
-            <a href="../../Tokaido/index.html">Highway Walk</a>
+            <a href="../../Tokaido/en/index.html">Tokaido Walk</a>
           </li>
-          <li><a href="https://doujimafront.stores.jp/" target="_blank">Online Shop</a></li>
           <li>
-            <a href="../../index.html">Company Home</a>
+            <a href="https://doujimafront.stores.jp/" target="_blank">Online Shop</a>
+          </li>
+          <li>
+            <a href="../../en/index.html">Corporate Home</a>
           </li>
         </ul>
-        <!-- Hamburger menu button (mobile) -->
+        <!-- Mobile menu toggle button -->
         <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -58,7 +65,7 @@
       </nav>
     </header>
 
-    <!-- Fixed floating language switcher button -->
+    <!-- Fixed floating language switcher -->
     <div class="language-switcher">
       <button id="languageToggle" class="language-btn" aria-label="Switch Language / 言語切り替え">
         <i class="fas fa-globe"></i>
@@ -68,7 +75,7 @@
 
     <!-- Mobile menu overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-    
+
     <!-- Mobile menu content -->
     <div class="mobile-menu" id="mobileMenu">
       <div class="mobile-menu-header">
@@ -79,11 +86,11 @@
       </div>
       <nav class="mobile-menu-nav">
         <a href="index.html" class="mobile-menu-link">Pilgrimage</a>
-        <a href="shikoku.html" class="mobile-menu-link">Temple Stations</a>
+        <a href="shikoku.html" class="mobile-menu-link">Temple Guide</a>
         <a href="faq.html" class="mobile-menu-link">FAQ</a>
-        <a href="../../Tokaido/index.html" class="mobile-menu-link">Highway Walk</a>
+        <a href="../../Tokaido/en/index.html" class="mobile-menu-link">Tokaido Walk</a>
         <a href="https://doujimafront.stores.jp/" target="_blank" class="mobile-menu-link">Online Shop</a>
-        <a href="../../index.html" class="mobile-menu-link">Company Home</a>
+        <a href="../../en/index.html" class="mobile-menu-link">Corporate Home</a>
         <a href="#" id="mobileLangToggle" class="mobile-menu-link">
           <i class="fas fa-globe"></i> 日本語
         </a>
@@ -94,35 +101,24 @@
     <!-- Page title section -->
     <section class="hero shikoku-hero">
       <div class="hero-content shikoku-hero-content">
-        <h1 class="shikoku-title">Guide to Sacred Sites</h1>
+        <h1 class="shikoku-title">Temple Guide</h1>
         <p class="hero-description shikoku-description">
-          Detailed information on the 88 sacred sites of Shikoku
+          Detailed information about the 88 Sacred Temples of Shikoku
         </p>
-        
-        <!-- Sacred site search function -->
+
+        <!-- Prefecture navigation -->
         <div class="temple-search-container">
-          <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input 
-              type="text" 
-              id="templeSearch" 
-              placeholder="Search temples (number, name, prefecture)" 
-              autocomplete="off"
-            >
-          </div>
-          <div class="quick-filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="tokushima">Tokushima</button>
-            <button class="filter-btn" data-filter="kouchi">Kochi</button>
-            <button class="filter-btn" data-filter="ehime">Ehime</button>
-            <button class="filter-btn" data-filter="kagawa">Kagawa</button>
-            <button class="filter-btn" data-filter="special">Important Sites</button>
+          <div class="quick-navigation">
+            <button class="nav-btn active" data-filter="tokushima">Tokushima</button>
+            <button class="nav-btn" data-filter="kouchi">Kochi</button>
+            <button class="nav-btn" data-filter="ehime">Ehime</button>
+            <button class="nav-btn" data-filter="kagawa">Kagawa</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 徳島県 -->
+    <!-- Tokushima Prefecture -->
     <section
       class="section"
       id="tokushima"
@@ -131,362 +127,339 @@
       <div class="section-content">
         <div class="prefecture-header-enhanced">
           <h2 class="section-title">Tokushima Prefecture</h2>
-          <div class="dojo-name">Dojo of Awakening (Hosshin)</div>
+          <div class="dojo-name">Dojo of Awakening Faith</div>
           <div class="prefecture-stats">
             <span class="temple-count">23 Temples</span>
             <span class="range">Temples 1-23</span>
           </div>
         </div>
         <p class="section-intro enhanced-intro">
-          The beginning of the pilgrimage, where pilgrims solidify their resolve for enlightenment in the "Hosshin" (Awakening) stage. The pilgrimage journey begins at Temple 1, Ryozenji.
+          The beginning of the pilgrimage where pilgrims establish their resolve for enlightenment. The journey starts at Temple 1, Ryozenji.
         </p>
-          <!-- メインコンテンツ -->
+          <!-- Main content -->
     <main>
           <div class="section-content">
             <div class="card-grid">
-            <!-- 1番 霊山寺 -->
+            <!-- Temple 1 Ryozenji -->
             <div class="card tokushima special-temple" data-category="special">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="qskCAXGJR5c">
-                  <img src="https://img.youtube.com/vi/qskCAXGJR5c/maxresdefault.jpg" alt="第一番 霊山寺" loading="lazy">
+                  <img src="https://img.youtube.com/vi/qskCAXGJR5c/maxresdefault.jpg" alt="Temple 1 Ryozenji" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.1 Ryozen-ji<span class="temple-importance">★★</span></h3>
-              <p class="english-address">Address: 126 Bando Tsukahana, Oasa-cho, Naruto City, Tokushima 772-0053</p>
-              <p class="japanese-address">Japanese Address: 徳島県鳴門市大麻町板東塚鼻126</p>
-                <p class="card-small-text">Tel: +81-88-689-1111</p>
+                <h3>Temple 1: Ryozenji</h3>
+                <p>Location: 126 Bando Tsukanohana, Oasa-cho, Naruto City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-689-1111</p>
               </div>
             </div>
-            <!-- 2番 極楽寺 -->
+            <!-- Temple 2 Gokurakuji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="IeQ7J4diPnY">
-                  <img src="https://img.youtube.com/vi/IeQ7J4diPnY/maxresdefault.jpg" alt="第二番 極楽寺" loading="lazy">
+                  <img src="https://img.youtube.com/vi/IeQ7J4diPnY/maxresdefault.jpg" alt="Temple 2 Gokurakuji" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.2 Gokuraku-ji</h3>
-              <p class="english-address">Address: 12 Hinoki Dannojo, Oasa-cho, Naruto City, Tokushima 772-0051</p>
-              <p class="japanese-address">Japanese Address: 徳島県鳴門市大麻町檜字段の上12</p>
-                <p class="card-small-text">Tel: +81-88-689-1112</p>
+                <h3>Temple 2: Gokurakuji</h3>
+                <p>Location: 12 Dan-no-ue, Hinoki, Oasa-cho, Naruto City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-689-1112</p>
               </div>
             </div>
-            <!-- 3番 金泉寺 -->
+            <!-- Temple 3 Konsenji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="NrXUyM-5qLA">
-                  <img src="https://img.youtube.com/vi/NrXUyM-5qLA/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/NrXUyM-5qLA/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.3 Konsen-ji</h3>
-              <p class="english-address">Address: 66 Otera Kameyamashita, Itano-cho, Itano District, Tokushima 779-0108</p>
-              <p class="japanese-address">Japanese Address: 徳島県板野郡板野町大寺亀山下66</p>
-                <p class="card-small-text">Tel: +81-88-672-1087</p>
+                <h3>Temple 3: Konsenji</h3>
+                <p>Location: 66 Kameyamashita, Otera, Itano-cho, Itano-gun, Tokushima</p>
+                <p class="card-small-text">Phone: 088-672-1087</p>
               </div>
             </div>
-            <!-- 4番 大日寺 -->
+            <!-- Temple 4 Dainichiji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="hHW1B66lLSE">
-                  <img src="https://img.youtube.com/vi/hHW1B66lLSE/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/hHW1B66lLSE/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.4 Dainichi-ji</h3>
-              <p class="english-address">Address: 5 Kurotani, Itano-cho, Itano District, Tokushima 779-0102</p>
-              <p class="japanese-address">Japanese Address: 徳島県板野郡板野町黒谷5</p>
-                <p class="card-small-text">Tel: +81-88-672-1225</p>
+                <h3>Temple 4: Dainichiji</h3>
+                <p>Location: 5 Kurotani, Itano-cho, Itano-gun, Tokushima</p>
+                <p class="card-small-text">Phone: 088-672-1225</p>
               </div>
             </div>
-            <!-- 5番 地蔵寺 -->
+            <!-- Temple 5 Jizoji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="uF-48tbhnfc">
-                  <img src="https://img.youtube.com/vi/uF-48tbhnfc/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/uF-48tbhnfc/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.5 Jizo-ji</h3>
-              <p class="english-address">Address: 5 Rakan Hayashihigashi, Itano-cho, Itano District, Tokushima 779-0118</p>
-              <p class="japanese-address">Japanese Address: 徳島県板野郡板野町羅漢字林東5</p>
-                <p class="card-small-text">Tel: +81-88-672-4111</p>
+                <h3>Temple 5: Jizoji</h3>
+                <p>Location: 5 Hayashihigashi, Rakan, Itano-cho, Itano-gun, Tokushima</p>
+                <p class="card-small-text">Phone: 088-672-4111</p>
               </div>
             </div>
-            <!-- 6番 安楽寺 -->
+            <!-- Temple 6 Anrakuji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="XRmDW-K8xQA">
-                  <img src="https://img.youtube.com/vi/XRmDW-K8xQA/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/XRmDW-K8xQA/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.6 Anraku-ji</h3>
-              <p class="english-address">Address: 8 Hikino, Kamiita-cho, Itano District, Tokushima 771-1330</p>
-              <p class="japanese-address">Japanese Address: 徳島県板野郡上板町引野8</p>
-                <p class="card-small-text">Tel: +81-88-694-2046</p>
+                <h3>Temple 6: Anrakuji</h3>
+                <p>Location: 8 Hikino, Kamiita-cho, Itano-gun, Tokushima</p>
+                <p class="card-small-text">Phone: 088-694-2046</p>
               </div>
             </div>
-            <!-- 7番 十楽寺 -->
+            <!-- Temple 7 Jurakuji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="GRip_MBQ-M8">
-                  <img src="https://img.youtube.com/vi/GRip_MBQ-M8/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/GRip_MBQ-M8/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.7 Juraku-ji</h3>
-              <p class="english-address">Address: 58 Hokyoden, Takao, Awa City, Tokushima 771-1506</p>
-              <p class="japanese-address">Japanese Address: 徳島県阿波市高尾字法教田58</p>
-                <p class="card-small-text">Tel: +81-88-695-2150</p>
+                <h3>Temple 7: Jurakuji</h3>
+                <p>Location: 58 Hokyoda, Takao, Awa City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-695-2150</p>
               </div>
             </div>
-            <!-- 8番 熊谷寺 -->
+            <!-- Temple 8 Kumadaniji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="lPvika32N_A">
-                  <img src="https://img.youtube.com/vi/lPvika32N_A/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/lPvika32N_A/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.8 Kumadani-ji</h3>
-              <p class="english-address">Address: 185 Maeda, Donari, Awa City, Tokushima 771-1620</p>
-              <p class="japanese-address">Japanese Address: 徳島県阿波市土成字前田185</p>
-                <p class="card-small-text">Tel: +81-88-695-2065</p>
+                <h3>Temple 8: Kumadaniji</h3>
+                <p>Location: 185 Maeda, Tonari, Awa City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-695-2065</p>
               </div>
             </div>
-            <!-- 9番 法輪寺 -->
+            <!-- Temple 9 Horinji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="yzzNJmPwp_Q">
-                  <img src="https://img.youtube.com/vi/yzzNJmPwp_Q/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/yzzNJmPwp_Q/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.9 Horin-ji</h3>
-              <p class="english-address">Address: 198-2 Tanaka, Donari, Awa City, Tokushima 771-1621</p>
-              <p class="japanese-address">Japanese Address: 徳島県阿波市土成字田中198-2</p>
-                <p class="card-small-text">Tel: +81-88-695-2080</p>
+                <h3>Temple 9: Horinji</h3>
+                <p>Location: 198-2 Tanaka, Tonari, Awa City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-695-2080</p>
               </div>
             </div>
-            <!-- 10番 切幡寺 -->
+            <!-- Temple 10 Kirihata-ji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="IwpoE7nM5CI">
-                  <img src="https://img.youtube.com/vi/IwpoE7nM5CI/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/IwpoE7nM5CI/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.10 Kirihata-ji</h3>
-              <p class="english-address">Address: 129 Kannon, Awa City, Tokushima 771-1623</p>
-              <p class="japanese-address">Japanese Address: 徳島県阿波市観音129</p>
-                <p class="card-small-text">Tel: +81-883-36-3010</p>
+                <h3>Temple 10: Kirihata-ji</h3>
+                <p>Location: 129 Kannon, Awa City, Tokushima</p>
+                <p class="card-small-text">Phone: 0883-36-3010</p>
               </div>
             </div>
-            <!-- 11番 藤井寺 -->
+            <!-- Temple 11 Fujiidera -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="lnkDxWj21qY">
-                  <img src="https://img.youtube.com/vi/lnkDxWj21qY/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/lnkDxWj21qY/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.11 Fujii-dera</h3>
-              <p class="english-address">Address: 1525 Iino, Kamojima-cho, Yoshinogawa City, Tokushima 776-0033</p>
-              <p class="japanese-address">Japanese Address: 徳島県吉野川市鴨島町飯尾1525</p>
-                <p class="card-small-text">Tel: +81-883-24-2384</p>
+                <h3>Temple 11: Fujiidera</h3>
+                <p>Location: 1525 Iino, Kamojima-cho, Yoshinogawa City, Tokushima</p>
+                <p class="card-small-text">Phone: 0883-24-2384</p>
               </div>
             </div>
-            <!-- 12番 焼山寺 -->
+            <!-- Temple 12 Shosanji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="LlGGeiFZpKw">
-                  <img src="https://img.youtube.com/vi/LlGGeiFZpKw/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/LlGGeiFZpKw/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.12 Shosan-ji</h3>
-              <p class="english-address">Address: 318 Shimobun Jichi, Kamiyama-cho, Myozai District, Tokushima 771-3421</p>
-              <p class="japanese-address">Japanese Address: 徳島県名西郡神山町下分字地中318</p>
-                <p class="card-small-text">Tel: +81-88-677-0112</p>
+                <h3>Temple 12: Shosanji</h3>
+                <p>Location: 318 Jichū, Shimobun, Kamiyama-cho, Myozai-gun, Tokushima</p>
+                <p class="card-small-text">Phone: 088-677-0112</p>
               </div>
             </div>
-            <!-- 13番 大日寺 -->
+            <!-- Temple 13 Dainichiji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="my71Gimh8dE">
-                  <img src="https://img.youtube.com/vi/my71Gimh8dE/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/my71Gimh8dE/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.13 Dainichi-ji</h3>
-              <p class="english-address">Address: 263 Nishitei, Ichinomiya-cho, Tokushima City, Tokushima 771-0135</p>
-              <p class="japanese-address">Japanese Address: 徳島県徳島市一宮町西丁263</p>
-                <p class="card-small-text">Tel: +81-88-644-0069</p>
+                <h3>Temple 13: Dainichiji</h3>
+                <p>Location: 263 Nishicho, Ichinomiya-cho, Tokushima City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-644-0069</p>
               </div>
             </div>
-            <!-- 14番 常楽寺 -->
+            <!-- Temple 14 Jorakuji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="OGquDYlcn9A">
-                  <img src="https://img.youtube.com/vi/OGquDYlcn9A/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/OGquDYlcn9A/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.14 Joraku-ji</h3>
-              <p class="english-address">Address: 606 Enmei, Kokufu-cho, Tokushima City, Tokushima 779-3126</p>
-              <p class="japanese-address">Japanese Address: 徳島県徳島市国府町延命606</p>
-                <p class="card-small-text">Tel: +81-88-642-0471</p>
+                <h3>Temple 14: Jorakuji</h3>
+                <p>Location: 606 Enmei, Kokufu-cho, Tokushima City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-642-0471</p>
               </div>
             </div>
-            <!-- 15番 國分寺 -->
+            <!-- Temple 15 Kokubunji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="zCzOUed3m0M">
-                  <img src="https://img.youtube.com/vi/zCzOUed3m0M/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/zCzOUed3m0M/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.15 Kokubu-ji</h3>
-              <p class="english-address">Address: 718-1 Yano, Kokufu-cho, Tokushima City, Tokushima 779-3133</p>
-              <p class="japanese-address">Japanese Address: 徳島県徳島市国府町矢野718-1</p>
-                <p class="card-small-text">Tel: +81-88-642-0525</p>
+                <h3>Temple 15: Kokubunji</h3>
+                <p>Location: 718-1 Yano, Kokufu-cho, Tokushima City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-642-0525</p>
               </div>
             </div>
-            <!-- 16番 観音寺 -->
+            <!-- Temple 16 Kannonji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="gSyEdbift9o">
-                  <img src="https://img.youtube.com/vi/gSyEdbift9o/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/gSyEdbift9o/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.16 Kannon-ji</h3>
-              <p class="english-address">Address: 49-2 Kannonji, Kokufu-cho, Tokushima City, Tokushima 779-3128</p>
-              <p class="japanese-address">Japanese Address: 徳島県徳島市国府町観音寺49-2</p>
-                <p class="card-small-text">Tel: +81-88-642-2375</p>
+                <h3>Temple 16: Kannonji</h3>
+                <p>Location: 49-2 Kannonji, Kokufu-cho, Tokushima City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-642-2375</p>
               </div>
             </div>
-            <!-- 17番 井戸寺 -->
+            <!-- Temple 17 Idoji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="HXZ1RD1FLpI">
-                  <img src="https://img.youtube.com/vi/HXZ1RD1FLpI/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/HXZ1RD1FLpI/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.17 Ido-ji</h3>
-              <p class="english-address">Address: 80-1 Ido Kitayashiki, Kokufu-cho, Tokushima City, Tokushima 779-3118</p>
-              <p class="japanese-address">Japanese Address: 徳島県徳島市国府町井戸字北屋敷80-1</p>
-                <p class="card-small-text">Tel: +81-88-642-1324</p>
+                <h3>Temple 17: Idoji</h3>
+                <p>Location: 80-1 Kitayashiki, Ido, Kokufu-cho, Tokushima City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-642-1324</p>
               </div>
             </div>
-            <!-- 18番 恩山寺 -->
+            <!-- Temple 18 Onzanji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="S7ujw9qWsWc">
-                  <img src="https://img.youtube.com/vi/S7ujw9qWsWc/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/S7ujw9qWsWc/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.18 Onzan-ji</h3>
-              <p class="english-address">Address: 40 Onzanjidani, Tano-cho, Komatsushima City, Tokushima 773-0008</p>
-              <p class="japanese-address">Japanese Address: 徳島県小松島市田野町字恩山寺谷40</p>
-                <p class="card-small-text">Tel: +81-88-533-1218</p>
+                <h3>Temple 18: Onzanji</h3>
+                <p>Location: 40 Onzanjidani, Tano-cho, Komatsushima City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-533-1218</p>
               </div>
             </div>
-            <!-- 19番 立江寺 -->
+            <!-- Temple 19 Tatsueji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="HmhXls4BTHo">
-                  <img src="https://img.youtube.com/vi/HmhXls4BTHo/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/HmhXls4BTHo/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.19 Tatsue-ji</h3>
-              <p class="english-address">Address: 13 Wakamatsu, Tatsue-cho, Komatsushima City, Tokushima 773-0017</p>
-              <p class="japanese-address">Japanese Address: 徳島県小松島市立江町字若松13</p>
-                <p class="card-small-text">Tel: +81-88-537-1019</p>
+                <h3>Temple 19: Tatsueji</h3>
+                <p>Location: 13 Wakamatsu, Tatsue-cho, Komatsushima City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-537-1019</p>
               </div>
             </div>
-            <!-- 20番 鶴林寺 -->
+            <!-- Temple 20 Kakurinji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="dtAeARWCoPA">
-                  <img src="https://img.youtube.com/vi/dtAeARWCoPA/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/dtAeARWCoPA/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.20 Kakurin-ji</h3>
-              <p class="english-address">Address: 14 Washigao, Ikuna, Katsuura-cho, Katsuura District, Tokushima 771-4303</p>
-              <p class="japanese-address">Japanese Address: 徳島県勝浦郡勝浦町生名鷲ヶ尾14</p>
-                <p class="card-small-text">Tel: +81-88-542-3020</p>
+                <h3>Temple 20: Kakurinji</h3>
+                <p>Location: 14 Washigao, Ikuna, Katsuura-cho, Katsuura-gun, Tokushima</p>
+                <p class="card-small-text">Phone: 088-542-3020</p>
               </div>
             </div>
-            <!-- 21番 太龍寺 -->
+            <!-- Temple 21 Tairyuji -->
             <div class="card tokushima special-temple" data-category="special">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="x-HexIZOfhw">
-                  <img src="https://img.youtube.com/vi/x-HexIZOfhw/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/x-HexIZOfhw/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.21 Tairyu-ji<span class="temple-importance">★★</span></h3>
-              <p class="english-address">Address: 2 Tatsuzan, Kamo-cho, Anan City, Tokushima 771-5173</p>
-              <p class="japanese-address">Japanese Address: 徳島県阿南市加茂町龍山2</p>
-                <p class="card-small-text">Tel: +81-884-62-2021</p>
+                <h3>Temple 21: Tairyuji</h3>
+                <p>Location: 2 Tatsuyama, Kamo-cho, Anan City, Tokushima</p>
+                <p class="card-small-text">Phone: 0884-62-2021</p>
               </div>
             </div>
-            <!-- 22番 平等寺 -->
+            <!-- Temple 22 Byodoji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="9xMpKd6bYSs">
-                  <img src="https://img.youtube.com/vi/9xMpKd6bYSs/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/9xMpKd6bYSs/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.22 Byodo-ji</h3>
-              <p class="english-address">Address: 177 Akiyama, Shinno-cho, Anan City, Tokushima 774-0030</p>
-              <p class="japanese-address">Japanese Address: 徳島県阿南市新野町秋山177</p>
-                <p class="card-small-text">Tel: +81-88-436-3522</p>
+                <h3>Temple 22: Byodoji</h3>
+                <p>Location: 177 Akiyama, Shinno-cho, Anan City, Tokushima</p>
+                <p class="card-small-text">Phone: 088-436-3522</p>
               </div>
             </div>
-            <!-- 23番 薬王寺 -->
+            <!-- Temple 23 Yakuoji -->
             <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="0Gczg0yAtqw">
-                  <img src="https://img.youtube.com/vi/0Gczg0yAtqw/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/0Gczg0yAtqw/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
               </div>
               <div class="card-content">
-                <h3>Temple No.23 Yakuo-ji</h3>
-              <p class="english-address">Address: 285-1 Teramae, Okukawauchi, Minami-cho, Kaifu District, Tokushima 779-2305</p>
-              <p class="japanese-address">Japanese Address: 徳島県海部郡美波町奥河内寺前285-1</p>
-                <p class="card-small-text">Tel: +81-88-477-0023</p>
+                <h3>Temple 23: Yakuoji</h3>
+                <p>Location: 285-1 Teramae, Okukawauchi, Minami-cho, Kaifu-gun, Tokushima</p>
+                <p class="card-small-text">Phone: 088-477-0023</p>
               </div>
             </div>
           </div>
@@ -496,7 +469,7 @@
       </div>
     </section>
 
-    <!-- 高知県 -->
+    <!-- Kochi Prefecture -->
     <section
       class="section"
       id="kouchi"
@@ -505,229 +478,214 @@
       <div class="section-content">
         <div class="prefecture-header-enhanced">
           <h2 class="section-title">Kochi Prefecture</h2>
-          <div class="dojo-name">Dojo of Training (Shugyo)</div>
+          <div class="dojo-name">Dojo of Ascetic Training</div>
           <div class="prefecture-stats">
             <span class="temple-count">16 Temples</span>
             <span class="range">Temples 24-39</span>
           </div>
         </div>
         <p class="section-intro enhanced-intro">
-          A long journey facing the Pacific Ocean, the "Shugyo" (Training) stage to strengthen body and mind. This is considered the most challenging training stage.
+          The longest and most challenging section facing the Pacific Ocean, testing pilgrims' body and spirit through rigorous ascetic training.
         </p>
-          <!-- メインコンテンツ -->
+          <!-- Main content -->
           <main>
             <div class="section-content">
-        <div class="card-grid">
-          <!-- 24番 最御崎寺 -->
+        <!-- Temple 24 Hotsumisaki-ji -->
+            <div class="card-grid">
+          <!-- Temple 24 Hotsumisaki-ji -->
           <div class="card kouchi">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="CoDtTRSAujI">
-                  <img src="https://img.youtube.com/vi/CoDtTRSAujI/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/CoDtTRSAujI/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.24 Hotsumisakiji</h3>
-              <p class="english-address">Address: 4058-1 Muroto-misaki-cho, Muroto City, Kochi 781-7101</p>
-              <p class="japanese-address">Japanese Address: 〒781-7101 室戸市室戸岬町4058-1</p>
-              <p class="card-small-text">Tel: +81-887-23-0024</p>
+              <h3>Temple 24: Hotsumisaki-ji</h3>
+              <p>Location: 4058-1 Murotomisaki-cho, Muroto City, Kochi 781-7101</p>
+              <p class="card-small-text">Phone: 0887-23-0024</p>
             </div>
           </div>
-          <!-- 25番 津照寺 -->
+          <!-- Temple 25 Shinshoji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="kMhnZNx1W4Q">
-                  <img src="https://img.youtube.com/vi/kMhnZNx1W4Q/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/kMhnZNx1W4Q/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.25 Shinshoji</h3>
-              <p class="english-address">Address: 2652-I Murotsu, Muroto City, Kochi 781-7102</p>
-              <p class="japanese-address">Japanese Address: 〒781-7102 室戸市室津2652-イ</p>
-              <p class="card-small-text">Tel: +81-887-23-0025</p>
+              <h3>Temple 25: Shinshoji</h3>
+              <p>Location: 2652-I Murotsu, Muroto City, Kochi 781-7102</p>
+              <p class="card-small-text">Phone: 0887-23-0025</p>
             </div>
           </div>
-          <!-- 26番 金剛頂寺 -->
+          <!-- Temple 26 Kongochoji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="7GTXQnFa62s">
-                  <img src="https://img.youtube.com/vi/7GTXQnFa62s/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/7GTXQnFa62s/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.26 Kongochoji</h3>
-              <p class="english-address">Address: 523 Motonotsu, Muroto City, Kochi 781-7108</p>
-              <p class="japanese-address">Japanese Address: 〒781-7108 室戸市元乙523</p>
-              <p class="card-small-text">Tel: +81-887-23-0026</p>
+              <h3>Temple 26: Kongochoji</h3>
+              <p>Location: 523 Motoōtsu, Muroto City, Kochi 781-7108</p>
+              <p class="card-small-text">Phone: 0887-23-0026</p>
             </div>
           </div>
-          <!-- 27番 神峯寺 -->
+          <!-- Temple 27 Konomine-ji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="dc8OC2VbOy8">
-                  <img src="https://img.youtube.com/vi/dc8OC2VbOy8/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/dc8OC2VbOy8/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.27 Konomineji</h3>
-              <p class="english-address">Address: 2594 Karahama, Yasuda-cho, Aki District, Kochi 781-6422</p>
-              <p class="japanese-address">Japanese Address: 〒781-6422 安芸郡安田町唐浜2594</p>
-              <p class="card-small-text">Tel: +81-887-38-5495</p>
+              <h3>Temple 27: Konomine-ji</h3>
+              <p>Location: 2594 Karahama, Yasuda-cho, Aki-gun, Kochi 781-6422</p>
+              <p class="card-small-text">Phone: 0887-38-5495</p>
             </div>
           </div>
-          <!-- 28番 大日寺 -->
+          <!-- Temple 28 Dainichiji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="BK9zrRfdysw">
-                  <img src="https://img.youtube.com/vi/BK9zrRfdysw/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/BK9zrRfdysw/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.28 Dainichiji</h3>
-              <p class="english-address">Address: 476 Modaiji, Noichi-cho, Konan City, Kochi 781-5222</p>
-              <p class="japanese-address">Japanese Address: 〒781-5222 香南市野市町母代寺476</p>
-              <p class="card-small-text">Tel: +81-887-56-0638</p>
+              <h3>Temple 28: Dainichiji</h3>
+              <p>Location: 476 Mochidera, Noichi-cho, Konan City, Kochi 781-5222</p>
+              <p class="card-small-text">Phone: 0887-56-0638</p>
             </div>
           </div>
-          <!-- 29番 国分寺 -->
+          <!-- Temple 29 Kokubunji -->
           <div class="card kouchi">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="84uN0CULEJc">
-                  <img src="https://img.youtube.com/vi/84uN0CULEJc/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/84uN0CULEJc/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.29 Kokubunji</h3>
-              <p class="english-address">Address: 546 Kokubu, Nankoku City, Kochi 783-0055</p>
-              <p class="japanese-address">Japanese Address: 〒783-0055 南国市国分546</p>
-              <p class="card-small-text">Tel: +81-88-862-0055</p>
+              <h3>Temple 29: Kokubunji</h3>
+              <p>Location: 546 Kokubu, Nankoku City, Kochi 783-0055</p>
+              <p class="card-small-text">Phone: 088-862-0055</p>
             </div>
           </div>
-          <!-- 30番 善楽寺 -->
+          <!-- Temple 30 Zenrakuji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="UFh7gXRoGQg">
-                  <img src="https://img.youtube.com/vi/UFh7gXRoGQg/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/UFh7gXRoGQg/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.30 Zenrakuji</h3>
-              <p class="english-address">Address: 2-23-11 Ichinomiya Shinane, Kochi City, Kochi 781-8131</p>
-              <p class="japanese-address">Japanese Address: 〒781-8131 高知市一宮しなね2-23-11</p>
-              <p class="card-small-text">Tel: +81-88-846-4141</p>
+              <h3>Temple 30: Zenrakuji</h3>
+              <p>Location: 2-23-11 Ichinomiya Shinane, Kochi City, Kochi 781-8131</p>
+              <p class="card-small-text">Phone: 088-846-4141</p>
             </div>
           </div>
-          <!-- 31番 竹林寺 -->
+          <!-- Temple 31 Chikurinji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="R-rgLmIgECE">
-                  <img src="https://img.youtube.com/vi/R-rgLmIgECE/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/R-rgLmIgECE/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.31 Chikurinji</h3>
-              <p class="english-address">Address: 3577 Godaisan, Kochi City, Kochi 781-8125</p>
-              <p class="japanese-address">Japanese Address: 〒781-8125 高知市五台山3577</p>
-              <p class="card-small-text">Tel: +81-88-882-3085</p>
+              <h3>Temple 31: Chikurinji</h3>
+              <p>Location: 3577 Godaisan, Kochi City, Kochi 781-8125</p>
+              <p class="card-small-text">Phone: 088-882-3085</p>
             </div>
           </div>
-          <!-- 32番 禅師峰寺 -->
+          <!-- Temple 32 Zenjibu-ji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="JywQW5gA1ms">
-                  <img src="https://img.youtube.com/vi/JywQW5gA1ms/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/JywQW5gA1ms/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.32 Zenjibuji</h3>
-              <p class="english-address">Address: 3084 Toichi, Nankoku City, Kochi 783-0045</p>
-              <p class="japanese-address">Japanese Address: 〒783-0045 南国市十市3084</p>
-              <p class="card-small-text">Tel: +81-88-865-8430</p>
+              <h3>Temple 32: Zenjibu-ji</h3>
+              <p>Location: 3084 Toichi, Nankoku City, Kochi 783-0045</p>
+              <p class="card-small-text">Phone: 088-865-8430</p>
             </div>
           </div>
-          <!-- 33番 雪蹊寺 -->
+          <!-- Temple 33 Sekkeiji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="DQBBbE5wd34">
-                  <img src="https://img.youtube.com/vi/DQBBbE5wd34/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/DQBBbE5wd34/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.33 Sekkeiji</h3>
-              <p class="english-address">Address: 857-3 Nagahama, Kochi City, Kochi 781-0270</p>
-              <p class="japanese-address">Japanese Address: 〒781-0270 高知市長浜857-3</p>
-              <p class="card-small-text">Tel: +81-88-837-2233</p>
+              <h3>Temple 33: Sekkeiji</h3>
+              <p>Location: 857-3 Nagahama, Kochi City, Kochi 781-0270</p>
+              <p class="card-small-text">Phone: 088-837-2233</p>
             </div>
           </div>
-          <!-- 34番 種間寺 -->
+          <!-- Temple 34 Tanemadera -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="QZgrxWfXuqY">
-                  <img src="https://img.youtube.com/vi/QZgrxWfXuqY/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/QZgrxWfXuqY/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.34 Tanemaji</h3>
-              <p class="english-address">Address: 72 Akiyama, Haruno-cho, Kochi City, Kochi 781-0302</p>
-              <p class="japanese-address">Japanese Address: 〒781-0302 高知市春野町秋山72</p>
-              <p class="card-small-text">Tel: +81-88-894-2234</p>
+              <h3>Temple 34: Tanemadera</h3>
+              <p>Location: 72 Akiyama, Haruno-cho, Kochi City, Kochi 781-0302</p>
+              <p class="card-small-text">Phone: 088-894-2234</p>
             </div>
           </div>
-          <!-- 35番 清瀧寺 -->
+          <!-- Temple 35 Kiyotakiji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="v54e5seo64Y">
-                  <img src="https://img.youtube.com/vi/v54e5seo64Y/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/v54e5seo64Y/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.35 Kiyotakiji</h3>
-              <p class="english-address">Address: 568-1 Tei, Takaoka-cho, Tosa City, Kochi 781-1101</p>
-              <p class="japanese-address">Japanese Address: 〒781-1101 土佐市高岡町丁568-1</p>
-              <p class="card-small-text">Tel: +81-88-852-0316</p>
+              <h3>Temple 35: Kiyotakiji</h3>
+              <p>Location: 568-1 Tei, Takaoka-cho, Tosa City, Kochi 781-1101</p>
+              <p class="card-small-text">Phone: 088-852-0316</p>
             </div>
           </div>
-          <!-- 36番 青龍寺 -->
+          <!-- Temple 36 Shoryuji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="WndMBTXLiQ8">
-                  <img src="https://img.youtube.com/vi/WndMBTXLiQ8/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/WndMBTXLiQ8/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.36 Shoryuji</h3>
-              <p class="english-address">Address: 163 Ryu, Usa-cho, Tosa City, Kochi</p>
-              <p class="japanese-address">Japanese Address: 高知県土佐市宇佐町竜163</p>
-              <p class="card-small-text">Tel: +81-88-856-3010</p>
+              <h3>Temple 36: Shoryuji</h3>
+              <p>Location: 163 Ryu, Usa-cho, Tosa City, Kochi</p>
+              <p class="card-small-text">Phone: 088-856-3010</p>
             </div>
           </div>
-          <!-- 37番 岩本寺 -->
+          <!-- Temple 37 Iwamotoji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="oVtwQcz36h0">
-                  <img src="https://img.youtube.com/vi/oVtwQcz36h0/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/oVtwQcz36h0/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.37 Iwamotoji</h3>
-              <p class="english-address">Address: 3-13 Mogushi-cho, Shimanto-cho, Takaoka District, Kochi 786-0003</p>
-              <p class="japanese-address">Japanese Address: 〒786-0003 高岡郡四万十町茂串町3-13</p>
-              <p class="card-small-text">Tel: +81-880-22-0376</p>
+              <h3>Temple 37: Iwamotoji</h3>
+              <p>Location: 3-13 Mokushicho, Shimanto-cho, Takaoka-gun, Kochi 786-0003</p>
+              <p class="card-small-text">Phone: 0880-22-0376</p>
             </div>
           </div>
-          <!-- 38番 金剛福寺 -->
+          <!-- Temple 38 Kongofukuji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="2CEDUzIlXis">
-                  <img src="https://img.youtube.com/vi/2CEDUzIlXis/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/2CEDUzIlXis/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.38 Kongofukuji</h3>
-              <p class="english-address">Address: 214-1 Ashizuri-misaki, Tosashimizu City, Kochi 787-0315</p>
-              <p class="japanese-address">Japanese Address: 〒787-0315 土佐清水市足摺岬214-1</p>
-              <p class="card-small-text">Tel: +81-880-88-0038</p>
+              <h3>Temple 38: Kongofukuji</h3>
+              <p>Location: 214-1 Ashizurimisaki, Tosashimizu City, Kochi 787-0315</p>
+              <p class="card-small-text">Phone: 0880-88-0038</p>
             </div>
           </div>
-          <!-- 39番 延光寺 -->
+          <!-- Temple 39 Enkoji -->
           <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="Wd5F0RU9gpk">
-                  <img src="https://img.youtube.com/vi/Wd5F0RU9gpk/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/Wd5F0RU9gpk/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>Temple No.39 Enkoji</h3>
-              <p class="english-address">Address: 390 Nakayama, Hirata-cho, Sukumo City, Kochi 788-0013</p>
-              <p class="japanese-address">Japanese Address: 〒788-0013 宿毛市平田町中山390</p>
-              <p class="card-small-text">Tel: +81-880-66-0225</p>
+              <h3>Temple 39: Enkoji</h3>
+              <p>Location: 390 Nakayama, Hirata-cho, Sukumo City, Kochi 788-0013</p>
+              <p class="card-small-text">Phone: 0880-66-0225</p>
             </div>
           </div>
         </div>
@@ -736,7 +694,7 @@
   </div>
 </section>
 
-    <!-- 愛媛県 -->
+    <!-- Ehime Prefecture -->
     <section
     class="section"
     id="ehime"
@@ -745,407 +703,382 @@
       <div class="section-content">
         <div class="prefecture-header-enhanced">
           <h2 class="section-title">Ehime Prefecture</h2>
-          <div class="dojo-name">Dojo of Enlightenment (Bodai)</div>
+          <div class="dojo-name">Dojo of Enlightenment</div>
           <div class="prefecture-stats">
             <span class="temple-count">26 Temples</span>
             <span class="range">Temples 40-65</span>
           </div>
         </div>
         <p class="section-intro enhanced-intro">
-          The "Bodai" (Enlightenment) stage where pilgrims cut off worldly desires and approach enlightenment. Has the most temples with 26, including famous sacred sites like Ishiteji Temple.
+          The path of enlightenment where pilgrims cut through worldly desires. Home to the largest number of temples (26) including the famous Ishite-ji.
         </p>
-          <!-- メインコンテンツ -->
+          <!-- Main content -->
           <main>
             <div class="section-content">
-        <div class="card-grid">
-          <!-- 40番 観自在寺 -->
+        <!-- Temple 40 Kanjizai-ji -->
+            <div class="card-grid">
+          <!-- Temple 40 Kanjizai-ji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Xs03KDp5F54">
-                  <img src="https://img.youtube.com/vi/Xs03KDp5F54/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/Xs03KDp5F54/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.40 Kanjizaiji</h3>
-              <p class="english-address">Address: 2253-1 Mishohirajo, Ainan-cho, Uwa District, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県宇和郡愛南町御荘平城2253-1</p>
-              <p class="card-small-text">Tel: +81-895-72-0416</p>
+              <h3>Temple 40: Kanjizai-ji</h3>
+              <p>Location: 2253-1 Hirajo, Misho, Ainan-cho, Uwajima-gun, Ehime</p>
+              <p class="card-small-text">Phone: 0895-72-0416</p>
             </div>
           </div>
-          <!-- 41番 龍光寺 -->
+          <!-- Temple 41 Ryukoji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="qcCNMOh0D-Q">
-                  <img src="https://img.youtube.com/vi/qcCNMOh0D-Q/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/qcCNMOh0D-Q/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.41 Ryukoji</h3>
-              <p class="english-address">Address: 173 Toga, Mima-cho, Uwajima City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県宇和島市三間町戸雁173</p>
-              <p class="card-small-text">Tel: +81-895-58-2186</p>
+              <h3>Temple 41: Ryukoji</h3>
+              <p>Location: 173 Togari, Misanma-cho, Uwajima City, Ehime</p>
+              <p class="card-small-text">Phone: 0895-58-2186</p>
             </div>
           </div>
-          <!-- 42番 仏木寺 -->
+          <!-- Temple 42 Butsumokuji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="4QT10v3Swpc">
-                  <img src="https://img.youtube.com/vi/4QT10v3Swpc/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/4QT10v3Swpc/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.42 Butsumokuji</h3>
-              <p class="english-address">Address: 1683 Sunari, Mima-cho, Uwajima City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県宇和島市三間町則1683</p>
-              <p class="card-small-text">Tel: +81-895-58-2216</p>
+              <h3>Temple 42: Butsumokuji</h3>
+              <p>Location: 1683 Soku, Misanma-cho, Uwajima City, Ehime</p>
+              <p class="card-small-text">Phone: 0895-58-2216</p>
             </div>
           </div>
-          <!-- 43番 明石寺 -->
+          <!-- Temple 43 Meisekiji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Xr-jKHbMXTs">
-                  <img src="https://img.youtube.com/vi/Xr-jKHbMXTs/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/Xr-jKHbMXTs/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.43 Meisekiji</h3>
-              <p class="english-address">Address: 201 Akashi, Uwa-cho, Seiyo City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県西予市宇和町明石201</p>
-              <p class="card-small-text">Tel: +81-894-62-0032</p>
+              <h3>Temple 43: Meisekiji</h3>
+              <p>Location: 201 Akashi, Uwa-cho, Seiyo City, Ehime</p>
+              <p class="card-small-text">Phone: 0894-62-0032</p>
             </div>
           </div>
-          <!-- 44番 大寶寺 -->
+          <!-- Temple 44 Daihoji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="8Jz75eDwHtM">
-                  <img src="https://img.youtube.com/vi/8Jz75eDwHtM/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/8Jz75eDwHtM/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.44 Daihoji</h3>
-              <p class="english-address">Address: 1173 Sugao, Kumakogen Town, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県久万高原町菅生1173</p>
-              <p class="card-small-text">Tel: +81-892-21-0044</p>
+              <h3>Temple 44: Daihoji</h3>
+              <p>Location: 1173 Sugao, Kumakogen-cho, Ehime</p>
+              <p class="card-small-text">Phone: 0892-21-0044</p>
             </div>
           </div>
-          <!-- 45番 岩屋寺 -->
+          <!-- Temple 45 Iwaya-ji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="VCpE9Soy3M8">
-                  <img src="https://img.youtube.com/vi/VCpE9Soy3M8/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/VCpE9Soy3M8/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.45 Iwayaji</h3>
-              <p class="english-address">Address: 1468 Shichidori, Kumakogen Town, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県久万高原町七鳥1468</p>
-              <p class="card-small-text">Tel: +81-892-57-0417</p>
+              <h3>Temple 45: Iwaya-ji</h3>
+              <p>Location: 1468 Nanatoi, Kumakogen-cho, Ehime</p>
+              <p class="card-small-text">Phone: 0892-57-0417</p>
             </div>
           </div>
-          <!-- 46番 浄瑠璃寺 -->
+          <!-- Temple 46 Joruri-ji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="QVIQtQ3QUCg">
-                  <img src="https://img.youtube.com/vi/QVIQtQ3QUCg/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/QVIQtQ3QUCg/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.46 Joruriji</h3>
-              <p class="english-address">Address: 282 Joruri-cho, Matsuyama City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県松山市浄瑠璃町282</p>
-              <p class="card-small-text">Tel: +81-89-963-0279</p>
+              <h3>Temple 46: Joruri-ji</h3>
+              <p>Location: 282 Joruricho, Matsuyama City, Ehime</p>
+              <p class="card-small-text">Phone: 089-963-0279</p>
             </div>
           </div>
-          <!-- 47番 八坂寺 -->
+          <!-- Temple 47 Yasakaji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="aUeoSTa3HUI">
-                  <img src="https://img.youtube.com/vi/aUeoSTa3HUI/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/aUeoSTa3HUI/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.47 Yasakaji</h3>
-              <p class="english-address">Address: 773 Yasaka, Joruri-cho, Matsuyama City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県松山市浄瑠璃町八坂773</p>
-              <p class="card-small-text">Tel: +81-89-963-0271</p>
+              <h3>Temple 47: Yasakaji</h3>
+              <p>Location: 773 Yasaka, Joruricho, Matsuyama City, Ehime</p>
+              <p class="card-small-text">Phone: 089-963-0271</p>
             </div>
           </div>
-          <!-- 48番 西林寺 -->
+          <!-- Temple 48 Sairinji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Mfk3rAzQW-M">
-                  <img src="https://img.youtube.com/vi/Mfk3rAzQW-M/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/Mfk3rAzQW-M/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.48 Sairinji</h3>
-              <p class="english-address">Address: 1007 Takai-cho, Matsuyama City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県松山市高井町1007</p>
-              <p class="card-small-text">Tel: +81-89-975-0319</p>
+              <h3>Temple 48: Sairinji</h3>
+              <p>Location: 1007 Takaicho, Matsuyama City, Ehime</p>
+              <p class="card-small-text">Phone: 089-975-0319</p>
             </div>
           </div>
-          <!-- 49番 浄土寺 -->
+          <!-- Temple 49 Jodoji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="YjR5VbBA9yY">
-                  <img src="https://img.youtube.com/vi/YjR5VbBA9yY/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/YjR5VbBA9yY/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.49 Jodoji</h3>
-              <p class="english-address">Address: 1198 Takako-cho, Matsuyama City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県松山市鷹子町1198</p>
-              <p class="card-small-text">Tel: +81-89-975-1730</p>
+              <h3>Temple 49: Jodoji</h3>
+              <p>Location: 1198 Takakocho, Matsuyama City, Ehime</p>
+              <p class="card-small-text">Phone: 089-975-1730</p>
             </div>
           </div>
-          <!-- 50番 繁多寺 -->
+          <!-- Temple 50 Hantaji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Ivmuf3yoRu8">
-                  <img src="https://img.youtube.com/vi/Ivmuf3yoRu8/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/Ivmuf3yoRu8/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.50 Hantaji</h3>
-              <p class="english-address">Address: 32 Hataji-cho, Matsuyama City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県松山市畑寺町32</p>
-              <p class="card-small-text">Tel: +81-89-975-0910</p>
+              <h3>Temple 50: Hantaji</h3>
+              <p>Location: 32 Hataderacho, Matsuyama City, Ehime</p>
+              <p class="card-small-text">Phone: 089-975-0910</p>
             </div>
           </div>
-          <!-- 51番 石手寺 -->
+          <!-- Temple 51 Ishite-ji -->
           <div class="card ehime special-temple" data-category="special">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Fm2vJ92IvWQ">
-                  <img src="https://img.youtube.com/vi/Fm2vJ92IvWQ/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/Fm2vJ92IvWQ/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.51 Ishiteji<span class="temple-importance">★★</span></h3>
-              <p class="english-address">Address: 2-9-21 Ishite, Matsuyama City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県松山市石手2-9-21</p>
-              <p class="card-small-text">Tel: +81-89-977-0870</p>
+              <h3>Temple 51: Ishite-ji</h3>
+              <p>Location: 2-9-21 Ishite, Matsuyama City, Ehime</p>
+              <p class="card-small-text">Phone: 089-977-0870</p>
             </div>
           </div>
-          <!-- 52番 太山寺 -->
+          <!-- Temple 52 Taizanji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="sbzDZAoQvcs">
-                  <img src="https://img.youtube.com/vi/sbzDZAoQvcs/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/sbzDZAoQvcs/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.52 Taizanji</h3>
-              <p class="english-address">Address: 1730 Taizanji-cho, Matsuyama City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県松山市太山寺町1730</p>
-              <p class="card-small-text">Tel: +81-89-978-0329</p>
+              <h3>Temple 52: Taizanji</h3>
+              <p>Location: 1730 Taizanjicho, Matsuyama City, Ehime</p>
+              <p class="card-small-text">Phone: 089-978-0329</p>
             </div>
           </div>
-          <!-- 53番 圓明寺 -->
+          <!-- Temple 53 Enmyoji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="boR8MVNgPZY">
-                  <img src="https://img.youtube.com/vi/boR8MVNgPZY/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/boR8MVNgPZY/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.53 Enmyoji</h3>
-              <p class="english-address">Address: 1-182 Wake-cho, Matsuyama City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県松山市和気町1-182</p>
-              <p class="card-small-text">Tel: +81-89-978-1129</p>
+              <h3>Temple 53: Enmyoji</h3>
+              <p>Location: 1-182 Wakecho, Matsuyama City, Ehime</p>
+              <p class="card-small-text">Phone: 089-978-1129</p>
             </div>
           </div>
-          <!-- 54番 延命寺 -->
+          <!-- Temple 54 Enmeiji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="tVCOBB9Khbs">
-                  <img src="https://img.youtube.com/vi/tVCOBB9Khbs/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/tVCOBB9Khbs/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.54 Enmeiji</h3>
-              <p class="english-address">Address: 636 Agatakou, Imabari City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県今治市阿方甲636</p>
-              <p class="card-small-text">Tel: +81-898-22-5696</p>
+              <h3>Temple 54: Enmeiji</h3>
+              <p>Location: 636 Agata Ko, Imabari City, Ehime</p>
+              <p class="card-small-text">Phone: 0898-22-5696</p>
             </div>
           </div>
-          <!-- 55番 南光坊 -->
+          <!-- Temple 55 Nankobo -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="-B9wIaPpDVo">
-                  <img src="https://img.youtube.com/vi/-B9wIaPpDVo/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/-B9wIaPpDVo/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.55 Nankobo</h3>
-              <p class="english-address">Address: 3-1 Bekku-cho, Imabari City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県今治市別宮町3-1</p>
-              <p class="card-small-text">Tel: +81-898-22-2916</p>
+              <h3>Temple 55: Nankobo</h3>
+              <p>Location: 3-1 Bekku-cho, Imabari City, Ehime</p>
+              <p class="card-small-text">Phone: 0898-22-2916</p>
             </div>
           </div>
-          <!-- 56番 泰山寺 -->
+          <!-- Temple 56 Taizanji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="m8U-1Qb9gdU">
-                  <img src="https://img.youtube.com/vi/m8U-1Qb9gdU/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/m8U-1Qb9gdU/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.56 Taisanji</h3>
-              <p class="english-address">Address: 1-9-18 Koizumi, Imabari City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県今治市小泉1-9-18</p>
-              <p class="card-small-text">Tel: +81-898-22-5959</p>
+              <h3>Temple 56: Taizanji</h3>
+              <p>Location: 1-9-18 Koizumi, Imabari City, Ehime</p>
+              <p class="card-small-text">Phone: 0898-22-5959</p>
             </div>
           </div>
-          <!-- 57番 栄福寺 -->
+          <!-- Temple 57 Eifukuji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="At0FGPW_VQU">
-                  <img src="https://img.youtube.com/vi/At0FGPW_VQU/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/At0FGPW_VQU/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.57 Eifukuji</h3>
-              <p class="english-address">Address: 200 Yahatakou, Tamagawa-cho, Imabari City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県今治市玉川町八幡甲200</p>
-              <p class="card-small-text">Tel: +81-898-55-2432</p>
+              <h3>Temple 57: Eifukuji</h3>
+              <p>Location: 200 Yawata Ko, Tamagawa-cho, Imabari City, Ehime</p>
+              <p class="card-small-text">Phone: 0898-55-2432</p>
             </div>
           </div>
-          <!-- 58番 仙遊寺 -->
+          <!-- Temple 58 Senyuji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="GCjp-3q-iE0">
-                  <img src="https://img.youtube.com/vi/GCjp-3q-iE0/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/GCjp-3q-iE0/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.58 Senyuji</h3>
-              <p class="english-address">Address: 483 Besshokou, Tamagawa-cho, Imabari City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県今治市玉川町別所甲483</p>
-              <p class="card-small-text">Tel: +81-898-55-2141</p>
+              <h3>Temple 58: Senyuji</h3>
+              <p>Location: 483 Bessho Ko, Tamagawa-cho, Imabari City, Ehime</p>
+              <p class="card-small-text">Phone: 0898-55-2141</p>
             </div>
           </div>
-          <!-- 59番 国分寺 -->
+          <!-- Temple 59 Kokubunji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Zfk5kZ_t0T8">
-                  <img src="https://img.youtube.com/vi/Zfk5kZ_t0T8/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/Zfk5kZ_t0T8/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.59 Kokubunji</h3>
-              <p class="english-address">Address: 4-1-33 Kokubu, Imabari City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県今治市国分4-1-33</p>
-              <p class="card-small-text">Tel: +81-898-48-0533</p>
+              <h3>Temple 59: Kokubunji</h3>
+              <p>Location: 4-1-33 Kokubu, Imabari City, Ehime</p>
+              <p class="card-small-text">Phone: 0898-48-0533</p>
             </div>
           </div>
-          <!-- 60番 横峰寺 -->
+          <!-- Temple 60 Yokomineji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="uUdmhOzUlqc">
-                  <img src="https://img.youtube.com/vi/uUdmhOzUlqc/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/uUdmhOzUlqc/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.60 Yokomineji</h3>
-              <p class="english-address">Address: 2253 Ishizuchikou, Komatsu-cho, Saijo City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県西条市小松町石鎚甲2253</p>
-              <p class="card-small-text">Tel: +81-897-59-0142</p>
+              <h3>Temple 60: Yokomineji</h3>
+              <p>Location: 2253 Ishizuchi Ko, Komatsu-cho, Saijo City, Ehime</p>
+              <p class="card-small-text">Phone: 0897-59-0142</p>
             </div>
           </div>
-          <!-- 61番 香園寺 -->
+          <!-- Temple 61 Koonji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="E5Q1_OHW2C4">
-                  <img src="https://img.youtube.com/vi/E5Q1_OHW2C4/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/E5Q1_OHW2C4/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.61 Koonji</h3>
-              <p class="english-address">Address: 19 Minamikawakou, Komatsu-cho, Saijo City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県西条市小松町南川甲19</p>
-              <p class="card-small-text">Tel: +81-898-72-3861</p>
+              <h3>Temple 61: Koonji</h3>
+              <p>Location: 19 Minamigawa Ko, Komatsu-cho, Saijo City, Ehime</p>
+              <p class="card-small-text">Phone: 0898-72-3861</p>
             </div>
           </div>
-          <!-- 62番 宝寿寺 -->
+          <!-- Temple 62 Hojuji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="xazRO7vsStE">
-                  <img src="https://img.youtube.com/vi/xazRO7vsStE/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/xazRO7vsStE/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.62 Hojuji</h3>
-              <p class="english-address">Address: 428 Shinyashikikou, Komatsu-cho, Saijo City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県西条市小松町新屋敷甲428</p>
-              <p class="card-small-text">Tel: +81-898-72-2210</p>
+              <h3>Temple 62: Hojuji</h3>
+              <p>Location: 428 Shinyashiki Ko, Komatsu-cho, Saijo City, Ehime</p>
+              <p class="card-small-text">Phone: 0898-72-2210</p>
             </div>
           </div>
-          <!-- 63番 吉祥寺 -->
+          <!-- Temple 63 Kichijoji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Qg8BouiP9Z4">
-                  <img src="https://img.youtube.com/vi/Qg8BouiP9Z4/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/Qg8BouiP9Z4/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.63 Kichijoji</h3>
-              <p class="english-address">Address: 1048 Himinotsu, Saijo City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県西条市氷見乙1048</p>
-              <p class="card-small-text">Tel: +81-897-57-8863</p>
+              <h3>Temple 63: Kichijoji</h3>
+              <p>Location: 1048 Himi Otsu, Saijo City, Ehime</p>
+              <p class="card-small-text">Phone: 0897-57-8863</p>
             </div>
           </div>
-          <!-- 64番 前神寺 -->
+          <!-- Temple 64 Maegamiji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="D8OuJ8sAVkc">
-                  <img src="https://img.youtube.com/vi/D8OuJ8sAVkc/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/D8OuJ8sAVkc/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.64 Maegamiji</h3>
-              <p class="english-address">Address: 1426 Sunochikou, Saijo City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県西条市洲之内甲1426</p>
-              <p class="card-small-text">Tel: +81-897-56-6995</p>
+              <h3>Temple 64: Maegamiji</h3>
+              <p>Location: 1426 Sunouchi Ko, Saijo City, Ehime</p>
+              <p class="card-small-text">Phone: 0897-56-6995</p>
             </div>
           </div>
-          <!-- 65番 三角寺 -->
+          <!-- Temple 65 Sankakuji -->
           <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="727Nf-KxTqQ">
-                  <img src="https://img.youtube.com/vi/727Nf-KxTqQ/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/727Nf-KxTqQ/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.65 Sankakuji</h3>
-              <p class="english-address">Address: 75 Mikakunjikou, Kinda-cho, Shikokuchuo City, Ehime</p>
-              <p class="japanese-address">Japanese Address: 愛媛県四国中央市金田町三角寺甲75</p>
-              <p class="card-small-text">Tel: +81-896-56-3065</p>
+              <h3>Temple 65: Sankakuji</h3>
+              <p>Location: 75 Sankakuji Ko, Kaneda-cho, Shikokuchuo City, Ehime</p>
+              <p class="card-small-text">Phone: 0896-56-3065</p>
             </div>
           </div>
         </div>
@@ -1154,7 +1087,7 @@
   </div>
 </section>
 
-    <!-- 香川県 -->
+    <!-- Kagawa Prefecture -->
     <section
       class="section"
       id="kagawa"
@@ -1163,364 +1096,342 @@
       <div class="section-content">
         <div class="prefecture-header-enhanced">
           <h2 class="section-title">Kagawa Prefecture</h2>
-          <div class="dojo-name">Dojo of Nirvana (Nehan)</div>
+          <div class="dojo-name">Dojo of Nirvana</div>
           <div class="prefecture-stats">
             <span class="temple-count">23 Temples</span>
             <span class="range">Temples 66-88</span>
           </div>
         </div>
         <p class="section-intro enhanced-intro">
-          The "Nehan" (Nirvana) stage, reaching the enlightened state freed from suffering. Contains Zentsuji Temple, birthplace of Kobo Daishi, and Okubo-ji Temple, the final temple.
+          The final stage reaching the state of nirvana, liberation from suffering. Home to Zentsū-ji (Kobo Daishi's birthplace) and Ōkuboji (the final temple).
         </p>
-          <!-- メインコンテンツ -->
+          <!-- Main content -->
           <main>
             <div class="section-content">
-        <div class="card-grid">
-          <!-- 66番 雲辺寺 -->
+        <!-- Temple 66 Unpenji -->
+            <div class="card-grid">
+          <!-- Temple 66 Unpenji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="hknNVAbhxpo">
-                  <img src="https://img.youtube.com/vi/hknNVAbhxpo/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/hknNVAbhxpo/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.66 Unpenji</h3>
-              <p class="english-address">Address: 763-2 Shirochinorouchi, Ikeda-cho, Miyoshi City, Tokushima</p>
-              <p class="japanese-address">Japanese Address: 徳島県三好市池田町白地ノロウチ763-2</p>
-              <p class="card-small-text">Tel: +81-883-74-1707</p>
+              <h3>Temple 66: Unpenji</h3>
+              <p>Location: 763-2 Norouchi, Shirachi, Ikeda-cho, Miyoshi City, Tokushima</p>
+              <p class="card-small-text">Phone: 0883-74-1707</p>
             </div>
           </div>
-          <!-- 67番 大興寺 -->
+          <!-- Temple 67 Daikoji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Ufsql_1Y8Yw">
-                  <img src="https://img.youtube.com/vi/Ufsql_1Y8Yw/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/Ufsql_1Y8Yw/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.67 Daikoji</h3>
-              <p class="english-address">Address: 4209 Tsuji, Yamamoto-cho, Mitoyo City, Kagawa 768-0101</p>
-              <p class="japanese-address">Japanese Address: 〒768-0101 香川県三豊市山本町辻4209</p>
-              <p class="card-small-text">Tel: +81-875-63-2341</p>
+              <h3>Temple 67: Daikoji</h3>
+              <p>Location: 4209 Tsuji, Yamamoto-cho, Mitoyo City, Kagawa 768-0101</p>
+              <p class="card-small-text">Phone: 0875-63-2341</p>
             </div>
           </div>
-          <!-- 68番 神恵院 -->
+          <!-- Temple 68 Jinnein -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="qCaUUffDRMQ">
-                  <img src="https://img.youtube.com/vi/qCaUUffDRMQ/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/qCaUUffDRMQ/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.68 Jinneiin</h3>
-              <p class="english-address">Address: 1-2-7 Yawata-cho, Kanonji City, Kagawa 768-0053</p>
-              <p class="japanese-address">Japanese Address: 〒768-0053 香川県観音寺市八幡町1-2-7</p>
-              <p class="card-small-text">Tel: +81-875-25-3871</p>
+              <h3>Temple 68: Jinnein</h3>
+              <p>Location: 1-2-7 Yawata-cho, Kanonji City, Kagawa 768-0053</p>
+              <p class="card-small-text">Phone: 0875-25-3871</p>
             </div>
           </div>
-          <!-- 69番 観音寺 -->
+          <!-- Temple 69 Kannonji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="qCaUUffDRMQ">
-                  <img src="https://img.youtube.com/vi/qCaUUffDRMQ/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/qCaUUffDRMQ/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.69 Kannonji</h3>
-              <p class="english-address">Address: 1-2-7 Yawata-cho, Kanonji City, Kagawa 768-0053</p>
-              <p class="japanese-address">Japanese Address: 〒768-0053 香川県観音寺市八幡町1-2-7</p>
-              <p class="card-small-text">Tel: +81-875-25-3871</p>
+              <h3>Temple 69: Kannonji</h3>
+              <p>Location: 1-2-7 Yawata-cho, Kanonji City, Kagawa 768-0053</p>
+              <p class="card-small-text">Phone: 0875-25-3871</p>
             </div>
           </div>
-          <!-- 70番 本山寺 -->
+          <!-- Temple 70 Motoyamaji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="zCUFopvAfyE">
-                  <img src="https://img.youtube.com/vi/zCUFopvAfyE/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/zCUFopvAfyE/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.70 Motoyamaji</h3>
-              <p class="english-address">Address: 1445 Motoyamakou, Toyonaka-cho, Mitoyo City, Kagawa 769-1506</p>
-              <p class="japanese-address">Japanese Address: 〒769-1506 香川県三豊市豊中町本山甲1445</p>
-              <p class="card-small-text">Tel: +81-875-62-2007</p>
+              <h3>Temple 70: Motoyamaji</h3>
+              <p>Location: 1445 Motoyama Ko, Toyonaka-cho, Mitoyo City, Kagawa 769-1506</p>
+              <p class="card-small-text">Phone: 0875-62-2007</p>
             </div>
           </div>
-          <!-- 71番 弥谷寺 -->
+          <!-- Temple 71 Iyadaniji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="xz01xd4SI2w">
-                  <img src="https://img.youtube.com/vi/xz01xd4SI2w/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/xz01xd4SI2w/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.71 Iyadaniji</h3>
-              <p class="english-address">Address: 70 Omiotsu, Mino-cho, Mitoyo City, Kagawa 767-0031</p>
-              <p class="japanese-address">Japanese Address: 〒767-0031 香川県三豊市三野町大見乙70</p>
-              <p class="card-small-text">Tel: +81-875-72-3446</p>
+              <h3>Temple 71: Iyadaniji</h3>
+              <p>Location: 70 Omi Otsu, Mino-cho, Mitoyo City, Kagawa 767-0031</p>
+              <p class="card-small-text">Phone: 0875-72-3446</p>
             </div>
           </div>
-          <!-- 72番 曼荼羅寺 -->
+          <!-- Temple 72 Mandaraji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="LRviDUw0Lfc">
-                  <img src="https://img.youtube.com/vi/LRviDUw0Lfc/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/LRviDUw0Lfc/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.72 Mandaraji</h3>
-              <p class="english-address">Address: 1380-1 Yoshihara-cho, Zentsuji City, Kagawa 765-0061</p>
-              <p class="japanese-address">Japanese Address: 〒765-0061 香川県善通寺市吉原町1380-1</p>
-              <p class="card-small-text">Tel: +81-877-63-0072</p>
+              <h3>Temple 72: Mandaraji</h3>
+              <p>Location: 1380-1 Yoshihara-cho, Zentsuji City, Kagawa 765-0061</p>
+              <p class="card-small-text">Phone: 0877-63-0072</p>
             </div>
           </div>
-          <!-- 73番 出釈迦寺 -->
+          <!-- Temple 73 Shusshaka-ji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="t7bVTHXD85E">
-                  <img src="https://img.youtube.com/vi/t7bVTHXD85E/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/t7bVTHXD85E/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.73 Shusshakaji</h3>
-              <p class="english-address">Address: 1091 Yoshihara-cho, Zentsuji City, Kagawa 765-0061</p>
-              <p class="japanese-address">Japanese Address: 〒765-0061 香川県善通寺市吉原町1091</p>
-              <p class="card-small-text">Tel: +81-877-63-0073</p>
+              <h3>Temple 73: Shusshaka-ji</h3>
+              <p>Location: 1091 Yoshihara-cho, Zentsuji City, Kagawa 765-0061</p>
+              <p class="card-small-text">Phone: 0877-63-0073</p>
             </div>
           </div>
-          <!-- 74番 甲山寺 -->
+          <!-- Temple 74 Koyamaji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="eNEeTNB_t5o">
-                  <img src="https://img.youtube.com/vi/eNEeTNB_t5o/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/eNEeTNB_t5o/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.74 Koyamaji</h3>
-              <p class="english-address">Address: 1765-1 Hirota-cho, Zentsuji City, Kagawa 765-0071</p>
-              <p class="japanese-address">Japanese Address: 〒765-0071 香川県善通寺市弘田町1765-1</p>
-              <p class="card-small-text">Tel: +81-877-63-0074</p>
+              <h3>Temple 74: Koyamaji</h3>
+              <p>Location: 1765-1 Hirota-cho, Zentsuji City, Kagawa 765-0071</p>
+              <p class="card-small-text">Phone: 0877-63-0074</p>
             </div>
           </div>
-          <!-- 75番 善通寺 -->
+          <!-- Temple 75 Zentsuji -->
           <div class="card kagawa special-temple birthplace-temple" data-category="special">
-            <div class="temple-badge birthplace-badge">大師生誕地</div>
+            <div class="temple-badge birthplace-badge">Birthplace of Kobo Daishi</div>
             <div class="card-image">
               <div class="video-placeholder" data-video-id="umkEKQtnfyQ">
-                  <img src="https://img.youtube.com/vi/umkEKQtnfyQ/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/umkEKQtnfyQ/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.75 Zentsuji<span class="temple-importance">★★★</span></h3>
-              <p class="temple-significance">弘法大師空海が生まれた聖なる故郷</p>
-              <p class="english-address">Address: 3-3-1 Zentsuji-cho, Zentsuji City, Kagawa 765-0003</p>
-              <p class="japanese-address">Japanese Address: 〒765-0003 香川県善通寺市善通寺町3-3-1</p>
-              <p class="card-small-text">Tel: +81-877-62-0111</p>
+              <h3>Temple 75: Zentsuji</h3>
+              <p class="temple-significance">Sacred birthplace of Kobo Daishi Kukai</p>
+              <p>Location: 3-3-1 Zentsuji-cho, Zentsuji City, Kagawa 765-0003</p>
+              <p class="card-small-text">Phone: 0877-62-0111</p>
             </div>
           </div>
-          <!-- 76番 金倉寺 -->
+          <!-- Temple 76 Konzoji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="hj8vYyoWLk0">
-                  <img src="https://img.youtube.com/vi/hj8vYyoWLk0/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/hj8vYyoWLk0/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.76 Konzoji</h3>
-              <p class="english-address">Address: 1160 Kanzoji-cho, Zentsuji City, Kagawa 765-0004</p>
-              <p class="japanese-address">Japanese Address: 〒765-0004 香川県善通寺市金蔵寺町1160</p>
-              <p class="card-small-text">Tel: +81-877-62-0845</p>
+              <h3>Temple 76: Konzoji</h3>
+              <p>Location: 1160 Kanzojicho, Zentsuji City, Kagawa 765-0004</p>
+              <p class="card-small-text">Phone: 0877-62-0845</p>
             </div>
           </div>
-          <!-- 77番 道隆寺 -->
+          <!-- Temple 77 Doryuji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="WxVE6CI9ibc">
-                  <img src="https://img.youtube.com/vi/WxVE6CI9ibc/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/WxVE6CI9ibc/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.77 Doryuji</h3>
-              <p class="english-address">Address: 1-3-30 Kitagamo, Tadotsu-cho, Nakatado District, Kagawa 764-0022</p>
-              <p class="japanese-address">Japanese Address: 〒764-0022 香川県仲多度郡多度津町北鴨1-3-30</p>
-              <p class="card-small-text">Tel: +81-877-32-3577</p>
+              <h3>Temple 77: Doryuji</h3>
+              <p>Location: 1-3-30 Kitakamo, Tadotsu-cho, Nakatado-gun, Kagawa 764-0022</p>
+              <p class="card-small-text">Phone: 0877-32-3577</p>
             </div>
           </div>
-          <!-- 78番 郷照寺 -->
+          <!-- Temple 78 Goshoji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="kmQPSjAg_hU">
-                  <img src="https://img.youtube.com/vi/kmQPSjAg_hU/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/kmQPSjAg_hU/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.78 Goshoji</h3>
-              <p class="english-address">Address: 1435 Utazu-cho, Ayauta District, Kagawa 769-0201</p>
-              <p class="japanese-address">Japanese Address: 〒769-0201 香川県綾歌郡宇多津町1435</p>
-              <p class="card-small-text">Tel: +81-877-49-0710</p>
+              <h3>Temple 78: Goshoji</h3>
+              <p>Location: 1435 Utazu-cho, Ayauta-gun, Kagawa 769-0201</p>
+              <p class="card-small-text">Phone: 0877-49-0710</p>
             </div>
           </div>
-          <!-- 79番 天皇寺 -->
+          <!-- Temple 79 Tennoji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="dycQTttlQ64">
-                  <img src="https://img.youtube.com/vi/dycQTttlQ64/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/dycQTttlQ64/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.79 Tennoji</h3>
-              <p class="english-address">Address: 1713-2 Tenno, Nishisho-cho, Sakaide City, Kagawa 762-0021</p>
-              <p class="japanese-address">Japanese Address: 〒762-0021 香川県坂出市西庄町天皇1713-2</p>
-              <p class="card-small-text">Tel: +81-877-46-3508</p>
+              <h3>Temple 79: Tennoji</h3>
+              <p>Location: 1713-2 Tenno, Nishishocho, Sakaide City, Kagawa 762-0021</p>
+              <p class="card-small-text">Phone: 0877-46-3508</p>
             </div>
           </div>
-          <!-- 80番 国分寺 -->
+          <!-- Temple 80 Kokubunji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="FPM6ZWSCPcI">
-                  <img src="https://img.youtube.com/vi/FPM6ZWSCPcI/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/FPM6ZWSCPcI/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.80 Kokubunji</h3>
-              <p class="english-address">Address: 2065 Kokubu, Kokubunji-cho, Takamatsu City, Kagawa 769-0102</p>
-              <p class="japanese-address">Japanese Address: 〒769-0102 香川県高松市国分寺町国分2065</p>
-              <p class="card-small-text">Tel: +81-87-874-0033</p>
+              <h3>Temple 80: Kokubunji</h3>
+              <p>Location: 2065 Kokubu, Kokubunji-cho, Takamatsu City, Kagawa 769-0102</p>
+              <p class="card-small-text">Phone: 087-874-0033</p>
             </div>
           </div>
-          <!-- 81番 白峯寺 -->
+          <!-- Temple 81 Shiramineji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="EaTWDkGl5hQ">
-                  <img src="https://img.youtube.com/vi/EaTWDkGl5hQ/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/EaTWDkGl5hQ/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.81 Shiromineji</h3>
-              <p class="english-address">Address: 2635 Aomi-cho, Sakaide City, Kagawa 762-0015</p>
-              <p class="japanese-address">Japanese Address: 〒762-0015 香川県坂出市青海町2635</p>
-              <p class="card-small-text">Tel: +81-877-47-0305</p>
+              <h3>Temple 81: Shiramineji</h3>
+              <p>Location: 2635 Aomi-cho, Sakaide City, Kagawa 762-0015</p>
+              <p class="card-small-text">Phone: 0877-47-0305</p>
             </div>
           </div>
-          <!-- 82番 根香寺 -->
+          <!-- Temple 82 Negoro-ji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="prChYJGx8i0">
-                  <img src="https://img.youtube.com/vi/prChYJGx8i0/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/prChYJGx8i0/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.82 Negoro-ji</h3>
-              <p class="english-address">Address: 1506 Nakayama-cho, Takamatsu City, Kagawa 761-8004</p>
-              <p class="japanese-address">Japanese Address: 〒761-8004 香川県高松市中山町1506</p>
-              <p class="card-small-text">Tel: +81-87-881-3329</p>
+              <h3>Temple 82: Negoro-ji</h3>
+              <p>Location: 1506 Nakayama-cho, Takamatsu City, Kagawa 761-8004</p>
+              <p class="card-small-text">Phone: 087-881-3329</p>
             </div>
           </div>
-          <!-- 83番 一宮寺 -->
+          <!-- Temple 83 Ichinomiyaji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="rg5l0oZ-O98">
-                  <img src="https://img.youtube.com/vi/rg5l0oZ-O98/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/rg5l0oZ-O98/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.83 Ichinomiya-ji</h3>
-              <p class="english-address">Address: 607 Ichinomiya-cho, Takamatsu City, Kagawa 761-8084</p>
-              <p class="japanese-address">Japanese Address: 〒761-8084 香川県高松市一宮町607</p>
-              <p class="card-small-text">Tel: +81-87-885-2301</p>
+              <h3>Temple 83: Ichinomiyaji</h3>
+              <p>Location: 607 Ichinomiya-cho, Takamatsu City, Kagawa 761-8084</p>
+              <p class="card-small-text">Phone: 087-885-2301</p>
             </div>
           </div>
-          <!-- 84番 屋島寺 -->
+          <!-- Temple 84 Yashimaji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="f6odNeAwPs8">
-                  <img src="https://img.youtube.com/vi/f6odNeAwPs8/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/f6odNeAwPs8/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.84 Yashima-ji</h3>
-              <p class="english-address">Address: 1808 Yashimahigashi-cho, Takamatsu City, Kagawa 761-0111</p>
-              <p class="japanese-address">Japanese Address: 〒761-0111 香川県高松市屋島東町1808</p>
-              <p class="card-small-text">Tel: +81-87-841-9418</p>
+              <h3>Temple 84: Yashimaji</h3>
+              <p>Location: 1808 Yashima Higashi-machi, Takamatsu City, Kagawa 761-0111</p>
+              <p class="card-small-text">Phone: 087-841-9418</p>
             </div>
           </div>
-          <!-- 85番 八栗寺 -->
+          <!-- Temple 85 Yakuriji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="p6_bY1CkFDo">
-                  <img src="https://img.youtube.com/vi/p6_bY1CkFDo/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/p6_bY1CkFDo/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.85 Yakuri-ji</h3>
-              <p class="english-address">Address: 3416 Mure, Mure-cho, Takamatsu City, Kagawa 761-0121</p>
-              <p class="japanese-address">Japanese Address: 〒761-0121 香川県高松市牟礼町牟礼3416</p>
-              <p class="card-small-text">Tel: +81-87-845-9603</p>
+              <h3>Temple 85: Yakuriji</h3>
+              <p>Location: 3416 Mure, Mure-cho, Takamatsu City, Kagawa 761-0121</p>
+              <p class="card-small-text">Phone: 087-845-9603</p>
             </div>
           </div>
-          <!-- 86番 志度寺 -->
+          <!-- Temple 86 Shidoji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="uci3Xeez_Cw">
-                  <img src="https://img.youtube.com/vi/uci3Xeez_Cw/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/uci3Xeez_Cw/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.86 Shido-ji</h3>
-              <p class="english-address">Address: 1102 Shido, Sanuki City, Kagawa 769-2101</p>
-              <p class="japanese-address">Japanese Address: 〒769-2101 香川県さぬき市志度1102</p>
-              <p class="card-small-text">Tel: +81-87-894-0086</p>
+              <h3>Temple 86: Shidoji</h3>
+              <p>Location: 1102 Shido, Sanuki City, Kagawa 769-2101</p>
+              <p class="card-small-text">Phone: 087-894-0086</p>
             </div>
           </div>
-          <!-- 87番 長尾寺 -->
+          <!-- Temple 87 Nagaoji -->
           <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="56m2GCv0uW8">
-                  <img src="https://img.youtube.com/vi/56m2GCv0uW8/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/56m2GCv0uW8/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.87 Nagao-ji</h3>
-              <p class="english-address">Address: 653 Nagaonishi, Sanuki City, Kagawa 769-2302</p>
-              <p class="japanese-address">Japanese Address: 〒769-2302 香川県さぬき市長尾西653</p>
-              <p class="card-small-text">Tel: +81-879-52-2041</p>
+              <h3>Temple 87: Nagaoji</h3>
+              <p>Location: 653 Nagao Nishi, Sanuki City, Kagawa 769-2302</p>
+              <p class="card-small-text">Phone: 0879-52-2041</p>
             </div>
           </div>
-          <!-- 88番 大窪寺 -->
+          <!-- Temple 88 Okuboji -->
           <div class="card kagawa special-temple" data-category="special">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="NqXdIc4asFk">
-                  <img src="https://img.youtube.com/vi/NqXdIc4asFk/maxresdefault.jpg" alt="Temple video thumbnail" loading="lazy">
+                  <img src="https://img.youtube.com/vi/NqXdIc4asFk/maxresdefault.jpg" alt="YouTube Video" loading="lazy">
                   <div class="play-button"></div>
                 </div>
             </div>
             <div class="card-content">
-              <h3>Temple No.88 Okubo-ji<span class="temple-importance">★★</span></h3>
-              <p class="english-address">Address: 96 Tawakakewari, Sanuki City, Kagawa 769-2306</p>
-              <p class="japanese-address">Japanese Address: 〒769-2306 香川県さぬき市多和兼割96</p>
-              <p class="card-small-text">Tel: +81-879-56-2278</p>
+              <h3>Temple 88: Okuboji</h3>
+              <p>Location: 96 Tawawari, Tawa, Sanuki City, Kagawa 769-2306</p>
+              <p class="card-small-text">Phone: 0879-56-2278</p>
             </div>
           </div>
         </div>
@@ -1535,163 +1446,122 @@
         <p><i class="fas fa-envelope"></i> info@doujimafront.com</p>
         <p>
           <i class="fab fa-youtube"></i>
-          <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ"
             >YouTube Channel</a
           >
         </p>
       </div>
       <p class="footer-text">
-        &copy; 2025 堂島フロント企画 All right reserved.
+        &copy; 2025 Doujima Front Planning All rights reserved.
       </p>
       <p class="footer-text" style="margin-top: 1rem; opacity: 0.8">
-        Namu Daishi Henjo Kongo - We support safe pilgrimage in the spirit of "Two Companions on the Path"
+        Namu Daishi Henjo Kongo - Supporting your safe pilgrimage in the spirit of "Two Pilgrims Walking Together"
       </p>
     </footer>
 
+    <!-- Back to top button -->
+    <button id="backToTopBtn" class="back-to-top" aria-label="Return to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="../../js/script.js"></script>
     <script>
-      // 霊場検索機能
-      document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.getElementById('templeSearch');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.card');
-        const sections = document.querySelectorAll('.section');
-        
-        // 検索機能
-        searchInput.addEventListener('input', function() {
-          const query = this.value.toLowerCase();
-          filterTemples(query, getCurrentFilter());
-        });
-        
-        // フィルターボタン
-        filterButtons.forEach(btn => {
-          btn.addEventListener('click', function() {
-            filterButtons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            filterTemples(searchInput.value.toLowerCase(), this.dataset.filter);
-          });
-        });
-        
-        function getCurrentFilter() {
-          return document.querySelector('.filter-btn.active').dataset.filter;
-        }
-        
-        // 数字から漢数字に変換する関数
-        function convertToKanji(num) {
-          const kanjiNumbers = {
-            '1': '一', '2': '二', '3': '三', '4': '四', '5': '五',
-            '6': '六', '7': '七', '8': '八', '9': '九', '10': '十',
-            '11': '十一', '12': '十二', '13': '十三', '14': '十四', '15': '十五',
-            '16': '十六', '17': '十七', '18': '十八', '19': '十九', '20': '二十',
-            '21': '二十一', '22': '二十二', '23': '二十三', '24': '二十四', '25': '二十五',
-            '26': '二十六', '27': '二十七', '28': '二十八', '29': '二十九', '30': '三十',
-            '31': '三十一', '32': '三十二', '33': '三十三', '34': '三十四', '35': '三十五',
-            '36': '三十六', '37': '三十七', '38': '三十八', '39': '三十九', '40': '四十',
-            '41': '四十一', '42': '四十二', '43': '四十三', '44': '四十四', '45': '四十五',
-            '46': '四十六', '47': '四十七', '48': '四十八', '49': '四十九', '50': '五十',
-            '51': '五十一', '52': '五十二', '53': '五十三', '54': '五十四', '55': '五十五',
-            '56': '五十六', '57': '五十七', '58': '五十八', '59': '五十九', '60': '六十',
-            '61': '六十一', '62': '六十二', '63': '六十三', '64': '六十四', '65': '六十五',
-            '66': '六十六', '67': '六十七', '68': '六十八', '69': '六十九', '70': '七十',
-            '71': '七十一', '72': '七十二', '73': '七十三', '74': '七十四', '75': '七十五',
-            '76': '七十六', '77': '七十七', '78': '七十八', '79': '七十九', '80': '八十',
-            '81': '八十一', '82': '八十二', '83': '八十三', '84': '八十四', '85': '八十五',
-            '86': '八十六', '87': '八十七', '88': '八十八'
-          };
-          return kanjiNumbers[num] || num;
-        }
+      // Temple navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // === Navigation functionality initialization ===
+        const navBtns = document.querySelectorAll(".nav-btn");
 
-        // 検索テキストマッチング関数（優先順位付き検索）
-        function searchTextMatch(cardText, query, card) {
-          // 重要霊場の検索
-          if (query === '重要' || query === '重要霊場' || query === 'special' || query === '特別') {
-            const isSpecial = card.getAttribute('data-category') === 'special';
-            if (isSpecial) {
-              return true;
-            }
-          }
-          
-          // 霊場番号の完全一致を最優先（「23」→「第二十三番」）
-          if (/^\d+$/.test(query)) {
-            const kanjiNumber = convertToKanji(query);
-            const templeTitle = card.querySelector('h3')?.textContent || '';
-            
-            // 「第〇〇番」の形式で完全一致チェック
-            if (templeTitle.includes(`第${kanjiNumber}番`)) {
-              return true;
-            }
-          }
-          
-          // 「〇番」「第〇番」形式の検索
-          if (/^\d+番$/.test(query) || /^第\d+番$/.test(query)) {
-            const number = query.replace(/[第番]/g, '');
-            const kanjiNumber = convertToKanji(number);
-            const templeTitle = card.querySelector('h3')?.textContent || '';
-            
-            if (templeTitle.includes(`第${kanjiNumber}番`)) {
-              return true;
-            }
-          }
-          
-          // 寺院名での検索（h3タイトルのみ対象）
-          const templeTitle = card.querySelector('h3')?.textContent.toLowerCase() || '';
-          if (templeTitle.includes(query)) {
-            return true;
-          }
-          
-          // 数字が含まれる寺院名検索（「1寺」→「一寺」等）
-          const convertedQuery = query.replace(/\d+/g, (match) => convertToKanji(match));
-          if (convertedQuery !== query && templeTitle.includes(convertedQuery)) {
-            return true;
-          }
-          
-          // 最後に全文検索（住所・電話番号含む）- 他で見つからない場合のみ
-          return false;
-        }
+        // Navigation button functionality
+        navBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const filter = this.dataset.filter;
 
-        function filterTemples(query, filter) {
-          let visibleCount = 0;
-          
-          // 各カードをチェック
-          cards.forEach(card => {
-            const cardText = card.textContent.toLowerCase();
-            const isSpecial = card.getAttribute('data-category') === 'special';
-            const parentSection = card.closest('.section');
-            let show = true;
-            
-            // テキスト検索（優先順位付き検索）
-            if (query && !searchTextMatch(cardText, query, card)) {
-              show = false;
-            }
-            
-            // フィルターチェック
-            if (filter !== 'all') {
-              if (filter === 'special' && !isSpecial) {
-                show = false;
-              } else if (filter !== 'special' && !parentSection.id.includes(filter)) {
-                show = false;
-              }
-            }
-            
-            card.style.display = show ? 'block' : 'none';
-            if (show) visibleCount++;
-          });
-          
-          // セクションの表示/非表示
-          sections.forEach(section => {
-            if (section.id && (section.id === 'tokushima' || section.id === 'kouchi' || section.id === 'ehime' || section.id === 'kagawa')) {
-              const visibleCards = section.querySelectorAll('.card[style="display: block;"], .card:not([style*="display: none"])');
-              section.style.display = (filter === 'all' || filter === section.id || (filter === 'special' && visibleCards.length > 0)) ? 'block' : 'none';
+            // Toggle active button
+            navBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            // Smooth scroll to corresponding section
+            const targetSection = document.querySelector(`#${filter}`);
+            if (targetSection) {
+              const headerOffset = 80; // Fixed header height
+              const elementPosition = targetSection.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+              });
             }
           });
-          
-          // 結果表示
-          updateSearchResults(visibleCount, query, filter);
-        }
-        
-        function updateSearchResults(count, query, filter) {
-          // 結果表示用のメッセージを追加できる
-          console.log(`検索結果: ${count}件`);
+        });
+
+        // === Back to top button functionality ===
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        if (backToTopBtn) {
+          // Scroll threshold settings (responsive)
+          function getScrollThreshold() {
+            const width = window.innerWidth;
+            if (width >= 1024) return 1000; // Desktop
+            if (width >= 768) return 800;   // Tablet
+            return 600;                      // Mobile
+          }
+
+          // Scroll event handler (performance optimized)
+          let isScrolling = false;
+
+          function handleScroll() {
+            if (!isScrolling) {
+              window.requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                const threshold = getScrollThreshold();
+
+                if (scrolled > threshold) {
+                  backToTopBtn.classList.add("show");
+                } else {
+                  backToTopBtn.classList.remove("show");
+                }
+
+                isScrolling = false;
+              });
+
+              isScrolling = true;
+            }
+          }
+
+          // Scroll event listener
+          window.addEventListener("scroll", handleScroll, { passive: true });
+
+          // Button click event
+          backToTopBtn.addEventListener("click", function () {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          });
+
+          // Keyboard navigation (accessibility)
+          backToTopBtn.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              });
+            }
+          });
+
+          // Recalculate threshold on window resize
+          let resizeTimer;
+          window.addEventListener("resize", function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+              handleScroll();
+            }, 150);
+          });
+
+          // Check initial state
+          handleScroll();
         }
       });
     </script>

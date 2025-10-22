@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
     />
-    <title>FAQ - Shikoku Pilgrimage</title>
+    <title>Frequently Asked Questions - Shikoku Pilgrimage</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/components/navigation.css" />
     <link rel="stylesheet" href="../../css/ohenro.css" />
@@ -27,7 +27,7 @@
     <header>
       <nav>
         <a href="../../index.html" class="logo">
-          <img src="../../images/doujima-logo.webp" alt="堂島フロント企画" />
+          <img src="../../images/doujima-logo.webp" alt="Doujima Front Kikaku" />
           <span class="logo-text">Doujima Front Kikaku</span>
         </a>
         <ul class="nav-links">
@@ -35,30 +35,32 @@
             <a href="index.html">Pilgrimage</a>
           </li>
           <li>
-            <a href="shikoku.html">Temple Stations</a>
+            <a href="shikoku.html">Temple Guide</a>
             <div class="dropdown">
-              <a href="shikoku.html#tokushima">Awakening Faith (Tokushima)</a>
-              <a href="shikoku.html#kouchi">Ascetic Training (Kochi)</a>
-              <a href="shikoku.html#ehime">Enlightenment (Ehime)</a>
-              <a href="shikoku.html#kagawa">Nirvana (Kagawa)</a>
+              <a href="shikoku.html#tokushima">Hall of Enlightenment (Tokushima)</a>
+              <a href="shikoku.html#kouchi">Hall of Ascetic Training (Kochi)</a>
+              <a href="shikoku.html#ehime">Hall of Enlightenment (Ehime)</a>
+              <a href="shikoku.html#kagawa">Hall of Nirvana (Kagawa)</a>
             </div>
           </li>
           <li>
             <a href="faq.html" class="active">FAQ</a>
           </li>
           <li>
-            <a href="../../Tokaido/index.html">Highway Walk</a>
+            <a href="../../Tokaido/en/index.html">Highway Walk</a>
           </li>
-          <li><a href="https://doujimafront.stores.jp/" target="_blank">Online Shop</a></li>
+          <li>
+            <a href="https://doujimafront.stores.jp/" target="_blank">Online Shop</a>
+          </li>
           <li>
             <a href="../../index.html">Corporate Homepage</a>
           </li>
         </ul>
-        <!-- Hamburger menu button (mobile) -->
+        <!-- Mobile hamburger menu button -->
         <button
           class="mobile-menu-toggle"
           id="mobileMenuToggle"
-          aria-label="Open menu"
+          aria-label="Open Menu"
         >
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -69,11 +71,7 @@
 
     <!-- Fixed floating language switcher button -->
     <div class="language-switcher">
-      <button
-        id="languageToggle"
-        class="language-btn"
-        aria-label="Switch Language / 言語切り替え"
-      >
+      <button id="languageToggle" class="language-btn" aria-label="Switch Language / 言語切り替え">
         <i class="fas fa-globe"></i>
         <span class="lang-text">日本語</span>
       </button>
@@ -89,22 +87,20 @@
         <button
           class="mobile-menu-close"
           id="mobileMenuClose"
-          aria-label="Close menu"
+          aria-label="Close Menu"
         >
           <i class="fas fa-times"></i>
         </button>
       </div>
       <nav class="mobile-menu-nav">
         <a href="index.html" class="mobile-menu-link">Pilgrimage</a>
-        <a href="shikoku.html" class="mobile-menu-link">Temple Stations</a>
+        <a href="shikoku.html" class="mobile-menu-link">Temple Guide</a>
         <a href="faq.html" class="mobile-menu-link active">FAQ</a>
-        <a href="../../Tokaido/index.html" class="mobile-menu-link"
+        <a href="../../Tokaido/en/index.html" class="mobile-menu-link"
           >Highway Walk</a
         >
         <a href="https://doujimafront.stores.jp/" target="_blank" class="mobile-menu-link">Online Shop</a>
-        <a href="../../index.html" class="mobile-menu-link"
-          >Corporate Homepage</a
-        >
+        <a href="../../index.html" class="mobile-menu-link">Corporate Homepage</a>
         <a href="#" id="mobileLangToggle" class="mobile-menu-link">
           <i class="fas fa-globe"></i> 日本語
         </a>
@@ -113,46 +109,15 @@
 
     <section class="hero faq-hero">
       <div class="hero-content">
-        <h1 class="faq-title">FAQ</h1>
+        <h1 class="faq-title">Frequently Asked Questions</h1>
       </div>
     </section>
 
-    <!-- Search bar -->
-    <div class="faq-search-container">
-      <div style="position: relative">
-        <i class="fas fa-search search-icon"></i>
-        <input
-          type="text"
-          class="faq-search"
-          placeholder="Search questions..."
-        />
-      </div>
-    </div>
-
-    <!-- Category filter -->
-    <div class="faq-categories">
-      <button class="category-btn active" data-category="all">All</button>
-      <button class="category-btn" data-category="basic">
-        Basic Information
-      </button>
-      <button class="category-btn" data-category="preparation">
-        Preparation & Equipment
-      </button>
-      <button class="category-btn" data-category="pilgrimage">
-        Pilgrimage Methods
-      </button>
-      <button class="category-btn" data-category="manners">
-        Etiquette & Manners
-      </button>
-      <button class="category-btn" data-category="misc">Others</button>
-    </div>
-
     <main class="faq-container">
-      <!-- FAQ header -->
+      <!-- FAQ Header -->
       <div class="faq-header">
         <p>
-          We have compiled frequently asked questions and answers to help
-          resolve your concerns and questions about the Shikoku Pilgrimage.
+          To help resolve questions and concerns about the Shikoku Pilgrimage, we have compiled frequently asked questions and their answers.
         </p>
       </div>
 
@@ -164,482 +129,63 @@
         </button>
         <div class="faq-answer">
           <p>
-            The Shikoku Pilgrimage is a journey visiting 88 temples associated
-            with Kobo Daishi (Kukai) in Shikoku. This pilgrimage route, spanning
-            approximately 1,400km in total, has been walked by many people since
-            ancient times as a journey to face oneself and promote spiritual
-            growth.
+            The Shikoku Pilgrimage is a pilgrimage route that visits 88 temples in Shikoku associated with Kobo Daishi (Kukai). Spanning approximately 1,400km in total, this pilgrimage route has long been walked by many people as a journey to face oneself and promote spiritual growth.
           </p>
         </div>
       </div>
 
-      <div class="faq-item" data-category="preparation" id="q2">
-        <button class="faq-question">
-          <span>What do I need to start the pilgrimage?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            The minimum necessary items include a seal book (nokyo-cho), white
-            robe (byaku-e), sedge hat (suge-gasa), and walking stick
-            (kongo-zue). These "pilgrimage supplies" can be obtained at Ryozenji
-            Temple (the first temple) or through online shopping. For walking
-            pilgrims, comfortable shoes, appropriate clothing, and rain gear are
-            also important preparations.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="basic" id="q3">
-        <button class="faq-question">
-          <span>How much does it cost?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            The cost varies greatly depending on the method of pilgrimage
-            (walking, car, bus tour, etc.), number of days, and accommodation
-            grade. For walking pilgrims, the estimate is around 5,000-10,000 yen
-            per day. This includes accommodation, meals, and temple seal fees.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="preparation" id="q4">
-        <button class="faq-question">
-          <span>How should I arrange accommodation?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Near each temple, there are shukubo (temple lodgings), inns,
-            minshuku, and business hotels. Especially for walking pilgrims, we
-            recommend making reservations in advance. Please also use the
-            accommodation information on our website.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="pilgrimage" id="q5">
-        <button class="faq-question">
-          <span>What's the difference between walking and car pilgrimage?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Walking pilgrimage offers the charm of deeply facing oneself step by
-            step, experiencing nature's beauty and interactions with local
-            people. Car pilgrimage, on the other hand, allows those with time or
-            physical constraints to make the journey more easily. Either method
-            shows the same devotion to Kobo Daishi.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="basic" id="q6">
-        <button class="faq-question">
-          <span>Is it safe for women traveling alone?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Yes, many women travel alone on the pilgrimage. Shikoku has a
-            deep-rooted culture of "osettai" (hospitality), and local people
-            warmly watch over pilgrims. However, please take basic safety
-            precautions such as avoiding solo activities at night and carefully
-            managing valuables.
-          </p>
-        </div>
-      </div>
       <!-- Pilgrimage Methods -->
       <div class="faq-item" data-category="pilgrimage" id="q7">
         <button class="faq-question">
-          <span>Do I have to visit the temples in numerical order?</span>
+          <span
+            >Do I need to visit the 88 sacred sites of Shikoku in numerical order?</span
+          >
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
           <p>
-            It's not necessary to visit in numerical order. While visiting in
-            order is called "jun-uchi," there are various methods like
-            "gyaku-uchi" (reverse order from 88), "kugiri-uchi" (visiting in
-            sections), and "ikkoku-mairi" (visiting one prefecture's temples
-            only). You can freely plan according to your physical strength and
-            available time.
+            You don't necessarily need to visit them in numerical order. While visiting them in sequence is called "jun-uchi," there are various methods such as "gyaku-uchi" (visiting from temple 88 in reverse order), "kugiri-uchi" (visiting in segments), and "ikkoku-mairi" (visiting only one prefecture). You can freely plan according to your physical strength and available time.
           </p>
         </div>
       </div>
 
       <div class="faq-item" data-category="preparation" id="q8">
         <button class="faq-question">
-          <span>Should I prepare all pilgrimage items from the start?</span>
+          <span>Should I prepare all pilgrimage equipment from the beginning?</span>
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
           <p>
-            You don't need to prepare everything from the start. Begin with the
-            minimum necessities for worship like seal book, prayer beads,
-            incense, and candles. Items like white robes and walking sticks can
-            be purchased as you feel the need during your pilgrimage. They are
-            available at Ryozenji Temple (first temple), temple shops, or online
-            stores.
+            You don't need to prepare everything at the start. Begin with the minimum essentials for worship such as a stamp book (nōkyōchō), prayer beads, incense, and candles. Items like white robes and walking sticks can be purchased as you progress through the pilgrimage when you feel they're necessary. They're available at Temple #1 Ryōzenji, at each temple's shop, or through online shopping.
           </p>
         </div>
       </div>
 
-      <!-- Etiquette & Manners -->
-      <div class="faq-item" data-category="manners" id="q9">
-        <button class="faq-question">
-          <span>Are there specific sutras to recite during worship?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Generally, the "Heart Sutra" is recited at both the main hall and
-            Daishi hall. There is also a service order including opening verse,
-            repentance, honzon mantra, komyo mantra, and sacred name. You don't
-            need to memorize everything; reading from a sutra book is fine. If
-            time is limited, reciting the Heart Sutra with sincere devotion is
-            considered sufficient.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="manners" id="q10">
-        <button class="faq-question">
-          <span>Can I get the temple seal before worship?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Temple seals (goshuin) are received as proof of completing your
-            worship. Therefore, the proper etiquette is to first worship at the
-            main hall and Daishi hall, then go to the seal office. However,
-            during crowded times, temples may instruct you to submit your book
-            first, so please follow their instructions.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="manners" id="q11">
-        <button class="faq-question">
-          <span>Must I always worship at the main hall first?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Yes, the basic order is to first worship at the main hall where the
-            principal deity is enshrined, then proceed to the Daishi hall where
-            Kobo Daishi is enshrined. This represents the feeling of greeting
-            the principal deity first, then greeting Kobo Daishi.
-          </p>
-        </div>
-      </div>
-      <div class="faq-item" data-category="manners" id="q12">
-        <button class="faq-question">
-          <span>Can I take colored name slips from the offering box?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Taking name slips from the offering box without permission is
-            considered bad manners. These slips were offered by other pilgrims
-            and contain their thoughts and karma. Colored slips (brocade, gold,
-            silver) should be received directly as osettai from experienced
-            pilgrims or taken only when placed with temple permission "for those
-            with connection."
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="manners" id="q13">
-        <button class="faq-question">
-          <span>Are there rules for offering incense and candles?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Yes, there are basic rules. First, place a candle on the stand, then
-            light incense from that flame and place it in the incense burner.
-            Generally, at both the main hall and Daishi hall, offer one candle
-            and three incense sticks each. The three incense sticks represent
-            honoring the Three Jewels (Buddha, Dharma, Sangha) or purifying the
-            Three Poisons (greed, anger, ignorance).
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="manners" id="q14">
-        <button class="faq-question">
-          <span>Why don't pilgrims tap their staff on bridges?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            The walking staff is considered an incarnation of Kobo Daishi.
-            According to legend, Kobo Daishi once slept under a bridge, so
-            tapping the staff on a bridge would disturb his rest. Therefore, it
-            is proper etiquette not to tap the staff on bridges.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="misc" id="q15">
-        <button class="faq-question">
-          <span
-            >What kind of characters are written in nokyo (temple stamps)?</span
-          >
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Nokyo (temple stamps) are mainly composed of three types of stamps:
-            "temple stamp," "treasure stamp," and "temple seal," along with
-            brush-written calligraphy. Generally, the temple stamp showing
-            "Shikoku No. X" is written on the upper right, Sanskrit characters
-            representing the principal deity and treasure stamp in the center,
-            and the temple name on the left. Characters such as "Hono"
-            (offering) and "Hohai" (respectful worship) represent the meaning of
-            offering sutras or worshiping respectfully.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="pilgrimage" id="q16">
-        <button class="faq-question">
-          <span
-            >Is it mandatory to make a thanksgiving visit after completing all
-            the Shikoku sacred sites?</span
-          >
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            There is no mandatory requirement, but it is common to make a
-            thanksgiving visit to report the completion (kechigan) and express
-            gratitude. Well-known locations for thanksgiving visits include
-            Ryozenji Temple (Temple 1) where the pilgrimage began, and Okunoin
-            at Koyasan where Kobo Daishi's mausoleum is located. You should
-            visit at a time that is convenient for you.
-          </p>
-        </div>
-      </div>
-      <!-- Other -->
+      <!-- Miscellaneous -->
       <div class="faq-item" data-category="misc" id="q17">
         <button class="faq-question">
           <span
-            >What is the meaning of "Dogyo Ninin" (Two Companions on the
-            Path)?</span
+            >What is the meaning of "Dōgyō-ninin"?</span
           >
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
           <p>
-            "Dogyo Ninin" is a phrase meaning "Kobo Daishi (Kukai) is always
-            with you." Even when pilgrims are traveling alone, they believe that
-            Kobo Daishi is watching over and supporting them. Therefore, "Dogyo
-            Ninin" is written on the sedge hat and white clothing to express the
-            faith that they are traveling together with Kobo Daishi.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="preparation" id="q18">
-        <button class="faq-question">
-          <span>Should I put a cover on the kongotsue (pilgrim staff)?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            The upper part of the kongotsue is shaped like a sotoba (wooden
-            grave marker) to serve as a gravestone if one dies during the
-            pilgrimage. Therefore, it is considered good to hide that sotoba
-            part while alive, and covering it has the meaning of protecting this
-            sacred part. It also serves as a marker to distinguish it from other
-            people's staffs.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="preparation" id="q19">
-        <button class="faq-question">
-          <span>Are pilgrimage supplies available at all sacred sites?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Consumables such as candles, incense, and name slips are sold at
-            most temples, but many temples do not carry white clothing or sedge
-            hats. Especially at Ryozenji Temple (Temple 1) and its temple town,
-            you can obtain a complete set of tools needed for the pilgrimage. It
-            is recommended to purchase large and bulky items locally.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="manners" id="q20">
-        <button class="faq-question">
-          <span>When and how should I ring the bells in the bell tower?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Generally, after arriving at a temple and passing through the main
-            gate, ring the bell quietly once before worship. This has the
-            meaning of greeting the Buddha, saying "I am now going to worship."
-            Ringing the bell after worship is called "modori-gane" (return bell)
-            and is considered unlucky, so it should be avoided. Some temples
-            prohibit ringing the bell, so please follow the guidance in such
-            cases.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="misc" id="q21">
-        <button class="faq-question">
-          <span>What is osettai (hospitality to pilgrims)?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Osettai is a custom where local people provide pilgrims with food,
-            drinks, rest areas, and other services free of charge. Hosting
-            pilgrims is considered to have the same meaning as hosting Kobo
-            Daishi himself, and is a culture of pure kindness that seeks no
-            reward in return. When you receive osettai, it is considered proper
-            etiquette to offer a name slip (osame-fuda) with gratitude.
-          </p>
-        </div>
-      </div>
-      <div class="faq-item" data-category="manners" id="q22">
-        <button class="faq-question">
-          <span>How should I handle the miei (sacred images) properly?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            The miei (sacred images) given at each temple are sacred items
-            considered to be manifestations of the principal deity. They are
-            given together when you receive nokyo. Store them carefully in a
-            dedicated "miei-cho" (sacred image book) or "miei preservation
-            book," and after completing the pilgrimage, it is common to make
-            them into hanging scrolls or frames and enshrine them in the
-            tokonoma (alcove) or Buddhist altar. Never handle them carelessly.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="pilgrimage" id="q23">
-        <button class="faq-question">
-          <span
-            >What is reverse pilgrimage (gyaku-uchi)? Why is it performed in
-            leap years?</span
-          >
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            "Reverse pilgrimage" (gyaku-uchi) means visiting the 88 temples of
-            Shikoku in reverse order, from temple 88 to temple 1. This practice
-            originates from a legend about Emon Saburo, a wealthy man from the
-            Heian period, who traveled the pilgrimage route in reverse order to
-            meet Kobo Daishi and finally succeeded. Since that year was said to
-            be a leap year, it is believed that performing the reverse
-            pilgrimage in a leap year brings greater spiritual benefits.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="pilgrimage" id="q24">
-        <button class="faq-question">
-          <span
-            >Do I need to visit all temples at once during the pilgrimage?</span
-          >
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            You don't necessarily need to visit all the temples at once. While
-            visiting all temples in one continuous journey is called
-            "toshi-uchi," the more common method is "kugiri-uchi," where you
-            divide the pilgrimage into several trips according to your time and
-            physical condition. It's important to proceed at your own pace
-            without overexertion.
+            "Dōgyō-ninin" means "always accompanied by Kobo Daishi (Kukai)." Even when pilgrims travel alone, they believe that Kobo Daishi is watching over and supporting them from nearby. Therefore, they inscribe "Dōgyō-ninin" on their sedge hats and white robes to express their faith that they are traveling together with Kobo Daishi.
           </p>
         </div>
       </div>
 
       <div class="faq-item" data-category="preparation" id="q25">
         <button class="faq-question">
-          <span>Are there specific clothing requirements for worship?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            There are no strict requirements, but wearing white clothing (hakue)
-            and a sedge hat (suge-gasa) helps you feel more focused and makes
-            you easily recognizable as a pilgrim. Functional, comfortable
-            clothing is also acceptable, but even in casual wear, simply wearing
-            a wagesa (small prayer stole) around your neck shows proper respect
-            for worship.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="misc" id="q26">
-        <button class="faq-question">
-          <span>What is a shukubo (temple lodging)?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Shukubo is a lodging facility attached to temples for worshippers
-            and pilgrims. The appeal lies in being able to participate in early
-            morning prayer services and enjoy vegetarian temple cuisine,
-            providing unique experiences specific to each temple. In recent
-            years, many shukubo have become accessible to general tourists as
-            well.
-          </p>
-        </div>
-      </div>
-      <div class="faq-item" data-category="pilgrimage" id="q27">
-        <button class="faq-question">
           <span
-            >Is it mandatory to visit Koyasan after completing all the Shikoku
-            temples?</span
+            >Is there a specific dress code for worship?</span
           >
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
           <p>
-            There is no mandatory requirement to visit Koyasan. While it is
-            considered polite etiquette to make a thanksgiving visit to Okunoin
-            at Koyasan to report the completion of the pilgrimage and express
-            gratitude, some people choose to make their thanksgiving visit to
-            Ryozenji (Temple 1) instead, and others head straight home after
-            completing the pilgrimage. You should decide based on your own
-            feelings and circumstances.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="misc" id="q28">
-        <button class="faq-question">
-          <span
-            >I cannot complete the pilgrimage during the commemorative project
-            period. Can I still receive commemorative items after the project
-            ends?</span
-          >
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            It depends on the type of commemorative project and items. For
-            example, commemorative cards from the "Kobo Daishi 1250th Birthday
-            Anniversary Project" are planned to be available for purchase at the
-            Shikoku 88 Sacred Places Association office after the project ends,
-            as long as supplies last. However, commemorative stamps and similar
-            items are only available during the project period. Please contact
-            the Shikoku 88 Sacred Places Association for details.
+            There is no strict rule, but wearing white clothing such as hakue (white robe) and sugegasa (sedge hat) helps focus your mind and makes you easily recognizable as a pilgrim. Even if you choose functional, comfortable clothing for mobility, simply wearing a wagesa (stole) around your neck can demonstrate proper respect for worship.
           </p>
         </div>
       </div>
@@ -647,151 +193,17 @@
       <div class="faq-item" data-category="basic" id="q29">
         <button class="faq-question">
           <span
-            >I am not of the Shingon Buddhist sect. Can I still visit the
-            Shikoku sacred sites?</span
+            >Can I visit the Shikoku sacred sites even if I'm not affiliated with the Shingon sect?</span
           >
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
           <p>
-            Yes, anyone can visit regardless of religious sect or denomination.
-            The 88 temples of Shikoku include temples from various Buddhist
-            sects, not just Shingon. Many people undertake the pilgrimage
-            without strong religious faith, simply to experience Japanese
-            culture.
+            Yes, anyone can visit regardless of religious affiliation or sect. The 88 sacred sites of Shikoku include temples from sects other than Shingon. Many people make the pilgrimage even without religious faith, simply wanting to experience Japanese culture.
           </p>
         </div>
       </div>
 
-      <div class="faq-item" data-category="misc" id="q30">
-        <button class="faq-question">
-          <span
-            >I have a partially completed nokyo-cho (stamp book) that my parents
-            or ancestors used. Can I use this for my own pilgrimage?</span
-          >
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Yes, continuing a pilgrimage using your family's or ancestors'
-            nokyo-cho is a very noble act that honors the deceased and continues
-            their spiritual journey. If you explain this at the stamp office,
-            they will gladly provide the stamps.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="pilgrimage" id="q31">
-        <button class="faq-question">
-          <span
-            >What methods are available for undertaking the Shikoku
-            pilgrimage?</span
-          >
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Walking pilgrimage (aruki-henro) is the most traditional method, but
-            today you can choose from various means according to your physical
-            condition, time, and budget. Options include car pilgrimage using
-            your own vehicle or rental car, bus tours, bicycle, and public
-            transportation.
-          </p>
-        </div>
-      </div>
-      <div class="faq-item" data-category="misc" id="q32">
-        <button class="faq-question">
-          <span>What is the difference between goshuin and nokyo?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            "Nokyo" is received as proof of offering sutras and has a strong
-            meaning as spiritual practice. On the other hand, "goshuin" is
-            received as proof of worship and can be considered a more widely
-            popularized form of nokyo. In the Shikoku pilgrimage, it is called
-            "nokyo" because sutras are offered.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="misc" id="q33">
-        <button class="faq-question">
-          <span>Why is the date not written in nokyo (temple stamps)?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            This is because there is a custom in the Shikoku pilgrimage called
-            "kasane-in" (layered stamps), where the same nokyo-cho is used for
-            multiple pilgrimages. If dates were written the first time, it would
-            cause inconvenience for subsequent visits, so it has become
-            customary to deliberately not include dates.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="preparation" id="q34">
-        <button class="faq-question">
-          <span
-            >What is the meaning of the characters written on ajiro-gasa and
-            suge-gasa (pilgrim hats)?</span
-          >
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Each character written on the hat has its own meaning. The Sanskrit
-            character on the front represents Kobo Daishi, and "Dogyo Ninin"
-            (Two Companions on the Path) means always being together with
-            Daishi-sama. The four verses written around it, such as "Meiko
-            Sangai-jo...," are Buddhist teachings that show the path to
-            enlightenment.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="misc" id="q35">
-        <button class="faq-question">
-          <span
-            >Why are the Sanskrit characters representing Daishi-sama and
-            Maitreya Bodhisattva the same?</span
-          >
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            This is because there is a belief that Kobo Daishi (Daishi-sama) is
-            an incarnation of Maitreya Bodhisattva or inherits his teachings.
-            Additionally, it is believed that Daishi-sama continues meditation
-            at Koyasan and will appear with Maitreya Bodhisattva after 5.67
-            billion years to save people. Due to this deep relationship, the
-            same Sanskrit character "Yu" is used.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item" data-category="basic" id="q36">
-        <button class="faq-question">
-          <span>Is it possible to visit temples with pets or guide dogs?</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Service animals such as guide dogs and assistance dogs can basically
-            accompany visitors for worship. For general pets, policies vary by
-            temple. Even if the temple grounds are allowed, entry to the main
-            hall or Daishi hall is often restricted. Always contact the temple
-            directly in advance and observe proper etiquette during your visit.
-          </p>
-        </div>
-      </div>
-
-      <!-- No search results message -->
-      <div class="no-results">
-        <i class="fas fa-search"></i>
-        <p>No search results found.<br />Please try with different keywords.</p>
-      </div>
     </main>
 
     <footer id="contact">
@@ -806,11 +218,10 @@
         </p>
       </div>
       <p class="footer-text">
-        &copy; 2025 堂島フロント企画 All right reserved.
+        &copy; 2025 Doujima Front Kikaku All rights reserved.
       </p>
       <p class="footer-text" style="margin-top: 1rem; opacity: 0.8">
-        Namu Daishi Henjo Kongo - We support safe pilgrimage in the spirit of
-        "Two Companions on the Path"
+        With the spirit of "Dōgyō-ninin," we support your safe pilgrimage
       </p>
     </footer>
     <script src="../../js/script.js"></script>
