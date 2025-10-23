@@ -1164,11 +1164,6 @@ footer {
   border: 1px solid rgba(212, 175, 55, 0.15);
 }
 
-.station-reading::before {
-  content: "";
-  font-size: 0.8em;
-}
-
 .station-description {
   color: #555;
   line-height: 1.7;
