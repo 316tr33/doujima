@@ -1,0 +1,141 @@
+css/faq.css::root {
+Binary file css/tokaido.css matches
+css/style.css::root {
+css/ohenro.css::root {
+css/guide-simple.css::root {
+
+
+=== CSS変数使用箇所 ===
+./index.html:12:      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+./index.html:19:    <link rel="stylesheet" href="css/style.css" />
+./directory-structure.md:36:└── css/
+Binary file ./.serena/cache/typescript/document_symbols_cache_v23-06-25.pkl matches
+./.serena/memories/mobile_optimization_plan.md:12:css/
+./.serena/memories/tokaido_integration_refactoring_plan.md:41:1. `css/ohenro.css` 行2509-2993の東海道スタイルを抽出
+./.serena/memories/tokaido_integration_refactoring_plan.md:42:2. 抽出内容を `css/tokaido.css` に移行
+./.serena/memories/tokaido_integration_refactoring_plan.md:46:   <link rel="stylesheet" href="../css/ohenro.css" />
+./.serena/memories/tokaido_integration_refactoring_plan.md:49:   <link rel="stylesheet" href="../css/tokaido.css" />
+./.serena/memories/tokaido_integration_refactoring_plan.md:51:4. `css/ohenro.css` から東海道関連スタイル削除
+./.serena/memories/tokaido_integration_refactoring_plan.md:143:**作成ファイル**: `css/variables.css`
+./.serena/memories/tokaido_integration_refactoring_plan.md:241:git checkout HEAD~1 -- css/tokaido.css
+./.serena/memories/tokaido_integration_refactoring_plan.md:242:git checkout HEAD~1 -- css/ohenro.css
+./claudedocs/responsive-implementation-report.md:10:- `css/responsive/global-responsive.css` - グローバルなレスポンシブ設定
+./claudedocs/responsive-implementation-report.md:11:- `css/responsive/components-responsive.css` - コンポーネント別の最適化
+./claudedocs/mobile-fixes-completion-report.md:9:**作成ファイル**: `css/responsive/mobile-fixes.css`
+./claudedocs/mobile-fixes-completion-report.md:32:**作成ファイル**: `css/responsive/ohenro-mobile-fixes.css`
+./claudedocs/mobile-fixes-completion-report.md:72:<link rel="stylesheet" href="css/style.css" />
+./claudedocs/mobile-fixes-completion-report.md:73:<link rel="stylesheet" href="css/responsive/global-responsive.css" />
+./claudedocs/mobile-fixes-completion-report.md:74:<link rel="stylesheet" href="css/responsive/components-responsive.css" />
+./claudedocs/mobile-fixes-completion-report.md:75:<link rel="stylesheet" href="css/responsive/mobile-fixes.css" />
+./claudedocs/mobile-fixes-completion-report.md:76:<link rel="stylesheet" href="css/responsive/ohenro-mobile-fixes.css" /> <!-- お遍路ページのみ -->
+./refactoring-docs/PHASE_DETAILED_TASKS.md:22:   grep -r ":root" css/ > css-variables-audit.txt
+./refactoring-docs/PHASE_DETAILED_TASKS.md:23:   grep -r "--" css/ >> css-variables-audit.txt
+./refactoring-docs/PHASE_DETAILED_TASKS.md:50:mkdir -p css/base
+./refactoring-docs/PHASE_DETAILED_TASKS.md:51:mkdir -p css/components
+./refactoring-docs/PHASE_DETAILED_TASKS.md:52:mkdir -p css/pages
+./refactoring-docs/PHASE_DETAILED_TASKS.md:53:mkdir -p css/responsive
+./refactoring-docs/PHASE_DETAILED_TASKS.md:56:touch css/base/variables.css
+./refactoring-docs/PHASE_DETAILED_TASKS.md:57:touch css/base/reset.css
+./refactoring-docs/PHASE_DETAILED_TASKS.md:58:touch css/base/typography.css
+./refactoring-docs/PHASE_DETAILED_TASKS.md:59:touch css/base/utilities.css
+./refactoring-docs/PHASE_DETAILED_TASKS.md:64:- [ ] `css/base/`ディレクトリ作成
+./refactoring-docs/PHASE_DETAILED_TASKS.md:65:- [ ] `css/components/`ディレクトリ作成
+./refactoring-docs/PHASE_DETAILED_TASKS.md:66:- [ ] `css/pages/`ディレクトリ作成
+./refactoring-docs/PHASE_DETAILED_TASKS.md:67:- [ ] `css/responsive/`ディレクトリ作成
+./refactoring-docs/PHASE_DETAILED_TASKS.md:79:   /* css/base/variables.css */
+./refactoring-docs/PHASE_DETAILED_TASKS.md:112:- [ ] **reset 部分** → `css/base/reset.css`
+./refactoring-docs/PHASE_DETAILED_TASKS.md:113:- [ ] **typography 部分** → `css/base/typography.css`
+./refactoring-docs/PHASE_DETAILED_TASKS.md:114:- [ ] **navigation 部分** → `css/components/navigation.css`
+./refactoring-docs/PHASE_DETAILED_TASKS.md:115:- [ ] **home 固有部分** → `css/pages/home.css`
+./refactoring-docs/PHASE_DETAILED_TASKS.md:116:- [ ] **utilities 部分** → `css/base/utilities.css`
+./refactoring-docs/PHASE_DETAILED_TASKS.md:134:- [ ] **お遍路固有スタイル** → `css/pages/ohenro.css`
+./refactoring-docs/PHASE_DETAILED_TASKS.md:135:- [ ] **カードコンポーネント** → `css/components/cards.css`
+./refactoring-docs/PHASE_DETAILED_TASKS.md:136:- [ ] **slideshow 部分** → `css/components/slideshow.css`
+./refactoring-docs/PHASE_DETAILED_TASKS.md:148:- [ ] **東海道固有スタイル** → `css/pages/tokaido.css`
+./refactoring-docs/PHASE_DETAILED_TASKS.md:150:- [ ] **フォーム系** → `css/components/forms.css`
+./refactoring-docs/PHASE_DETAILED_TASKS.md:151:- [ ] **ボタン系** → `css/components/buttons.css`
+./refactoring-docs/PHASE_DETAILED_TASKS.md:170:   grep -r "\.prefecture-grid" css/
+./refactoring-docs/PHASE_DETAILED_TASKS.md:171:   grep -r "\.navigation" css/
+./refactoring-docs/PHASE_DETAILED_TASKS.md:211:<link rel="stylesheet" href="css/base/variables.css" />
+./refactoring-docs/PHASE_DETAILED_TASKS.md:212:<link rel="stylesheet" href="css/base/reset.css" />
+./refactoring-docs/PHASE_DETAILED_TASKS.md:213:<link rel="stylesheet" href="css/base/typography.css" />
+./refactoring-docs/PHASE_DETAILED_TASKS.md:216:<link rel="stylesheet" href="css/components/navigation.css" />
+./refactoring-docs/PHASE_DETAILED_TASKS.md:217:<link rel="stylesheet" href="css/components/slideshow.css" />
+./refactoring-docs/PHASE_DETAILED_TASKS.md:220:<link rel="stylesheet" href="css/pages/home.css" />
+./refactoring-docs/PHASE_DETAILED_TASKS.md:223:<link rel="stylesheet" href="css/responsive/mobile.css" />
+./refactoring-docs/PHASE_DETAILED_TASKS.md:265:   grep -r "@media" css/ > existing-media-queries.txt
+./refactoring-docs/MASTER_IMPLEMENTATION_PLAN.md:36:- [ ] `css/base/variables.css` 作成
+./refactoring-docs/MASTER_IMPLEMENTATION_PLAN.md:41:**成功条件**: `grep -r ":root" css/` で 1 つのファイルのみヒット
+./refactoring-docs/MASTER_IMPLEMENTATION_PLAN.md:50:css/
+./refactoring-docs/README.md:138:du -sh css/*.css css/*/*.css 2>/dev/null | awk '{sum+=$1}END{print "Total:", sum, "KB"}'
+./refactoring-docs/PROGRESS_TRACKER.md:59:- [ ] `css/base/`ディレクトリ作成
+./refactoring-docs/PROGRESS_TRACKER.md:60:- [ ] `css/components/`ディレクトリ作成
+./refactoring-docs/PROGRESS_TRACKER.md:61:- [ ] `css/pages/`ディレクトリ作成
+./refactoring-docs/PROGRESS_TRACKER.md:62:- [ ] `css/responsive/`ディレクトリ作成
+./refactoring-docs/PROGRESS_TRACKER.md:63:- [ ] `css/base/variables.css`作成
+./refactoring-docs/PROGRESS_TRACKER.md:64:- [ ] `css/base/reset.css`作成
+./refactoring-docs/PROGRESS_TRACKER.md:65:- [ ] `css/base/typography.css`作成
+./refactoring-docs/PROGRESS_TRACKER.md:66:- [ ] `css/base/utilities.css`作成
+./refactoring-docs/PROGRESS_TRACKER.md:88:- [ ] `css/base/variables.css`（完全版）
+./refactoring-docs/PROGRESS_TRACKER.md:103:- [ ] reset 部分 → `css/base/reset.css`
+./refactoring-docs/PROGRESS_TRACKER.md:104:- [ ] typography 部分 → `css/base/typography.css`
+./refactoring-docs/PROGRESS_TRACKER.md:105:- [ ] navigation 部分 → `css/components/navigation.css`
+./refactoring-docs/PROGRESS_TRACKER.md:106:- [ ] home 固有部分 → `css/pages/home.css`
+./refactoring-docs/PROGRESS_TRACKER.md:107:- [ ] utilities 部分 → `css/base/utilities.css`
+./refactoring-docs/PROGRESS_TRACKER.md:122:- [ ] お遍路固有スタイル → `css/pages/ohenro.css`
+./refactoring-docs/PROGRESS_TRACKER.md:123:- [ ] カードコンポーネント → `css/components/cards.css`
+./refactoring-docs/PROGRESS_TRACKER.md:124:- [ ] slideshow 部分 → `css/components/slideshow.css`
+./refactoring-docs/PROGRESS_TRACKER.md:139:- [ ] 東海道固有スタイル → `css/pages/tokaido.css`
+./refactoring-docs/PROGRESS_TRACKER.md:141:- [ ] フォーム系 → `css/components/forms.css`
+./refactoring-docs/PROGRESS_TRACKER.md:142:- [ ] ボタン系 → `css/components/buttons.css`
+./refactoring-docs/QUALITY_STANDARDS.md:13:- [ ] **全変数抽出完了**: `grep -r ":root" css/` で 5 ファイル全検出
+./refactoring-docs/QUALITY_STANDARDS.md:21:grep -r ":root" css/ | wc -l  # 結果: 5 (各ファイル1つずつ)
+./refactoring-docs/QUALITY_STANDARDS.md:22:grep -r "--primary-gold" css/ | wc -l  # 結果: 統一前の数
+./refactoring-docs/QUALITY_STANDARDS.md:25:grep -r "--primary-gold:" css/ | cut -d: -f2 | sort | uniq -c
+./refactoring-docs/QUALITY_STANDARDS.md:47:# css/base
+./refactoring-docs/QUALITY_STANDARDS.md:48:# css/components
+./refactoring-docs/QUALITY_STANDARDS.md:49:# css/pages
+./refactoring-docs/QUALITY_STANDARDS.md:50:# css/responsive
+./refactoring-docs/QUALITY_STANDARDS.md:53:find css/base -name "*.css" | wc -l  # 結果: 4ファイル以上
+./refactoring-docs/QUALITY_STANDARDS.md:73:npx css-tree-validator css/base/variables.css
+./refactoring-docs/QUALITY_STANDARDS.md:76:grep -c "^  --" css/base/variables.css  # 期待: 30個以上
+./refactoring-docs/QUALITY_STANDARDS.md:79:grep "^  --" css/base/variables.css | cut -d: -f1 | sort | uniq -c | grep -v "1 "
+./refactoring-docs/QUALITY_STANDARDS.md:101:wc -l css/pages/*.css css/components/*.css
+./refactoring-docs/QUALITY_STANDARDS.md:132:grep -r "@media.*768px" css/ | grep -v "var(--bp"  # 結果: 0件
+./refactoring-docs/QUALITY_STANDARDS.md:133:grep -r "@media.*480px" css/ | grep -v "var(--bp"  # 結果: 0件
+./refactoring-docs/QUALITY_STANDARDS.md:134:grep -r "@media.*1024px" css/ | grep -v "var(--bp"  # 結果: 0件
+./refactoring-docs/QUALITY_STANDARDS.md:137:grep -r "@media.*var(--bp" css/ | wc -l  # 結果: 全メディアクエリ数
+./refactoring-docs/QUALITY_STANDARDS.md:308:du -sh css/*.css css/*/*.css | awk '{sum+=$1}END{print sum "KB"}'
+./Tokaido/index.html:26:      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+./Tokaido/index.html:33:    <link rel="stylesheet" href="../css/style.css" />
+./Tokaido/index.html:34:    <link rel="stylesheet" href="../css/tokaido.css" />
+./Tokaido/guide.html:13:      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+./Tokaido/guide.html:20:    <link rel="stylesheet" href="../css/style.css" />
+./Tokaido/guide.html:21:    <link rel="stylesheet" href="../css/tokaido.css" />
+./Tokaido/guide.html:22:    <link rel="stylesheet" href="../css/guide-simple.css" />
+./Tokaido/stations.html:16:      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+./Tokaido/stations.html:23:    <link rel="stylesheet" href="../css/style.css" />
+./Tokaido/stations.html:24:    <link rel="stylesheet" href="../css/tokaido.css" />
+./Ohenro/index.html:26:      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+./Ohenro/index.html:33:    <link rel="stylesheet" href="../css/style.css" />
+./Ohenro/index.html:34:    <link rel="stylesheet" href="../css/ohenro.css" />
+./Ohenro/index.html:35:    <link rel="stylesheet" href="../css/booking-responsive.css" />
+./Ohenro/shikoku.html:8:      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+./Ohenro/shikoku.html:12:    <link rel="stylesheet" href="../css/style.css">
+./Ohenro/shikoku.html:13:    <link rel="stylesheet" href="../css/ohenro.css">
+./Ohenro/faq.html:7:    <link rel="stylesheet" href="../css/style.css" />
+./Ohenro/faq.html:8:    <link rel="stylesheet" href="../css/ohenro.css" />
+./Ohenro/faq.html:9:    <link rel="stylesheet" href="../css/faq.css" />
+./Ohenro/faq.html:11:      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+Binary file ./.git/index matches
+./css-variables-audit.txt:1:css/faq.css::root {
+./css-variables-audit.txt:2:Binary file css/tokaido.css matches
+./css-variables-audit.txt:3:css/style.css::root {
+./css-variables-audit.txt:4:css/ohenro.css::root {
+./css-variables-audit.txt:5:css/guide-simple.css::root {
+./CLAUDE.md:30:- `css/style.css` - 共通 CSS（1016 行、企業ページ含む）
+./CLAUDE.md:31:- `css/ohenro.css` - お遍路専用 CSS（1966 行）
+./CLAUDE.md:90:- **css/style.css**: 共通スタイル + 企業ページ（1016 行）
+./CLAUDE.md:91:- **css/ohenro.css**: お遍路専用スタイル（1966 行）
+./CLAUDE.md:132:  - 企業ページ関連 → `css/style.css`
+./CLAUDE.md:133:  - お遍路機能関連 → `css/ohenro.css`

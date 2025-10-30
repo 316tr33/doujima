@@ -1,0 +1,298 @@
+/* ===========================================
+   CSS変数統一定義 - 堂島フロント企画
+   5ファイルの重複変数を統一管理
+   =========================================== */
+
+:root {
+  /* ===========================================
+     🎨 カラーパレット（全サイト共通）
+     =========================================== */
+  --primary-gold: #b8860b;
+  --secondary-gold: #8b6914;
+  --accent-gold: #d4af37;
+  --text-white: #2c2c2c;
+  --text-gray: #555;
+  --text-dark: #1a1a1a;
+
+  /* 背景色バリエーション */
+  --bg-light: #faf8f3;
+  --bg-light-secondary: #f8f6f0;
+  --bg-dark: #f5f3ef;
+  --bg-overlay: rgba(245, 243, 239, 0.95);
+
+  /* ===========================================
+     📏 スペーシングシステム
+     =========================================== */
+  /* デスクトップスペーシング */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 2rem; /* 32px */
+  --spacing-lg: 4rem; /* 64px */
+  --spacing-xl: 6rem; /* 96px */
+  --margin-auto: 0 auto;
+
+  /* モバイルスペーシング */
+  --spacing-xs-mobile: 0.25rem; /* 4px */
+  --spacing-sm-mobile: 0.75rem; /* 12px */
+  --spacing-md-mobile: 1.5rem; /* 24px */
+  --spacing-lg-mobile: 2.5rem; /* 40px */
+  --spacing-xl-mobile: 4rem; /* 64px */
+
+  /* タッチターゲット（モバイルアクセシビリティ） */
+  --touch-target-min: 44px; /* 最小タッチサイズ */
+  --touch-target-ideal: 48px; /* 推奨タッチサイズ */
+  --touch-spacing: 8px; /* タッチ間隔 */
+
+  /* ===========================================
+     🔤 フォントシステム
+     =========================================== */
+  --font-primary: "Noto Serif JP", "Yu Mincho", "YuMincho",
+    "Hiragino Mincho Pro", "Times New Roman", serif;
+  --font-secondary: "Shippori Mincho", serif;
+
+  /* フォントサイズ階層（デスクトップベース） */
+  --font-h1: 2.5rem; /* 40px */
+  --font-h2: 2rem; /* 32px */
+  --font-h3: 1.5rem; /* 24px */
+  --font-h4: 1.25rem; /* 20px */
+  --font-body: 1rem; /* 16px */
+  --font-small: 0.9rem; /* 14px */
+  --font-xs: 0.8rem; /* 13px */
+
+  /* モバイル用フォントサイズ */
+  --font-h1-mobile: 2rem; /* 32px */
+  --font-h2-mobile: 2rem; /* 32px */
+  --font-h3-mobile: 1.375rem; /* 22px */
+  --font-h4-mobile: 1.125rem; /* 18px */
+  --font-body-mobile: 1rem; /* 16px */
+  --font-small-mobile: 0.875rem; /* 14px */
+
+  /* 追加：スライドショーヒーロー用 */
+  --font-2xl-mobile: 2.8rem; /* 45px - モバイルヒーロータイトル */
+  --font-base-mobile: 1rem; /* 16px - モバイルベース */
+  --font-sm-mobile: 0.9rem; /* 14px - モバイル小文字 */
+
+  /* フォントウェイト */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* ===========================================
+     🎨 ビジュアルエフェクト
+     =========================================== */
+  --border-gold: 1px solid rgba(184, 134, 11, 0.3);
+  --border-radius: 8px;
+  --shadow-text: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  /* ===========================================
+     📱 レスポンシブブレークポイント（モバイルファースト）
+     =========================================== */
+  /* 基本ブレークポイント */
+  --bp-xs: 320px; /* スマートフォン（極小） */
+  --bp-sm: 480px; /* スマートフォン（標準） */
+  --bp-md: 768px; /* タブレット */
+  --bp-lg: 1024px; /* デスクトップ（小） */
+  --bp-xl: 1440px; /* デスクトップ（大） */
+  --bp-xxl: 1920px; /* ワイドスクリーン */
+
+  /* 旧変数（下位互換） */
+  --bp-mobile-max: 480px;
+  --bp-tablet-min: 481px;
+  --bp-tablet-max: 768px;
+  --bp-desktop-min: 769px;
+  --bp-desktop-wide: 1200px;
+
+  /* レスポンシブコンテナ */
+  --container-xs: 100%; /* 320px~ */
+  --container-sm: 100%; /* 480px~ */
+  --container-md: 100%; /* 768px~ */
+  --container-lg: 1200px; /* 1024px~ */
+  --container-xl: 1400px; /* 1440px~ */
+  --container-xxl: 1600px; /* 1920px~ */
+
+  /* 旧コンテナ変数（下位互換） */
+  --container-mobile: var(--container-sm);
+  --container-tablet: var(--container-md);
+  --container-desktop: var(--container-lg);
+
+  /* ===========================================
+     🎯 アニメーション・トランジション
+     =========================================== */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 2.8s ease-in-out;
+
+  /* ===========================================
+     📐 Z-Index階層管理
+     =========================================== */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ===========================================
+   🛠️ ユーティリティクラス
+   =========================================== */
+
+/* フレックスボックス */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* テキストユーティリティ */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-gold {
+  color: var(--primary-gold);
+}
+
+/* 背景ユーティリティ */
+.bg-overlay {
+  background: var(--bg-overlay);
+}
+.bg-dark {
+  background: var(--bg-dark);
+}
+
+/* スペーシングユーティリティ */
+.margin-auto {
+  margin: var(--margin-auto);
+}
+.padding-lg {
+  padding: var(--spacing-lg);
+}
+.margin-bottom-md {
+  margin-bottom: var(--spacing-md);
+}
+
+/* ビジュアルエフェクト */
+.gold-border {
+  border: var(--border-gold);
+}
+.shadow-text {
+  text-shadow: var(--shadow-text);
+}
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+/* ===========================================
+   📱 レスポンシブユーティリティ
+   =========================================== */
+
+/* 表示制御 */
+.hidden {
+  display: none !important;
+}
+.visible {
+  display: block !important;
+}
+
+/* モバイル表示制御 */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  .show-mobile {
+    display: block !important;
+  }
+}
+
+/* デスクトップ表示制御 */
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none !important;
+  }
+  .show-desktop {
+    display: block !important;
+  }
+}
+
+/* フレックスボックスレスポンシブ */
+.flex-column-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .flex-column-mobile {
+    flex-direction: row;
+  }
+}
+
+/* グリッドレスポンシブ */
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  .grid-1-md {
+    grid-template-columns: 1fr;
+  }
+  .grid-2-md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* タッチターゲット */
+.touch-target {
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  padding: var(--touch-spacing);
+}
+
+.touch-target-ideal {
+  min-height: var(--touch-target-ideal);
+  min-width: var(--touch-target-ideal);
+}
+
+/* モバイルスペーシング */
+.padding-mobile {
+  padding: var(--spacing-sm-mobile);
+}
+.margin-mobile {
+  margin: var(--spacing-sm-mobile);
+}
+.gap-mobile {
+  gap: var(--spacing-sm-mobile);
+}
+
+/* ===========================================
+   📝 設計思想・使用ガイドライン
+   =========================================== 
+
+   1. **統一性**: 全サイトで一貫したデザインシステム
+   2. **保守性**: 1箇所変更で全体に反映
+   3. **拡張性**: 新しい変数の追加が容易
+   4. **命名規則**: セマンティックな名称使用
+   5. **階層管理**: カテゴリ別の明確な分類
+   
+   🚨 **重要**: 各CSSファイルでの:root再定義禁止
+   　　　　　　このファイルが唯一の変数定義源
+
+   =========================================== */

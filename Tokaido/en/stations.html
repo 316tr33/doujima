@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <title>Tokaido 53 Stations Guide - Doujima Front Planning</title>
+    <meta
+      name="description"
+      content="Detailed information on the 53 stations of the Tokaido Road. History, highlights, and access information for each post town along the historic Tokaido walking route."
+    />
+    <meta
+      name="keywords"
+      content="Tokaido,53 stations,post towns,highway,walking,history,travel,Nihonbashi"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/tokaido.css" />
+    <script src="../../js/language-switcher.js" defer></script>
+    <script src="../../js/logo-visibility.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="../../index.html" class="logo">
+          <img src="../../images/doujima-logo.webp" alt="Doujima Front Planning" />
+          <span class="logo-text">Doujima Front Planning</span>
+        </a>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html">Highway Walk</a>
+          </li>
+          <li>
+            <a href="stations.html" class="active">Station Guide</a>
+            <div class="dropdown">
+              <a href="#yamashiro-area">Yamashiro</a>
+              <a href="#oumi-area">Oumi</a>
+              <a href="#ise-area">Ise</a>
+              <a href="#owari-area">Owari</a>
+              <a href="#mikawa-area">Mikawa</a>
+              <a href="#totomi-area">Totomi</a>
+              <a href="#suruga-area">Suruga</a>
+              <a href="#izu-area">Izu</a>
+              <a href="#sagami-area">Sagami</a>
+              <a href="#musashi-area">Musashi</a>
+            </div>
+          </li>
+          <li>
+            <a href="guide.html">Walking Guide</a>
+          </li>
+          <li>
+            <a href="../../Ohenro/en/index.html">Pilgrimage</a>
+          </li>
+          <li>
+            <a href="https://doujimafront.stores.jp/" target="_blank"
+              >Online Shop</a
+            >
+          </li>
+          <li>
+            <a href="../../en/index.html">Corporate Top</a>
+          </li>
+        </ul>
+        <!-- Mobile hamburger menu button -->
+        <button
+          class="mobile-menu-toggle"
+          id="mobileMenuToggle"
+          aria-label="Open menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Fixed floating language switcher button -->
+    <div class="language-switcher">
+      <button
+        id="languageToggle"
+        class="language-btn"
+        aria-label="Switch Language / 言語切り替え"
+      >
+        <i class="fas fa-globe"></i>
+        <span class="lang-text">日本語</span>
+      </button>
+    </div>
+
+    <!-- Mobile overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">Menu</span>
+        <button
+          class="mobile-menu-close"
+          id="mobileMenuClose"
+          aria-label="Close menu"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="index.html" class="mobile-menu-link">Highway Walk</a>
+        <a href="stations.html" class="mobile-menu-link">Station Guide</a>
+        <a href="guide.html" class="mobile-menu-link">Walking Guide</a>
+        <a href="../../Ohenro/en/index.html" class="mobile-menu-link">Pilgrimage</a>
+        <a
+          href="https://doujimafront.stores.jp/"
+          target="_blank"
+          class="mobile-menu-link"
+          >Online Shop</a
+        >
+        <a href="../../en/index.html" class="mobile-menu-link">Corporate Top</a>
+        <a href="#" id="mobileLangToggle" class="mobile-menu-link">
+          <i class="fas fa-globe"></i> 日本語
+        </a>
+      </nav>
+    </div>
+
+    <!-- Hero section -->
+    <section class="hero stations-hero">
+      <div class="hero-content stations-hero-content">
+        <h1 class="stations-title">Tokaido 53 Stations</h1>
+        <p class="hero-description stations-description">
+          Explore 53 post towns from Edo to Kyoto
+        </p>
+
+        <!-- Province navigation -->
+        <div class="station-search-container">
+          <div class="quick-navigation">
+            <button class="nav-btn active" data-filter="yamashiro">
+              Yamashiro
+            </button>
+            <button class="nav-btn" data-filter="oumi">Oumi</button>
+            <button class="nav-btn" data-filter="ise">Ise</button>
+            <button class="nav-btn" data-filter="owari">Owari</button>
+            <button class="nav-btn" data-filter="mikawa">Mikawa</button>
+            <button class="nav-btn" data-filter="totomi">Totomi</button>
+            <button class="nav-btn" data-filter="suruga">Suruga</button>
+            <button class="nav-btn" data-filter="izu">Izu</button>
+            <button class="nav-btn" data-filter="sagami">Sagami</button>
+            <button class="nav-btn" data-filter="musashi">Musashi</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Station main content -->
+    <section class="stations-main-content">
+      <div class="section-content">
+        <!-- Yamashiro Province area -->
+        <div class="area-section" id="yamashiro-area">
+          <h2 class="area-title">
+            <span class="area-number">Yamashiro Province</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >The endpoint of Tokaido, Gateway to Kyoto</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- Endpoint: Sanjo Ohashi -->
+            <div
+              class="station-card yamashiro scenic history special"
+              data-number="54"
+              data-features="endpoint,bridge,Kyoto"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/55-Kyoto.webp"
+                  alt="Sanjo Ohashi - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Sanjo Ohashi</h3>
+                <div class="station-reading">三条大橋 (Sanjō Ōhashi)</div>
+                <p class="station-description">
+                  The endpoint of the Tokaido Road at Kyoto's Sanjo Bridge. Built in 1590 under Toyotomi Hideyoshi's command, it served as the western terminus of the Tokaido during the Edo period, where countless travelers passed through. The historic bridge still spans the Kamo River today.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oumi Province area -->
+        <div class="area-section" id="oumi-area">
+          <h2 class="area-title">
+            <span class="area-number">Oumi Province</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >Post towns along Lake Biwa, Junction of Tokaido and Nakasendo</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- Station 53: Otsu -->
+            <div
+              class="station-card oumi history scenic"
+              data-number="53"
+              data-features="Lake Biwa,endpoint,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/54-Ōtsū.webp"
+                  alt="Otsu - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Otsu</h3>
+                <div class="station-reading">大津 (Ōtsu)</div>
+                <p class="station-description">
+                  The final station on the Tokaido. Located on the shores of Lake Biwa, it is a cultural post town famous for Otsu-e paintings.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 52: Kusatsu -->
+            <div
+              class="station-card oumi history scenic"
+              data-number="52"
+              data-features="transportation hub,Nakasendo,honjin"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/53-Kusatsu.webp"
+                  alt="Kusatsu - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Kusatsu</h3>
+                <div class="station-reading">草津 (Kusatsu)</div>
+                <p class="station-description">
+                  A transportation hub where the Tokaido and Nakasendo meet. The preserved honjin (inn) conveys the atmosphere of those times.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 51: Ishibe -->
+            <div
+              class="station-card oumi beginner gourmet"
+              data-number="51"
+              data-features="beginner,rural village,specialty"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/52-Ishibe.webp"
+                  alt="Ishibe - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Ishibe</h3>
+                <div class="station-reading">石部 (Ishibe)</div>
+                <p class="station-description">
+                  A post town said to be the origin of the phrase "Ishibe Kinkichi," describing a stubborn, inflexible person.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 50: Minakuchi -->
+            <div
+              class="station-card oumi history scenic"
+              data-number="50"
+              data-features="castle town,Minakuchi Castle,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/51-Minakuchi.webp"
+                  alt="Minakuchi - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Minakuchi</h3>
+                <div class="station-reading">水口 (Minakuchi)</div>
+                <p class="station-description">
+                  A post town that prospered as a castle town of Minakuchi Castle. It has a prestigious history as a lodging place for Tokugawa Shoguns during their trips to Kyoto.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 49: Tsuchiyama -->
+            <div
+              class="station-card oumi history scenic"
+              data-number="49"
+              data-features="tea,mountain,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/50-Tsuchiyama.webp"
+                  alt="Tsuchiyama - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Tsuchiyama</h3>
+                <div class="station-reading">土山 (Tsuchiyama)</div>
+                <p class="station-description">
+                  The first post town entering Oumi Province after crossing Suzuka Pass. It is also a tea-producing region famous for Tsuchiyama tea.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ise Province area -->
+        <div class="area-section" id="ise-area">
+          <h2 class="area-title">
+            <span class="area-number">Ise Province</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >Historic post towns facing Ise Bay</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- Station 48: Sakanoshita -->
+            <div
+              class="station-card ise beginner history"
+              data-number="48"
+              data-features="mountain pass,beginner,mountain"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/49-Sakanoshita.webp"
+                  alt="Sakanoshita - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Sakanoshita</h3>
+                <div class="station-reading">坂下 (Sakanoshita)</div>
+                <p class="station-description">
+                  A mountain post town at the foot of Suzuka Pass. It prospered as a base for crossing the pass and features a waterfall depicted in Katsushika Hokusai's ukiyo-e.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 47: Seki -->
+            <div
+              class="station-card ise history scenic"
+              data-number="47"
+              data-features="Seki-juku,historic preservation,streetscape"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/48-Seki.webp"
+                  alt="Seki - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Seki</h3>
+                <div class="station-reading">関 (Seki)</div>
+                <p class="station-description">
+                  A post town with the most beautifully preserved Edo-period streetscape. Designated as an Important Preservation District for Groups of Traditional Buildings.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 46: Kameyama -->
+            <div
+              class="station-card ise history scenic"
+              data-number="46"
+              data-features="castle town,Kameyama Castle,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/47-Kameyama.webp"
+                  alt="Kameyama - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Kameyama</h3>
+                <div class="station-reading">亀山 (Kameyama)</div>
+                <p class="station-description">
+                  A post town that prospered as a castle town of Kameyama Castle. Utagawa Hiroshige depicted a daimyo procession ascending the slope leading to the castle gate.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 45: Shono -->
+            <div
+              class="station-card ise beginner scenic"
+              data-number="45"
+              data-features="nature,beginner,countryside"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/46-Shōno.webp"
+                  alt="Shono - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Shono</h3>
+                <div class="station-reading">庄野 (Shōno)</div>
+                <p class="station-description">
+                  A small post town in a quiet rural area. A place where traditional Japanese countryside scenery remains and time flows leisurely.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 44: Ishiyakushi -->
+            <div
+              class="station-card ise beginner scenic"
+              data-number="44"
+              data-features="rural fields,beginner,nature"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/45-Ishiyakushi.webp"
+                  alt="Ishiyakushi - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Ishiyakushi</h3>
+                <div class="station-reading">石薬師 (Ishiyakushi)</div>
+                <p class="station-description">
+                  Only about 2.7km from Shono-juku. The second shortest distance between stations on the Tokaido, with Ishiyakushi-ji Temple from which the name derives.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 43: Yokkaichi -->
+            <div
+              class="station-card ise history gourmet"
+              data-number="43"
+              data-features="port town,commerce,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/44-Yokkaichi.webp"
+                  alt="Yokkaichi - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Yokkaichi</h3>
+                <div class="station-reading">四日市 (Yokkaichi)</div>
+                <p class="station-description">
+                  A post town that developed as a commercial port. Still occupies an important position as an industrial city in Mie Prefecture.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 42: Kuwana -->
+            <div
+              class="station-card ise history gourmet"
+              data-number="42"
+              data-features="Shichiri no Watashi,clams,castle town"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/43-Kuwana.webp"
+                  alt="Kuwana - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Kuwana</h3>
+                <div class="station-reading">桑名 (Kuwana)</div>
+                <p class="station-description">
+                  A port town on Ise Bay famous for Shichiri no Watashi ferry crossing. Honda Tadakatsu, one of the Four Heavenly Kings of Tokugawa, became the first domain lord and developed it as a castle town of Kuwana Castle.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Owari Province area -->
+        <div class="area-section" id="owari-area">
+          <h2 class="area-title">
+            <span class="area-number">Owari Province</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >Atsuta Shrine's temple town, Center of Nagoya</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- Station 41: Miya -->
+            <div
+              class="station-card owari history gourmet"
+              data-number="41"
+              data-features="Atsuta Shrine,temple town,three major shrines"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/42-Miya.webp"
+                  alt="Miya - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Miya</h3>
+                <div class="station-reading">宮 (Miya)</div>
+                <p class="station-description">
+                  A post town that developed as a temple town of Atsuta Shrine. One of Japan's three major shrines, famous for the Kusanagi sword.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 40: Narumi -->
+            <div
+              class="station-card owari history gourmet"
+              data-number="40"
+              data-features="Narumi shibori,traditional crafts,indigo dyeing"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/41-Narumi.webp"
+                  alt="Narumi - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Narumi</h3>
+                <div class="station-reading">鳴海 (Narumi)</div>
+                <p class="station-description">
+                  A traditional crafts post town famous for Narumi shibori tie-dyeing. Beautiful indigo dyeing techniques are still passed down today.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mikawa Province area -->
+        <div class="area-section" id="mikawa-area">
+          <h2 class="area-title">
+            <span class="area-number">Mikawa Province</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >Birthplace of Tokugawa Ieyasu, Home of Mikawa warriors</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- Station 39: Chiryu -->
+            <div
+              class="station-card mikawa history scenic"
+              data-number="39"
+              data-features="Chiryu Shrine,horse market,commerce"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/40-Chiryu.webp"
+                  alt="Chiryu - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Chiryu</h3>
+                <div class="station-reading">池鯉鮒 (Chiryū)</div>
+                <p class="station-description">
+                  Present-day Chiryu City. A post town famous for Chiryu Shrine and horse markets where many merchants gathered.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 38: Okazaki -->
+            <div
+              class="station-card mikawa history scenic special"
+              data-number="38"
+              data-features="Tokugawa Ieyasu,castle town,Okazaki Castle"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/39-Okazaki.webp"
+                  alt="Okazaki - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Okazaki</h3>
+                <div class="station-reading">岡崎 (Okazaki)</div>
+                <p class="station-description">
+                  A castle town famous as the birthplace of Tokugawa Ieyasu. A historic tourist destination centered around Okazaki Castle.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 37: Fujikawa -->
+            <div
+              class="station-card mikawa beginner scenic"
+              data-number="37"
+              data-features="purple wheat,rural landscape,ukiyo-e"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/38-Fujikawa.webp"
+                  alt="Fujikawa - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Fujikawa</h3>
+                <div class="station-reading">藤川 (Fujikawa)</div>
+                <p class="station-description">
+                  A post town famous for purple wheat. The beautiful Bohana (entrance marker) depicted in Hiroshige's ukiyo-e has been reconstructed.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 36: Akasaka -->
+            <div
+              class="station-card mikawa beginner scenic"
+              data-number="36"
+              data-features="cedar trees,history,beginner"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/37-Akasaka.webp"
+                  alt="Akasaka - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Akasaka</h3>
+                <div class="station-reading">赤坂 (Akasaka)</div>
+                <p class="station-description">
+                  A small post town adjacent to Goyu-juku. A place where historic pine tree-lined avenues are beautifully preserved.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 35: Goyu -->
+            <div
+              class="station-card mikawa history scenic"
+              data-number="35"
+              data-features="pine trees,politics,culture"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/36-Goyu.webp"
+                  alt="Goyu - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Goyu</h3>
+                <div class="station-reading">御油 (Goyu)</div>
+                <p class="station-description">
+                  A post town famous for beautiful pine-lined avenues. Prospered as the political and cultural center of Mikawa Province.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 34: Yoshida -->
+            <div
+              class="station-card mikawa history scenic"
+              data-number="34"
+              data-features="castle town,Yoshida Castle,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/35-Yoshida.webp"
+                  alt="Yoshida - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Yoshida</h3>
+                <div class="station-reading">吉田 (Yoshida)</div>
+                <p class="station-description">
+                  The center of eastern Mikawa that prospered as a castle town of Yoshida Castle. Now developed as modern Toyohashi City.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 33: Futagawa -->
+            <div
+              class="station-card mikawa history beginner"
+              data-number="33"
+              data-features="honjin,history,beginner"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/34-Futagawa.webp"
+                  alt="Futagawa - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Futagawa</h3>
+                <div class="station-reading">二川 (Futagawa)</div>
+                <p class="station-description">
+                  A precious post town where the honjin building remains. Strongly retains the atmosphere of an Edo-period post town.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Totomi Province area -->
+        <div class="area-section" id="totomi-area">
+          <h2 class="area-title">
+            <span class="area-number">Totomi Province</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >Post towns along Lake Hamana, Tenryu River, and Enshu coast</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- Station 32: Shirasuka -->
+            <div
+              class="station-card totomi beginner scenic"
+              data-number="32"
+              data-features="coast,beginner,scenery"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/33-Shirasuka.webp"
+                  alt="Shirasuka - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Shirasuka</h3>
+                <div class="station-reading">白須賀 (Shirasuka)</div>
+                <p class="station-description">
+                  A post town on a plateau facing the Enshu coast. From Shiomizaka Park within the post town, a magnificent view of the Pacific Ocean spreads out.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 31: Arai -->
+            <div
+              class="station-card totomi history scenic"
+              data-number="31"
+              data-features="checkpoint,history,inspection"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/32-Arai.webp"
+                  alt="Arai - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Arai</h3>
+                <div class="station-reading">新居 (Arai)</div>
+                <p class="station-description">
+                  A post town with an important checkpoint rivaling Hakone. A historically significant point known for strict inspections.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 30: Maisaka -->
+            <div
+              class="station-card totomi scenic gourmet"
+              data-number="30"
+              data-features="Lake Hamana,ferry,seafood"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/31-Maisaka.webp"
+                  alt="Maisaka - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Maisaka</h3>
+                <div class="station-reading">舞坂 (Maisaka)</div>
+                <p class="station-description">
+                  A post town that prospered as a ferry crossing on Lake Hamana. Still offers beautiful lake views and fresh seafood, with eel dishes being particularly famous.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 29: Hamamatsu -->
+            <div
+              class="station-card totomi history gourmet"
+              data-number="29"
+              data-features="eel,castle town,musical instruments"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/30-Hamamatsu.webp"
+                  alt="Hamamatsu - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Hamamatsu</h3>
+                <div class="station-reading">浜松 (Hamamatsu)</div>
+                <p class="station-description">
+                  A castle town famous for eel dishes. The central city of western Shizuoka Prefecture that also prospers with the musical instrument industry.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 28: Mitsuke -->
+            <div
+              class="station-card totomi history scenic"
+              data-number="28"
+              data-features="Tenryu River,history,ferry"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/29-Mitsuke.webp"
+                  alt="Mitsuke - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Mitsuke</h3>
+                <div class="station-reading">見付 (Mitsuke)</div>
+                <p class="station-description">
+                  Said to be named "Mitsuke" (to see/find) because travelers heading east from Kyoto first saw Mt. Fuji from here.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 27: Fukuroi -->
+            <div
+              class="station-card totomi beginner gourmet"
+              data-number="27"
+              data-features="middle point,tea,beginner"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/28-Fukuroi.webp"
+                  alt="Fukuroi - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Fukuroi</h3>
+                <div class="station-reading">袋井 (Fukuroi)</div>
+                <p class="station-description">
+                  Famous as the "middle point" of the Tokaido 53 Stations. A modern area that prospers with the tea industry and serves as the starting point for Enshu Sanzan pilgrimage.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 26: Kakegawa -->
+            <div
+              class="station-card totomi history scenic"
+              data-number="26"
+              data-features="castle,tea,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/27-Kakegawa.webp"
+                  alt="Kakegawa - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Kakegawa</h3>
+                <div class="station-reading">掛川 (Kakegawa)</div>
+                <p class="station-description">
+                  A post town that prospered as a castle town of Kakegawa Castle. The beautifully reconstructed castle tower is still a highlight today.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 25: Nissaka -->
+            <div
+              class="station-card totomi history scenic"
+              data-number="25"
+              data-features="mountain pass,history,night-crying stone"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/26-Nissaka.webp"
+                  alt="Nissaka - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Nissaka</h3>
+                <div class="station-reading">日坂 (Nissaka)</div>
+                <p class="station-description">
+                  A mountain post town famous for the night-crying stone legend. A historic post town at the foot of Sayo-no-Nakayama Pass.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 24: Kanaya -->
+            <div
+              class="station-card totomi gourmet onsen"
+              data-number="24"
+              data-features="tea,hot springs,steam locomotive"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/25-Kanaya.webp"
+                  alt="Kanaya - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Kanaya</h3>
+                <div class="station-reading">金谷 (Kanaya)</div>
+                <p class="station-description">
+                  A post town with the Oigawa Railway operating steam locomotives. In the Edo period, it was famous for the Oi River crossing.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suruga Province area -->
+        <div class="area-section" id="suruga-area">
+          <h2 class="area-title">
+            <span class="area-number">Suruga Province</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >Scenic areas at the foot of Mt. Fuji along Suruga Bay</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- Station 23: Shimada -->
+            <div
+              class="station-card suruga history scenic"
+              data-number="23"
+              data-features="Oi River,river crossing,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/24-Shimada.webp"
+                  alt="Shimada - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Shimada</h3>
+                <div class="station-reading">島田 (Shimada)</div>
+                <p class="station-description">
+                  A post town that prospered with the Oi River crossing. The stage of "While Hakone's eight ri can be crossed on horseback, the Oi River cannot be crossed at all."
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 22: Fujieda -->
+            <div
+              class="station-card suruga gourmet beginner"
+              data-number="22"
+              data-features="tea,soccer,modern"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/23-Fujieda.webp"
+                  alt="Fujieda - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Fujieda</h3>
+                <div class="station-reading">藤枝 (Fujieda)</div>
+                <p class="station-description">
+                  Prospered as a castle town of Tanaka Castle that Tokugawa Ieyasu often visited, and as a junction point of the Tanuma Highway leading to Sagara, a salt production area.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 21: Okabe -->
+            <div
+              class="station-card suruga history beginner"
+              data-number="21"
+              data-features="tea fields,history,nature"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/22-Okabe.webp"
+                  alt="Okabe - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Okabe</h3>
+                <div class="station-reading">岡部 (Okabe)</div>
+                <p class="station-description">
+                  A mountain post town known as a Shizuoka tea production area. The Edo-period inn "Kashiwaya" still remains.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 20: Mariko -->
+            <div
+              class="station-card suruga gourmet beginner"
+              data-number="20"
+              data-features="tororo soup,specialty,beginner"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/21-Mariko.webp"
+                  alt="Mariko - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Mariko</h3>
+                <div class="station-reading">鞠子 (Mariko)</div>
+                <p class="station-description">
+                  A post town famous for tororo (grated yam) soup. A tororo soup shop operating in the same location for 400 years still attracts many tourists seeking the specialty.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 19: Fuchu -->
+            <div
+              class="station-card suruga history scenic"
+              data-number="19"
+              data-features="Sunpu Castle,history,politics"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/20-Fuchu.webp"
+                  alt="Fuchu - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Fuchu</h3>
+                <div class="station-reading">府中 (Fuchū)</div>
+                <p class="station-description">
+                  Developed as a castle town of Sunpu Castle. Also a political center where Tokugawa Ieyasu spent his later years.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 18: Ejiri -->
+            <div
+              class="station-card suruga history gourmet"
+              data-number="18"
+              data-features="port town,tea,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/19-Ejiri.webp"
+                  alt="Ejiri - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Ejiri</h3>
+                <div class="station-reading">江尻 (Ejiri)</div>
+                <p class="station-description">
+                  A port town functioning as present-day Shimizu Port. The birthplace of Jirocho of Shimizu, said to be the greatest boss along the highway, remains.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 17: Okitsu -->
+            <div
+              class="station-card suruga history beginner"
+              data-number="17"
+              data-features="politicians,villa,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/18-Okitsu-gawa.webp"
+                  alt="Okitsu - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Okitsu</h3>
+                <div class="station-reading">興津 (Okitsu)</div>
+                <p class="station-description">
+                  A post town that prospered as a villa area for politicians during the Meiji era. A place that became a stage for history and politics.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 16: Yui -->
+            <div
+              class="station-card suruga scenic gourmet"
+              data-number="16"
+              data-features="sakura shrimp,Suruga Bay,specialty"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/17-Yui.webp"
+                  alt="Yui - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Yui</h3>
+                <div class="station-reading">由比 (Yui)</div>
+                <p class="station-description">
+                  A post town famous for sakura shrimp. Utagawa Hiroshige depicted the spectacular view of Mt. Fuji and Suruga Bay from Satta Pass.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 15: Kambara -->
+            <div
+              class="station-card suruga scenic history"
+              data-number="15"
+              data-features="Mt. Fuji,scenery,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/16-Kambara.webp"
+                  alt="Kambara - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Kambara</h3>
+                <div class="station-reading">蒲原 (Kambara)</div>
+                <p class="station-description">
+                  A post town famous for Utagawa Hiroshige's snow scene. The charm lies in namako-walled residences and Western-style buildings from the Taisho era creating a retro townscape.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 14: Yoshiwara -->
+            <div
+              class="station-card suruga history gourmet"
+              data-number="14"
+              data-features="history,culture,specialty"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/15-Yoshiwara.webp"
+                  alt="Yoshiwara - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Yoshiwara</h3>
+                <div class="station-reading">吉原 (Yoshiwara)</div>
+                <p class="station-description">
+                  A post town at the foot of Mt. Fuji. For travelers from the east, "Hidari Fuji" (Mt. Fuji on the left) was famous, where the road curves sharply making Mt. Fuji visible on the left.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 13: Hara -->
+            <div
+              class="station-card suruga scenic history"
+              data-number="13"
+              data-features="Mt. Fuji,scenery,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/14-Hara.webp"
+                  alt="Hara - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Hara</h3>
+                <div class="station-reading">原 (Hara)</div>
+                <p class="station-description">
+                  A famous spot depicted in Utagawa Hiroshige's ukiyo-e as a post town with spectacular views of Mt. Fuji. Beautiful scenery remains today.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 12: Numazu -->
+            <div
+              class="station-card suruga gourmet scenic"
+              data-number="12"
+              data-features="seafood,port town,gourmet"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/13-Numazu.webp"
+                  alt="Numazu - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Numazu</h3>
+                <div class="station-reading">沼津 (Numazu)</div>
+                <p class="station-description">
+                  A port town facing Suruga Bay proud of fresh seafood. The pine-lined avenue of Senbon Matsubara, famous as the best scenic spot on the Tokaido, continues along the coast.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Izu Province area -->
+        <div class="area-section" id="izu-area">
+          <h2 class="area-title">
+            <span class="area-number">Izu Province</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >Mt. Fuji's spring water, Gateway to Hakone</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- Station 11: Mishima -->
+            <div
+              class="station-card izu history"
+              data-number="11"
+              data-features="spring water,shrine,history"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/12-Mishima.webp"
+                  alt="Mishima Station - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Mishima</h3>
+                <div class="station-reading">三島 (Mishima)</div>
+                <p class="station-description">
+                  A post town famous for Mt. Fuji's spring water. A place that prospered from ancient times as a temple town of Mishima Taisha Shrine.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sagami Province area -->
+        <div class="area-section" id="sagami-area">
+          <h2 class="area-title">
+            <span class="area-number">Sagami Province</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >Hakone checkpoint and scenic post towns along Sagami Bay</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- Station 10: Hakone -->
+            <div
+              class="station-card sagami scenic history"
+              data-number="10"
+              data-features="hot springs,checkpoint,mountain station,Tokaido's greatest challenge"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/11-Hakone.webp"
+                  alt="Hakone Station - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Hakone</h3>
+                <div class="station-reading">箱根 (Hakone)</div>
+                <p class="station-description">
+                  A mountain checkpoint post town feared as the Tokaido's greatest challenge. An important rest stop for travelers crossing the steep mountain path of Hakone Hachiri, it continues to be loved worldwide as one of Japan's leading hot spring tourist destinations.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 9: Odawara -->
+            <div
+              class="station-card sagami history"
+              data-number="9"
+              data-features="castle town,Odawara Castle,last in Kanto"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/10-Odawara.webp"
+                  alt="Odawara Station - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Odawara</h3>
+                <div class="station-reading">小田原 (Odawara)</div>
+                <p class="station-description">
+                  The last major post town in the Kanto region that prospered as a castle town of the Hojo clan during the Warring States period. A historic tourist destination centered on Odawara Castle, also known for specialty products like kamaboko and umeboshi. Travelers gathered strength here before the steep mountain path of Hakone.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 8: Oiso -->
+            <div
+              class="station-card sagami scenic"
+              data-number="8"
+              data-features="pine trees,coast,villa area"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/9-Ōiso.webp"
+                  alt="Oiso Station - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Oiso</h3>
+                <div class="station-reading">大磯 (Ōiso)</div>
+                <p class="station-description">
+                  A post town with beautiful pine-lined avenues overlooking Sagami Bay. Loved as a villa area for politicians and literati during the Meiji era, now open to the public as Meiji Memorial Oiso Estate.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 7: Hiratsuka -->
+            <div
+              class="station-card sagami history"
+              data-number="7"
+              data-features="Sagami River,ferry landing,plains"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/8-Hiratsuka.webp"
+                  alt="Hiratsuka Station - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Hiratsuka</h3>
+                <div class="station-reading">平塚 (Hiratsuka)</div>
+                <p class="station-description">
+                  An important post town as a ferry landing on the Sagami River. Located in the center of the Sagami Plain, now famous for the Tanabata Festival. Prospered as a key point on the Tokaido during the Edo period.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 6: Fujisawa -->
+            <div
+              class="station-card sagami history"
+              data-number="6"
+              data-features="Yugyoji Temple,Enoshima Road,temple town"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/7-Fujisawa.webp"
+                  alt="Fujisawa Station - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Fujisawa</h3>
+                <div class="station-reading">藤沢 (Fujisawa)</div>
+                <p class="station-description">
+                  A post town that developed as a temple town of Yugyoji Temple. Also served as a junction point for the Enoshima Road, the pilgrimage route to Enoshima Shrine.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 5: Totsuka -->
+            <div
+              class="station-card sagami history"
+              data-number="5"
+              data-features="history,major station,transportation hub"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/6-Totsuka.webp"
+                  alt="Totsuka Station - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Totsuka</h3>
+                <div class="station-reading">戸塚 (Totsuka)</div>
+                <p class="station-description">
+                  As the first overnight stop for travelers departing from Edo, and as a junction with the Kamakura Road, it bustled with many travelers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Musashi Province area -->
+        <div class="area-section" id="musashi-area">
+          <h2 class="area-title">
+            <span class="area-number">Musashi Province</span>
+            <span
+              class="area-description"
+              style="
+                color: #333 !important;
+                font-weight: 500 !important;
+                font-size: 1rem !important;
+              "
+              >Gateway to Edo, Starting point of Tokaido</span
+            >
+          </h2>
+
+          <div class="stations-grid">
+            <!-- Station 4: Hodogaya -->
+            <div
+              class="station-card musashi history"
+              data-number="4"
+              data-features="history,difficult passage,Gondazaka"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/5-Hodogaya.webp"
+                  alt="Hodogaya Station - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Hodogaya</h3>
+                <div class="station-reading">保土ケ谷 (Hodogaya)</div>
+                <p class="station-description">
+                  A post town facing the difficult passage of Gondazaka slope. A monument of the bridge depicted in Utagawa Hiroshige's ukiyo-e has been installed at the original location.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 3: Kanagawa -->
+            <div
+              class="station-card musashi history"
+              data-number="3"
+              data-features="history,opening port,Yokohama"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/4-Kanagawa.webp"
+                  alt="Kanagawa Station - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Kanagawa</h3>
+                <div class="station-reading">神奈川 (Kanagawa)</div>
+                <p class="station-description">
+                  A historically important post town as an opening port at the end of the Edo period. Temples that served as consulates for various countries at the time of opening still exist today.
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 2: Kawasaki -->
+            <div
+              class="station-card musashi history"
+              data-number="2"
+              data-features="history,specialty,post town"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/3-Kawasaki.webp"
+                  alt="Kawasaki Station - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Kawasaki</h3>
+                <div class="station-reading">川崎 (Kawasaki)</div>
+                <p class="station-description">
+                  A post town famous for the Rokugo ferry crossing on the Tama River. The specialty "Nara-chameshi" (Nara tea rice) appears in "Tokaidochu Hizakurige" (Shank's Mare).
+                </p>
+              </div>
+            </div>
+
+            <!-- Station 1: Shinagawa -->
+            <div
+              class="station-card musashi history"
+              data-number="1"
+              data-features="history,famous place,departure"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/2-Shinagawa.webp"
+                  alt="Shinagawa Station - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Shinagawa</h3>
+                <div class="station-reading">品川 (Shinagawa)</div>
+                <p class="station-description">
+                  The first post town on the Tokaido. During the Edo period, pleasure quarters and teahouses lined the streets, bustling with many travelers.
+                </p>
+              </div>
+            </div>
+
+            <!-- Starting point: Nihonbashi -->
+            <div
+              class="station-card musashi history special"
+              data-number="0"
+              data-features="starting point,history,famous place"
+            >
+              <div class="station-image">
+                <img
+                  src="../../images/tokaido/Tokaido-gojusan-tsugi/1-Nihonbashi.webp"
+                  alt="Nihonbashi - Utagawa Hiroshige Ukiyo-e"
+                  loading="lazy"
+                />
+              </div>
+              <div class="station-info">
+                <h3>Nihonbashi</h3>
+                <div class="station-reading">日本橋 (Nihonbashi)</div>
+                <p class="station-description">
+                  The starting point of the Tokaido 53 Stations and the beginning of all five major highways. From the Edo period to the present, it has prospered as the center of Japanese transportation and commerce, and many travelers began their long journey from here.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search results area -->
+        <div class="search-results" id="searchResults" style="display: none">
+          <h3>Search Results</h3>
+          <div class="results-grid"></div>
+        </div>
+
+        <!-- Completion message -->
+        <div
+          class="completion-section"
+          style="
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(
+              135deg,
+              var(--primary-gold),
+              var(--secondary-gold)
+            );
+            border-radius: 12px;
+            color: white;
+          "
+        >
+          <h3 style="margin-bottom: 1rem; font-size: 1.5rem">
+            Tokaido Digital Highway Guide
+          </h3>
+          <p style="opacity: 0.9">
+            Guiding you through all post towns from Edo's Nihonbashi to Kyoto's Otsu
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> Contact: 0774-46-8762</p>
+        <p><i class="fas fa-envelope"></i> info@doujimafront.com</p>
+        <p>
+          <i class="fab fa-youtube"></i>
+          <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ"
+            >YouTube Channel</a
+          >
+        </p>
+      </div>
+      <p class="footer-text">
+        &copy; 2025 Doujima Front Planning. All rights reserved.
+      </p>
+      <p class="footer-text" style="margin-top: 1rem; opacity: 0.8">
+        Supporting your journey through culture and nature on the historic highway connecting Edo and Kyoto
+      </p>
+    </footer>
+
+    <!-- Back to top button -->
+    <button
+      id="backToTopBtn"
+      class="back-to-top"
+      aria-label="Back to top"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../../js/script.js"></script>
+    <script>
+      // Tokaido stations JavaScript specific processing
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize navigation functionality
+        const navBtns = document.querySelectorAll(".nav-btn");
+        const stationCards = document.querySelectorAll(".station-card");
+
+        // Navigation button functionality
+        navBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const filter = this.dataset.filter;
+
+            // Toggle active button
+            navBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            // Smooth scroll to corresponding area
+            const targetSection = document.querySelector(`#${filter}-area`);
+            if (targetSection) {
+              const headerOffset = 80; // Fixed header height
+              const elementPosition = targetSection.getBoundingClientRect().top;
+              const offsetPosition =
+                elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+
+        // ===== Back to top button functionality =====
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        if (backToTopBtn) {
+          // Set scroll threshold (responsive)
+          function getScrollThreshold() {
+            const width = window.innerWidth;
+            if (width >= 1024) return 1000; // Desktop
+            if (width >= 768) return 800; // Tablet
+            return 600; // Mobile
+          }
+
+          // Scroll event handler (performance optimization)
+          let isScrolling = false;
+
+          function handleScroll() {
+            if (!isScrolling) {
+              window.requestAnimationFrame(() => {
+                const scrolled =
+                  window.pageYOffset || document.documentElement.scrollTop;
+                const threshold = getScrollThreshold();
+
+                if (scrolled > threshold) {
+                  backToTopBtn.classList.add("show");
+                } else {
+                  backToTopBtn.classList.remove("show");
+                }
+
+                isScrolling = false;
+              });
+
+              isScrolling = true;
+            }
+          }
+
+          // Scroll event listener
+          window.addEventListener("scroll", handleScroll, { passive: true });
+
+          // Button click event
+          backToTopBtn.addEventListener("click", function () {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          });
+
+          // Keyboard navigation (accessibility)
+          backToTopBtn.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }
+          });
+
+          // Recalculate threshold on window resize
+          let resizeTimer;
+          window.addEventListener("resize", function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+              handleScroll();
+            }, 150);
+          });
+
+          // Check initial state
+          handleScroll();
+        }
+      });
+    </script>
+    <script src="../../js/script.js"></script>
+  </body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>四国遍路 - 心を清める八十八ヶ所巡礼の道</title>
     <meta
       name="description"
@@ -34,17 +34,23 @@
     <link rel="stylesheet" href="../css/ohenro.css" />
     <link rel="stylesheet" href="../css/booking-responsive.css" />
     <script src="../js/performance-monitor.js" defer></script>
+    <script src="../js/responsive-debug.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/logo-visibility.js" defer></script>
   </head>
-  <body>
+  <body class="debug-responsive">
     <header>
       <nav>
-        <div class="logo">堂島フロント企画</div>
+        <a href="../index.html" class="logo">
+          <img src="../images/doujima-logo.webp" alt="堂島フロント企画" />
+          <span class="logo-text">堂島フロント企画</span>
+        </a>
         <ul class="nav-links">
           <li>
-            <a href="#home">四国お遍路</a>
+            <a href="index.html">巡礼</a>
           </li>
           <li>
-            <a href="shikoku.html">各霊場のご案内</a>
+            <a href="shikoku.html">各札所のご案内</a>
             <div class="dropdown">
               <a href="shikoku.html#tokushima">徳島県（発心の道場）</a>
               <a href="shikoku.html#kouchi">高知県（修行の道場）</a>
@@ -56,7 +62,10 @@
             <a href="faq.html">よくあるご質問</a>
           </li>
           <li>
-            <a href="../Tokaido/index.html">東海道ウォーク</a>
+            <a href="../Tokaido/index.html">街道ウォーク</a>
+          </li>
+          <li>
+            <a href="https://doujimafront.stores.jp/" target="_blank">オンラインショップ</a>
           </li>
           <li>
             <a href="../index.html">企業トップページ</a>
@@ -75,6 +84,14 @@
       </nav>
     </header>
 
+    <!-- 固定フローティング言語切り替えボタン -->
+    <div class="language-switcher">
+      <button id="languageToggle" class="language-btn" aria-label="言語切り替え / Switch Language">
+        <i class="fas fa-globe"></i>
+        <span class="lang-text">English</span>
+      </button>
+    </div>
+
     <!-- モバイル用メニューオーバーレイ -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
@@ -91,13 +108,15 @@
         </button>
       </div>
       <nav class="mobile-menu-nav">
-        <a href="#home" class="mobile-menu-link">四国お遍路</a>
-        <a href="#about" class="mobile-menu-link">四国遍路とは</a>
-        <a href="shikoku.html" class="mobile-menu-link">各霊場のご案内</a>
-        <a href="#journey" class="mobile-menu-link">巡礼体験</a>
-        <a href="#contact" class="mobile-menu-link">お問い合わせ</a>
-        <a href="../Tokaido/index.html" class="mobile-menu-link">東海道ウォーク</a>
+        <a href="index.html" class="mobile-menu-link active">巡礼</a>
+        <a href="shikoku.html" class="mobile-menu-link">各札所のご案内</a>
+        <a href="faq.html" class="mobile-menu-link">よくあるご質問</a>
+        <a href="../Tokaido/index.html" class="mobile-menu-link">街道ウォーク</a>
+        <a href="https://doujimafront.stores.jp/" target="_blank" class="mobile-menu-link">オンラインショップ</a>
         <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
+        <a href="#" id="mobileLangToggle" class="mobile-menu-link">
+          <i class="fas fa-globe"></i> English
+        </a>
       </nav>
     </div>
 
@@ -105,33 +124,27 @@
     <!-- ヒーローセクション -->
     <section class="hero" id="home">
       <div class="hero-slideshow">
-        <div class="hero-slide active" data-info="仁王門天井画"></div>
+        <div class="hero-slide active" data-info="清瀧寺の仁王門"></div>
         <div class="hero-slide" data-info="鶴林寺の空"></div>
         <div class="hero-slide" data-info="雲辺寺"></div>
         <div class="hero-slide" data-info="秋の弥谷寺"></div>
         <div class="hero-slide" data-info="源氏池"></div>
+        <div class="hero-slide" data-info="龍光院の夕暮れ"></div>
       </div>
 
       <!-- 水平進行バー -->
-      <div class="horizontal-progress">
-        <div class="progress-line-container">
-          <div class="progress-line-bg"></div>
-          <div class="progress-line-fill"></div>
-          <div class="progress-center-point"></div>
-        </div>
-      </div>
 
       <div class="hero-content">
-        <div class="hero-subtitle">八十八ヶ所霊場巡礼</div>
-        <h1>四国お遍路</h1>
+        <h1>巡礼</h1>
         <p class="hero-description">
-          弘法大師の足跡を辿る<br />
-          千二百年の歴史を持つ<br />
-          心の巡礼路
+          四国八十八ヶ所霊場<br />
+          西国三十三所観音霊場<br />
+          坂東三十三観音・秩父三十四観音霊場<br />
+          etc.
         </p>
       </div>
 
-      <div class="slide-info active" id="slideInfo">仁王門天井画</div>
+      <div class="slide-info active" id="slideInfo">清瀧寺の仁王門</div>
 
       <div class="slideshow-controls">
         <div class="slide-dot active" data-slide="0"></div>
@@ -139,6 +152,44 @@
         <div class="slide-dot" data-slide="2"></div>
         <div class="slide-dot" data-slide="3"></div>
         <div class="slide-dot" data-slide="4"></div>
+        <div class="slide-dot" data-slide="5"></div>
+      </div>
+    </section>
+
+    <!-- ECサイト案内セクション -->
+    <section class="ec-section placeholder-bg">
+      <div class="ec-overlay">
+        <div class="ec-content">
+          <div class="ec-header">
+            <div class="ec-title-decoration"></div>
+            <h2 class="ec-title">
+              <span class="ec-title-main">巡礼用品専門店</span>
+              <span class="ec-title-sub">巡礼の準備は当店にお任せください</span>
+            </h2>
+            <p class="ec-subtitle">各種霊場巡りに必要な用品を厳選してご用意</p>
+            <div class="ec-header-decoration">
+              <span class="decoration-line left"></span>
+              <i class="fas fa-torii-gate"></i>
+              <span class="decoration-line right"></span>
+            </div>
+          </div>
+
+          <div class="ec-categories">
+            <a href="https://doujimafront.stores.jp/?category_id=641035fc12e4fd004c99b480" class="ec-category compact-design" data-step="1" target="_blank" rel="noopener">
+              <h3>四国八十八ヶ所霊場</h3>
+            </a>
+            <a href="https://doujimafront.stores.jp/?category_id=6410365ed9c7d0005bf993bb" class="ec-category compact-design" data-step="2" target="_blank" rel="noopener">
+              <h3>四国別格二十霊場</h3>
+            </a>
+            <a href="https://doujimafront.stores.jp/?category_id=6410367712e4fd004c99b518" class="ec-category compact-design" data-step="3" target="_blank" rel="noopener">
+              <h3>西国三十三所観音霊場</h3>
+            </a>
+            <a href="https://doujimafront.stores.jp/?category_id=6427b49f45021c006134b971" class="ec-category compact-design" data-step="4" target="_blank" rel="noopener">
+              <h3>坂東三十三観音・秩父三十四観音霊場</h3>
+            </a>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -149,13 +200,13 @@
         <div class="video-container">
           <div
             class="video-placeholder"
-            data-video-id="obIWA6KWQ1I"
+            data-video-id="qskCAXGJR5c"
             role="button"
             tabindex="0"
             aria-label="四国遍路紹介動画を再生"
           >
             <img
-              src="https://img.youtube.com/vi/obIWA6KWQ1I/maxresdefault.jpg"
+              src="https://img.youtube.com/vi/qskCAXGJR5c/maxresdefault.jpg"
               alt="四国遍路紹介動画のサムネイル画像"
               loading="lazy"
             />
@@ -166,9 +217,9 @@
         <!-- prefecture-gridに対応する案内エリア -->
         <div class="guide-area">
           <div class="temples-invitation">
-            <h3>全八十八ヶ所霊場の見どころ</h3>
+            <h3>全八十八ヶ所札所の見どころ</h3>
             <p class="invitation-description">
-              各霊場の境内の魅力と見どころを3分の動画でご紹介しています
+              各札所の境内の魅力と見どころを3分の動画でご紹介しています
             </p>
             <div class="invitation-highlights">
               <div class="highlight-item">
@@ -185,7 +236,7 @@
               </div>
             </div>
             <a href="shikoku.html" class="temples-cta-button">
-              <span>霊場の見どころを見る</span>
+              <span>札所の見どころを見る</span>
               <i class="fas fa-arrow-right"></i>
             </a>
           </div>
@@ -195,9 +246,9 @@
       <div class="text-content">
         <!-- 各霊場のご案内 説明ブロック -->
         <div class="guide-description">
-          <h4>各霊場のご案内</h4>
+          <h4>各札所のご案内</h4>
           <p>
-            四国88ヶ所霊場を4つの県に分けてご紹介します。各県をクリックして詳細をご覧ください。
+            四国八十八ヶ所を4つの県に分けてご紹介します。各県をクリックして詳細をご覧ください。
           </p>
         </div>
 
@@ -264,72 +315,12 @@
           <div class="booking-header">
             <h2 class="booking-title">
               <span class="title-accent">初めての方も安心</span>
-              <span class="title-main">専門ガイド同行のお遍路ツアー</span>
+              <span class="title-main">当社先達同行の巡礼ツアー</span>
             </h2>
             <p class="booking-subtitle">
               <span class="subtitle-highlight">四国八十八ヶ所</span>を
               <span class="subtitle-highlight">快適</span>に巡る旅
             </p>
-          </div>
-
-          <!-- 特徴カード -->
-          <div class="booking-features-wrapper">
-            <div class="booking-features">
-              <div class="feature-card">
-                <div class="feature-icon-wrapper">
-                  <i class="fas fa-bus"></i>
-                </div>
-                <div class="feature-content">
-                  <h4>快適なバスの旅</h4>
-                  <p>移動の負担を軽減</p>
-                </div>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon-wrapper">
-                  <i class="fas fa-user-tie"></i>
-                </div>
-                <div class="feature-content">
-                  <h4>専門ガイド同行</h4>
-                  <p>深い知識でサポート</p>
-                </div>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon-wrapper">
-                  <i class="fas fa-heart"></i>
-                </div>
-                <div class="feature-content">
-                  <h4>初心者歓迎</h4>
-                  <p>丁寧にご案内します</p>
-                </div>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon-wrapper">
-                  <i class="fas fa-hotel"></i>
-                </div>
-                <div class="feature-content">
-                  <h4>宿泊・食事込み</h4>
-                  <p>手配の心配不要</p>
-                </div>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon-wrapper">
-                  <i class="fas fa-hands-helping"></i>
-                </div>
-                <div class="feature-content">
-                  <h4>経験豊富な添乗員</h4>
-                  <p>安心のサポート体制</p>
-                </div>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon-wrapper">
-                  <i class="fas fa-clock"></i>
-                </div>
-                <div class="feature-content">
-                  <h4>効率的な行程</h4>
-                  <p>無理のないスケジュール</p>
-                </div>
-              </div>
-            </div>
           </div>
 
           <!-- CTA エリア -->
@@ -343,12 +334,11 @@
               target="_blank"
               rel="noopener"
             >
-              <span class="cta-text">ツアー詳細を見る</span>
+              <span class="cta-text">阪急交通社のツアーを見る</span>
               <span class="cta-arrow">
                 <i class="fas fa-arrow-right"></i>
               </span>
             </a>
-            <p class="cta-note">各種プランをご用意しています</p>
           </div>
 
           <!-- 装飾的なボトムライン -->
@@ -359,282 +349,51 @@
       </div>
     </section>
 
-    <!-- ECサイト案内セクション -->
-    <section class="ec-section placeholder-bg">
-      <div class="ec-overlay">
-        <div class="ec-content">
-          <div class="ec-header">
-            <div class="ec-title-decoration"></div>
-            <h2 class="ec-title">
-              <span class="ec-title-main">お遍路用品専門店</span>
-              <span class="ec-title-sub">巡礼の準備は当店にお任せください</span>
-            </h2>
-            <p class="ec-subtitle">四国八十八ヶ所霊場巡りに必要な用品を厳選してご用意</p>
-            <div class="ec-header-decoration">
-              <span class="decoration-line left"></span>
-              <i class="fas fa-torii-gate"></i>
-              <span class="decoration-line right"></span>
-            </div>
-          </div>
-
-          <div class="ec-categories">
-            <div class="ec-category" data-step="1">
-              <div class="category-number">01</div>
-              <div class="category-icon-bg">
-                <i class="fas fa-tshirt"></i>
-              </div>
-              <h3>巡礼衣装</h3>
-              <p>白衣・遍路笠・和袈裟</p>
-            </div>
-            <div class="ec-category" data-step="2">
-              <div class="category-number">02</div>
-              <div class="category-icon-bg">
-                <i class="fas fa-scroll"></i>
-              </div>
-              <h3>納経用品</h3>
-              <p>納経帳・御朱印軸・御影保存帳</p>
-            </div>
-            <div class="ec-category" data-step="3">
-              <div class="category-number">03</div>
-              <div class="category-icon-bg">
-                <i class="fas fa-walking"></i>
-              </div>
-              <h3>歩行用品</h3>
-              <p>金剛杖・念珠</p>
-            </div>
-            <div class="ec-category" data-step="4">
-              <div class="category-number">04</div>
-              <div class="category-icon-bg">
-                <i class="fas fa-fire"></i>
-              </div>
-              <h3>参拝用品</h3>
-              <p>線香・ローソク</p>
-            </div>
-          </div>
-
-          <div class="ec-cta-container">
-            <a
-              href="https://doujimafront.stores.jp/"
-              class="ec-cta-button enhanced"
-              target="_blank"
-              rel="noopener"
-            >
-              <span class="cta-text">オンラインショップで購入</span>
-              <span class="cta-subtext">巡礼用品を見る</span>
-              <i class="fas fa-arrow-right cta-arrow"></i>
-            </a>
-            <p class="ec-note">
-              <i class="fas fa-shield-check"></i>
-              堂島フロント企画公式オンラインショップ・安心の品質保証
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 四国遍路について -->
     <section class="section has-bg-image placeholder-bg" id="about">
       <div class="section-content">
-        <h2 class="section-title">お遍路とは</h2>
-        <p class="section-intro">
-          四国八十八ヶ所霊場巡礼について、STEP形式で順序よく学習できます。
-          お遍路の基本知識から参拝方法、心構えまで段階的にご紹介します。
-        </p>
-
         <!-- お遍路学習コンテンツ -->
         <div class="layout-section">
           <div class="layout-header">
             <h3>お遍路の基本を学ぼう</h3>
-            <p>
-              初心者の方でも安心してお遍路を始められるよう、必要な知識を順序立ててご紹介します。
-            </p>
+            <p>お遍路の基本知識から参拝方法、心構えまで動画でご紹介します。</p>
           </div>
 
           <div class="compact-original-learning">
-            <!-- STEP 1: 基本知識 -->
-            <div class="compact-step">
-              <div class="step-header">
-                <div class="step-number">STEP 1</div>
-                <h3 class="step-title">お遍路の基本知識</h3>
-              </div>
-
-              <div class="step-content">
-                <div class="step-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/5mqw1rrONFc"
-                    title="お遍路入門 #1 基本知識・服装・持ち物"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                  >
-                  </iframe>
-                </div>
-
-                <div class="step-description">
-                  <h4>お遍路って何？</h4>
-                  <p>
-                    四国にある弘法大師ゆかりの<strong>八十八ヶ所の霊場</strong>を巡る巡礼です。
-                  </p>
-
-                  <div class="quick-points">
-                    <span class="point">📿 同行二人：お大師さんと一緒</span>
-                    <span class="point">🗾 総距離：約1200km</span>
-                    <span class="point">👕 白衣・菅笠・金剛杖（推奨）</span>
-                  </div>
-
-                  <div class="essential-items">
-                    <strong>必需品：</strong
-                    >納札・納経帳・数珠・線香・ろうそく・お賽銭
-                    <div class="shop-link">
-                      <a href="https://doujimafront.stores.jp/" target="_blank" rel="noopener">
-                        <i class="fas fa-shopping-cart"></i>
-                        用品はこちらで購入できます
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <!-- 動画1 -->
+            <div class="video-item">
+              <iframe
+                src="https://www.youtube.com/embed/5mqw1rrONFc"
+                title="お遍路入門 #1 基本知識・服装・持ち物"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              >
+              </iframe>
             </div>
 
-            <!-- STEP 2: 参拝方法 -->
-            <div class="compact-step">
-              <div class="step-header">
-                <div class="step-number">STEP 2</div>
-                <h3 class="step-title">参拝の手順と作法</h3>
-              </div>
-
-              <div class="step-content">
-                <div class="step-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/hEkaSWRaZOM"
-                    title="お遍路入門 #2 参拝手順"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                  >
-                  </iframe>
-                </div>
-
-                <div class="step-description">
-                  <h4>参拝の流れ</h4>
-                  <p>お寺での基本的な参拝手順を覚えましょう。</p>
-
-                  <div class="worship-flow">
-                    <div class="flow-item">
-                      <span class="flow-num">1</span>
-                      <span class="flow-text">山門で一礼</span>
-                    </div>
-                    <div class="flow-item">
-                      <span class="flow-num">2</span>
-                      <span class="flow-text">手水で清める</span>
-                    </div>
-                    <div class="flow-item">
-                      <span class="flow-num">3</span>
-                      <span class="flow-text">鐘楼（1回のみ）</span>
-                    </div>
-                    <div class="flow-item">
-                      <span class="flow-num">4</span>
-                      <span class="flow-text">本堂→大師堂</span>
-                    </div>
-                  </div>
-
-                  <div class="important-tip">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <span>火の扱いに注意！もらい火は厳禁</span>
-                  </div>
-                </div>
-              </div>
+            <!-- 動画2 -->
+            <div class="video-item">
+              <iframe
+                src="https://www.youtube.com/embed/hEkaSWRaZOM"
+                title="お遍路入門 #2 参拝手順"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              >
+              </iframe>
             </div>
 
-            <!-- STEP 3: お経と心構え -->
-            <div class="compact-step">
-              <div class="step-header">
-                <div class="step-number">STEP 3</div>
-                <h3 class="step-title">お経と巡礼の心構え</h3>
-              </div>
-
-              <div class="step-content">
-                <div class="step-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/13QfeW6Yd5o"
-                    title="お遍路入門 #3 お経・納経・心構え"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                  >
-                  </iframe>
-                </div>
-
-                <div class="step-description">
-                  <h4>お経と納経</h4>
-                  <p>お参りの核心部分と大切な心構えについて。</p>
-
-                  <div class="sutra-basics">
-                    <div class="sutra-item">
-                      <strong>本堂：</strong>ご真言3回 + 南無大師遍照金剛3回
-                    </div>
-                    <div class="sutra-item">
-                      <strong>大師堂：</strong>南無大師遍照金剛3回
-                    </div>
-                    <div class="sutra-note">
-                      ※お経が分からなくても手を合わせるだけでOK
-                    </div>
-                  </div>
-
-                  <div class="nokyo-prices">
-                    <h5>納経料金</h5>
-                    <div class="price-grid">
-                      <div class="price-item recommended">
-                        <span class="price-type">納経帳</span>
-                        <span class="price-amount">500円</span>
-                        <span class="price-note">おすすめ</span>
-                      </div>
-                      <div class="price-item">
-                        <span class="price-type">掛軸</span>
-                        <span class="price-amount">700円</span>
-                      </div>
-                      <div class="price-item">
-                        <span class="price-type">白衣</span>
-                        <span class="price-amount">300円</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="pilgrim-spirit">
-                    お大師さんと共に歩む「同行二人」の心で
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ギャラリーセクション -->
-    <section class="section">
-      <div class="section-content">
-        <h2 class="section-title">巡礼の風景</h2>
-        <p class="section-intro">
-          四国各地の美しい自然と歴史ある霊場の数々をご覧ください
-        </p>
-
-        <div class="gallery-grid">
-          <div class="gallery-item" style="background-image: url('../images/Fujiidera.webp');">
-            <div class="gallery-overlay">
-              <h4>藤井寺（十一番札所）</h4>
-              <p>弘法大師が修行された霊場</p>
-            </div>
-          </div>
-          <div class="gallery-item" style="background-image: url('../images/Jurakuji.webp');">
-            <div class="gallery-overlay">
-              <h4>十楽寺（七番札所）</h4>
-              <p>阿波の霊場で心の平安を求める</p>
-            </div>
-          </div>
-          <div class="gallery-item" style="background-image: url('../images/Ryukoji.webp');">
-            <div class="gallery-overlay">
-              <h4>龍光寺（四十一番札所）</h4>
-              <p>愛媛の菩提の道場で功徳を積む</p>
+            <!-- 動画3 -->
+            <div class="video-item">
+              <iframe
+                src="https://www.youtube.com/embed/13QfeW6Yd5o"
+                title="お遍路入門 #3 お経・納経・心構え"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              >
+              </iframe>
             </div>
           </div>
         </div>
@@ -722,7 +481,7 @@
     <footer id="contact">
       <div class="contact-info">
         <p><i class="fas fa-phone"></i> お問い合わせ: 0774-46-8762</p>
-        <p><i class="fas fa-envelope"></i> info@doujima-front.com</p>
+        <p><i class="fas fa-envelope"></i> info@doujimafront.com</p>
         <p>
           <i class="fab fa-youtube"></i>
           <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ"

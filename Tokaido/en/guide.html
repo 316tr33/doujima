@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <title>Tokaido Walk - Walking Guide</title>
+    <meta
+      name="description"
+      content="Practical guide for safely enjoying the Tokaido Walk. Detailed explanations from equipment, planning, safety measures to accommodation information."
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/tokaido.css" />
+    <link rel="stylesheet" href="../../css/guide-simple.css" />
+    <script src="../../js/language-switcher.js" defer></script>
+    <script src="../../js/logo-visibility.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="../../index.html" class="logo">
+          <img src="../../images/doujima-logo.webp" alt="Doujima Front Kikaku" />
+          <span class="logo-text">Doujima Front Kikaku</span>
+        </a>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html">Highway Walk</a>
+          </li>
+          <li>
+            <a href="stations.html">Station Towns Guide</a>
+            <div class="dropdown">
+              <a href="stations.html#yamashiro-area">Yamashiro Province</a>
+              <a href="stations.html#oumi-area">Omi Province</a>
+              <a href="stations.html#ise-area">Ise Province</a>
+              <a href="stations.html#owari-area">Owari Province</a>
+              <a href="stations.html#mikawa-area">Mikawa Province</a>
+              <a href="stations.html#totomi-area">Totomi Province</a>
+              <a href="stations.html#suruga-area">Suruga Province</a>
+              <a href="stations.html#izu-area">Izu Province</a>
+              <a href="stations.html#sagami-area">Sagami Province</a>
+              <a href="stations.html#musashi-area">Musashi Province</a>
+            </div>
+          </li>
+          <li>
+            <a href="guide.html" class="active">Walking Guide</a>
+          </li>
+          <li>
+            <a href="../../Ohenro/en/index.html">Pilgrimage</a>
+          </li>
+          <li>
+            <a href="https://doujimafront.stores.jp/" target="_blank">Online Shop</a>
+          </li>
+          <li>
+            <a href="../../index.html">Corporate Homepage</a>
+          </li>
+        </ul>
+        <button
+          class="mobile-menu-toggle"
+          id="mobileMenuToggle"
+          aria-label="Open menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Fixed floating language switcher button -->
+    <div class="language-switcher">
+      <button id="languageToggle" class="language-btn" aria-label="Switch Language / 言語切り替え">
+        <i class="fas fa-globe"></i>
+        <span class="lang-text">日本語</span>
+      </button>
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">Menu</span>
+        <button
+          class="mobile-menu-close"
+          id="mobileMenuClose"
+          aria-label="Close menu"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="index.html" class="mobile-menu-link">Highway Walk</a>
+        <a href="stations.html" class="mobile-menu-link">Station Towns Guide</a>
+        <a href="guide.html" class="mobile-menu-link">Walking Guide</a>
+        <a href="../../Ohenro/en/index.html" class="mobile-menu-link">Pilgrimage</a>
+        <a href="https://doujimafront.stores.jp/" target="_blank" class="mobile-menu-link">Online Shop</a>
+        <a href="../../index.html" class="mobile-menu-link">Corporate Homepage</a>
+        <a href="#" id="mobileLangToggle" class="mobile-menu-link">
+          <i class="fas fa-globe"></i> 日本語
+        </a>
+      </nav>
+    </div>
+
+    <main>
+      <section
+        class="hero-section tokaido-hero"
+        style="
+          background-image: linear-gradient(
+              rgba(0, 0, 0, 0.4),
+              rgba(0, 0, 0, 0.4)
+            ),
+            url('../../images/tokaido/tour/tour6.jpg');
+          background-size: cover;
+          background-position: center 100%;
+        "
+      >
+        <div class="hero-content">
+          <h1
+            class="hero-title"
+            style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8)"
+          >
+            Walking Guide
+          </h1>
+          <p
+            class="hero-subtitle"
+            style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9)"
+          >
+            Practical Guide for Tour Participants<br />What You Need to Know<br />Equipment · Tips ·<br />How to Enjoy
+          </p>
+        </div>
+      </section>
+
+      <section class="guide-index-section">
+        <div class="container">
+          <div class="section-intro">
+            <h2 class="section-title">Guide Contents</h2>
+            <p>
+              Essential information compiled to help you enjoy the guided highway walk tour.
+            </p>
+          </div>
+
+          <div class="guide-index-grid">
+            <div
+              class="guide-index-card"
+              onclick="scrollToSection('equipment')"
+            >
+              <div class="index-icon">1</div>
+              <h3>Equipment to Bring</h3>
+              <p>Essential and recommended items</p>
+              <div class="index-arrow">→</div>
+            </div>
+            <div class="guide-index-card" onclick="scrollToSection('safety')">
+              <div class="index-icon">2</div>
+              <h3>Things to Know</h3>
+              <p>Walking precautions and health management</p>
+              <div class="index-arrow">→</div>
+            </div>
+            <div class="guide-index-card" onclick="scrollToSection('tips')">
+              <div class="index-icon">3</div>
+              <h3>Tips for Enjoyment</h3>
+              <p>Photography and local interaction points</p>
+              <div class="index-arrow">→</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="equipment" class="guide-section">
+        <div class="container">
+          <div class="guide-header">
+            <div class="guide-icon">■</div>
+            <h2>Equipment to Bring</h2>
+          </div>
+
+          <div class="equipment-simple">
+            <div class="essential-items">
+              <h3>● Essential Equipment</h3>
+              <ul class="equipment-list">
+                <li>👟 Comfortable walking shoes</li>
+                <li>🎒 Lightweight backpack</li>
+                <li>💧 Water bottle/beverages (1L or more)</li>
+                <li>☔ Lightweight rain gear</li>
+                <li>🩹 First aid supplies (bandages, antiseptic)</li>
+              </ul>
+            </div>
+
+            <div class="recommended-items">
+              <h3>● Helpful to Have</h3>
+              <ul class="equipment-list">
+                <li>👒 Hat · sunglasses</li>
+                <li>☀️ Sunscreen</li>
+                <li>🤧 Towel · handkerchief</li>
+                <li>📱 Smartphone · mobile battery</li>
+                <li>🍪 Light snacks · energy supplements</li>
+              </ul>
+            </div>
+
+            <div class="seasonal-note">
+              <h3>● Additional Equipment by Season</h3>
+              <p>
+                <strong>Summer:</strong>
+                Cooling towel, salt supplements, insect repellent, quick-dry inner wear
+              </p>
+              <p><strong>Winter:</strong> Warm clothing, windproof wear, hand warmers</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="safety" class="guide-section">
+        <div class="container">
+          <div class="guide-header">
+            <div class="guide-icon">■</div>
+            <h2>Things to Know</h2>
+          </div>
+
+          <div class="safety-simple">
+            <div class="walking-tips">
+              <h3>● Basic Walking Precautions</h3>
+              <ul class="safety-list">
+                <li>⚠️ Be very careful of vehicles along roads</li>
+                <li>💧 Regular hydration to prevent dehydration</li>
+                <li>👥 Stay with the group, follow guide instructions</li>
+                <li>🏃 Avoid excessive pace, walk according to your condition</li>
+              </ul>
+            </div>
+
+            <div class="health-care">
+              <h3>● Health Management Points</h3>
+              <ul class="safety-list">
+                <li>☀️ On hot days, use hat and sunscreen to prevent heat stroke</li>
+                <li>❄️ Proper cold protection on cold days</li>
+                <li>👟 Wear well-broken-in shoes to prevent blisters</li>
+                <li>😴 Get sufficient sleep the night before</li>
+              </ul>
+            </div>
+
+            <div class="emergency-basic">
+              <h3>● Contact Guide Immediately in Emergencies</h3>
+              <p>
+                If you feel unwell or get injured, don't push yourself—immediately inform the tour guide. The guide will provide appropriate support.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tips" class="guide-section">
+        <div class="container">
+          <div class="guide-header">
+            <div class="guide-icon">■</div>
+            <h2>Tips for Enjoyment</h2>
+          </div>
+
+          <div class="tips-simple">
+            <div class="photo-tips">
+              <h3>● Photography Tips</h3>
+              <ul class="tips-list">
+                <li>📷 Photograph post town signs and mile markers for records</li>
+                <li>🗻️ Capture scenic spots like Satta Pass with Mt. Fuji views</li>
+                <li>🏯 Photograph the atmosphere of historical buildings and old townscapes</li>
+                <li>👥 Don't forget commemorative photos with fellow participants</li>
+              </ul>
+            </div>
+
+            <div class="memory-making">
+              <h3>● Memory Making Tips</h3>
+              <ul class="tips-list">
+                <li>📝 Keep walking records and daily impressions in notes</li>
+                <li>🌌 Collect post town stamps and pamphlets</li>
+                <li>🌅 Enjoy beautiful early morning scenery and sunsets</li>
+                <li>👂 Listen to the guide's historical stories to deeply understand Tokaido's charm</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> Contact: 0774-46-8762</p>
+        <p><i class="fas fa-envelope"></i> info@doujimafront.com</p>
+        <p>
+          <i class="fab fa-youtube"></i>
+          <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ"
+            >YouTube Channel</a
+          >
+        </p>
+      </div>
+      <p class="footer-text">
+        &copy; 2025 Doujima Front Kikaku All rights reserved.
+      </p>
+      <p class="footer-text" style="margin-top: 1rem; opacity: 0.8">
+        Supporting your journey of culture and nature on the historic road connecting Edo and Kyoto
+      </p>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+    <script>
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const observerOptions = {
+          root: null,
+          rootMargin: "-20% 0px -80% 0px",
+          threshold: 0,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              document.querySelectorAll(".guide-index-card").forEach((card) => {
+                card.classList.remove("active");
+              });
+              const activeCard = document.querySelector(
+                `[onclick="scrollToSection('${id}')"]`
+              );
+              if (activeCard) {
+                activeCard.classList.add("active");
+              }
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".guide-section[id]").forEach((section) => {
+          observer.observe(section);
+        });
+      });
+    </script>
+  </body>
+</html>

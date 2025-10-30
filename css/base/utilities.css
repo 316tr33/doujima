@@ -1,0 +1,432 @@
+/* 
+   utilities.css - モバイルファーストユーティリティ
+   スペーシング・レイアウト・表示制御の統一管理
+*/
+
+/* ===============================================
+   スペーシングユーティリティ（モバイルファースト）
+   =============================================== */
+
+/* パディング（モバイル） */
+.p-xs-mobile { padding: var(--spacing-xs-mobile) !important; }
+.p-sm-mobile { padding: var(--spacing-sm-mobile) !important; }
+.p-md-mobile { padding: var(--spacing-md-mobile) !important; }
+.p-lg-mobile { padding: var(--spacing-lg-mobile) !important; }
+
+.px-xs-mobile { padding-left: var(--spacing-xs-mobile) !important; padding-right: var(--spacing-xs-mobile) !important; }
+.px-sm-mobile { padding-left: var(--spacing-sm-mobile) !important; padding-right: var(--spacing-sm-mobile) !important; }
+.px-md-mobile { padding-left: var(--spacing-md-mobile) !important; padding-right: var(--spacing-md-mobile) !important; }
+
+.py-xs-mobile { padding-top: var(--spacing-xs-mobile) !important; padding-bottom: var(--spacing-xs-mobile) !important; }
+.py-sm-mobile { padding-top: var(--spacing-sm-mobile) !important; padding-bottom: var(--spacing-sm-mobile) !important; }
+.py-md-mobile { padding-top: var(--spacing-md-mobile) !important; padding-bottom: var(--spacing-md-mobile) !important; }
+
+/* マージン（モバイル） */
+.m-xs-mobile { margin: var(--spacing-xs-mobile) !important; }
+.m-sm-mobile { margin: var(--spacing-sm-mobile) !important; }
+.m-md-mobile { margin: var(--spacing-md-mobile) !important; }
+.m-lg-mobile { margin: var(--spacing-lg-mobile) !important; }
+
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.my-xs-mobile { margin-top: var(--spacing-xs-mobile) !important; margin-bottom: var(--spacing-xs-mobile) !important; }
+.my-sm-mobile { margin-top: var(--spacing-sm-mobile) !important; margin-bottom: var(--spacing-sm-mobile) !important; }
+.my-md-mobile { margin-top: var(--spacing-md-mobile) !important; margin-bottom: var(--spacing-md-mobile) !important; }
+
+.mb-xs-mobile { margin-bottom: var(--spacing-xs-mobile) !important; }
+.mb-sm-mobile { margin-bottom: var(--spacing-sm-mobile) !important; }
+.mb-md-mobile { margin-bottom: var(--spacing-md-mobile) !important; }
+
+/* ===============================================
+   レスポンシブ画像・メディア（即効性修正）
+   =============================================== */
+
+/* 画像の基本レスポンシブ対応 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 動画・iframe等のメディア対応 */
+video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===============================================
+   既存ユーティリティ（下位互換）
+   =============================================== */
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-gold { color: var(--primary-gold); }
+
+.bg-overlay { background: var(--bg-overlay); }
+.bg-dark { background: var(--bg-dark); }
+.margin-auto { margin: var(--margin-auto); }
+.padding-lg { padding: var(--spacing-lg); }
+.margin-bottom-md { margin-bottom: var(--spacing-md); }
+
+.gold-border { border: var(--border-gold); }
+.shadow-text { text-shadow: var(--shadow-text); }
+.shadow-card { box-shadow: var(--shadow-card); }
+
+/* ===============================================
+   コンテナユーティリティ
+   =============================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-sm);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* 基本コンテナとセクションの統一 */
+.container,
+.main-content,
+section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* ===============================================
+   フレックスボックスユーティリティ
+   =============================================== */
+
+.d-flex { display: flex !important; }
+.d-block { display: block !important; }
+.d-none { display: none !important; }
+
+.flex-column { flex-direction: column !important; }
+.flex-row { flex-direction: row !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+
+.justify-center { justify-content: center !important; }
+.justify-between { justify-content: space-between !important; }
+.justify-start { justify-content: flex-start !important; }
+.justify-end { justify-content: flex-end !important; }
+
+.align-center { align-items: center !important; }
+.align-start { align-items: flex-start !important; }
+.align-end { align-items: flex-end !important; }
+
+.flex-1 { flex: 1 !important; }
+.flex-auto { flex: auto !important; }
+
+/* ギャップ */
+.gap-xs-mobile { gap: var(--spacing-xs-mobile) !important; }
+.gap-sm-mobile { gap: var(--spacing-sm-mobile) !important; }
+.gap-md-mobile { gap: var(--spacing-md-mobile) !important; }
+
+/* ===============================================
+   グリッドユーティリティ
+   =============================================== */
+
+.d-grid { display: grid !important; }
+.grid-cols-1 { grid-template-columns: 1fr !important; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+
+/* ===============================================
+   タッチ対応
+   =============================================== */
+
+.touch-target {
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  padding: var(--touch-spacing);
+  cursor: pointer;
+}
+
+.touch-target-ideal {
+  min-height: var(--touch-target-ideal);
+  min-width: var(--touch-target-ideal);
+}
+
+/* タップ時のハイライト削除 */
+.no-tap-highlight {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ===============================================
+   レスポンシブ表示制御
+   =============================================== */
+
+.show-mobile { display: block !important; }
+.hide-mobile { display: none !important; }
+
+/* ===============================================
+   タブレット以上で適用
+   =============================================== */
+
+@media (min-width: 768px) { /* --bp-md */
+  .container {
+    max-width: var(--container-md);
+    padding: 0 1.5rem;
+  }
+
+  .show-mobile { display: none !important; }
+  .hide-mobile { display: block !important; }
+  .show-desktop { display: block !important; }
+  .hide-desktop { display: none !important; }
+
+  /* デスクトップスペーシングに切り替え */
+  .p-xs-md { padding: var(--spacing-xs) !important; }
+  .p-sm-md { padding: var(--spacing-sm) !important; }
+  .p-md-md { padding: var(--spacing-md) !important; }
+  .p-lg-md { padding: var(--spacing-lg) !important; }
+
+  .gap-sm-md { gap: var(--spacing-sm) !important; }
+  .gap-md-md { gap: var(--spacing-md) !important; }
+  .gap-lg-md { gap: var(--spacing-lg) !important; }
+
+  .grid-cols-2-md { grid-template-columns: repeat(2, 1fr) !important; }
+  .grid-cols-3-md { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+@media (min-width: 1024px) { /* --bp-lg */
+  .container {
+    max-width: var(--container-lg);
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1440px) { /* --bp-xl */
+  .container {
+    max-width: var(--container-xl);
+  }
+}
+
+/* ===============================================
+   レスポンシブイメージユーティリティ
+   =============================================== */
+
+/* 基本的なレスポンシブイメージ */
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* アスペクト比維持 */
+.aspect-ratio-16-9 {
+  aspect-ratio: 16/9;
+  width: 100%;
+  object-fit: cover;
+}
+
+.aspect-ratio-4-3 {
+  aspect-ratio: 4/3;
+  width: 100%;
+  object-fit: cover;
+}
+
+.aspect-ratio-1-1 {
+  aspect-ratio: 1/1;
+  width: 100%;
+  object-fit: cover;
+}
+
+.aspect-ratio-3-2 {
+  aspect-ratio: 3/2;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* 背景画像用レスポンシブ */
+.bg-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-contain {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 画像コンテナ */
+.img-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.img-container:hover img {
+  transform: scale(1.05);
+}
+
+/* パフォーマンス最適化 */
+.lazy-load {
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}
+
+/* プレースホルダー */
+.img-placeholder {
+  background: linear-gradient(45deg, #f0f0f0 25%, #e0e0e0 25%, #e0e0e0 50%, #f0f0f0 50%, #f0f0f0 75%, #e0e0e0 75%);
+  background-size: 20px 20px;
+  animation: placeholder-shimmer 2s infinite linear;
+}
+
+@keyframes placeholder-shimmer {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 20px;
+  }
+}
+
+/* ===============================================
+   スワイプ・タッチジェスチャー対応
+   =============================================== */
+
+/* スワイプ可能コンテナ */
+.swipe-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.swipe-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* スワイプアイテム */
+.swipe-item {
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+/* スナップスクロール */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
+}
+
+.snap-start {
+  scroll-snap-align: start;
+}
+
+/* タッチドラッグ防止（画像など） */
+.no-drag {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+
+/* スワイプインジケーター */
+.swipe-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.swipe-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  transition: background var(--transition-fast);
+  cursor: pointer;
+  min-width: var(--touch-target-min);
+  min-height: var(--touch-target-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swipe-dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.swipe-dot.active {
+  background: var(--primary-gold);
+}
+
+/* ===============================================
+   アクセシビリティ・フォーカス管理
+   =============================================== */
+
+/* フォーカス表示 */
+.focus-visible {
+  outline: none;
+}
+
+.focus-visible:focus {
+  outline: 2px solid var(--primary-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* 読み上げ専用テキスト */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* 動きを減らす設定への対応 */
+@media (prefers-reduced-motion: reduce) {
+  .swipe-container {
+    scroll-behavior: auto;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

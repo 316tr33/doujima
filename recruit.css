@@ -1,4 +1,5 @@
 /* 採用情報ページ専用CSS - 堂島フロント企画 */
+/* style.cssの後に読み込まれる採用ページ専用スタイル */
 
 :root {
   /* カラーパレット - 企業サイトと統一 */
@@ -9,13 +10,7 @@
   --text-gray: #555;
 }
 
-/* リセット・基本設定 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* 基本設定 - グローバルリセットは削除（style.cssで定義済み） */
 body {
     font-family: 'Noto Serif JP', serif;
     line-height: 1.6;
@@ -24,90 +19,38 @@ body {
     overflow-x: hidden;
 }
 
-.container {
+/* モバイルメニューのbox-sizing修正 */
+.mobile-menu,
+.mobile-menu *,
+.mobile-menu-nav,
+.mobile-menu-link {
+    box-sizing: border-box !important;
+}
+
+/* 採用ページ専用のcontainerクラス（ヘッダーには影響しない） */
+main .container,
+footer .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* ヘッダー */
-header {
-    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-    padding: 20px 0;
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 3px solid var(--accent-gold);
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo h1 {
-    font-size: 1.3rem;
-    color: var(--accent-gold);
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.logo span {
-    font-size: 0.9rem;
-    color: var(--primary-gold);
-    display: block;
-}
-
-nav {
-    display: flex;
-    gap: 30px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #f8f8f8;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-nav a:hover {
-    color: var(--accent-gold);
-    background: rgba(212, 175, 55, 0.1);
-    transform: translateY(-2px);
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--accent-gold);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-nav a:hover::after {
-    width: 80%;
-}
+/* ヘッダーは navigation.css と style.css から継承 */
 
 /* ヒーローセクション */
 .hero {
     background: #f8f9fa;
-    padding: 80px 0;
     text-align: center;
     color: #495057;
     border-bottom: 1px solid #dee2e6;
+    /* コンパクトな高さに調整 */
+    min-height: 400px !important; /* デスクトップ：コンパクトサイズ */
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 2rem 1rem !important; /* 最小パディング確保 */
+    margin-top: 80px !important; /* デスクトップ：固定ヘッダー分のマージン */
 }
 
 .hero::before {
@@ -126,18 +69,18 @@ nav a:hover::after {
 }
 
 .hero h2 {
-    font-size: 2.4rem;
+    font-size: 2rem;  /* 2.4rem → 2rem */
     font-weight: 600;
     color: #495057;
-    margin-bottom: 20px;
+    margin-bottom: 15px;  /* 20px → 15px */
     line-height: 1.3;
 }
 
 .hero p {
-    font-size: 1.1rem;
-    color: #6c757d;
+    font-size: 1rem;  /* 1.1rem → 1rem */
+    color: #343a40 !important;  /* コントラスト改善: #6c757d → より濃いグレー */
     max-width: 600px;
-    margin: 0 auto 30px;
+    margin: 0 auto 20px;  /* 30px → 20px */
     line-height: 1.6;
 }
 
@@ -1021,22 +964,32 @@ footer {
         gap: 20px;
     }
     
-    nav {
+    header nav {
         gap: 15px;
         flex-wrap: wrap;
         justify-content: center;
     }
     
     .hero {
-        padding: 80px 0;
+        min-height: 350px !important; /* タブレット：コンパクトサイズ */
+        padding: 1.5rem 1rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-top: 70px !important; /* タブレット：固定ヘッダー分のマージン */
     }
-    
+
     .hero h2 {
-        font-size: 2.2rem;
+        font-size: 1.8rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.4 !important;
     }
-    
+
     .hero p {
-        font-size: 1.1rem;
+        font-size: 0.95rem !important;
+        color: #343a40 !important;  /* コントラスト改善 */
+        line-height: 1.7 !important;
+        margin-bottom: 0 !important;
     }
 
     .hero-highlights {
@@ -1170,12 +1123,22 @@ footer {
         padding: 0 15px;
     }
     
-    .hero h2 {
-        font-size: 1.8rem;
+    .hero {
+        min-height: 300px !important; /* モバイル：コンパクトサイズ */
+        padding: 1rem 0.75rem !important;
+        margin-top: 70px !important; /* モバイル：固定ヘッダー分のマージン */
     }
-    
+
+    .hero h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
     .hero p {
-        font-size: 1rem;
+        font-size: 0.9rem !important;
+        color: #343a40 !important;  /* コントラスト改善 */
+        max-width: 280px !important;
+        margin: 0 auto !important;
     }
 
     .hero-highlights {
@@ -1237,5 +1200,72 @@ footer {
     
     .qualification-tag {
         text-align: center;
+    }
+}
+
+/* ========================================
+   ヘッダー調整（採用ページ専用）
+   ======================================== */
+
+/* モバイル・タブレットでのヘッダー修正 */
+header nav {
+    justify-content: space-between !important;
+}
+
+@media (max-width: 1023px) {
+    header nav {
+        justify-content: space-between !important;
+    }
+}
+
+/* ========================================
+   先達詳細セクション内リンクボックス
+   ======================================== */
+
+.detail-link-box {
+    margin-top: 20px;
+    padding: 22px;
+    background: #fffbf5;
+    border: 1px solid #e8d5b7;
+    border-left: 5px solid var(--primary-gold);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(184, 134, 11, 0.08);
+    transition: all 0.3s;
+}
+
+.detail-link-box:hover {
+    border-left-width: 7px;
+    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.15);
+    transform: translateX(3px);
+}
+
+.detail-link-box p {
+    color: #6c757d;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.detail-link-arrow {
+    color: var(--primary-gold);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.detail-link-arrow:hover {
+    color: var(--secondary-gold);
+    transform: translateX(4px);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .detail-link-box {
+        padding: 18px;
+    }
+
+    .detail-link-box p {
+        font-size: 0.85rem;
     }
 }

@@ -2,7 +2,10 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
     <title>東海道ウォーク - 歩き方ガイド</title>
     <meta
       name="description"
@@ -20,28 +23,43 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/tokaido.css" />
     <link rel="stylesheet" href="../css/guide-simple.css" />
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/logo-visibility.js" defer></script>
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo">堂島フロント企画</div>
+        <a href="../index.html" class="logo">
+          <img src="../images/doujima-logo.webp" alt="堂島フロント企画" />
+          <span class="logo-text">堂島フロント企画</span>
+        </a>
         <ul class="nav-links">
           <li>
-            <a href="index.html">東海道ウォーク</a>
+            <a href="index.html">街道ウォーク</a>
           </li>
           <li>
             <a href="stations.html">宿場町のご案内</a>
             <div class="dropdown">
-              <a href="stations.html#edo-area">江戸（1-15宿）</a>
-              <a href="stations.html#tokaido-area">東海道（16-35宿）</a>
-              <a href="stations.html#kinki-area">近畿（36-53宿）</a>
+              <a href="stations.html#yamashiro-area">山城国</a>
+              <a href="stations.html#oumi-area">近江国</a>
+              <a href="stations.html#ise-area">伊勢国</a>
+              <a href="stations.html#owari-area">尾張国</a>
+              <a href="stations.html#mikawa-area">三河国</a>
+              <a href="stations.html#totomi-area">遠江国</a>
+              <a href="stations.html#suruga-area">駿河国</a>
+              <a href="stations.html#izu-area">伊豆国</a>
+              <a href="stations.html#sagami-area">相模国</a>
+              <a href="stations.html#musashi-area">武蔵国</a>
             </div>
           </li>
           <li>
             <a href="guide.html" class="active">歩き方ガイド</a>
           </li>
           <li>
-            <a href="../Ohenro/index.html">四国お遍路</a>
+            <a href="../Ohenro/index.html">巡礼</a>
+          </li>
+          <li>
+            <a href="https://doujimafront.stores.jp/" target="_blank">オンラインショップ</a>
           </li>
           <li>
             <a href="../index.html">企業トップページ</a>
@@ -59,6 +77,14 @@
       </nav>
     </header>
 
+    <!-- 固定フローティング言語切り替えボタン -->
+    <div class="language-switcher">
+      <button id="languageToggle" class="language-btn" aria-label="言語切り替え / Switch Language">
+        <i class="fas fa-globe"></i>
+        <span class="lang-text">English</span>
+      </button>
+    </div>
+
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
     <div class="mobile-menu" id="mobileMenu">
@@ -73,19 +99,15 @@
         </button>
       </div>
       <nav class="mobile-menu-nav">
-        <a href="index.html" class="mobile-menu-link">東海道ウォーク</a>
-        <a href="stations.html#edo-area" class="mobile-menu-link"
-          >江戸（1-15宿）</a
-        >
-        <a href="stations.html#tokaido-area" class="mobile-menu-link"
-          >東海道（16-35宿）</a
-        >
-        <a href="stations.html#kinki-area" class="mobile-menu-link"
-          >近畿（36-53宿）</a
-        >
+        <a href="index.html" class="mobile-menu-link">街道ウォーク</a>
+        <a href="stations.html" class="mobile-menu-link">宿場町のご案内</a>
         <a href="guide.html" class="mobile-menu-link">歩き方ガイド</a>
-        <a href="../Ohenro/index.html" class="mobile-menu-link">四国お遍路</a>
+        <a href="../Ohenro/index.html" class="mobile-menu-link">巡礼</a>
+        <a href="https://doujimafront.stores.jp/" target="_blank" class="mobile-menu-link">オンラインショップ</a>
         <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
+        <a href="#" id="mobileLangToggle" class="mobile-menu-link">
+          <i class="fas fa-globe"></i> English
+        </a>
       </nav>
     </div>
 
@@ -123,7 +145,7 @@
           <div class="section-intro">
             <h2 class="section-title">ガイド目次</h2>
             <p>
-              ツアーガイド同行の東海道ウォークを楽しむために知っておきたい情報をまとめました。
+              ツアーガイド同行の街道ウォークを楽しむために知っておきたい情報をまとめました。
             </p>
           </div>
 
@@ -167,7 +189,7 @@
                 <li>👟 歩きやすいウォーキングシューズ</li>
                 <li>🎒 軽量なリュックサック</li>
                 <li>💧 水筒・飲料（1L以上）</li>
-                <li>📱 スマートフォン・モバイルバッテリー</li>
+                <li>☔ 軽量レインウェア</li>
                 <li>🩹 救急用品（絆創膏・消毒液）</li>
               </ul>
             </div>
@@ -178,7 +200,7 @@
                 <li>👒 帽子・サングラス</li>
                 <li>☀️ 日焼け止め</li>
                 <li>🤧 タオル・ハンカチ</li>
-                <li>☔ 軽量レインウェア</li>
+                <li>📱 スマートフォン・モバイルバッテリー</li>
                 <li>🍪 軽食・補給食</li>
               </ul>
             </div>
@@ -251,16 +273,6 @@
               </ul>
             </div>
 
-            <div class="local-interaction">
-              <h3>● 地元との交流を楽しむ</h3>
-              <ul class="tips-list">
-                <li>🍜 各宿場の名物料理を味わう（桜エビ、浜松餃子など）</li>
-                <li>🛍️ お土産店で地元の特産品をチェック</li>
-                <li>☕ 地元のカフェで休憩し、雰囲気を味わう</li>
-                <li>💬 地元の方との気軽な会話で隠れたスポット情報をゲット</li>
-              </ul>
-            </div>
-
             <div class="memory-making">
               <h3>● 思い出作りのコツ</h3>
               <ul class="tips-list">
@@ -278,7 +290,7 @@
     <footer id="contact">
       <div class="contact-info">
         <p><i class="fas fa-phone"></i> お問い合わせ: 0774-46-8762</p>
-        <p><i class="fas fa-envelope"></i> info@doujima-front.com</p>
+        <p><i class="fas fa-envelope"></i> info@doujimafront.com</p>
         <p>
           <i class="fab fa-youtube"></i>
           <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ"

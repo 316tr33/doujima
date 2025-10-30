@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <title>Frequently Asked Questions - Shikoku Pilgrimage</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/components/navigation.css" />
+    <link rel="stylesheet" href="../../css/ohenro.css" />
+    <link rel="stylesheet" href="../../css/faq.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/pages/ohenro-responsive.css" />
+    <script src="../../js/language-switcher.js" defer></script>
+    <script src="../../js/logo-visibility.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="../../index.html" class="logo">
+          <img src="../../images/doujima-logo.webp" alt="Doujima Front Kikaku" />
+          <span class="logo-text">Doujima Front Kikaku</span>
+        </a>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html">Pilgrimage</a>
+          </li>
+          <li>
+            <a href="shikoku.html">Temple Guide</a>
+            <div class="dropdown">
+              <a href="shikoku.html#tokushima">Hall of Enlightenment (Tokushima)</a>
+              <a href="shikoku.html#kouchi">Hall of Ascetic Training (Kochi)</a>
+              <a href="shikoku.html#ehime">Hall of Enlightenment (Ehime)</a>
+              <a href="shikoku.html#kagawa">Hall of Nirvana (Kagawa)</a>
+            </div>
+          </li>
+          <li>
+            <a href="faq.html" class="active">FAQ</a>
+          </li>
+          <li>
+            <a href="../../Tokaido/en/index.html">Highway Walk</a>
+          </li>
+          <li>
+            <a href="https://doujimafront.stores.jp/" target="_blank">Online Shop</a>
+          </li>
+          <li>
+            <a href="../../index.html">Corporate Homepage</a>
+          </li>
+        </ul>
+        <!-- Mobile hamburger menu button -->
+        <button
+          class="mobile-menu-toggle"
+          id="mobileMenuToggle"
+          aria-label="Open Menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Fixed floating language switcher button -->
+    <div class="language-switcher">
+      <button id="languageToggle" class="language-btn" aria-label="Switch Language / 言語切り替え">
+        <i class="fas fa-globe"></i>
+        <span class="lang-text">日本語</span>
+      </button>
+    </div>
+
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Mobile menu content -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">Menu</span>
+        <button
+          class="mobile-menu-close"
+          id="mobileMenuClose"
+          aria-label="Close Menu"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="index.html" class="mobile-menu-link">Pilgrimage</a>
+        <a href="shikoku.html" class="mobile-menu-link">Temple Guide</a>
+        <a href="faq.html" class="mobile-menu-link active">FAQ</a>
+        <a href="../../Tokaido/en/index.html" class="mobile-menu-link"
+          >Highway Walk</a
+        >
+        <a href="https://doujimafront.stores.jp/" target="_blank" class="mobile-menu-link">Online Shop</a>
+        <a href="../../index.html" class="mobile-menu-link">Corporate Homepage</a>
+        <a href="#" id="mobileLangToggle" class="mobile-menu-link">
+          <i class="fas fa-globe"></i> 日本語
+        </a>
+      </nav>
+    </div>
+
+    <section class="hero faq-hero">
+      <div class="hero-content">
+        <h1 class="faq-title">Frequently Asked Questions</h1>
+      </div>
+    </section>
+
+    <main class="faq-container">
+      <!-- FAQ Header -->
+      <div class="faq-header">
+        <p>
+          To help resolve questions and concerns about the Shikoku Pilgrimage, we have compiled frequently asked questions and their answers.
+        </p>
+      </div>
+
+      <!-- Basic Information -->
+      <div class="faq-item" data-category="basic" id="q1">
+        <button class="faq-question">
+          <span>What is the Shikoku Pilgrimage?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            The Shikoku Pilgrimage is a pilgrimage route that visits 88 temples in Shikoku associated with Kobo Daishi (Kukai). Spanning approximately 1,400km in total, this pilgrimage route has long been walked by many people as a journey to face oneself and promote spiritual growth.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pilgrimage Methods -->
+      <div class="faq-item" data-category="pilgrimage" id="q7">
+        <button class="faq-question">
+          <span
+            >Do I need to visit the 88 sacred sites of Shikoku in numerical order?</span
+          >
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            You don't necessarily need to visit them in numerical order. While visiting them in sequence is called "jun-uchi," there are various methods such as "gyaku-uchi" (visiting from temple 88 in reverse order), "kugiri-uchi" (visiting in segments), and "ikkoku-mairi" (visiting only one prefecture). You can freely plan according to your physical strength and available time.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-category="preparation" id="q8">
+        <button class="faq-question">
+          <span>Should I prepare all pilgrimage equipment from the beginning?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            You don't need to prepare everything at the start. Begin with the minimum essentials for worship such as a stamp book (nōkyōchō), prayer beads, incense, and candles. Items like white robes and walking sticks can be purchased as you progress through the pilgrimage when you feel they're necessary. They're available at Temple #1 Ryōzenji, at each temple's shop, or through online shopping.
+          </p>
+        </div>
+      </div>
+
+      <!-- Miscellaneous -->
+      <div class="faq-item" data-category="misc" id="q17">
+        <button class="faq-question">
+          <span
+            >What is the meaning of "Dōgyō-ninin"?</span
+          >
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            "Dōgyō-ninin" means "always accompanied by Kobo Daishi (Kukai)." Even when pilgrims travel alone, they believe that Kobo Daishi is watching over and supporting them from nearby. Therefore, they inscribe "Dōgyō-ninin" on their sedge hats and white robes to express their faith that they are traveling together with Kobo Daishi.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-category="preparation" id="q25">
+        <button class="faq-question">
+          <span
+            >Is there a specific dress code for worship?</span
+          >
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            There is no strict rule, but wearing white clothing such as hakue (white robe) and sugegasa (sedge hat) helps focus your mind and makes you easily recognizable as a pilgrim. Even if you choose functional, comfortable clothing for mobility, simply wearing a wagesa (stole) around your neck can demonstrate proper respect for worship.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-category="basic" id="q29">
+        <button class="faq-question">
+          <span
+            >Can I visit the Shikoku sacred sites even if I'm not affiliated with the Shingon sect?</span
+          >
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Yes, anyone can visit regardless of religious affiliation or sect. The 88 sacred sites of Shikoku include temples from sects other than Shingon. Many people make the pilgrimage even without religious faith, simply wanting to experience Japanese culture.
+          </p>
+        </div>
+      </div>
+
+    </main>
+
+    <footer id="contact">
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> Contact: 0774-46-8762</p>
+        <p><i class="fas fa-envelope"></i> info@doujimafront.com</p>
+        <p>
+          <i class="fab fa-youtube"></i>
+          <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ"
+            >YouTube Channel</a
+          >
+        </p>
+      </div>
+      <p class="footer-text">
+        &copy; 2025 Doujima Front Kikaku All rights reserved.
+      </p>
+      <p class="footer-text" style="margin-top: 1rem; opacity: 0.8">
+        With the spirit of "Dōgyō-ninin," we support your safe pilgrimage
+      </p>
+    </footer>
+    <script src="../../js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,656 @@
+/* 
+   tokaido-responsive.css - 東海道ページレスポンシブ対応（モバイルファースト）
+*/
+
+/* ===============================================
+   モバイル（デフォルト）
+   =============================================== */
+
+/* ギャラリーセクション - モバイル対応 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 0 1rem; /* モバイルで左右に余白追加 */
+  margin: 2rem auto;
+  max-width: 100%;
+}
+
+.gallery-item {
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 0.5rem; /* 左右に少し余白を追加 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  color: white;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.gallery-overlay h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--primary-gold);
+}
+
+.gallery-overlay p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* セクション紹介文 */
+.section-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  padding: 0 1rem;
+  color: rgba(60, 60, 60, 0.8);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* サポートセンターセクション - モバイル対応 */
+.section + div[style*="margin-top: 4rem"] {
+  margin-top: 2rem !important;
+}
+
+@media (max-width: 768px) {
+  .section + div[style*="margin-top: 4rem"] {
+    margin-top: 1.5rem !important;
+  }
+
+  /* 東海道ヒーロータイトル - モバイル（横幅連動） */
+  .hero-content h1 {
+    font-size: clamp(2rem, 12vw, 3.2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* stations.html専用ヒーロー調整 */
+  .stations-hero {
+    min-height: 70vh !important; /* タブレットで十分な高さを確保 */
+    height: auto !important;
+    padding-top: 6.5rem !important; /* ヘッダー分を十分に確保 */
+    padding-bottom: 3rem !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .stations-hero-content {
+    padding-top: 1rem !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .stations-title {
+    margin-top: 0.5rem !important;
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+    line-height: 1.2 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .stations-description {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 1rem !important;
+  }
+
+  .station-search-container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    margin-top: 2rem !important;
+  }
+
+  .quick-navigation {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.6rem !important;
+    justify-content: center !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1.2rem !important;
+    font-size: 0.9rem !important;
+    min-width: auto !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 東海道ヒーローモバイル専用（横幅連動） */
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 11vw, 2.6rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  /* stations.html小画面専用調整 */
+  .stations-hero {
+    padding-top: 7rem !important; /* 小画面でも確実にヘッダー分確保 */
+    padding-bottom: 2rem !important;
+  }
+
+  .stations-hero-content {
+    padding-top: 1rem !important;
+    margin-top: 4.5rem !important; /* 追加の上部マージン */
+  }
+
+  .stations-title {
+    margin-top: 0.5rem !important;
+    font-size: clamp(1.6rem, 10vw, 2.4rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  .stations-description {
+    margin-top: 0.8rem !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* モバイルファースト設定 */
+.attraction-block,
+.attraction-block.reverse {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.attraction-image {
+  flex: none;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.attraction-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.attraction-content h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.attraction-highlights {
+  justify-content: center;
+}
+
+.stations-title {
+  font-size: 2.8rem !important;
+}
+
+.stations-description {
+  font-size: 1.1rem;
+}
+
+.stations-grid {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.tokaido-attractions {
+  padding: 0rem 0rem;
+  gap: 2rem;
+}
+
+/* 検索コンテナの基本設定 */
+.station-search-container {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-box {
+  padding: 0.6rem 1rem;
+  margin-bottom: 1.2rem;
+  width: calc(100% - 2rem); /* 左右1remずつの余白 */
+  max-width: 480px; /* より広い最大幅 */
+  box-sizing: border-box;
+}
+
+/* ===============================================
+   タブレット以上 (min-width: 768px)
+   =============================================== */
+
+@media (min-width: 768px) {
+  /* --bp-md */
+  .tokaido-attractions {
+    padding: 3rem 1.5rem;
+    gap: 3rem;
+  }
+
+  /* ギャラリー - タブレット以上 */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .gallery-item {
+    margin: 0; /* タブレット以上では個別margin削除 */
+    height: 280px;
+  }
+
+  .attraction-block {
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .attraction-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .stations-title {
+    font-size: 3.5rem;
+  }
+
+  .station-search-container {
+    padding: 0 1rem;
+  }
+
+  .attraction-block,
+  .attraction-block.reverse {
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .attraction-image {
+    flex: 0 0 300px;
+    width: 300px;
+    height: 200px;
+  }
+
+  .attraction-content h3 {
+    font-size: 1.8rem;
+    text-align: left;
+  }
+
+  .attraction-highlights {
+    justify-content: flex-start;
+  }
+
+  .stations-title {
+    font-size: 3.5rem !important;
+  }
+
+  .stations-description {
+    font-size: 1.25rem;
+  }
+
+  .stations-grid {
+    grid-template-columns: repeat(auto-fill, 320px);
+    gap: 2rem;
+    padding: 0 1rem;
+    justify-content: center;
+  }
+
+  .tokaido-attractions {
+    padding: 3rem 1.5rem;
+    gap: 3rem;
+  }
+}
+
+/* ===============================================
+   デスクトップ (min-width: 1024px)
+   =============================================== */
+
+@media (min-width: 1024px) {
+  /* --bp-lg */
+  .tokaido-attractions {
+    padding: 4rem 2rem;
+    gap: 4rem;
+  }
+
+  /* ギャラリー - デスクトップ */
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+
+  .gallery-item {
+    height: 320px;
+  }
+
+  /* 宿場町グリッド - デスクトップ */
+  .stations-grid {
+    grid-template-columns: repeat(auto-fill, 320px);
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    justify-content: center;
+  }
+
+  .station-highlight {
+    width: 420px !important;
+    min-width: 420px !important;
+    max-width: 420px !important;
+    box-sizing: border-box !important;
+  }
+
+  .station-image,
+  .station-info {
+    width: 100% !important;
+  }
+
+  .attraction-block {
+    padding: 2rem;
+    gap: 3rem;
+  }
+
+  .attraction-content h3 {
+    font-size: 2rem;
+  }
+
+  .stations-title {
+    font-size: 4rem !important;
+  }
+
+  .search-filters {
+    gap: 0.6rem;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+
+  .tokaido-section {
+    padding: 1.5rem 1rem 3rem 1rem;
+  }
+}
+
+/* ===============================================
+   スマートフォン対応 (max-width: 480px)
+   =============================================== */
+
+@media (max-width: 480px) /* --bp-sm */ {
+  /* モバイルでヒーロー背景画像のボケを修正 */
+  .hero.stations-hero {
+    background-attachment: scroll !important; /* fixedからscrollに変更 */
+  }
+
+  /* area-titleの上マージンを調整 */
+  .area-title {
+    margin-top: 1rem !important; /* 48px → 24px程度に削減 */
+  }
+
+  .tokaido-attractions {
+    gap: 1rem;
+  }
+
+  .attraction-block {
+    padding: 1.5rem 1rem;
+  }
+
+  .attraction-image {
+    height: 150px;
+  }
+
+  .attraction-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .attraction-content p {
+    font-size: 1rem;
+  }
+
+  .stations-title {
+    font-size: 2.2rem;
+  }
+
+  .stations-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .station-search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0; /* パディングを削除して親の制約を除去 */
+  }
+
+  .quick-navigation {
+    width: 100vw; /* フル幅でスクロールを有効に */
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%); /* 右側も画面端まで拡張 */
+    padding: 0.5rem 0; /* 上下のみパディング、左右は0 */
+    overflow-x: auto;
+    display: flex;
+    gap: 0.6rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+  }
+
+  /* 最初のボタンに左マージンを追加 */
+  .quick-navigation .filter-btn:first-child {
+    margin-left: 1rem; /* 左端ボタンの左マージン */
+  }
+
+  /* 最後のボタンに右マージンを追加して画面端まで表示 */
+  .quick-navigation .filter-btn:last-child {
+    margin-right: 0; /* 右端余白なしで画面端まで表示 */
+  }
+
+  .quick-navigation::-webkit-scrollbar {
+    display: none;
+  }
+
+  .search-box {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    width: calc(100% - 1.5rem); /* 左右の余白を減らす */
+    max-width: 100%; /* 最大幅制限を解除 */
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    flex-shrink: 0; /* 縮小を防止 */
+  }
+
+  .search-box input {
+    font-size: 0.9rem;
+    padding: 0.2rem;
+  }
+
+  .search-box input::placeholder {
+    font-size: 0.85rem;
+  }
+
+  /* モバイル横スクロールフィルター */
+  .quick-navigation {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.1rem;
+    padding: -1rem 0;
+    margin-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE */
+  }
+
+  .quick-navigation::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 80px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+
+  .station-card {
+    margin-bottom: 1rem;
+  }
+
+  .station-header {
+    height: 150px;
+  }
+
+  .station-content {
+    padding: 1rem;
+  }
+
+  .station-title {
+    font-size: 1.1rem;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .tokaido-section {
+    padding: 1rem 0.8rem 2rem 0.8rem;
+  }
+}
+
+/* ===============================================
+   極小画面対応 (max-width: 360px)
+   =============================================== */
+
+@media (max-width: 360px) /* --bp-xs-small */ {
+  /* stations.html極小画面専用調整 */
+  .stations-hero {
+    padding-top: 7.5rem !important; /* 極小画面でさらに余裕を持たせる */
+  }
+
+  .stations-hero-content {
+    margin-top: 5rem !important;
+  }
+
+  .stations-title {
+    font-size: clamp(1.4rem, 9vw, 2rem) !important;
+  }
+  .attraction-block {
+    padding: 1rem 0.8rem;
+  }
+
+  .stations-title {
+    font-size: 1.8rem;
+  }
+
+  .search-box {
+    padding: 0.3rem 0.6rem;
+  }
+
+  .search-box input {
+    font-size: 0.85rem;
+  }
+
+  .search-box input::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .filter-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    min-width: 70px;
+  }
+
+  .station-header {
+    height: 120px;
+  }
+
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===============================================
+   大画面対応 (min-width: 1400px)
+   =============================================== */
+
+@media (min-width: 1400px) /* --bp-xl */ {
+  .tokaido-attractions {
+    max-width: 1400px;
+    padding: 5rem 3rem;
+    gap: 5rem;
+  }
+
+  .attraction-block {
+    padding: 4rem 3rem;
+    gap: 4rem;
+  }
+
+  .stations-grid {
+    grid-template-columns: repeat(auto-fill, 320px);
+    gap: 2.5rem;
+    justify-content: center;
+  }
+
+  .stations-title {
+    font-size: 5rem;
+  }
+}
+
+/* ===============================================
+   トップに戻るボタン - レスポンシブ対応
+   =============================================== */
+
+/* モバイル対応（768px以下） */
+@media (max-width: 768px) {
+  .back-to-top {
+    width: 48px;
+    height: 48px;
+    bottom: 80px; /* 言語切り替えボタンとの競合回避 */
+    right: 16px;
+    font-size: 18px;
+  }
+}
+
+/* 極小画面対応（360px以下） */
+@media (max-width: 360px) {
+  .back-to-top {
+    width: 44px;
+    height: 44px;
+    bottom: 75px;
+    right: 12px;
+    font-size: 16px;
+  }
+}

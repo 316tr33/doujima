@@ -1,0 +1,397 @@
+/* ===========================================
+   スライドショーコンポーネント（モバイルファースト）
+   =========================================== */
+
+/* ヒーローセクション（モバイル） */
+.hero {
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  contain: layout style paint;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: strict;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* デフォルト背景 */
+.hero-slide:nth-child(1) {
+  background: url("../../images/index-hero/slide1.webp") center/cover;
+}
+
+.hero-slide:nth-child(2) {
+  background: url("../../images/index-hero/slide2.webp") center/cover;
+}
+
+.hero-slide:nth-child(3) {
+  background: url("../../images/index-hero/slide3.webp") center/cover;
+}
+
+.hero-slide:nth-child(4) {
+  background: url("../../images/index-hero/slide4.webp") center/cover;
+}
+
+.hero-slide:nth-child(5) {
+  background: url("../../images/index-hero/slide5.webp") center/cover;
+}
+
+.hero-slide:nth-child(6) {
+  background: url("../../images/ryuko-in.jpg") center/cover;
+}
+
+.slideshow-controls {
+  position: absolute;
+  bottom: var(--spacing-xl-mobile);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: var(--spacing-md-mobile);
+  padding: var(--spacing-sm);
+}
+
+.slide-dot {
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(212, 175, 55, 0.6);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slide-dot::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.slide-dot.active {
+  background: var(--primary-gold);
+  border-color: #d4af37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.slide-info {
+  position: absolute;
+  bottom: calc(6rem + var(--spacing-xl-mobile));
+  right: var(--spacing-lg-mobile);
+  z-index: 3;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--font-sm-mobile);
+  letter-spacing: 2px;
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  display: none; /* モバイルでは非表示 */
+}
+
+.slide-info.active {
+  opacity: 1;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 3;
+  max-width: var(--container-sm);
+  padding: 0 var(--spacing-lg-mobile);
+  width: 100%;
+}
+
+.hero-content h1 {
+  font-size: 2.2rem; /* モバイル用サイズに変更（35px） */
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em; /* 文字間隔も調整 */
+  margin: 1rem auto; /* 左右を auto に変更 */
+  text-shadow: var(--shadow-text);
+  font-feature-settings: "kern" 1, "jp04" 1;
+  line-height: 1.3; /* 行間を少し広く */
+  text-rendering: optimizeLegibility;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  text-align: center; /* 明示的に中央配置 */
+  width: 100%; /* 幅を100%に設定 */
+  max-width: 100%; /* 最大幅制限 */
+}
+
+.hero-subtitle {
+  writing-mode: horizontal-tb; /* モバイルでは横書き */
+  font-size: var(--font-base-mobile);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1em;
+  color: var(--primary-gold);
+  margin: 0 auto var(--spacing-md-mobile);
+  opacity: 0.95;
+  text-shadow: var(--shadow-text);
+}
+
+.hero-description {
+  font-size: var(--font-sm-mobile);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+  margin: 0 auto var(--spacing-lg-mobile);
+  color: rgba(255, 255, 255, 0.95);
+  opacity: 0.95;
+  text-shadow: var(--shadow-text);
+  max-width: 100%;
+  font-feature-settings: "palt" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+  word-break: auto-phrase;
+}
+
+/* ===============================================
+   タブレット以上で適用（モバイルファースト）
+   =============================================== */
+
+@media (min-width: 768px) {
+  /* --bp-md */
+  .slideshow-controls {
+    bottom: 2rem; /* スライドコントロールを下に配置 */
+    gap: var(--spacing-md); /* ドット間隔を少し広く */
+  }
+
+  .slide-dot {
+    width: 36px; /* デスクトップでは少し小さく */
+    height: 36px;
+    border-width: 1.5px; /* 細めのボーダー */
+  }
+
+  .slide-dot::before {
+    width: 10px; /* 内側の点も少し小さく */
+    height: 10px;
+  }
+
+  .slide-info {
+    display: block;
+    bottom: 6rem;
+    right: 3rem; /* 元の位置に戻す */
+    font-size: 0.9rem; /* 元のサイズに戻す */
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+
+  .hero-content {
+    max-width: 600px;
+    padding: 0 var(--spacing-2xl);
+  }
+
+  .hero-content h1 {
+    font-size: 5.5rem !important; /* 元のサイズに復元、強制適用 */
+    margin: 2rem auto !important; /* 左右を auto に変更、強制適用 */
+    letter-spacing: 0.12em !important;
+    text-align: center !important; /* 明示的に中央配置、強制適用 */
+    width: 100% !important; /* 幅を100%に設定、強制適用 */
+  }
+
+  .hero-subtitle {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: #d4af37;
+    margin: 0 auto 2rem;
+    height: auto; /* 高さを自動に変更 */
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    white-space: pre-line; /* HTMLの<br>タグを有効にする */
+    line-height: 1.5; /* 行間を調整 */
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    line-height: 2.3;
+    margin: 0 auto 3rem;
+    color: rgba(255, 255, 255, 0.95);
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    max-width: 420px;
+    font-feature-settings: "palt" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+    word-break: auto-phrase;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* --bp-lg */
+  .slideshow-controls {
+    bottom: 2.5rem; /* デスクトップでスライドコントロールを下に配置 */
+  }
+
+  .slide-dot {
+    transition: all var(--transition-fast);
+  }
+
+  .slide-dot:hover {
+    transform: scale(1.1);
+    border-color: var(--primary-gold);
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  .slide-dot.active:hover {
+    background: var(--accent-gold); /* アクティブ時は金色を維持 */
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 1);
+  }
+
+  .hero-content h1 {
+    font-size: 6.5rem !important; /* より大きく、強制適用 */
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    margin: 2rem auto !important; /* 左右を auto に変更、強制適用 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+    text-align: center !important; /* 明示的に中央配置、強制適用 */
+    width: 100% !important; /* 幅を100%に設定、強制適用 */
+  }
+
+  .hero-subtitle {
+    font-size: 2rem !important; /* より大きく、強制適用 */
+    font-weight: 500 !important;
+    letter-spacing: 0.3em !important;
+    color: #d4af37 !important;
+    margin: 0 auto 10rem !important;
+    height: auto !important; /* 高さを自動に変更、強制適用 */
+    opacity: 0.95 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+    white-space: pre-line !important; /* HTMLの<br>タグを有効にする、強制適用 */
+    line-height: 1.5 !important; /* 行間を調整、強制適用 */
+  }
+
+  .hero-description {
+    font-size: 1.4rem !important; /* より大きく、強制適用 */
+    font-weight: 400 !important;
+    letter-spacing: 0.1em !important;
+    line-height: 2.3 !important;
+    margin: 0 auto 1rem !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    opacity: 0.95 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+    max-width: 420px !important;
+    font-feature-settings: "palt" 1, "kern" 1 !important;
+    text-rendering: optimizeLegibility !important;
+    word-break: auto-phrase !important;
+  }
+}
+
+/* パフォーマンス最適化 */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    transition: none;
+  }
+
+  .slide-info {
+    transition: none;
+  }
+}
+
+/* ===============================================
+   英語版ページ用オーバーライド
+   =============================================== */
+
+/* 英語ページでは常に横書き */
+html[lang="en"] .hero-subtitle,
+html[lang="en"] .hero-description,
+html[lang="en"] .slide-info {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+}
+
+/* 英語版のサブタイトルとdescriptionの調整 */
+@media (min-width: 768px) {
+  html[lang="en"] .hero-subtitle {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    height: auto !important;
+    margin: 0 auto 1.5rem !important;
+  }
+
+  html[lang="en"] .hero-description {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+
+  html[lang="en"] .slide-info {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    bottom: 3rem !important;
+    right: 3rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  html[lang="en"] .hero-subtitle {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    height: auto !important;
+    margin: 0 auto 2rem !important;
+  }
+
+  html[lang="en"] .hero-description {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+}

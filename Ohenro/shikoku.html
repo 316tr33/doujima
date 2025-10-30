@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>各霊場のご案内 - 四国遍路</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/ohenro.css">
+    <link rel="stylesheet" href="../css/pages/ohenro-responsive.css">
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/logo-visibility.js" defer></script>
   </head>
   <body>
     <!-- シンプル背景レイヤー（パフォーマンス最適化） -->
@@ -18,13 +21,16 @@
 
     <header>
       <nav>
-        <div class="logo">堂島フロント企画</div>
+        <a href="../index.html" class="logo">
+          <img src="../images/doujima-logo.webp" alt="堂島フロント企画" />
+          <span class="logo-text">堂島フロント企画</span>
+        </a>
         <ul class="nav-links">
           <li>
-            <a href="index.html">四国お遍路</a>
+            <a href="index.html">巡礼</a>
           </li>
           <li>
-            <a href="shikoku.html">各霊場のご案内</a>
+            <a href="shikoku.html" class="active">各札所のご案内</a>
             <div class="dropdown">
               <a href="#tokushima">徳島県（発心の道場）</a>
               <a href="#kouchi">高知県（修行の道場）</a>
@@ -36,7 +42,10 @@
             <a href="faq.html">よくあるご質問</a>
           </li>
           <li>
-            <a href="../Tokaido/index.html">東海道ウォーク</a>
+            <a href="../Tokaido/index.html">街道ウォーク</a>
+          </li>
+          <li>
+            <a href="https://doujimafront.stores.jp/" target="_blank">オンラインショップ</a>
           </li>
           <li>
             <a href="../index.html">企業トップページ</a>
@@ -51,6 +60,14 @@
       </nav>
     </header>
 
+    <!-- 固定フローティング言語切り替えボタン -->
+    <div class="language-switcher">
+      <button id="languageToggle" class="language-btn" aria-label="言語切り替え / Switch Language">
+        <i class="fas fa-globe"></i>
+        <span class="lang-text">English</span>
+      </button>
+    </div>
+
     <!-- モバイル用メニューオーバーレイ -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
     
@@ -63,15 +80,15 @@
         </button>
       </div>
       <nav class="mobile-menu-nav">
-        <a href="index.html" class="mobile-menu-link">四国お遍路</a>
-        <a href="index.html#about" class="mobile-menu-link">四国遍路とは</a>
-        <a href="#tokushima" class="mobile-menu-link">徳島県（発心の道場）</a>
-        <a href="#kouchi" class="mobile-menu-link">高知県（修行の道場）</a>
-        <a href="#ehime" class="mobile-menu-link">愛媛県（菩提の道場）</a>
-        <a href="#kagawa" class="mobile-menu-link">香川県（涅槃の道場）</a>
-        <a href="index.html#contact" class="mobile-menu-link">お問い合わせ</a>
-        <a href="../Tokaido/index.html" class="mobile-menu-link">東海道ウォーク</a>
+        <a href="index.html" class="mobile-menu-link">巡礼</a>
+        <a href="shikoku.html" class="mobile-menu-link">各札所のご案内</a>
+        <a href="faq.html" class="mobile-menu-link">よくあるご質問</a>
+        <a href="../Tokaido/index.html" class="mobile-menu-link">街道ウォーク</a>
+        <a href="https://doujimafront.stores.jp/" target="_blank" class="mobile-menu-link">オンラインショップ</a>
         <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
+        <a href="#" id="mobileLangToggle" class="mobile-menu-link">
+          <i class="fas fa-globe"></i> English
+        </a>
       </nav>
     </div>
 
@@ -79,29 +96,18 @@
     <!-- ページタイトルセクション -->
     <section class="hero shikoku-hero">
       <div class="hero-content shikoku-hero-content">
-        <h1 class="shikoku-title">各霊場のご案内</h1>
+        <h1 class="shikoku-title">各札所のご案内</h1>
         <p class="hero-description shikoku-description">
           四国八十八ヶ所霊場の詳細情報
         </p>
         
-        <!-- 霊場検索機能 -->
+        <!-- 県別ナビゲーション -->
         <div class="temple-search-container">
-          <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input 
-              type="text" 
-              id="templeSearch" 
-              placeholder="霊場を検索（番号、名前、県名）" 
-              autocomplete="off"
-            >
-          </div>
-          <div class="quick-filters">
-            <button class="filter-btn active" data-filter="all">すべて</button>
-            <button class="filter-btn" data-filter="tokushima">徳島</button>
-            <button class="filter-btn" data-filter="kouchi">高知</button>
-            <button class="filter-btn" data-filter="ehime">愛媛</button>
-            <button class="filter-btn" data-filter="kagawa">香川</button>
-            <button class="filter-btn" data-filter="special">重要霊場</button>
+          <div class="quick-navigation">
+            <button class="nav-btn active" data-filter="tokushima">徳島</button>
+            <button class="nav-btn" data-filter="kouchi">高知</button>
+            <button class="nav-btn" data-filter="ehime">愛媛</button>
+            <button class="nav-btn" data-filter="kagawa">香川</button>
           </div>
         </div>
       </div>
@@ -129,7 +135,7 @@
     <main>
           <div class="section-content">
             <div class="card-grid">
-            <!-- 第1番 霊山寺 -->
+            <!-- 1番 霊山寺 -->
             <div class="card tokushima special-temple" data-category="special">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="qskCAXGJR5c">
@@ -138,13 +144,13 @@
                 </div>
               </div>
               <div class="card-content">
-                <h3>第一番 霊山寺 <span class="temple-importance">★★</span></h3>
+                <h3>第一番 霊山寺</h3>
                 <p>所在地: 徳島県鳴門市大麻町板東塚鼻126</p>
                 <p class="card-small-text">電話: 088-689-1111</p>
               </div>
             </div>
-            <!-- 第2番 極楽寺 -->
-            <div class="card">
+            <!-- 2番 極楽寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="IeQ7J4diPnY">
                   <img src="https://img.youtube.com/vi/IeQ7J4diPnY/maxresdefault.jpg" alt="第二番 極楽寺" loading="lazy">
@@ -158,7 +164,8 @@
               </div>
             </div>
             <!-- 第3番 金泉寺 -->
-            <div class="card">
+            <!-- 3番 金泉寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="NrXUyM-5qLA">
                   <img src="https://img.youtube.com/vi/NrXUyM-5qLA/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -172,7 +179,8 @@
               </div>
             </div>
             <!-- 第4番 大日寺 -->
-            <div class="card">
+            <!-- 4番 大日寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="hHW1B66lLSE">
                   <img src="https://img.youtube.com/vi/hHW1B66lLSE/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -186,7 +194,8 @@
               </div>
             </div>
             <!-- 第5番 地蔵寺 -->
-            <div class="card">
+            <!-- 5番 地蔵寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="uF-48tbhnfc">
                   <img src="https://img.youtube.com/vi/uF-48tbhnfc/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -200,7 +209,8 @@
               </div>
             </div>
             <!-- 第6番 安楽寺 -->
-            <div class="card">
+            <!-- 6番 安楽寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="XRmDW-K8xQA">
                   <img src="https://img.youtube.com/vi/XRmDW-K8xQA/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -214,7 +224,8 @@
               </div>
             </div>
             <!-- 第7番 十楽寺 -->
-            <div class="card">
+            <!-- 7番 十楽寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="GRip_MBQ-M8">
                   <img src="https://img.youtube.com/vi/GRip_MBQ-M8/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -228,7 +239,8 @@
               </div>
             </div>
             <!-- 第8番 熊谷寺 -->
-            <div class="card">
+            <!-- 8番 熊谷寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="lPvika32N_A">
                   <img src="https://img.youtube.com/vi/lPvika32N_A/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -242,7 +254,8 @@
               </div>
             </div>
             <!-- 第9番 法輪寺 -->
-            <div class="card">
+            <!-- 9番 法輪寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="yzzNJmPwp_Q">
                   <img src="https://img.youtube.com/vi/yzzNJmPwp_Q/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -256,7 +269,8 @@
               </div>
             </div>
             <!-- 第10番 切幡寺 -->
-            <div class="card">
+            <!-- 10番 切幡寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="IwpoE7nM5CI">
                   <img src="https://img.youtube.com/vi/IwpoE7nM5CI/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -270,7 +284,8 @@
               </div>
             </div>
             <!-- 第11番 藤井寺 -->
-            <div class="card">
+            <!-- 11番 藤井寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="lnkDxWj21qY">
                   <img src="https://img.youtube.com/vi/lnkDxWj21qY/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -284,7 +299,8 @@
               </div>
             </div>
             <!-- 第12番 焼山寺 -->
-            <div class="card">
+            <!-- 12番 焼山寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="LlGGeiFZpKw">
                   <img src="https://img.youtube.com/vi/LlGGeiFZpKw/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -298,7 +314,8 @@
               </div>
             </div>
             <!-- 第13番 大日寺 -->
-            <div class="card">
+            <!-- 13番 大日寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="my71Gimh8dE">
                   <img src="https://img.youtube.com/vi/my71Gimh8dE/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -312,7 +329,8 @@
               </div>
             </div>
             <!-- 第14番 常楽寺 -->
-            <div class="card">
+            <!-- 14番 常楽寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="OGquDYlcn9A">
                   <img src="https://img.youtube.com/vi/OGquDYlcn9A/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -326,7 +344,8 @@
               </div>
             </div>
             <!-- 第15番 國分寺 -->
-            <div class="card">
+            <!-- 15番 國分寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="zCzOUed3m0M">
                   <img src="https://img.youtube.com/vi/zCzOUed3m0M/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -340,7 +359,8 @@
               </div>
             </div>
             <!-- 第16番 観音寺 -->
-            <div class="card">
+            <!-- 16番 観音寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="gSyEdbift9o">
                   <img src="https://img.youtube.com/vi/gSyEdbift9o/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -354,7 +374,8 @@
               </div>
             </div>
             <!-- 第17番 井戸寺 -->
-            <div class="card">
+            <!-- 17番 井戸寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="HXZ1RD1FLpI">
                   <img src="https://img.youtube.com/vi/HXZ1RD1FLpI/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -368,7 +389,8 @@
               </div>
             </div>
             <!-- 第18番 恩山寺 -->
-            <div class="card">
+            <!-- 18番 恩山寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="S7ujw9qWsWc">
                   <img src="https://img.youtube.com/vi/S7ujw9qWsWc/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -378,11 +400,12 @@
               <div class="card-content">
                 <h3>第十八番 恩山寺</h3>
                 <p>所在地: 徳島県小松島市田野町字恩山寺谷40</p>
-                <p class="card-small-text">電話: 08853-3-1218</p>
+                <p class="card-small-text">電話: 088-533-1218</p>
               </div>
             </div>
             <!-- 第19番 立江寺 -->
-            <div class="card">
+            <!-- 19番 立江寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="HmhXls4BTHo">
                   <img src="https://img.youtube.com/vi/HmhXls4BTHo/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -392,11 +415,12 @@
               <div class="card-content">
                 <h3>第十九番 立江寺</h3>
                 <p>所在地: 徳島県小松島市立江町字若松13</p>
-                <p class="card-small-text">電話: 08853-7-1019</p>
+                <p class="card-small-text">電話: 088-537-1019</p>
               </div>
             </div>
             <!-- 第20番 鶴林寺 -->
-            <div class="card">
+            <!-- 20番 鶴林寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="dtAeARWCoPA">
                   <img src="https://img.youtube.com/vi/dtAeARWCoPA/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -406,10 +430,10 @@
               <div class="card-content">
                 <h3>第二十番 鶴林寺</h3>
                 <p>所在地: 徳島県勝浦郡勝浦町生名鷲ヶ尾14</p>
-                <p class="card-small-text">電話: 08854-2-3020</p>
+                <p class="card-small-text">電話: 088-542-3020</p>
               </div>
             </div>
-            <!-- 第21番 太龍寺 -->
+            <!-- 21番 太龍寺 -->
             <div class="card tokushima special-temple" data-category="special">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="x-HexIZOfhw">
@@ -418,13 +442,13 @@
                 </div>
               </div>
               <div class="card-content">
-                <h3>第二十一番 太龍寺 <span class="temple-importance">★★</span></h3>
+                <h3>第二十一番 太龍寺</h3>
                 <p>所在地: 徳島県阿南市加茂町龍山2</p>
                 <p class="card-small-text">電話: 0884-62-2021</p>
               </div>
             </div>
-            <!-- 第22番 平等寺 -->
-            <div class="card">
+            <!-- 22番 平等寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="9xMpKd6bYSs">
                   <img src="https://img.youtube.com/vi/9xMpKd6bYSs/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -434,11 +458,11 @@
               <div class="card-content">
                 <h3>第二十二番 平等寺</h3>
                 <p>所在地: 徳島県阿南市新野町秋山177</p>
-                <p class="card-small-text">電話: 0884-36-3522</p>
+                <p class="card-small-text">電話: 088-436-3522</p>
               </div>
             </div>
-            <!-- 第23番 薬王寺 -->
-            <div class="card">
+            <!-- 23番 薬王寺 -->
+            <div class="card tokushima">
               <div class="card-image">
                 <div class="video-placeholder" data-video-id="0Gczg0yAtqw">
                   <img src="https://img.youtube.com/vi/0Gczg0yAtqw/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -447,13 +471,14 @@
               </div>
               <div class="card-content">
                 <h3>第二十三番 薬王寺</h3>
-                <p>所在地: 徳島県海部郡日和佐町奥河内字寺前285-1</p>
-                <p class="card-small-text">電話: 0884-77-0023</p>
+                <p>所在地: 徳島県海部郡美波町奥河内寺前285-1</p>
+                <p class="card-small-text">電話: 088-477-0023</p>
               </div>
             </div>
           </div>
           </div>
         </section>
+      </main>
       </div>
     </section>
 
@@ -478,9 +503,10 @@
           <!-- メインコンテンツ -->
           <main>
             <div class="section-content">
-        <div class="card-grid">
+        <!-- 24番 最御崎寺 -->
+            <div class="card-grid">
           <!-- 24番 最御崎寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="CoDtTRSAujI">
                   <img src="https://img.youtube.com/vi/CoDtTRSAujI/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -494,7 +520,7 @@
             </div>
           </div>
           <!-- 25番 津照寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="kMhnZNx1W4Q">
                   <img src="https://img.youtube.com/vi/kMhnZNx1W4Q/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -506,7 +532,7 @@
             </div>
           </div>
           <!-- 26番 金剛頂寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="7GTXQnFa62s">
                   <img src="https://img.youtube.com/vi/7GTXQnFa62s/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -518,7 +544,7 @@
             </div>
           </div>
           <!-- 27番 神峯寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="dc8OC2VbOy8">
                   <img src="https://img.youtube.com/vi/dc8OC2VbOy8/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -530,7 +556,7 @@
             </div>
           </div>
           <!-- 28番 大日寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="BK9zrRfdysw">
                   <img src="https://img.youtube.com/vi/BK9zrRfdysw/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -542,7 +568,7 @@
             </div>
           </div>
           <!-- 29番 国分寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="84uN0CULEJc">
                   <img src="https://img.youtube.com/vi/84uN0CULEJc/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -556,7 +582,7 @@
             </div>
           </div>
           <!-- 30番 善楽寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="UFh7gXRoGQg">
                   <img src="https://img.youtube.com/vi/UFh7gXRoGQg/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -568,7 +594,7 @@
             </div>
           </div>
           <!-- 31番 竹林寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="R-rgLmIgECE">
                   <img src="https://img.youtube.com/vi/R-rgLmIgECE/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -580,19 +606,19 @@
             </div>
           </div>
           <!-- 32番 禅師峰寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="JywQW5gA1ms">
                   <img src="https://img.youtube.com/vi/JywQW5gA1ms/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
-              <h3>三十二番 禅師峰寺</h3>
+              <h3>第三十二番 禅師峰寺</h3>
               <p>所在地: 〒783-0045 南国市十市3084</p>
               <p class="card-small-text">電話: 088-865-8430</p>
             </div>
           </div>
           <!-- 33番 雪蹊寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="DQBBbE5wd34">
                   <img src="https://img.youtube.com/vi/DQBBbE5wd34/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -604,7 +630,7 @@
             </div>
           </div>
           <!-- 34番 種間寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="QZgrxWfXuqY">
                   <img src="https://img.youtube.com/vi/QZgrxWfXuqY/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -616,7 +642,7 @@
             </div>
           </div>
           <!-- 35番 清瀧寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="v54e5seo64Y">
                   <img src="https://img.youtube.com/vi/v54e5seo64Y/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -628,19 +654,19 @@
             </div>
           </div>
           <!-- 36番 青龍寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="WndMBTXLiQ8">
                   <img src="https://img.youtube.com/vi/WndMBTXLiQ8/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
                 </div></div>
             <div class="card-content">
               <h3>第三十六番 青龍寺</h3>
-              <p>所在地: 〒781-1165 土佐市宇佐町竜601</p>
+              <p>所在地: 高知県土佐市宇佐町竜163</p>
               <p class="card-small-text">電話: 088-856-3010</p>
             </div>
           </div>
           <!-- 37番 岩本寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="oVtwQcz36h0">
                   <img src="https://img.youtube.com/vi/oVtwQcz36h0/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -652,7 +678,7 @@
             </div>
           </div>
           <!-- 38番 金剛福寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="2CEDUzIlXis">
                   <img src="https://img.youtube.com/vi/2CEDUzIlXis/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -664,7 +690,7 @@
             </div>
           </div>
           <!-- 39番 延光寺 -->
-          <div class="card">
+          <div class="card kouchi">
             <div class="card-image"><div class="video-placeholder" data-video-id="Wd5F0RU9gpk">
                   <img src="https://img.youtube.com/vi/Wd5F0RU9gpk/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
                   <div class="play-button"></div>
@@ -702,9 +728,10 @@
           <!-- メインコンテンツ -->
           <main>
             <div class="section-content">
-        <div class="card-grid">
+        <!-- 40番 観自在寺 -->
+            <div class="card-grid">
           <!-- 40番 観自在寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Xs03KDp5F54">
                   <img src="https://img.youtube.com/vi/Xs03KDp5F54/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -713,12 +740,12 @@
             </div>
             <div class="card-content">
               <h3>第四十番 観自在寺</h3>
-              <p>所在地: 愛媛県南宇和郡愛南町御荘平城2253-1</p>
+              <p>所在地: 愛媛県宇和郡愛南町御荘平城2253-1</p>
               <p class="card-small-text">電話: 0895-72-0416</p>
             </div>
           </div>
           <!-- 41番 龍光寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="qcCNMOh0D-Q">
                   <img src="https://img.youtube.com/vi/qcCNMOh0D-Q/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -732,7 +759,7 @@
             </div>
           </div>
           <!-- 42番 仏木寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="4QT10v3Swpc">
                   <img src="https://img.youtube.com/vi/4QT10v3Swpc/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -746,7 +773,7 @@
             </div>
           </div>
           <!-- 43番 明石寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Xr-jKHbMXTs">
                   <img src="https://img.youtube.com/vi/Xr-jKHbMXTs/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -760,7 +787,7 @@
             </div>
           </div>
           <!-- 44番 大寶寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="8Jz75eDwHtM">
                   <img src="https://img.youtube.com/vi/8Jz75eDwHtM/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -769,12 +796,12 @@
             </div>
             <div class="card-content">
               <h3>第四十四番 大寶寺</h3>
-              <p>所在地: 愛媛県上浮穴郡久万高原町菅生1173</p>
+              <p>所在地: 愛媛県久万高原町菅生1173</p>
               <p class="card-small-text">電話: 0892-21-0044</p>
             </div>
           </div>
           <!-- 45番 岩屋寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="VCpE9Soy3M8">
                   <img src="https://img.youtube.com/vi/VCpE9Soy3M8/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -783,12 +810,12 @@
             </div>
             <div class="card-content">
               <h3>第四十五番 岩屋寺</h3>
-              <p>所在地: 愛媛県上浮穴郡久万高原町七鳥1468</p>
+              <p>所在地: 愛媛県久万高原町七鳥1468</p>
               <p class="card-small-text">電話: 0892-57-0417</p>
             </div>
           </div>
           <!-- 46番 浄瑠璃寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="QVIQtQ3QUCg">
                   <img src="https://img.youtube.com/vi/QVIQtQ3QUCg/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -802,7 +829,7 @@
             </div>
           </div>
           <!-- 47番 八坂寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="aUeoSTa3HUI">
                   <img src="https://img.youtube.com/vi/aUeoSTa3HUI/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -816,7 +843,7 @@
             </div>
           </div>
           <!-- 48番 西林寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Mfk3rAzQW-M">
                   <img src="https://img.youtube.com/vi/Mfk3rAzQW-M/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -830,7 +857,7 @@
             </div>
           </div>
           <!-- 49番 浄土寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="YjR5VbBA9yY">
                   <img src="https://img.youtube.com/vi/YjR5VbBA9yY/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -844,7 +871,7 @@
             </div>
           </div>
           <!-- 50番 繁多寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Ivmuf3yoRu8">
                   <img src="https://img.youtube.com/vi/Ivmuf3yoRu8/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -866,13 +893,13 @@
                 </div>
             </div>
             <div class="card-content">
-              <h3>第五十一番 石手寺 <span class="temple-importance">★★</span></h3>
+              <h3>第五十一番 石手寺</h3>
               <p>所在地: 愛媛県松山市石手2-9-21</p>
               <p class="card-small-text">電話: 089-977-0870</p>
             </div>
           </div>
           <!-- 52番 太山寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="sbzDZAoQvcs">
                   <img src="https://img.youtube.com/vi/sbzDZAoQvcs/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -886,7 +913,7 @@
             </div>
           </div>
           <!-- 53番 圓明寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="boR8MVNgPZY">
                   <img src="https://img.youtube.com/vi/boR8MVNgPZY/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -900,7 +927,7 @@
             </div>
           </div>
           <!-- 54番 延命寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="tVCOBB9Khbs">
                   <img src="https://img.youtube.com/vi/tVCOBB9Khbs/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -914,7 +941,7 @@
             </div>
           </div>
           <!-- 55番 南光坊 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="-B9wIaPpDVo">
                   <img src="https://img.youtube.com/vi/-B9wIaPpDVo/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -928,7 +955,7 @@
             </div>
           </div>
           <!-- 56番 泰山寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="m8U-1Qb9gdU">
                   <img src="https://img.youtube.com/vi/m8U-1Qb9gdU/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -938,11 +965,11 @@
             <div class="card-content">
               <h3>第五十六番 泰山寺</h3>
               <p>所在地: 愛媛県今治市小泉1-9-18</p>
-              <p class="card-small-text">電話: 0898-22-2916</p>
+              <p class="card-small-text">電話: 0898-22-5959</p>
             </div>
           </div>
           <!-- 57番 栄福寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="At0FGPW_VQU">
                   <img src="https://img.youtube.com/vi/At0FGPW_VQU/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -951,12 +978,12 @@
             </div>
             <div class="card-content">
               <h3>第五十七番 栄福寺</h3>
-              <p>所在地: 愛媛県今治市玉川町八幡</p>
-              <p class="card-small-text">電話: 不明</p>
+              <p>所在地: 愛媛県今治市玉川町八幡甲200</p>
+              <p class="card-small-text">電話: 0898-55-2432</p>
             </div>
           </div>
           <!-- 58番 仙遊寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="GCjp-3q-iE0">
                   <img src="https://img.youtube.com/vi/GCjp-3q-iE0/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -965,12 +992,12 @@
             </div>
             <div class="card-content">
               <h3>第五十八番 仙遊寺</h3>
-              <p>所在地: 愛媛県今治市玉川町別所</p>
-              <p class="card-small-text">電話: 不明</p>
+              <p>所在地: 愛媛県今治市玉川町別所甲483</p>
+              <p class="card-small-text">電話: 0898-55-2141</p>
             </div>
           </div>
           <!-- 59番 国分寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Zfk5kZ_t0T8">
                   <img src="https://img.youtube.com/vi/Zfk5kZ_t0T8/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -980,11 +1007,11 @@
             <div class="card-content">
               <h3>第五十九番 国分寺</h3>
               <p>所在地: 愛媛県今治市国分4-1-33</p>
-              <p class="card-small-text">電話: 不明</p>
+              <p class="card-small-text">電話: 0898-48-0533</p>
             </div>
           </div>
           <!-- 60番 横峰寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="uUdmhOzUlqc">
                   <img src="https://img.youtube.com/vi/uUdmhOzUlqc/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -998,7 +1025,7 @@
             </div>
           </div>
           <!-- 61番 香園寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="E5Q1_OHW2C4">
                   <img src="https://img.youtube.com/vi/E5Q1_OHW2C4/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1012,7 +1039,7 @@
             </div>
           </div>
           <!-- 62番 宝寿寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="xazRO7vsStE">
                   <img src="https://img.youtube.com/vi/xazRO7vsStE/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1022,11 +1049,11 @@
             <div class="card-content">
               <h3>第六十二番 宝寿寺</h3>
               <p>所在地: 愛媛県西条市小松町新屋敷甲428</p>
-              <p class="card-small-text">電話: 不明</p>
+              <p class="card-small-text">電話: 0898-72-2210</p>
             </div>
           </div>
           <!-- 63番 吉祥寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Qg8BouiP9Z4">
                   <img src="https://img.youtube.com/vi/Qg8BouiP9Z4/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1036,11 +1063,11 @@
             <div class="card-content">
               <h3>第六十三番 吉祥寺</h3>
               <p>所在地: 愛媛県西条市氷見乙1048</p>
-              <p class="card-small-text">電話: 不明</p>
+              <p class="card-small-text">電話: 0897-57-8863</p>
             </div>
           </div>
           <!-- 64番 前神寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="D8OuJ8sAVkc">
                   <img src="https://img.youtube.com/vi/D8OuJ8sAVkc/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1050,11 +1077,11 @@
             <div class="card-content">
               <h3>第六十四番 前神寺</h3>
               <p>所在地: 愛媛県西条市洲之内甲1426</p>
-              <p class="card-small-text">電話: 不明</p>
+              <p class="card-small-text">電話: 0897-56-6995</p>
             </div>
           </div>
           <!-- 65番 三角寺 -->
-          <div class="card">
+          <div class="card ehime">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="727Nf-KxTqQ">
                   <img src="https://img.youtube.com/vi/727Nf-KxTqQ/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1064,7 +1091,7 @@
             <div class="card-content">
               <h3>第六十五番 三角寺</h3>
               <p>所在地: 愛媛県四国中央市金田町三角寺甲75</p>
-              <p class="card-small-text">電話: 不明</p>
+              <p class="card-small-text">電話: 0896-56-3065</p>
             </div>
           </div>
         </div>
@@ -1094,9 +1121,10 @@
           <!-- メインコンテンツ -->
           <main>
             <div class="section-content">
-        <div class="card-grid">
+        <!-- 66番 雲辺寺 -->
+            <div class="card-grid">
           <!-- 66番 雲辺寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="hknNVAbhxpo">
                   <img src="https://img.youtube.com/vi/hknNVAbhxpo/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1106,11 +1134,11 @@
             <div class="card-content">
               <h3>第六十六番 雲辺寺</h3>
               <p>所在地: 徳島県三好市池田町白地ノロウチ763-2</p>
-              <p class="card-small-text">電話: -</p>
+              <p class="card-small-text">電話: 0883-74-1707</p>
             </div>
           </div>
           <!-- 67番 大興寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="Ufsql_1Y8Yw">
                   <img src="https://img.youtube.com/vi/Ufsql_1Y8Yw/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1124,7 +1152,7 @@
             </div>
           </div>
           <!-- 68番 神恵院 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="qCaUUffDRMQ">
                   <img src="https://img.youtube.com/vi/qCaUUffDRMQ/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1138,7 +1166,7 @@
             </div>
           </div>
           <!-- 69番 観音寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="qCaUUffDRMQ">
                   <img src="https://img.youtube.com/vi/qCaUUffDRMQ/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1152,7 +1180,7 @@
             </div>
           </div>
           <!-- 70番 本山寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="zCUFopvAfyE">
                   <img src="https://img.youtube.com/vi/zCUFopvAfyE/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1166,7 +1194,7 @@
             </div>
           </div>
           <!-- 71番 弥谷寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="xz01xd4SI2w">
                   <img src="https://img.youtube.com/vi/xz01xd4SI2w/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1180,7 +1208,7 @@
             </div>
           </div>
           <!-- 72番 曼荼羅寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="LRviDUw0Lfc">
                   <img src="https://img.youtube.com/vi/LRviDUw0Lfc/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1194,7 +1222,7 @@
             </div>
           </div>
           <!-- 73番 出釈迦寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="t7bVTHXD85E">
                   <img src="https://img.youtube.com/vi/t7bVTHXD85E/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1208,7 +1236,7 @@
             </div>
           </div>
           <!-- 74番 甲山寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="eNEeTNB_t5o">
                   <img src="https://img.youtube.com/vi/eNEeTNB_t5o/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1231,14 +1259,14 @@
                 </div>
             </div>
             <div class="card-content">
-              <h3>第七十五番 善通寺 <span class="temple-importance">★★★</span></h3>
+              <h3>第七十五番 善通寺</h3>
               <p class="temple-significance">弘法大師空海が生まれた聖なる故郷</p>
               <p>所在地: 〒765-0003 香川県善通寺市善通寺町3-3-1</p>
               <p class="card-small-text">電話: 0877-62-0111</p>
             </div>
           </div>
           <!-- 76番 金倉寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="hj8vYyoWLk0">
                   <img src="https://img.youtube.com/vi/hj8vYyoWLk0/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1252,7 +1280,7 @@
             </div>
           </div>
           <!-- 77番 道隆寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="WxVE6CI9ibc">
                   <img src="https://img.youtube.com/vi/WxVE6CI9ibc/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1266,7 +1294,7 @@
             </div>
           </div>
           <!-- 78番 郷照寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="kmQPSjAg_hU">
                   <img src="https://img.youtube.com/vi/kmQPSjAg_hU/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1280,7 +1308,7 @@
             </div>
           </div>
           <!-- 79番 天皇寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="dycQTttlQ64">
                   <img src="https://img.youtube.com/vi/dycQTttlQ64/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1294,7 +1322,7 @@
             </div>
           </div>
           <!-- 80番 国分寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="FPM6ZWSCPcI">
                   <img src="https://img.youtube.com/vi/FPM6ZWSCPcI/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1308,7 +1336,7 @@
             </div>
           </div>
           <!-- 81番 白峯寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="EaTWDkGl5hQ">
                   <img src="https://img.youtube.com/vi/EaTWDkGl5hQ/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1322,7 +1350,7 @@
             </div>
           </div>
           <!-- 82番 根香寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="prChYJGx8i0">
                   <img src="https://img.youtube.com/vi/prChYJGx8i0/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1336,7 +1364,7 @@
             </div>
           </div>
           <!-- 83番 一宮寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="rg5l0oZ-O98">
                   <img src="https://img.youtube.com/vi/rg5l0oZ-O98/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1350,7 +1378,7 @@
             </div>
           </div>
           <!-- 84番 屋島寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="f6odNeAwPs8">
                   <img src="https://img.youtube.com/vi/f6odNeAwPs8/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1364,7 +1392,7 @@
             </div>
           </div>
           <!-- 85番 八栗寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="p6_bY1CkFDo">
                   <img src="https://img.youtube.com/vi/p6_bY1CkFDo/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1378,7 +1406,7 @@
             </div>
           </div>
           <!-- 86番 志度寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="uci3Xeez_Cw">
                   <img src="https://img.youtube.com/vi/uci3Xeez_Cw/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1392,7 +1420,7 @@
             </div>
           </div>
           <!-- 87番 長尾寺 -->
-          <div class="card">
+          <div class="card kagawa">
             <div class="card-image">
               <div class="video-placeholder" data-video-id="56m2GCv0uW8">
                   <img src="https://img.youtube.com/vi/56m2GCv0uW8/maxresdefault.jpg" alt="YouTube動画" loading="lazy">
@@ -1414,7 +1442,7 @@
                 </div>
             </div>
             <div class="card-content">
-              <h3>第八十八番 大窪寺 <span class="temple-importance">★★</span></h3>
+              <h3>第八十八番 大窪寺</h3>
               <p>所在地: 〒769-2306 香川県さぬき市多和兼割96</p>
               <p class="card-small-text">電話: 0879-56-2278</p>
             </div>
@@ -1428,7 +1456,7 @@
     <footer id="contact">
       <div class="contact-info">
         <p><i class="fas fa-phone"></i> お問い合わせ: 0774-46-8762</p>
-        <p><i class="fas fa-envelope"></i> info@doujima-front.com</p>
+        <p><i class="fas fa-envelope"></i> info@doujimafront.com</p>
         <p>
           <i class="fab fa-youtube"></i>
           <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ"
@@ -1444,150 +1472,109 @@
       </p>
     </footer>
 
+    <!-- トップに戻るボタン -->
+    <button id="backToTopBtn" class="back-to-top" aria-label="ページトップへ戻る">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="../js/script.js"></script>
     <script>
-      // 霊場検索機能
-      document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.getElementById('templeSearch');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.card');
-        const sections = document.querySelectorAll('.section');
-        
-        // 検索機能
-        searchInput.addEventListener('input', function() {
-          const query = this.value.toLowerCase();
-          filterTemples(query, getCurrentFilter());
-        });
-        
-        // フィルターボタン
-        filterButtons.forEach(btn => {
-          btn.addEventListener('click', function() {
-            filterButtons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            filterTemples(searchInput.value.toLowerCase(), this.dataset.filter);
-          });
-        });
-        
-        function getCurrentFilter() {
-          return document.querySelector('.filter-btn.active').dataset.filter;
-        }
-        
-        // 数字から漢数字に変換する関数
-        function convertToKanji(num) {
-          const kanjiNumbers = {
-            '1': '一', '2': '二', '3': '三', '4': '四', '5': '五',
-            '6': '六', '7': '七', '8': '八', '9': '九', '10': '十',
-            '11': '十一', '12': '十二', '13': '十三', '14': '十四', '15': '十五',
-            '16': '十六', '17': '十七', '18': '十八', '19': '十九', '20': '二十',
-            '21': '二十一', '22': '二十二', '23': '二十三', '24': '二十四', '25': '二十五',
-            '26': '二十六', '27': '二十七', '28': '二十八', '29': '二十九', '30': '三十',
-            '31': '三十一', '32': '三十二', '33': '三十三', '34': '三十四', '35': '三十五',
-            '36': '三十六', '37': '三十七', '38': '三十八', '39': '三十九', '40': '四十',
-            '41': '四十一', '42': '四十二', '43': '四十三', '44': '四十四', '45': '四十五',
-            '46': '四十六', '47': '四十七', '48': '四十八', '49': '四十九', '50': '五十',
-            '51': '五十一', '52': '五十二', '53': '五十三', '54': '五十四', '55': '五十五',
-            '56': '五十六', '57': '五十七', '58': '五十八', '59': '五十九', '60': '六十',
-            '61': '六十一', '62': '六十二', '63': '六十三', '64': '六十四', '65': '六十五',
-            '66': '六十六', '67': '六十七', '68': '六十八', '69': '六十九', '70': '七十',
-            '71': '七十一', '72': '七十二', '73': '七十三', '74': '七十四', '75': '七十五',
-            '76': '七十六', '77': '七十七', '78': '七十八', '79': '七十九', '80': '八十',
-            '81': '八十一', '82': '八十二', '83': '八十三', '84': '八十四', '85': '八十五',
-            '86': '八十六', '87': '八十七', '88': '八十八'
-          };
-          return kanjiNumbers[num] || num;
-        }
+      // 霊場ナビゲーション機能
+      document.addEventListener("DOMContentLoaded", function () {
+        // === ナビゲーション機能の初期化 ===
+        const navBtns = document.querySelectorAll(".nav-btn");
 
-        // 検索テキストマッチング関数（優先順位付き検索）
-        function searchTextMatch(cardText, query, card) {
-          // 重要霊場の検索
-          if (query === '重要' || query === '重要霊場' || query === 'special' || query === '特別') {
-            const isSpecial = card.getAttribute('data-category') === 'special';
-            if (isSpecial) {
-              return true;
-            }
-          }
-          
-          // 霊場番号の完全一致を最優先（「23」→「第二十三番」）
-          if (/^\d+$/.test(query)) {
-            const kanjiNumber = convertToKanji(query);
-            const templeTitle = card.querySelector('h3')?.textContent || '';
-            
-            // 「第〇〇番」の形式で完全一致チェック
-            if (templeTitle.includes(`第${kanjiNumber}番`)) {
-              return true;
-            }
-          }
-          
-          // 「〇番」「第〇番」形式の検索
-          if (/^\d+番$/.test(query) || /^第\d+番$/.test(query)) {
-            const number = query.replace(/[第番]/g, '');
-            const kanjiNumber = convertToKanji(number);
-            const templeTitle = card.querySelector('h3')?.textContent || '';
-            
-            if (templeTitle.includes(`第${kanjiNumber}番`)) {
-              return true;
-            }
-          }
-          
-          // 寺院名での検索（h3タイトルのみ対象）
-          const templeTitle = card.querySelector('h3')?.textContent.toLowerCase() || '';
-          if (templeTitle.includes(query)) {
-            return true;
-          }
-          
-          // 数字が含まれる寺院名検索（「1寺」→「一寺」等）
-          const convertedQuery = query.replace(/\d+/g, (match) => convertToKanji(match));
-          if (convertedQuery !== query && templeTitle.includes(convertedQuery)) {
-            return true;
-          }
-          
-          // 最後に全文検索（住所・電話番号含む）- 他で見つからない場合のみ
-          return false;
-        }
+        // ナビゲーションボタン機能
+        navBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const filter = this.dataset.filter;
 
-        function filterTemples(query, filter) {
-          let visibleCount = 0;
-          
-          // 各カードをチェック
-          cards.forEach(card => {
-            const cardText = card.textContent.toLowerCase();
-            const isSpecial = card.getAttribute('data-category') === 'special';
-            const parentSection = card.closest('.section');
-            let show = true;
-            
-            // テキスト検索（優先順位付き検索）
-            if (query && !searchTextMatch(cardText, query, card)) {
-              show = false;
-            }
-            
-            // フィルターチェック
-            if (filter !== 'all') {
-              if (filter === 'special' && !isSpecial) {
-                show = false;
-              } else if (filter !== 'special' && !parentSection.id.includes(filter)) {
-                show = false;
-              }
-            }
-            
-            card.style.display = show ? 'block' : 'none';
-            if (show) visibleCount++;
-          });
-          
-          // セクションの表示/非表示
-          sections.forEach(section => {
-            if (section.id && (section.id === 'tokushima' || section.id === 'kouchi' || section.id === 'ehime' || section.id === 'kagawa')) {
-              const visibleCards = section.querySelectorAll('.card[style="display: block;"], .card:not([style*="display: none"])');
-              section.style.display = (filter === 'all' || filter === section.id || (filter === 'special' && visibleCards.length > 0)) ? 'block' : 'none';
+            // アクティブボタンを切り替え
+            navBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            // 対応するエリアへスムーススクロール
+            const targetSection = document.querySelector(`#${filter}`);
+            if (targetSection) {
+              const headerOffset = 80; // 固定ヘッダー高さ
+              const elementPosition = targetSection.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+              });
             }
           });
-          
-          // 結果表示
-          updateSearchResults(visibleCount, query, filter);
-        }
-        
-        function updateSearchResults(count, query, filter) {
-          // 結果表示用のメッセージを追加できる
-          console.log(`検索結果: ${count}件`);
+        });
+
+        // === トップに戻るボタン機能 ===
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        if (backToTopBtn) {
+          // スクロール閾値の設定（レスポンシブ対応）
+          function getScrollThreshold() {
+            const width = window.innerWidth;
+            if (width >= 1024) return 1000; // デスクトップ
+            if (width >= 768) return 800;   // タブレット
+            return 600;                      // モバイル
+          }
+
+          // スクロールイベントハンドラー（パフォーマンス最適化）
+          let isScrolling = false;
+
+          function handleScroll() {
+            if (!isScrolling) {
+              window.requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                const threshold = getScrollThreshold();
+
+                if (scrolled > threshold) {
+                  backToTopBtn.classList.add("show");
+                } else {
+                  backToTopBtn.classList.remove("show");
+                }
+
+                isScrolling = false;
+              });
+
+              isScrolling = true;
+            }
+          }
+
+          // スクロールイベントリスナー
+          window.addEventListener("scroll", handleScroll, { passive: true });
+
+          // ボタンクリックイベント
+          backToTopBtn.addEventListener("click", function () {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          });
+
+          // キーボードナビゲーション（アクセシビリティ）
+          backToTopBtn.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              });
+            }
+          });
+
+          // ウィンドウリサイズ時の閾値再計算
+          let resizeTimer;
+          window.addEventListener("resize", function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+              handleScroll();
+            }, 150);
+          });
+
+          // 初期状態の確認
+          handleScroll();
         }
       });
     </script>

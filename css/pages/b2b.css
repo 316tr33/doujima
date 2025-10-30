@@ -1,0 +1,668 @@
+/* ===========================================
+   B2B企業ページ専用スタイル - 詳細機能
+   =========================================== */
+
+/* サービスセクション */
+.services-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, rgba(250, 248, 245, 0.95), rgba(248, 246, 240, 0.95));
+}
+
+.section-description {
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(60, 60, 60, 0.8);
+  margin-bottom: 4rem;
+  line-height: 1.6;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-gold), var(--accent-gold));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.service-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary-gold);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: rgba(60, 60, 60, 0.8);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-features li {
+  padding: 0.5rem 0;
+  color: rgba(60, 60, 60, 0.7);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.service-features li::before {
+  content: "✓";
+  color: var(--primary-gold);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* サービスフロー */
+.service-flow {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.service-flow h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--primary-gold);
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+}
+
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.flow-step {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-gold), var(--accent-gold));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+}
+
+.flow-step h4 {
+  font-size: 1.2rem;
+  color: var(--primary-gold);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.flow-step p {
+  color: rgba(60, 60, 60, 0.8);
+  line-height: 1.6;
+}
+
+/* 実績セクション */
+.results-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.05), rgba(212, 175, 55, 0.05));
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: var(--primary-gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: var(--primary-gold);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.stat-card p {
+  color: rgba(60, 60, 60, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* お客様の声 */
+.testimonials {
+  margin: 4rem 0;
+}
+
+.testimonials h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--primary-gold);
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid var(--accent-gold);
+}
+
+.testimonial-card blockquote {
+  font-size: 1.1rem;
+  color: rgba(60, 60, 60, 0.8);
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
+  font-style: italic;
+  position: relative;
+}
+
+.testimonial-card blockquote::before {
+  content: "\201C";
+  font-size: 3rem;
+  color: var(--accent-gold);
+  position: absolute;
+  top: -1rem;
+  left: -0.5rem;
+}
+
+.testimonial-card cite {
+  color: var(--primary-gold);
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* 安心サポート */
+.certifications h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--primary-gold);
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.cert-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.cert-item:hover {
+  transform: translateY(-5px);
+}
+
+.cert-item i {
+  font-size: 2.5rem;
+  color: var(--primary-gold);
+  margin-bottom: 1rem;
+}
+
+.cert-item h4 {
+  font-size: 1.2rem;
+  color: var(--primary-gold);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.cert-item p {
+  color: rgba(60, 60, 60, 0.7);
+  line-height: 1.5;
+}
+
+/* ガイド紹介セクション */
+.guides-section {
+  padding: 6rem 2rem;
+  background: rgba(250, 248, 245, 0.95);
+}
+
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.guide-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.guide-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.15);
+}
+
+.guide-category {
+  background: linear-gradient(135deg, var(--primary-gold), var(--accent-gold));
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.guide-card h3 {
+  font-size: 1.4rem;
+  color: var(--primary-gold);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.guide-experience {
+  color: rgba(60, 60, 60, 0.7);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.guide-specialties {
+  margin-bottom: 1.5rem;
+}
+
+.specialty {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--primary-gold);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.guide-card p {
+  color: rgba(60, 60, 60, 0.8);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.guide-cta {
+  text-align: center;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.guide-cta p {
+  color: rgba(60, 60, 60, 0.8);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* 会社概要セクション */
+.company-section {
+  padding: 6rem 2rem;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.company-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.company-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.company-table th,
+.company-table td {
+  padding: 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.company-table th {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--primary-gold);
+  font-weight: 600;
+  width: 30%;
+}
+
+.company-table td {
+  color: rgba(60, 60, 60, 0.8);
+  line-height: 1.6;
+}
+
+.company-message {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.company-message h3 {
+  font-size: 1.5rem;
+  color: var(--primary-gold);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.company-message p {
+  color: rgba(60, 60, 60, 0.8);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+/* お問い合わせセクション */
+.contact-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.08), rgba(212, 175, 55, 0.08));
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.contact-info {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  color: var(--primary-gold);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.contact-method {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-method i {
+  font-size: 1.5rem;
+  color: var(--primary-gold);
+  margin-top: 0.2rem;
+}
+
+.contact-method strong {
+  color: var(--primary-gold);
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.contact-method p {
+  color: rgba(60, 60, 60, 0.7);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.contact-note {
+  background: rgba(212, 175, 55, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  border-left: 4px solid var(--primary-gold);
+}
+
+.contact-note h4 {
+  color: var(--primary-gold);
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.contact-note p {
+  color: rgba(60, 60, 60, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-features {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.contact-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-gold);
+  font-weight: 500;
+}
+
+.contact-feature i {
+  font-size: 1.2rem;
+}
+
+/* お問い合わせフォーム */
+.contact-form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form h3 {
+  font-size: 1.5rem;
+  color: var(--primary-gold);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group label {
+  display: block;
+  color: rgba(60, 60, 60, 0.8);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-gold);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+}
+
+/* 対応約束 */
+.response-promise {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.promise-item {
+  text-align: center;
+  color: var(--primary-gold);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.promise-item strong {
+  color: var(--primary-gold);
+}
+
+/* レスポンシブ対応 - B2B版 */
+@media (max-width: 1024px) /* --bp-lg */ {
+  .contact-content,
+  .company-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid,
+  .stats-grid,
+  .cert-grid,
+  .guides-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .flow-steps {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-features,
+  .response-promise {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) /* --bp-sm */ {
+  .services-section,
+  .results-section,
+  .guides-section,
+  .company-section,
+  .contact-section {
+    padding: 3rem 1rem;
+  }
+  
+  .service-card,
+  .guide-card,
+  .contact-info,
+  .contact-form {
+    padding: 1.5rem;
+  }
+}

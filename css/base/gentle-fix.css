@@ -1,0 +1,796 @@
+/* 
+   gentle-fix.css - 既存デザインを壊さない穏やかな修正
+   段階的なレスポンシブ改善
+*/
+
+/* ===============================================
+   画像の基本対応（既存を壊さない）
+   =============================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===============================================
+   コンテナの柔軟性向上（既存スタイルを尊重）
+   =============================================== */
+
+/* 幅の問題のみ修正（高さやレイアウトはそのまま） */
+.container:not([style*="width"]) {
+  max-width: 100%;
+}
+
+section:not([style*="width"]) {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===============================================
+   タッチターゲットの最小サイズ確保
+   =============================================== */
+
+/* ボタンのタッチサイズのみ修正 */
+@media (max-width: 768px) {
+  button:not(.custom-size),
+  .button:not(.custom-size),
+  a[role="button"]:not(.custom-size),
+  nav a {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1rem !important;
+    box-sizing: border-box;
+  }
+
+  /* モバイルメニューリンクの特別処理（縦幅拡張） */
+  .mobile-menu-link {
+    min-height: 60px !important;
+    min-width: 44px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem !important;
+    box-sizing: border-box;
+  }
+
+  /* リンクの特別処理 */
+  nav a,
+  .mobile-menu-link {
+    text-decoration: none;
+    line-height: 1.2;
+  }
+
+  /* フッターリンクとその他のテキストリンクのタッチサイズ確保 */
+  footer a,
+  .footer a,
+  a:not([role="button"]):not(.hero-cta a):not(.logo):not(.mobile-menu-link) {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0.5rem 0.8rem !important;
+    box-sizing: border-box;
+    line-height: 1.2;
+  }
+
+  /* CTAボタンの確実なサイズ確保 */
+  .hero-cta a,
+  .cta-button,
+  .btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    padding: 0.8rem 1.2rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box;
+  }
+
+  /* 小さなアイコンリンクの特別処理 */
+  .social-link,
+  .icon-link {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.5rem !important;
+  }
+}
+
+/* ===============================================
+   フォントサイズの微調整（既存を尊重）
+   =============================================== */
+
+/* モバイル全般でのフォント階層統一 */
+@media (max-width: 480px) {
+  /* 見出し階層 */
+  h1 {
+    font-size: 1.8rem !important; /* h1: 主要見出し */
+  }
+
+  h2 {
+    font-size: 1.4rem !important; /* h2: セクション見出し */
+  }
+
+  h3 {
+    font-size: 1.2rem !important; /* h3: サブ見出し */
+  }
+
+  /* 大きすぎるテキスト要素を調整（1.5rem以上） */
+  .hero-subtitle,
+  h1.hero-subtitle {
+    font-size: 1.6rem !important;
+  }
+
+  /* hero-description の特別な小サイズ設定 */
+  .hero-description {
+    font-size: 1rem !important;
+  }
+
+  /* hero-subtitle の金色統一（強制適用） */
+  .hero-subtitle,
+  h1.hero-subtitle {
+    color: #d4af37 !important;
+  }
+
+  .company-overview p,
+  .service-card h3,
+  .guide-card h3 {
+    font-size: 1.3rem !important;
+  }
+
+  /* 非常に大きなテキスト（2rem以上）を抑制 */
+  .hero-content h1,
+  .company-overview h2,
+  .news-section h2,
+  .services-section h2,
+  .results-section h2,
+  .contact-section h2 {
+    font-size: 1.6rem !important; /* 特別な見出し */
+  }
+
+  /* ===============================================
+     セクション余白のコンパクト化（形を保持）
+     =============================================== */
+
+  /* セクション間の余白を75%に圧縮 */
+  section,
+  .company-overview,
+  .news-section,
+  .services-section,
+  .results-section,
+  .contact-section {
+    padding-top: calc(var(--spacing-2xl, 3rem) * 0.75) !important;
+    padding-bottom: calc(var(--spacing-2xl, 3rem) * 0.75) !important;
+  }
+
+  /* 要素間の余白を80%に圧縮 */
+  h1,
+  h2,
+  h3 {
+    margin-bottom: calc(1rem * 0.8) !important;
+  }
+
+  /* カード・ボックス内の余白を75%に圧縮 */
+  .business-card,
+  .news-item,
+  .service-card,
+  .stat-card {
+    padding: calc(1.5rem * 0.75) !important;
+  }
+
+  /* リスト・グリッド間隔を80%に圧縮 */
+  .business-links,
+  .news-list,
+  .services-grid {
+    gap: calc(1.5rem * 0.8) !important;
+  }
+}
+
+/* 非常に小さい画面でのフォント調整のみ */
+@media (max-width: 375px) {
+  body {
+    font-size: max(14px, 1em);
+  }
+
+  h1 {
+    font-size: max(1.5rem, calc(100% + 0.5rem));
+  }
+
+  h2 {
+    font-size: max(1.2rem, calc(100% + 0.2rem));
+  }
+}
+
+/* ===============================================
+   横スクロール防止（最小限）
+   =============================================== */
+
+/* 横スクロールバーが出る要素のみ修正 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ===============================================
+   ヒーローセクション完全中央配置（全デバイス対応）
+   =============================================== */
+
+/* 縦向き小画面（≤430px）: 横書きテキスト */
+@media (max-width: 430px) and (orientation: portrait) {
+  .hero-section {
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .hero-content {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    display: block !important;
+    width: fit-content !important;
+    max-width: calc(100% - 30px) !important;
+    text-align: center !important;
+    margin: 1rem auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* 縦向き中〜大画面（≥431px）: 縦書きテキスト */
+@media (min-width: 431px) and (orientation: portrait) {
+  /* スクロールバー幅を無視してフル幅確保 */
+  html,
+  body {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  main {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  .hero-section {
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .hero-content {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    writing-mode: vertical-rl !important;
+    text-orientation: upright !important;
+    width: 62.72px !important; /* 縦書きテキストの実測幅（fontSize 56px + letterSpacing 6.72px） */
+    height: auto !important;
+    margin: 0 !important;
+    padding: 1rem 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* 横向きすべて: 縦書きテキスト */
+@media (orientation: landscape) {
+  .hero-section {
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .hero-content {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    writing-mode: vertical-rl !important;
+    text-orientation: upright !important;
+    display: block !important;
+    width: fit-content !important;
+    height: auto !important;
+    align-self: center !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: translateX(0) !important;
+  }
+}
+
+/* ===============================================
+   横画面で縦幅が短い場合の最適化（768px～850px）
+   =============================================== */
+
+@media (orientation: landscape) and (min-height: 650px) and (max-height: 850px) {
+  .hero-section {
+    min-height: calc(100vh - 70px) !important;
+    max-height: calc(100vh - 70px) !important; /* 最大高さも制限してビューポートに収める */
+    height: auto !important;
+    padding: 1rem 0 !important; /* パディングをさらに縮小 */
+    overflow: visible !important; /* コンテンツがはみ出ても表示 */
+  }
+
+  .hero-content {
+    gap: 0.8rem !important; /* コンテンツ間の余白をさらに縮小 */
+    padding: 0 !important;
+    max-height: calc(100vh - 90px) !important; /* コンテンツ領域も制限 */
+    justify-content: center !important;
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    margin-top: 0.8rem !important;
+    margin-bottom: 0.8rem !important;
+    font-size: 1.7rem !important; /* 1.8rem → 1.7rem に微調整 */
+  }
+
+  .hero-buttons {
+    margin-top: 0.8rem !important;
+    gap: 0.6rem !important;
+  }
+
+  .hero-buttons a {
+    padding: 0.7rem 1.5rem !important; /* ボタンサイズを微調整 */
+    font-size: 0.95rem !important;
+  }
+
+  .hero-features {
+    margin-top: 0.8rem !important;
+    gap: 0.8rem !important;
+  }
+
+  .feature-item {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* ===============================================
+   横画面で極端に縦幅が短い場合の緊急対応（≤650px）
+   =============================================== */
+
+@media (orientation: landscape) and (max-height: 650px) {
+  .hero-section {
+    min-height: calc(100vh - 60px) !important;
+    height: auto !important;
+    padding: 1rem 0 !important;
+  }
+
+  .hero-content {
+    gap: 0.5rem !important;
+    padding: 0 !important;
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    font-size: 1.6rem !important; /* 1.8rem → 1.6rem に縮小 */
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: 0.15em !important;
+  }
+
+  .hero-buttons {
+    margin-top: 0.8rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .hero-buttons a {
+    padding: 0.6rem 1.2rem !important; /* ボタンサイズ縮小 */
+    font-size: 0.9rem !important;
+  }
+
+  .hero-features {
+    margin-top: 0.8rem !important;
+    gap: 0.8rem !important;
+  }
+
+  .feature-item {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ===============================================
+   横画面で縦幅が狭い場合の最適化（デスクトップ・スマホ共通）
+   =============================================== */
+
+/* 横画面で縦幅が狭い場合の共通最適化 */
+@media (orientation: landscape) and (max-height: 650px) {
+  .hero-section {
+    /* 固定の高さではなく、コンテンツに合わせた柔軟な高さ */
+    min-height: auto !important;
+    height: auto !important;
+    /* 最小限のパディング */
+    padding: clamp(0.5rem, 1.5vh, 1rem) 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-content {
+    /* 最小限の余白 */
+    padding: 0 !important;
+    margin-top: clamp(0.5rem, 1vh, 1rem) !important;
+    gap: clamp(0.4rem, 0.8vh, 0.6rem) !important;
+    justify-content: center !important;
+  }
+
+  /* 縦書きテキストのスケーリング - ビューポート高さに基づく */
+  .hero-content h1.hero-subtitle,
+  .hero-content .hero-subtitle {
+    font-size: clamp(1.2rem, 3.5vh, 2.5rem) !important;
+    margin: clamp(0.2rem, 0.5vh, 0.5rem) 0 !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.8 !important;
+  }
+
+  /* ボタングループの最適化 */
+  .hero-cta,
+  .hero-buttons {
+    margin-top: clamp(0.4rem, 1.2vh, 0.8rem) !important;
+    gap: clamp(0.4rem, 1.2vh, 0.6rem) !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  .hero-cta a,
+  .hero-buttons a,
+  .cta-primary,
+  .cta-secondary {
+    padding: clamp(0.4rem, 1.2vh, 0.6rem) clamp(0.7rem, 2vh, 1rem) !important;
+    font-size: clamp(0.75rem, 2vh, 0.9rem) !important;
+    white-space: nowrap !important;
+  }
+
+  /* Feature アイテムの最適化 */
+  .hero-features {
+    margin-top: clamp(0.4rem, 1.2vh, 0.8rem) !important;
+    gap: clamp(0.4rem, 1.2vh, 0.8rem) !important;
+    flex-direction: row !important;
+  }
+
+  .feature-item {
+    font-size: clamp(0.75rem, 2vh, 0.9rem) !important;
+    padding: clamp(0.3rem, 1vh, 0.5rem) !important;
+  }
+
+  .feature-item i {
+    font-size: clamp(1rem, 2.5vh, 1.5rem) !important;
+  }
+}
+
+/* 超狭い横画面（スマホ横画面や極端に低いラップトップ） */
+@media (orientation: landscape) and (max-height: 450px) {
+  .hero-section {
+    padding: clamp(0.5rem, 2vh, 1rem) 0 !important;
+  }
+
+  .hero-content {
+    padding: 0.3rem 0 !important;
+    gap: 0.3rem !important;
+  }
+
+  .hero-content h1.hero-subtitle,
+  .hero-content .hero-subtitle {
+    font-size: clamp(1rem, 3vh, 1.8rem) !important;
+    margin: 0.2rem 0 !important;
+  }
+
+  .hero-cta,
+  .hero-buttons {
+    margin-top: 0.3rem !important;
+    gap: 0.3rem !important;
+  }
+
+  .hero-features {
+    margin-top: 0.3rem !important;
+    gap: 0.4rem !important;
+  }
+}
+
+/* ===============================================
+   特定の問題要素の修正
+   =============================================== */
+
+/* グリッドレイアウトが崩れる場合の最小修正 */
+@media (max-width: 480px) {
+  .prefecture-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===============================================
+   小画面でのヒーロー調整（320×568px以下）
+   =============================================== */
+
+@media (max-width: 320px), (max-height: 568px) {
+  .hero-section {
+    min-height: calc(100vh - 70px) !important;
+    padding: 1rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-content {
+    max-height: calc(100vh - 140px) !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important; /* paddingを削除 - 縦書きテキスト用 */
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.8rem !important;
+    color: #d4af37 !important; /* メインタイトル：金色で統一 */
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.8rem !important;
+    color: #d4af37 !important; /* サブタイトル：金色で統一 */
+  }
+
+  .hero-description {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-cta {
+    gap: 0.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-cta a {
+    padding: 0.6rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .hero-features {
+    gap: 1rem !important;
+  }
+
+  .feature-item {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* ===============================================
+   デスクトップヒーロー統一対応（美しいフルサイズ維持）
+   =============================================== */
+
+/* デスクトップでは常に美しいフルサイズヒーローを維持（縦幅に関係なく） */
+@media (min-width: 1024px) {
+  /* ヒーローは常に美しいフルサイズで表示 */
+  .hero,
+  .hero-section {
+    min-height: 100vh !important; /* 画面全体の高さで表示 */
+    height: auto !important; /* 内容に応じて自動調整 */
+    position: relative !important;
+  }
+
+  .hero-section {
+    margin-top: 80px !important; /* ヘッダー分 */
+  }
+
+  /* ヒーローコンテンツは美しいサイズで統一 */
+  .hero-content {
+    margin-top: 3rem !important; /* コンテンツを少し下に配置 */
+    text-align: center !important;
+    z-index: 2 !important;
+  }
+
+  /* コンテンツサイズは常に美しく読みやすいサイズを維持 */
+  .hero-content h1,
+  .hero-section h1 {
+    font-size: 3.2rem !important; /* 51px - 美しく迫力のあるサイズ */
+    margin-bottom: 1.5rem !important;
+    line-height: 1.2 !important;
+    color: #d4af37 !important; /* メインタイトル：金色で統一 */
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    font-size: 1.2rem !important; /* 19px */
+    color: #d4af37 !important; /* サブタイトル：金色で統一 */
+  }
+
+  .hero-description {
+    font-size: 1.3rem !important; /* 21px */
+    margin-bottom: 2.5rem !important;
+    line-height: 1.7 !important;
+    color: rgba(255, 255, 255, 0.95) !important; /* 説明文：白色で読みやすく */
+  }
+
+  .hero-cta {
+    margin-bottom: 3rem !important;
+    gap: 1.5rem !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .hero-cta a {
+    padding: 1.2rem 2.5rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+  }
+
+  .hero-features {
+    gap: 3rem !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .feature-item {
+    font-size: 1rem !important;
+    color: #333 !important;
+  }
+
+  .feature-item i {
+    font-size: 1.5rem !important;
+    color: var(--accent-gold) !important;
+  }
+}
+
+/* ===============================================
+   大画面横画面の縦書きテキスト中央配置
+   =============================================== */
+/* 重要：上記の1024pxルールの後に配置してwidth設定を上書き */
+@media (min-width: 1024px) and (orientation: landscape) {
+  h1.hero-subtitle {
+    display: inline-block !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 2rem auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    align-self: center !important;
+    writing-mode: vertical-rl !important;
+    text-orientation: upright !important;
+    position: relative !important;
+    left: 7.5px !important; /* 大画面横画面での微調整（15pxの半分） */
+  }
+}
+
+/* ===============================================
+   非常に狭い画面対応（500px以下の高さ）
+   =============================================== */
+
+/* 縦幅が狭い画面でも美しいフルサイズヒーローを維持 */
+@media (min-width: 1024px) and (max-height: 650px) {
+  /* ヒーローは美しいフルサイズを維持（最小700px確保） */
+  .hero,
+  .hero-section {
+    min-height: 700px !important; /* コンテンツが収まる最小サイズ */
+    height: auto !important; /* 内容に応じて自動調整 */
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-section {
+    margin-top: 75px !important; /* ヘッダー分 */
+  }
+
+  /* ヘッダーを適度なサイズに維持 */
+  header {
+    padding: 0.75rem 0 !important;
+    height: 75px !important;
+  }
+
+  /* ヒーローコンテンツは美しいサイズを維持 */
+  .hero-content {
+    max-width: 800px !important;
+    padding: 3rem 2rem !important; /* 余裕を持たせる */
+  }
+
+  /* 重要: 縦幅が狭い時は横書きに戻して正しい順序で表示 */
+  .hero-subtitle,
+  h1.hero-subtitle {
+    writing-mode: horizontal-tb !important; /* 横書きに変更 */
+    text-orientation: mixed !important;
+    direction: ltr !important; /* 左から右へ（正しい日本語順序） */
+    height: auto !important;
+    margin: 1rem auto !important; /* 横書き時はautoで中央配置OK */
+    text-align: center !important;
+  }
+
+  .hero-content h1,
+  .hero-section h1 {
+    font-size: 3rem !important; /* 美しい大きさを維持 */
+    margin-bottom: 1.5rem !important;
+    line-height: 1.2 !important;
+    color: #d4af37 !important; /* メインタイトル：金色で統一 */
+    white-space: normal !important; /* 改行を許可 */
+  }
+
+  .hero-subtitle,
+  h1.hero-subtitle {
+    font-size: 1.15rem !important;
+    margin-bottom: 1rem !important;
+    color: #d4af37 !important; /* サブタイトル：金色で統一 */
+  }
+
+  .hero-description {
+    font-size: 1.25rem !important;
+    margin-bottom: 2.5rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .hero-cta {
+    margin-bottom: 2.5rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .hero-cta a {
+    padding: 1.1rem 2.2rem !important;
+    font-size: 1.05rem !important;
+  }
+
+  .hero-features {
+    gap: 2.5rem !important;
+  }
+
+  .feature-item {
+    font-size: 0.95rem !important;
+  }
+}

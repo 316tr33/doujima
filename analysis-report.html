@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>堂島フロント企画 - コード分析レポート</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Serif JP", serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #b8860b, #d4af37);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .summary h2 {
+            color: #b8860b;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .metric {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #d4af37;
+        }
+
+        .metric h3 {
+            color: #b8860b;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .metric .value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: #b8860b;
+            color: white;
+            padding: 1.5rem 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .section-content {
+            padding: 2rem;
+        }
+
+        .severity {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .severity.high {
+            background: #fee;
+            color: #d32f2f;
+        }
+
+        .severity.medium {
+            background: #fff8e1;
+            color: #f57c00;
+        }
+
+        .severity.low {
+            background: #e8f5e8;
+            color: #388e3c;
+        }
+
+        .severity.info {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .finding {
+            background: #f8f9fa;
+            border-left: 4px solid #ddd;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .finding.high {
+            border-left-color: #d32f2f;
+        }
+
+        .finding.medium {
+            border-left-color: #f57c00;
+        }
+
+        .finding.low {
+            border-left-color: #388e3c;
+        }
+
+        .finding h4 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .code-sample {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 0.5rem 0;
+        }
+
+        .recommendation {
+            background: #e8f5e8;
+            border: 1px solid #c8e6c9;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        .recommendation h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .file-list {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        .architecture-diagram {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>コード分析レポート</h1>
+            <p>堂島フロント企画 - ウェブサイト品質評価</p>
+            <p>実行日時: 2025年9月17日</p>
+        </div>
+
+        <div class="summary">
+            <h2>エグゼクティブサマリー</h2>
+            <p>堂島フロント企画のウェブサイトは、静的HTML/CSS/JavaScriptで構築された多事業展開企業の公式サイトです。お遍路事業と東海道ウォーク事業を中心とした構造で、モダンなフロントエンド技術を効果的に活用しています。</p>
+
+            <div class="metrics">
+                <div class="metric">
+                    <h3>総合品質スコア</h3>
+                    <div class="value">85/100</div>
+                </div>
+                <div class="metric">
+                    <h3>セキュリティレベル</h3>
+                    <div class="value">良好</div>
+                </div>
+                <div class="metric">
+                    <h3>パフォーマンス</h3>
+                    <div class="value">最適化済み</div>
+                </div>
+                <div class="metric">
+                    <h3>保守性</h3>
+                    <div class="value">高</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">プロジェクト構造分析</div>
+            <div class="section-content">
+                <h3>アーキテクチャ概要</h3>
+                <p>プロジェクトは以下の主要コンポーネントで構成されています：</p>
+
+                <div class="file-list">
+                    <strong>主要ファイル構成:</strong><br>
+                    • <strong>HTMLファイル:</strong> 8ファイル（合計7,225行）<br>
+                    • <strong>CSSファイル:</strong> 33ファイル（合計13,372行）<br>
+                    • <strong>JavaScriptファイル:</strong> 5ファイル（合計2,030行）<br>
+                    • <strong>画像ファイル:</strong> 80+ファイル（最適化されたWebP形式）
+                </div>
+
+                <h4>CSS アーキテクチャ</h4>
+                <div class="finding low">
+                    <span class="severity low">良好</span>
+                    <h4>モジュラー設計採用</h4>
+                    <p>CSS は適切に分割され、コンポーネントベースの設計が採用されています：</p>
+                    <ul>
+                        <li><code>css/base/</code> - 基本設定とユーティリティ</li>
+                        <li><code>css/components/</code> - 再利用可能コンポーネント</li>
+                        <li><code>css/pages/</code> - ページ固有のスタイル</li>
+                        <li><code>css/style.css</code> - 企業ページメイン（@import活用）</li>
+                        <li><code>css/ohenro.css</code> - お遍路機能専用</li>
+                    </ul>
+                </div>
+
+                <h4>JavaScript 構造</h4>
+                <div class="finding low">
+                    <span class="severity low">良好</span>
+                    <h4>パフォーマンス最適化実装</h4>
+                    <p>メインJavaScriptファイル（script.js - 912行）は最適化されています：</p>
+                    <ul>
+                        <li>DOM要素キャッシュシステム</li>
+                        <li>IntersectionObserver活用</li>
+                        <li>requestAnimationFrameでアニメーション最適化</li>
+                        <li>YouTube遅延読み込み実装</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">コード品質評価</div>
+            <div class="section-content">
+                <h3>品質指標</h3>
+
+                <div class="finding low">
+                    <span class="severity low">良好</span>
+                    <h4>クリーンなコードベース</h4>
+                    <p>コードベース全体にTODO、FIXME、HACK等の問題指示コメントは発見されませんでした。</p>
+                </div>
+
+                <div class="finding medium">
+                    <span class="severity medium">改善推奨</span>
+                    <h4>!important使用量</h4>
+                    <p>CSSで!importantが約200箇所使用されています。レスポンシブ対応での使用が多く、設計上必要な場合もありますが、一部は構造改善で削減可能です。</p>
+                    <div class="recommendation">
+                        <h4>推奨改善</h4>
+                        <ul>
+                            <li>utilities.cssのヘルパークラスは適切な使用</li>
+                            <li>レスポンシブ調整での!important使用は必要に応じて維持</li>
+                            <li>通常のスタイル調整では詳細度設計で対応を検討</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="finding medium">
+                    <span class="severity medium">改善推奨</span>
+                    <h4>インラインスタイル使用</h4>
+                    <p>HTMLファイルで約15箇所のインラインstyle属性が使用されています。</p>
+                    <div class="code-sample">style="height: 50vh; min-height: 300px"
+style="background-image: url('../images/tokaido/fujisan.jpg')"</div>
+                    <div class="recommendation">
+                        <h4>推奨改善</h4>
+                        <ul>
+                            <li>動的画像パスは必要に応じて維持</li>
+                            <li>固定値はCSSクラスに移行</li>
+                            <li>カスタムプロパティ（CSS変数）の活用を拡大</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="finding low">
+                    <span class="severity low">良好</span>
+                    <h4>CSS変数システム</h4>
+                    <p>適切なCSS変数システムが実装されており、デザイントークンによる統一された色彩とスペーシング管理が実現されています。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">セキュリティ評価</div>
+            <div class="section-content">
+                <h3>セキュリティ状況</h3>
+
+                <div class="finding low">
+                    <span class="severity info">良好</span>
+                    <h4>基本セキュリティ要件適合</h4>
+                    <p>静的サイトとして適切なセキュリティレベルを維持しています：</p>
+                    <ul>
+                        <li>eval()やnew Function()等の危険なJavaScript関数は未使用</li>
+                        <li>外部スクリプトの直接読み込みなし</li>
+                        <li>XSS攻撃の一般的な脆弱性なし</li>
+                    </ul>
+                </div>
+
+                <div class="finding medium">
+                    <span class="severity medium">注意</span>
+                    <h4>innerHTML使用箇所</h4>
+                    <p>FAQ機能でinnerHTML操作が数箇所使用されています。現在はサニタイゼーション済みですが、注意が必要です。</p>
+                    <div class="code-sample">// faq.js:37
+wrapper.innerHTML = sanitizedContent;</div>
+                    <div class="recommendation">
+                        <h4>推奨対策</h4>
+                        <ul>
+                            <li>現在のサニタイゼーション処理は適切</li>
+                            <li>新規機能追加時はtextContentまたはDOM操作を優先</li>
+                            <li>ユーザー入力を伴う場合はより厳格な検証を実装</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="finding low">
+                    <span class="severity low">良好</span>
+                    <h4>外部依存関係管理</h4>
+                    <p>外部CDNの使用は最小限に抑制され、Font AwesomeとGoogle Fontsのみの使用で適切です。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">パフォーマンス分析</div>
+            <div class="section-content">
+                <h3>パフォーマンス最適化状況</h3>
+
+                <div class="finding low">
+                    <span class="severity low">優秀</span>
+                    <h4>高度な最適化実装</h4>
+                    <p>パフォーマンス監視システムが実装され、以下の最適化が適用されています：</p>
+                    <ul>
+                        <li><strong>FPS監視:</strong> リアルタイムフレームレート計測</li>
+                        <li><strong>メモリ使用量監視:</strong> 自動メモリリーク検出</li>
+                        <li><strong>DOM最適化:</strong> 要素キャッシュとバッチ処理</li>
+                        <li><strong>アニメーション最適化:</strong> requestAnimationFrame活用</li>
+                    </ul>
+                </div>
+
+                <div class="finding low">
+                    <span class="severity low">良好</span>
+                    <h4>画像最適化</h4>
+                    <p>全画像ファイルがWebP形式で最適化済み、ファイルサイズと画質のバランスが適切です。</p>
+                </div>
+
+                <div class="finding medium">
+                    <span class="severity medium">改善推奨</span>
+                    <h4>CSSファイルサイズ</h4>
+                    <p>一部のCSSファイルが大きめです（ohenro-components.css: 3,761行、tokaido-components.css: 3,972行）。</p>
+                    <div class="recommendation">
+                        <h4>推奨改善</h4>
+                        <ul>
+                            <li>Critical CSSの分離</li>
+                            <li>ページ固有CSSの遅延読み込み</li>
+                            <li>未使用CSSの削除</li>
+                            <li>CSS圧縮とminification</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="finding low">
+                    <span class="severity low">良好</span>
+                    <h4>JavaScript最適化</h4>
+                    <p>メインスクリプト（912行）は適切なサイズで、機能の複雑さに対して効率的な実装です。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">レスポンシブデザイン評価</div>
+            <div class="section-content">
+                <h3>モバイル対応状況</h3>
+
+                <div class="finding low">
+                    <span class="severity low">優秀</span>
+                    <h4>包括的レスポンシブ設計</h4>
+                    <p>3段階のブレークポイントによる適切なレスポンシブ対応：</p>
+                    <ul>
+                        <li><strong>デスクトップ:</strong> 1024px以上</li>
+                        <li><strong>タブレット:</strong> 768px - 1023px</li>
+                        <li><strong>モバイル:</strong> 480px以下</li>
+                    </ul>
+                </div>
+
+                <div class="finding low">
+                    <span class="severity low">良好</span>
+                    <h4>タッチフレンドリー設計</h4>
+                    <p>モバイル用のタッチターゲットサイズ（44px最小）が適切に設定されています。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">アクセシビリティ評価</div>
+            <div class="section-content">
+                <h3>アクセシビリティ準拠状況</h3>
+
+                <div class="finding low">
+                    <span class="severity low">良好</span>
+                    <h4>基本アクセシビリティ対応</h4>
+                    <p>以下のアクセシビリティ要件が適切に実装されています：</p>
+                    <ul>
+                        <li>セマンティックHTML構造</li>
+                        <li>aria-label属性の適切な使用</li>
+                        <li>キーボードナビゲーション対応</li>
+                        <li>適切な色彩コントラスト</li>
+                    </ul>
+                </div>
+
+                <div class="finding medium">
+                    <span class="severity medium">改善推奨</span>
+                    <h4>追加アクセシビリティ向上</h4>
+                    <div class="recommendation">
+                        <h4>推奨改善</h4>
+                        <ul>
+                            <li>alt属性の詳細化</li>
+                            <li>focus indicator の視認性向上</li>
+                            <li>ARIA landmark roles の追加</li>
+                            <li>読み上げ順序の最適化</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">推奨改善アクション</div>
+            <div class="section-content">
+                <h3>優先度別改善計画</h3>
+
+                <h4>🔴 高優先度（即時対応推奨）</h4>
+                <ul>
+                    <li>Critical CSSの分離によるパフォーマンス向上</li>
+                    <li>未使用CSSの削除とコード最適化</li>
+                </ul>
+
+                <h4>🟡 中優先度（3ヶ月以内）</h4>
+                <ul>
+                    <li>!important使用量の削減</li>
+                    <li>インラインスタイルのCSS化</li>
+                    <li>アクセシビリティ要件の強化</li>
+                </ul>
+
+                <h4>🟢 低優先度（継続的改善）</h4>
+                <ul>
+                    <li>パフォーマンス監視データの活用拡大</li>
+                    <li>CSS変数システムの拡張</li>
+                    <li>コンポーネント設計の最適化</li>
+                </ul>
+
+                <h3>技術的負債管理</h3>
+                <p>現在の技術的負債レベルは低く、適切に管理されています。定期的なコードレビューとリファクタリングにより、高い保守性を維持できています。</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 堂島フロント企画 - コード分析レポート</p>
+            <p>本レポートはClaude Code分析システムにより生成されました</p>
+        </div>
+    </div>
+</body>
+</html>

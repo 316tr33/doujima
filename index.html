@@ -2,11 +2,14 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>堂島フロント企画 - 専門ガイド派遣サービス | 旅行会社様向け</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <title>堂島フロント企画 - 専門ガイド手配サービス | 旅行会社様向け</title>
     <meta
       name="description"
-      content="四国お遍路・東海道ウォーク専門ガイドの派遣サービス。旅行会社様のツアーに経験豊富な先達・ガイドをマッチング。全国対応、迅速手配で安心のサポート体制。"
+      content="巡礼先達・ウォーキングガイドの手配サービス。旅行会社様のツアーに経験豊富な先達・ガイドをマッチング。全国対応、迅速手配で安心のサポート体制。"
     />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -17,16 +20,26 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/responsive-debug.js" defer></script>
+    <script src="js/logo-visibility.js" defer></script>
   </head>
-  <body>
+  <body class="debug-responsive">
     <header>
       <nav>
-        <div class="logo">堂島フロント企画</div>
+        <a href="index.html" class="logo">
+          <img src="images/doujima-logo.webp" alt="堂島フロント企画" />
+          <span class="logo-text">堂島フロント企画</span>
+        </a>
         <ul class="nav-links">
           <li><a href="#home">ホーム</a></li>
-          <li><a href="Ohenro/index.html">四国お遍路</a></li>
-          <li><a href="Tokaido/index.html">東海道ウォーク</a></li>
+          <li><a href="Ohenro/index.html">巡礼</a></li>
+          <li><a href="Tokaido/index.html">街道ウォーク</a></li>
           <li><a href="recruit.html">採用情報</a></li>
+          <li>
+            <a href="https://doujimafront.stores.jp/" target="_blank"
+              >オンラインショップ</a
+            >
+          </li>
           <li><a href="#contact">お問い合わせ</a></li>
         </ul>
         <!-- ハンバーガーメニューボタン（モバイル用） -->
@@ -59,9 +72,15 @@
       </div>
       <nav class="mobile-menu-nav">
         <a href="#home" class="mobile-menu-link">ホーム</a>
-        <a href="Ohenro/index.html" class="mobile-menu-link">四国お遍路</a>
-        <a href="Tokaido/index.html" class="mobile-menu-link">東海道ウォーク</a>
+        <a href="Ohenro/index.html" class="mobile-menu-link">巡礼</a>
+        <a href="Tokaido/index.html" class="mobile-menu-link">街道ウォーク</a>
         <a href="recruit.html" class="mobile-menu-link">採用情報</a>
+        <a
+          href="https://doujimafront.stores.jp/"
+          target="_blank"
+          class="mobile-menu-link"
+          >オンラインショップ</a
+        >
         <a href="#contact" class="mobile-menu-link">お問い合わせ</a>
       </nav>
     </div>
@@ -69,21 +88,14 @@
     <main>
       <section id="home" class="hero-section">
         <div class="hero-content">
-          <h1>先達・ガイド<br />ワンストップサービス</h1>
-          <p class="hero-subtitle">巡礼のことなら<br />堂島フロントへ</p>
-          <p class="hero-description">
-            経験豊富な先達・ガイドを迅速手配。<br />
-            お客様のツアーに最適な専門ガイドをマッチングいたします。
-          </p>
+          <h1 class="hero-subtitle">
+            巡礼・先達のことなら<br />堂島フロントへ
+          </h1>
           <div class="hero-cta">
             <a href="#contact" class="cta-primary">今すぐお問い合わせ</a>
             <a href="#services" class="cta-secondary">サービス詳細</a>
           </div>
           <div class="hero-features">
-            <div class="feature-item">
-              <i class="fas fa-clock"></i>
-              <span>迅速対応</span>
-            </div>
             <div class="feature-item">
               <i class="fas fa-shield-alt"></i>
               <span>安心サポート</span>
@@ -104,74 +116,79 @@
           </p>
 
           <div class="services-grid">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-mountain"></i>
+            <a href="Ohenro/index.html" class="service-card-link">
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="fas fa-mountain"></i>
+                </div>
+                <h3>巡礼先達手配</h3>
+                <p>
+                  四国八十八ヶ所霊場巡礼の専門先達をご紹介。参拝作法から歴史解説まで、お遍路の深い魅力をお客様に伝えます。
+                </p>
+                <p class="pilgrimage-examples">
+                  四国八十八ヶ所霊場<br />
+                  西国三十三所観音霊場<br />
+                  坂東三十三観音・秩父三十四観音霊場<br />
+                  etc.
+                </p>
+                <ul class="service-features">
+                  <li>公認先達による本格ご案内</li>
+                  <li>札所の歴史・由来解説</li>
+                  <li>参拝マナー・作法指導</li>
+                </ul>
               </div>
-              <h3>四国お遍路先達派遣</h3>
-              <p>
-                四国八十八ヶ所霊場巡礼の専門先達をご紹介。参拝作法から歴史解説まで、お遍路の深い魅力をお客様に伝えます。
-              </p>
-              <ul class="service-features">
-                <li>公認先達による本格指導</li>
-                <li>札所の歴史・由来解説</li>
-                <li>参拝マナー・作法指導</li>
-                <li>霊場巡礼コース設計</li>
-              </ul>
-            </div>
+            </a>
 
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-route"></i>
+            <a href="Tokaido/index.html" class="service-card-link">
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="fas fa-route"></i>
+                </div>
+                <h3>街道ウォークガイド手配</h3>
+                <p>
+                  江戸時代の歴史街道を歩く専門ガイドをご提供。宿場町の歴史から街道文化まで詳しく解説いたします。
+                </p>
+                <p class="pilgrimage-examples">
+                  東海道五十三次<br />
+                  中山道六十九次<br />
+                  伊勢街道<br />
+                  etc.
+                </p>
+                <ul class="service-features">
+                  <li>宿場町の歴史・文化解説</li>
+                  <li>街道沿いの名所案内</li>
+                  <li>江戸時代の旅文化紹介</li>
+                </ul>
               </div>
-              <h3>東海道ウォークガイド派遣</h3>
-              <p>
-                江戸時代の歴史街道を歩く専門ガイドをご提供。宿場町の歴史から街道文化まで詳しく解説いたします。
-              </p>
-              <ul class="service-features">
-                <li>宿場町の歴史・文化解説</li>
-                <li>街道沿いの名所案内</li>
-                <li>江戸時代の旅文化紹介</li>
-                <li>安全なルート設定</li>
-              </ul>
-            </div>
+            </a>
 
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-handshake"></i>
+            <a
+              href="https://doujimafront.stores.jp/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="service-card-link"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <h3>巡礼用品販売</h3>
+                <p>
+                  巡礼に必要な各種用品を取り揃えております。伝統的な巡礼装束から実用的な巡礼グッズまで、幅広くご提供いたします。
+                </p>
+                <p class="pilgrimage-examples">
+                  四国八十八ヶ所霊場<br />
+                  西国三十三所観音霊場<br />
+                  坂東三十三観音・秩父三十四観音霊場<br />
+                  etc.
+                </p>
+                <ul class="service-features">
+                  <li>白衣・菅笠などの巡礼装束</li>
+                  <li>納経帳・御朱印帳</li>
+                  <li>数珠・線香などの仏具</li>
+                </ul>
               </div>
-              <h3>カスタムマッチング</h3>
-              <p>
-                ツアーの内容・規模・期間に応じて最適なガイドをマッチング。お客様のご要望に合わせた柔軟な対応が可能です。
-              </p>
-              <ul class="service-features">
-                <li>ツアー内容に応じた選定</li>
-                <li>参加人数対応</li>
-                <li>多言語対応ガイド</li>
-                <li>緊急時サポート体制</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="service-flow">
-            <h3>ご利用の流れ</h3>
-            <div class="flow-steps">
-              <div class="flow-step">
-                <div class="step-number">1</div>
-                <h4>お問い合わせ</h4>
-                <p>ツアー内容・日程・人数をご連絡ください</p>
-              </div>
-              <div class="flow-step">
-                <div class="step-number">2</div>
-                <h4>ガイド提案</h4>
-                <p>最適なガイドをご提案・見積もり提示</p>
-              </div>
-              <div class="flow-step">
-                <div class="step-number">3</div>
-                <h4>手配完了</h4>
-                <p>ガイド確定後、詳細打ち合わせ・当日実施</p>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -186,8 +203,8 @@
           <div class="stats-grid">
             <div class="stat-card">
               <div class="stat-number">500+</div>
-              <div class="stat-label">派遣実績</div>
-              <p>年間500件以上のガイド派遣実績</p>
+              <div class="stat-label">手配実績</div>
+              <p>年間500件以上のガイド手配実績</p>
             </div>
             <div class="stat-card">
               <div class="stat-number">98%</div>
@@ -197,7 +214,7 @@
             <div class="stat-card">
               <div class="stat-number">公認</div>
               <div class="stat-label">先達在籍</div>
-              <p>四国霊場会公認の先達が多数在籍</p>
+              <p>各種霊場公認の先達が多数在籍</p>
             </div>
             <div class="stat-card">
               <div class="stat-number">80+</div>
@@ -242,7 +259,7 @@
                 </tr>
                 <tr>
                   <th>事業内容</th>
-                  <td>専門ガイド派遣業<br />旅行企画サポート事業</td>
+                  <td>添乗員派遣 ガイド手配<br />旅行企画サポート事業</td>
                 </tr>
                 <tr>
                   <th>許認可・登録</th>
@@ -250,10 +267,6 @@
                     派26-300772（労働者派遣事業）<br />京都府知事登録
                     旅行サービス手配業第サー881号
                   </td>
-                </tr>
-                <tr>
-                  <th>対応エリア</th>
-                  <td>四国全域・東海道沿線</td>
                 </tr>
                 <tr>
                   <th>登録ガイド数</th>
@@ -286,7 +299,7 @@
             </article>
             <article class="news-item">
               <time>2025.01.01</time>
-              <h3>多言語対応ガイドの派遣サービスを開始</h3>
+              <h3>多言語対応ガイドの手配サービスを開始</h3>
             </article>
           </div>
         </div>
@@ -296,7 +309,7 @@
         <div class="container">
           <h2>お問い合わせ</h2>
           <p class="section-description">
-            ガイド派遣に関するご相談・お見積りは、お気軽にお問い合わせください
+            ガイド手配に関するご相談・お見積りは、お気軽にお問い合わせください
           </p>
 
           <div class="contact-content">
@@ -313,7 +326,7 @@
               <div class="contact-method">
                 <i class="fas fa-envelope"></i>
                 <div>
-                  <strong>info@doujima-front.com</strong>
+                  <strong>info@doujimafront.com</strong>
                   <p>24時間受付（返信は営業時間内）</p>
                 </div>
               </div>
@@ -326,10 +339,6 @@
               </div>
 
               <div class="contact-features">
-                <div class="contact-feature">
-                  <i class="fas fa-clock"></i>
-                  <span>迅速対応</span>
-                </div>
                 <div class="contact-feature">
                   <i class="fas fa-calculator"></i>
                   <span>無料見積り</span>
@@ -369,9 +378,8 @@
                   <label for="service">ご希望サービス *</label>
                   <select id="service" name="service" required>
                     <option value="">選択してください</option>
-                    <option value="ohenro">四国お遍路先達派遣</option>
-                    <option value="tokaido">東海道ウォークガイド派遣</option>
-                    <option value="custom">カスタムマッチング</option>
+                    <option value="ohenro">巡礼・先達手配</option>
+                    <option value="tokaido">ウォーキングガイド手配</option>
                     <option value="consultation">サービス相談</option>
                   </select>
                 </div>
@@ -418,18 +426,6 @@
               </form>
             </div>
           </div>
-
-          <div class="response-promise">
-            <div class="promise-item">
-              <strong>営業日内</strong>の迅速回答をお約束
-            </div>
-            <div class="promise-item">
-              見積り・ご相談は<strong>完全無料</strong>
-            </div>
-            <div class="promise-item">
-              <strong>翌営業日まで</strong>に担当者からご連絡
-            </div>
-          </div>
         </div>
       </section>
     </main>
@@ -438,17 +434,17 @@
       <div class="footer-content">
         <div class="company-info">
           <h4>株式会社 堂島フロント企画</h4>
-          <p>専門ガイド派遣サービス</p>
+          <p>専門ガイド手配サービス</p>
           <p>〒611-0013 京都府宇治市莵道丸山1番地の156 アミスタビル3-G</p>
           <p>TEL: 0774-46-8762 | FAX: 0774-46-8763</p>
-          <p>Email: info@doujima-front.com</p>
+          <p>Email: info@doujimafront.com</p>
         </div>
         <div class="footer-services">
           <h5>サービス・事業</h5>
-          <a href="#services">四国お遍路先達派遣</a>
-          <a href="#services">東海道ウォークガイド</a>
-          <a href="Ohenro/index.html">お遍路サイト</a>
-          <a href="Tokaido/index.html">東海道サイト</a>
+          <a href="#services">巡礼先達手配</a>
+          <a href="#services">ウォーキングガイド手配</a>
+          <a href="Ohenro/index.html">巡礼サイト</a>
+          <a href="Tokaido/index.html">街道ウォークサイト</a>
         </div>
         <div class="footer-links">
           <h5>企業情報</h5>

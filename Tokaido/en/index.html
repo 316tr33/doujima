@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <title>Tokaido Walk - Journey Along the Historic Highway Connecting Edo and Kyoto</title>
+    <meta
+      name="description"
+      content="Comprehensive guide to historic walking along the Tokaido 53 Stations. Explore the charm of highway walking, tracing the footsteps of Edo period travelers, with views of Mt. Fuji and post town culture."
+    />
+    <meta
+      name="keywords"
+      content="Tokaido,Tokaido Walk,53 Stations,Post Towns,Highway Walking,History,Edo Period,Mt. Fuji,Hiking,Cultural Experience"
+    />
+    <meta
+      property="og:title"
+      content="Tokaido Walk - Journey Along the Historic Highway Connecting Edo and Kyoto"
+    />
+    <meta
+      property="og:description"
+      content="Comprehensive guide to historic walking along the Tokaido 53 Stations. Discover the charm of highway walking tracing the footsteps of Edo period travelers."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/components/navigation.css" />
+    <link rel="stylesheet" href="../../css/components/slideshow.css" />
+    <link rel="stylesheet" href="../../css/tokaido.css" />
+    <link rel="stylesheet" href="../../css/pages/tokaido-layout.css" />
+    <link rel="stylesheet" href="../../css/pages/tokaido-responsive.css" />
+    <script src="../../js/performance-monitor.js" defer></script>
+    <script src="../../js/responsive-debug.js" defer></script>
+    <script src="../../js/language-switcher.js" defer></script>
+    <script src="../../js/logo-visibility.js" defer></script>
+  </head>
+  <body class="debug-responsive">
+    <header>
+      <nav>
+        <a href="../../index.html" class="logo">
+          <img src="../../images/doujima-logo.webp" alt="Doujima Front Kikaku" />
+          <span class="logo-text">Doujima Front Kikaku</span>
+        </a>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html">Highway Walk</a>
+          </li>
+          <li>
+            <a href="stations.html">Station Town Guide</a>
+            <div class="dropdown">
+              <a href="stations.html#yamashiro-area">Yamashiro Province</a>
+              <a href="stations.html#oumi-area">Omi Province</a>
+              <a href="stations.html#ise-area">Ise Province</a>
+              <a href="stations.html#owari-area">Owari Province</a>
+              <a href="stations.html#mikawa-area">Mikawa Province</a>
+              <a href="stations.html#totomi-area">Totomi Province</a>
+              <a href="stations.html#suruga-area">Suruga Province</a>
+              <a href="stations.html#izu-area">Izu Province</a>
+              <a href="stations.html#sagami-area">Sagami Province</a>
+              <a href="stations.html#musashi-area">Musashi Province</a>
+            </div>
+          </li>
+          <li>
+            <a href="guide.html">Walking Guide</a>
+          </li>
+          <li>
+            <a href="../../Ohenro/en/index.html">Pilgrimage</a>
+          </li>
+          <li>
+            <a href="https://doujimafront.stores.jp/" target="_blank"
+              >Online Shop</a
+            >
+          </li>
+          <li>
+            <a href="../../index.html">Corporate Homepage</a>
+          </li>
+        </ul>
+        <button
+          class="mobile-menu-toggle"
+          id="mobileMenuToggle"
+          aria-label="Open Menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </header>
+
+    <div class="language-switcher">
+      <button
+        id="languageToggle"
+        class="language-btn"
+        aria-label="Switch Language / 言語切り替え"
+      >
+        <i class="fas fa-globe"></i>
+        <span class="lang-text">日本語</span>
+      </button>
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">Menu</span>
+        <button
+          class="mobile-menu-close"
+          id="mobileMenuClose"
+          aria-label="Close Menu"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="#home" class="mobile-menu-link">Highway Walk</a>
+        <a href="stations.html" class="mobile-menu-link">Station Town Guide</a>
+        <a href="guide.html" class="mobile-menu-link">Walking Guide</a>
+        <a href="../../Ohenro/en/index.html" class="mobile-menu-link">Pilgrimage</a>
+        <a
+          href="https://doujimafront.stores.jp/"
+          target="_blank"
+          class="mobile-menu-link"
+          >Online Shop</a
+        >
+        <a href="../../index.html" class="mobile-menu-link">Corporate Homepage</a>
+        <a href="#" id="mobileLangToggle" class="mobile-menu-link">
+          <i class="fas fa-globe"></i> 日本語
+        </a>
+      </nav>
+    </div>
+
+    <section class="hero" id="home">
+      <div class="hero-slideshow">
+        <div
+          class="hero-slide active"
+          data-info="Mt. Fuji and the Tokaido"
+          style="background-image: url('../../images/tokaido/fujisan.jpg')"
+        ></div>
+        <div
+          class="hero-slide"
+          data-info="The Tokaido Path"
+          style="background-image: url('../../images/tokaido/road.jpg')"
+        ></div>
+        <div
+          class="hero-slide"
+          data-info="Mt. Fuji Scenery"
+          style="background-image: url('../../images/tokaido/fujisan2.jpg')"
+        ></div>
+        <div
+          class="hero-slide"
+          data-info="Highway Landscape"
+          style="background-image: url('../../images/tokaido/suzuka-pass-3.jpg')"
+        ></div>
+        <div
+          class="hero-slide"
+          data-info="Historic Road"
+          style="background-image: url('../../images/tokaido/road3.jpg')"
+        ></div>
+        <div
+          class="hero-slide"
+          data-info="Nakayama Tea Fields"
+          style="
+            background-image: url('../../images/tokaido/nakayama-tea-fields.jpg');
+          "
+        ></div>
+      </div>
+
+      <div class="hero-content">
+        <h1>Highway Walk</h1>
+        <p class="hero-description">
+          Tokaido 53 Stations<br />
+          Nakasendo 69 Stations<br />
+          Ise Highway<br />
+          etc.
+        </p>
+      </div>
+
+      <div class="slide-info active" id="slideInfo">Mt. Fuji and the Tokaido</div>
+
+      <div class="slideshow-controls">
+        <div class="slide-dot active" data-slide="0"></div>
+        <div class="slide-dot" data-slide="1"></div>
+        <div class="slide-dot" data-slide="2"></div>
+        <div class="slide-dot" data-slide="3"></div>
+        <div class="slide-dot" data-slide="4"></div>
+        <div class="slide-dot" data-slide="5"></div>
+      </div>
+    </section>
+
+    <section class="tokaido-timeline-section">
+      <div class="timeline-container">
+        <h2 class="timeline-title">Tracing Tokaido History</h2>
+        <p class="timeline-intro">
+          Discover how the Tokaido has developed from the Edo period to the present day
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <div class="timeline-year">1601</div>
+              <h3>🏛️ Birth of the Tokaido</h3>
+              <div class="timeline-image">
+                <img
+                  src="../../images/tokaido/five-highways.jpg"
+                  alt="Development of Tokaido 53 Stations"
+                  loading="lazy"
+                />
+              </div>
+              <p>
+                The Tokaido was reorganized by Tokugawa Ieyasu, establishing 53 post stations connecting Edo and Kyoto. With the sankin-kotai (alternate attendance) system, daimyo processions traveled the route, making it Japan's most important highway bustling with merchants and travelers.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </div>
+
+          <div class="timeline-item timeline-right">
+            <div class="timeline-content">
+              <div class="timeline-year">1833</div>
+              <h3>🎨 Hiroshige's Tokaido 53 Stations</h3>
+              <div class="timeline-image">
+                <img
+                  src="../../images/tokaido/hiroshige-ukiyoe.jpg"
+                  alt="Hiroshige's Ukiyo-e Landscape"
+                  loading="lazy"
+                />
+              </div>
+              <p>
+                Utagawa Hiroshige published "Tokaido 53 Stations." Beautiful Tokaido landscapes including Mt. Fuji from Satta Pass and Hakone mountain paths were depicted in ukiyo-e, spreading the highway's charm among common people.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </div>
+
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <div class="timeline-year">1889</div>
+              <h3>🚂 Beginning of the Railway Age</h3>
+              <div class="timeline-image">
+                <img
+                  src="../../images/tokaido/suzuka-pass-2.jpg"
+                  alt="Opening of Tokaido Main Line"
+                  loading="lazy"
+                />
+              </div>
+              <p>
+                With the complete opening of the Tokaido Main Line, travel shifted from foot to rail transport. However, the culture and history of the post towns continue to be preserved in various locations today.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </div>
+
+          <div class="timeline-item timeline-right">
+            <div class="timeline-content">
+              <div class="timeline-year">Present</div>
+              <h3>🚶‍♂️ Revival of Historic Walking</h3>
+              <div class="timeline-image">
+                <img
+                  src="../../images/tokaido/manninko-lantern.jpg"
+                  alt="Modern Tokaido Walk"
+                  loading="lazy"
+                />
+              </div>
+              <p>
+                With the health boom and growing interest in history, the Tokaido Walk is gaining attention. It's a new form of travel where modern people experience the feelings of Edo period travelers and physically sense history and culture.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Stations Section -->
+    <section class="featured-stations-section">
+      <div class="section-content">
+        <h2 class="section-title">Representative Stations and Scenery of Tokaido</h2>
+        <p class="section-intro">
+          Introducing four points that encapsulate the charm of the Tokaido. You can experience the history passed down from the Edo period to the present.
+        </p>
+
+        <div class="stations-grid">
+          <!-- Nihonbashi -->
+          <div class="station-highlight">
+            <div class="station-image">
+              <img
+                src="../../images/tokaido/nihonbashi.jpg"
+                alt="Nihonbashi - Starting Point of Tokaido"
+                loading="lazy"
+              />
+            </div>
+            <div class="station-info">
+              <h3>Nihonbashi</h3>
+              <div class="station-subtitle">Starting Point of Tokaido</div>
+              <p>
+                Historic bridge that served as the starting point of the Five Highways. The "Road Origin Marker" installed by the Meiji government still remains today.
+              </p>
+            </div>
+          </div>
+
+          <!-- Hakone -->
+          <div class="station-highlight">
+            <div class="station-image">
+              <img
+                src="../../images/tokaido/hakone-checkpoint.jpg"
+                alt="Hakone Station - Checkpoint and Hot Springs"
+                loading="lazy"
+              />
+            </div>
+            <div class="station-info">
+              <h3>Hakone Station</h3>
+              <div class="station-subtitle">Town of Checkpoint and Hot Springs</div>
+              <p>
+                A special place where Edo period checkpoint ruins and modern hot spring resorts coexist.
+                The hot springs beyond the harsh mountain paths provide exceptional healing.
+              </p>
+            </div>
+          </div>
+
+          <!-- Yui -->
+          <div class="station-highlight">
+            <div class="station-image">
+              <img
+                src="../../images/tokaido/fujisan.jpg"
+                alt="Yui Station - Mt. Fuji View"
+                loading="lazy"
+              />
+            </div>
+            <div class="station-info">
+              <h3>Satta Pass</h3>
+              <div class="station-subtitle">Between Yui and Okitsu Stations</div>
+              <p>
+                The most famous Mt. Fuji viewing spot in Utagawa Hiroshige's ukiyo-e.
+                The view from Satta Pass continues to inspire awe even today.
+              </p>
+            </div>
+          </div>
+
+          <!-- Kusatsu -->
+          <div class="station-highlight">
+            <div class="station-image">
+              <img
+                src="../../images/tokaido/kusatsu-honjin.jpg"
+                alt="Kusatsu Station - Honjin"
+                loading="lazy"
+              />
+            </div>
+            <div class="station-info">
+              <h3>Kusatsu Station</h3>
+              <div class="station-subtitle">Junction of Tokaido and Nakasendo</div>
+              <p>
+                Kusatsu Station prospered as a transportation hub in the Edo period.
+                The honjin (inn for feudal lords) ruins remain, an important post town conveying the prosperity of the past.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Button -->
+        <div class="stations-navigation">
+          <a href="stations.html" class="nav-button primary">
+            <span>Explore All 53 Tokaido Stations</span>
+            <i class="fas fa-map-marked-alt"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Tokaido & Booking Combined Section -->
+    <section class="tokaido-booking-combined-section" id="about">
+      <div class="section-content">
+        <h2 class="section-title tokaido-main-title">What is Tokaido Walk</h2>
+        <p class="section-intro">
+          From the Edo period to the Meiji era, the Tokaido functioned as Japan's main artery.
+          This highway reorganized by Tokugawa Ieyasu is not just a route of movement, but a special journey where culture and history breathe.
+        </p>
+
+        <div class="tokaido-detailed-info">
+          <div class="info-grid">
+            <div class="info-block">
+              <h3>🏛️ Historical Significance</h3>
+              <p>
+                The Tokaido, reorganized by the Tokugawa shogunate in 1601, is approximately 500km highway connecting Edo (present-day Tokyo) and Kyoto.
+                By walking through this historic stage—where daimyo processions used for sankin-kotai (alternate attendance), bustling post towns with merchants and travelers, and common people's lives remain vivid—
+                you can physically feel the lifestyle and culture of people from that era.
+              </p>
+            </div>
+
+            <div class="info-block">
+              <h3>🎨 Cultural Value</h3>
+              <p>
+                Many of the landscapes depicted in Utagawa Hiroshige's masterpiece "Tokaido 53 Stations" can still be experienced today.
+                The spectacular views of Mt. Fuji depicted in ukiyo-e, traces of post towns, rows of pine trees along the highway—
+                it's a precious cultural heritage where you can walk and see the same scenery that Edo period travelers saw.
+              </p>
+            </div>
+
+            <div class="info-block">
+              <h3>🚶‍♂️ Modern Ways to Enjoy</h3>
+              <p>
+                You don't need to walk the entire route at once. You can enjoy it from one day to several days, according to your interests and physical fitness.
+                Local gourmet food at each post town, hot springs, historic site tours, and above all, the sense of achievement and health benefits from walking.
+                It's an ideal activity that combines historical exploration with health improvement.
+              </p>
+            </div>
+
+            <div class="info-block">
+              <h3>🤝 Making Travel Companions</h3>
+              <p>
+                While Tokaido Walk can be enjoyed alone, walking with like-minded companions creates a deeper experience.
+                Historical discussions, local discoveries, sharing the sense of achievement in overcoming difficulties—it's an excellent opportunity to build new relationships.
+                Group tours provide more detailed historical commentary from experienced guides.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div
+          class="booking-cta-container"
+          style="text-align: center; margin-top: 3rem"
+        >
+          <a
+            href="https://www.hankyu-travel.com/kokunai/tokaido53/"
+            class="booking-cta-button"
+            target="_blank"
+            rel="noopener"
+          >
+            View Our Guided Tours
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Information -->
+    <div
+      style="
+        background: rgba(250, 248, 245, 0.95);
+        border-radius: 15px;
+        padding: 1rem;
+        margin-top: 4rem;
+        border: 2px solid rgba(212, 175, 55, 0.3);
+        text-align: center;
+      "
+    >
+      <h3
+        style="
+          color: #cd853f;
+          font-size: 1.8rem;
+          margin-bottom: 2rem;
+          letter-spacing: 2px;
+        "
+      >
+        Tokaido Walk Support Center
+      </h3>
+      <p
+        style="
+          color: rgba(40, 40, 40, 0.9);
+          font-size: 1.1rem;
+          line-height: 2;
+          margin-bottom: 2rem;
+        "
+      >
+        For assistance with your highway walk<br />
+      </p>
+      <div
+        style="
+          background: linear-gradient(
+            135deg,
+            rgba(212, 175, 55, 0.15),
+            rgba(184, 134, 11, 0.2)
+          );
+          border: 2px solid rgba(212, 175, 55, 0.4);
+          color: #333333;
+          padding: 1.5rem;
+          border-radius: 10px;
+          margin-bottom: 2rem;
+        "
+      >
+        <div
+          style="
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #cd853f;
+          "
+        >
+          Walking Support Hotline
+        </div>
+        <div
+          style="
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4a4a4a;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+          "
+        >
+          0774-46-8762
+        </div>
+      </div>
+    </div>
+
+    <footer id="contact">
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> Contact: 0774-46-8762</p>
+        <p><i class="fas fa-envelope"></i> info@doujimafront.com</p>
+        <p>
+          <i class="fab fa-youtube"></i>
+          <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ"
+            >YouTube Channel</a
+          >
+        </p>
+      </div>
+      <p class="footer-text">
+        &copy; 2025 Doujima Front Kikaku All rights reserved.
+      </p>
+      <p class="footer-text" style="margin-top: 1rem; opacity: 0.8">
+        We support your journey of culture and nature along the historic highway connecting Edo and Kyoto
+      </p>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+  </body>
+</html>

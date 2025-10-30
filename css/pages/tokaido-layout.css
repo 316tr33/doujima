@@ -1,0 +1,259 @@
+/* 
+   tokaido-layout.css - 東海道ページレイアウト・構造
+   基本レイアウト・グリッド・セクション構造
+*/
+
+/* =============== 基本レイアウト構造 =============== */
+
+.tokaido-attractions {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem; /* モバイルファースト */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tokaido-about-section {
+  background: #f8f9fa;
+  padding: 1rem 1rem; /* モバイルファースト */
+  position: relative;
+}
+
+.tokaido-main-title {
+  margin-top: 1.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.tokaido-section {
+  background: #f8f9fa;
+  padding: 2rem 1rem 3rem 1rem; /* モバイルファースト */
+  position: relative;
+}
+
+.tokaido-detailed-info {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* =============== グリッドレイアウト =============== */
+
+.stations-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* モバイルは1列 */
+  gap: 1.4rem;
+  margin: 0rem 0;
+  padding: 0 0.5rem;
+}
+
+.station-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease;
+}
+
+.station-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.station-header {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.station-content {
+  padding: 1.5rem;
+}
+
+.station-title {
+  color: #d4af37;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.station-distance {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* =============== ヒーローセクション =============== */
+
+.hero.stations-hero {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(20, 20, 20, 0.7)),
+    url("../../images/tokaido/road.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.stations-hero-content {
+  text-align: center;
+  color: #fff;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  padding-bottom: 1rem; /* モバイル: 適度に下に配置 */
+}
+
+.stations-title {
+  font-size: 2.8rem; /* モバイルサイズ */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.stations-description {
+  font-size: 1.1rem; /* モバイルサイズ */
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* ===============================================
+   タブレット以上で適用（モバイルファースト）
+   =============================================== */
+
+@media (min-width: 768px) {
+  /* --bp-md */
+  .tokaido-attractions {
+    padding: 3rem 1.5rem;
+    gap: 3rem;
+  }
+
+  .tokaido-about-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .tokaido-section {
+    padding: 3rem 1.5rem 4rem 1.5rem;
+  }
+
+  .stations-hero-content {
+    padding: 0 2rem;
+    padding-bottom: 3rem; /* タブレット: 元の設定に戻す */
+  }
+
+  .stations-title {
+    font-size: 3.5rem;
+  }
+
+  .stations-description {
+    font-size: 1.25rem;
+  }
+
+  .stations-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .tokaido-detailed-info {
+    padding: 0 3rem;
+  }
+}
+
+/* ===============================================
+   デスクトップ (min-width: 1024px)
+   =============================================== */
+
+@media (min-width: 1024px) {
+  /* --bp-lg */
+  .tokaido-attractions {
+    padding: 4rem 2rem;
+    gap: 4rem;
+  }
+
+  .tokaido-about-section {
+    padding: 4rem 2rem;
+  }
+
+  .tokaido-section {
+    padding: 4rem 2rem 5rem 2rem;
+  }
+
+  .stations-hero-content {
+    padding: 0 3rem;
+    padding-bottom: 2.5rem; /* デスクトップ: 元の良い状態に戻す */
+  }
+
+  .stations-title {
+    font-size: 4rem;
+  }
+
+  .stations-description {
+    font-size: 1.4rem;
+    max-width: 1000px; /* 最大幅を拡大 */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem; /* パディングを減らして文字を一列に */
+    white-space: nowrap; /* 改行を防止 */
+  }
+
+  .stations-grid {
+    grid-template-columns: repeat(2, 420px) !important;
+    gap: 2rem !important;
+    max-width: 920px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+    justify-content: center !important;
+    display: grid !important;
+  }
+
+  .station-card {
+    transform: scale(1);
+    transition: all 0.3s ease;
+  }
+
+  .station-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5);
+  }
+
+  .tokaido-detailed-info {
+    padding: 0 4rem;
+  }
+}
+
+/* ===============================================
+   大画面対応 (min-width: 1400px)
+   =============================================== */
+
+@media (min-width: 1400px) {
+  /* --bp-xl */
+  .tokaido-attractions {
+    max-width: 1400px;
+    padding: 5rem 3rem;
+    gap: 5rem;
+  }
+
+  .tokaido-about-section {
+    padding: 5rem 3rem;
+  }
+
+  .tokaido-section {
+    padding: 5rem 3rem 6rem 3rem;
+  }
+
+  .stations-title {
+    font-size: 5rem;
+  }
+
+  .stations-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+  }
+}

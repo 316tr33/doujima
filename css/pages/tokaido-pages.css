@@ -1,0 +1,182 @@
+/* 
+   tokaido-pages.css - 東海道ページ専用スタイル
+   特定ページ向けの専用スタイル・ヒーローセクション
+*/
+
+/* ===============================================
+   東海道専用ヒーロー文字色修正
+   =============================================== */
+
+.tokaido-hero .hero-content h1,
+.tokaido-hero .hero-title {
+  color: #d4af37 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+}
+
+.tokaido-hero .hero-content p,
+.tokaido-hero .hero-subtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+body[data-page="tokaido"] .hero-content h1 {
+  color: #d4af37 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+  text-align: center !important;
+  margin: 2rem auto !important;
+  padding: 0 !important;
+  text-indent: 0 !important;
+  letter-spacing: 0 !important;
+  transform: none !important;
+
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  display: block !important;
+}
+
+/* 東海道ページ デスクトップでより大きなヒーロー */
+@media (min-width: 1024px) { /* --bp-lg */
+  body[data-page="tokaido"] .hero-content h1 {
+    font-size: 7rem !important; /* より大きく */
+  }
+  
+  body[data-page="tokaido"] .hero-subtitle {
+    font-size: 1.6rem !important;
+  }
+  
+  body[data-page="tokaido"] .hero-description {
+    font-size: 1.5rem !important;
+  }
+  
+  .tokaido-hero .hero-content h1,
+  .tokaido-hero .hero-title {
+    font-size: 7rem !important;
+  }
+}
+
+.stations-title {
+  text-align: center !important;
+  margin: 2rem auto !important;
+  padding: 0 !important;
+  text-indent: 0 !important;
+  letter-spacing: 0 !important;
+  transform: none !important;
+
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  display: block !important;
+}
+
+body[data-page="tokaido"] .hero-content,
+.stations-hero-content {
+  text-align: center !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+body[data-page="tokaido"] .hero-content .hero-subtitle,
+body[data-page="tokaido"] .hero-content .hero-description,
+body[data-page="tokaido"] .hero-content p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ===============================================
+   area-number文字色修正
+   =============================================== */
+
+.area-number {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ===============================================
+   検索ボックス・レイアウト修正
+   =============================================== */
+
+.search-box i.fas.fa-search {
+  margin-right: 2rem !important;
+  flex-shrink: 0 !important;
+}
+
+#stationSearch {
+  padding-left: 0.5rem !important;
+  margin-left: -1rem !important;
+}
+
+/* ===============================================
+   東海道ページヘッダー固定表示修正
+   =============================================== */
+
+/* 東海道ページ専用ヘッダー固定表示 */
+body[data-page="tokaido"] header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  background: rgba(0, 0, 0, 0.95) !important;
+  z-index: 1000 !important;
+  padding: 1rem 0 !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 汎用ヘッダー固定（フォールバック） */
+header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  background: rgba(0, 0, 0, 0.95) !important;
+  z-index: 1000 !important;
+  padding: 1rem 0 !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ナビゲーション基本設定 */
+nav {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+}
+
+/* メインコンテンツの上部マージン調整 - 東海道ページ専用 */
+body[data-page="tokaido"] {
+  padding-top: 90px !important;
+  margin-top: 0 !important;
+}
+
+/* ヒーローセクションの位置調整 - 空白を除去 */
+body[data-page="tokaido"] .hero {
+  margin-top: -90px !important;
+  padding-top: 90px !important;
+}
+
+/* フォールバック - 汎用設定 */
+body {
+  padding-top: 80px !important;
+}
+
+.hero {
+  margin-top: 0 !important;
+}
+
+/* ロゴスタイル */
+.logo {
+  color: #b2932f !important;
+  font-size: 1.3rem !important;
+  font-weight: bold !important;
+  letter-spacing: 1px !important;
+}

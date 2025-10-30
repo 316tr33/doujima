@@ -1,0 +1,759 @@
+/* 
+   ohenro-responsive.css - お遍路ページレスポンシブ対応
+   メディアクエリ・モバイル・タブレット対応
+*/
+
+/* ===============================================
+   タブレット対応 (max-width: 1024px)
+   =============================================== */
+
+@media (max-width: 1024px) /* --bp-lg */ {
+  .layout-section {
+    padding: 2.5rem 1rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .layout-header {
+    font-size: 1.6rem;
+    padding: 1.2rem 2.5rem;
+  }
+}
+
+/* ===============================================
+   モバイル対応 (max-width: 768px)
+   =============================================== */
+
+@media (max-width: 768px) /* --bp-md */ {
+  /* ヒーローテキストサイズ - お遍路専用（横幅連動） */
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 11vw, 2.8rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* セクション間の余白調整 */
+  .section {
+    padding: 3rem 1.5rem;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .prefecture-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.3rem;
+  }
+
+  .prefecture-block {
+    height: 280px;
+    min-height: 80px;
+    aspect-ratio: auto;
+    padding: 1rem;
+  }
+
+  .quote-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .quote-text {
+    font-size: 1.8rem;
+    line-height: 1.8;
+  }
+
+  .vertical-text-section {
+    padding: 4rem 1.5rem;
+    min-height: 40vh;
+  }
+
+  .vertical-text {
+    font-size: 1.4rem;
+    letter-spacing: 8px;
+    line-height: 2.8;
+  }
+
+  .layout-section {
+    padding: 1.5rem 0.8rem;
+    border-radius: 12px;
+  }
+
+  .layout-header {
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+  }
+
+  /* STEP学習システム - タブレット */
+  .compact-original-learning {
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-content {
+    grid-template-columns: 1fr;
+    gap: 0rem;
+  }
+
+  .step-video {
+    max-width: 100%;
+    order: -1;
+  }
+
+  .step-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .step-number {
+    margin-right: 0.5rem;
+    min-width: 70px;
+    font-size: 0.8rem;
+  }
+
+  /* 検索・フィルター - タブレット */
+  .temple-search-container {
+    padding: 2.5rem 1rem;
+  }
+
+  .search-box {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .search-filters {
+    gap: 0.8rem;
+  }
+
+  .nav-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  /* カード・コンポーネント - タブレット */
+  .card-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    gap: 1.5rem;
+  }
+
+  .hero-image-content h2 {
+    font-size: 2rem;
+  }
+
+  .section-intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .text-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .text-content h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ===============================================
+   スマートフォン対応 (max-width: 480px)
+   =============================================== */
+
+@media (max-width: 480px) /* --bp-sm */ {
+  /* ヒーローテキストサイズ - お遍路小画面（横幅連動） */
+  .hero-content h1 {
+    font-size: clamp(1.6rem, 10vw, 2.4rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  /* セクション間の余白調整 */
+  .section {
+    padding: 2rem 1rem 3rem 1rem;
+  }
+  .layout-section {
+    padding: 2rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+  }
+
+  .layout-header {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* STEP学習システム - スマートフォン */
+  .compact-original-learning {
+    padding: 1.5rem 0rem 0.5rem 0rem; /* 下パディングを大幅に縮小 */
+    margin-bottom: 0.5rem; /* 下マージンも縮小 */
+    border-radius: 15px;
+  }
+
+  /* お遍路学習セクション全体の調整 */
+  #about {
+    padding-bottom: 1.5rem !important; /* デフォルトの48pxから大幅に縮小 */
+  }
+
+  .compact-step {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .step-header {
+    margin-bottom: 1.5rem;
+    flex-direction: row;
+    padding: 1rem;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+    min-width: 60px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .step-title {
+    font-size: 1rem;
+  }
+
+  .step-video {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-description {
+    padding: 0.5rem;
+  }
+
+  .step-description h4 {
+    font-size: 1.1rem;
+  }
+
+  /* カード全体の幅設定を480px以下で修正 */
+  .prefecture-block,
+  .gallery-item {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .prefecture-block {
+    height: 250px;
+    margin-bottom: 1rem;
+  }
+
+  .prefecture-header {
+    padding: 0.8rem;
+    min-height: 150px !important; /* iPad miniサイズで画像を大きく表示 */
+    aspect-ratio: 16/9 !important; /* アスペクト比を調整 */
+  }
+
+  .prefecture-simple {
+    padding: 0.8rem;
+  }
+
+  /* 検索・フィルター - スマートフォン */
+  .temple-search-container {
+    padding: 2rem 0.8rem;
+  }
+
+  .search-box {
+    padding: 0.6rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-box input {
+    font-size: 1rem;
+  }
+
+  .search-filters {
+    gap: 0.5rem;
+  }
+
+  .nav-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    min-width: 80px;
+  }
+
+  /* 県別セクションタイトル - モバイル */
+  .prefecture-header-enhanced {
+    padding: 1rem 0.8rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .section-title {
+    font-size: 1.6rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .dojo-name {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .prefecture-stats {
+    gap: 0.8rem !important;
+  }
+
+  .temple-count,
+  .range {
+    font-size: 0.8rem !important;
+  }
+
+  .section-intro {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.8rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* FAQ ヒーロー - モバイル */
+  .faq-hero {
+    height: 40vh !important;
+    min-height: 250px !important;
+  }
+
+  /* テキスト・引用 - スマートフォン */
+  .quote-section {
+    padding: 3rem 1rem;
+  }
+
+  .quote-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .quote-author {
+    font-size: 1rem;
+  }
+
+  .vertical-text-section {
+    padding: 3rem 1rem;
+    min-height: 30vh;
+  }
+
+  .vertical-text {
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+    line-height: 2.4;
+  }
+
+  /* ボタン・CTA - スマートフォン */
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* ECボタンのモバイル修正 - テキストと矢印の重なり防止 */
+  .ec-cta-button.enhanced {
+    padding: 1.2rem 3.5rem 1.2rem 2rem !important; /* 右側に余裕を持たせる */
+  }
+
+  .ec-cta-button.enhanced .cta-text {
+    margin-right: 1.5rem; /* 矢印分のスペース確保 */
+    font-size: 0.95rem !important;
+  }
+
+  .ec-cta-button.enhanced .cta-subtext {
+    font-size: 0.8rem !important;
+  }
+
+  .ec-cta-button.enhanced .cta-arrow {
+    right: 1.2rem !important; /* 右端から少し離す */
+    font-size: 0.9rem !important;
+  }
+
+  /* 予約ボタンのモバイル修正 - テキスト中央配置 */
+  .booking-cta-button.enhanced {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  .booking-cta-button.enhanced .cta-text {
+    text-align: center !important;
+    margin: 0 !important;
+  }
+
+  /* YouTube動画 - スマートフォン */
+  .youtube-placeholder {
+    min-height: 150px;
+    font-size: 1rem;
+  }
+
+  .youtube-placeholder::before {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+  }
+
+  /* prefecture-grid - スマートフォン最適化 */
+  .prefecture-header {
+    min-height: 120px !important; /* モバイルでも適切なサイズ確保 */
+    aspect-ratio: 3/2 !important; /* より正方形に近い比率 */
+  }
+}
+
+/* ===============================================
+   極小画面対応 (max-width: 360px)
+   =============================================== */
+
+@media (max-width: 360px) /* --bp-xs-small */ {
+  .compact-original-learning {
+    padding: 1rem 0rem;
+  }
+
+  .compact-step {
+    padding: 1rem 0.8rem;
+  }
+
+  .step-number {
+    width: auto;
+    height: auto;
+    font-size: 0.75rem;
+    min-width: 55px;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .step-title {
+    font-size: 0.95rem;
+  }
+
+  .prefecture-block {
+    height: 220px;
+  }
+
+  .search-box {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .nav-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  /* 県別セクションタイトル - 極小モバイル */
+  .prefecture-header-enhanced {
+    padding: 0.8rem 0.6rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .section-title {
+    font-size: 1.4rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .dojo-name {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .prefecture-stats {
+    gap: 0.6rem !important;
+  }
+
+  .temple-count,
+  .range {
+    font-size: 0.75rem !important;
+  }
+
+  .section-intro {
+    font-size: 0.85rem !important;
+    margin-bottom: 1.2rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* FAQ ヒーロー - 小画面モバイル */
+  .faq-hero {
+    height: 35vh !important;
+    min-height: 200px !important;
+  }
+
+  .quote-text {
+    font-size: 1.3rem;
+  }
+
+  .vertical-text {
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+  }
+}
+
+/* ===============================================
+   高解像度・大画面対応 (min-width: 1400px)
+   =============================================== */
+
+@media (min-width: 1400px) /* --bp-xl */ {
+  .layout-section {
+    padding: 5rem 3rem;
+  }
+
+  .compact-original-learning {
+    max-width: 1400px;
+    padding: 4rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+
+  .prefecture-grid {
+    max-width: 1400px;
+    gap: 2rem;
+  }
+
+  .quote-text {
+    font-size: 2.4rem;
+  }
+}
+
+/* ===============================================
+   shikoku.html専用ヒーロー対応
+   =============================================== */
+
+/* ベースヒーロースタイル */
+.shikoku-hero {
+  min-height: calc(100vh - 80px);
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+    url("../../images/shosenji.webp") center/cover no-repeat;
+  position: relative;
+  padding: 3rem 2rem;
+}
+
+/* FAQ ヒーロー背景画像中央の中央配置 - 上下完全中央 */
+.faq-hero {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.faq-hero .hero-content {
+  position: absolute !important;
+  top: calc(50% + 46px) !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+  text-align: center !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 1000 !important;
+}
+
+.faq-hero .hero-content h1 {
+  font-size: 3rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #fff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+  line-height: 1.2 !important;
+}
+
+.faq-description {
+  font-size: 1.2rem;
+}
+
+.shikoku-hero-content {
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  width: 100%;
+  z-index: 2;
+}
+
+.shikoku-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #d4af37;
+}
+
+.shikoku-description {
+  font-size: 1.4rem;
+  margin-bottom: 3rem;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+/* フィルターボタンの改善 */
+.quick-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.nav-btn {
+  background: rgba(212, 175, 55, 0.9);
+  color: #000;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: #d4af37;
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* タブレット対応 (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .shikoku-hero {
+    min-height: calc(100vh - 80px);
+    height: auto;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .shikoku-title {
+    font-size: 3rem;
+  }
+
+  .shikoku-description {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* モバイル対応 (max-width: 768px) */
+@media (max-width: 768px) {
+  .shikoku-hero {
+    min-height: calc(100vh - 70px);
+    height: auto;
+    padding: 1.5rem 1rem;
+    align-items: center;
+    padding-top: 5rem; /* ヘッダー分のスペース確保 */
+  }
+
+  .shikoku-hero .shikoku-title {
+    font-size: 1.4rem !important;
+    margin-bottom: 0.8rem;
+    line-height: 1.1;
+  }
+
+  .shikoku-description {
+    font-size: 0.9rem !important;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .temple-search-container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .search-box {
+    margin-bottom: 1.5rem;
+    padding: 0.8rem;
+  }
+
+  .quick-navigation {
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+
+  .nav-btn:nth-child(n + 4) {
+    order: 1;
+  }
+
+  .quick-navigation::after {
+    content: "";
+    flex-basis: 100%;
+    height: 0;
+    order: 0;
+  }
+
+  .nav-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    flex: 0 0 auto;
+    min-width: 70px;
+  }
+}
+
+/* 小画面モバイル対応 (max-width: 480px) */
+@media (max-width: 480px) {
+  .shikoku-hero {
+    min-height: calc(100vh - 70px);
+    height: auto;
+    padding: 1.2rem 0.8rem;
+    padding-top: 4rem;
+  }
+
+  .shikoku-hero .shikoku-title {
+    font-size: 2.4rem !important;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .shikoku-description {
+    font-size: 1.1rem !important;
+    margin-bottom: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .search-box {
+    padding: 0.6rem;
+  }
+
+  .quick-navigation {
+    gap: 0.4rem;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .nav-btn:nth-child(n + 4) {
+    order: 1;
+  }
+
+  .quick-navigation::after {
+    content: "";
+    flex-basis: 100%;
+    height: 0;
+    order: 0;
+  }
+
+  .nav-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+    min-width: 65px;
+  }
+
+  /* FAQ ヒーローモバイル - 見えている部分の中央配置 */
+  .faq-hero .hero-content {
+    top: calc(50% + 35px) !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .faq-hero .hero-content h1 {
+    font-size: 2.3rem !important;
+  }
+}

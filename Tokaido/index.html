@@ -2,7 +2,10 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
     <title>東海道ウォーク - 江戸と京都を結ぶ歴史街道の旅</title>
     <meta
       name="description"
@@ -31,32 +34,52 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components/navigation.css" />
+    <link rel="stylesheet" href="../css/components/slideshow.css" />
     <link rel="stylesheet" href="../css/tokaido.css" />
+    <link rel="stylesheet" href="../css/pages/tokaido-layout.css" />
+    <link rel="stylesheet" href="../css/pages/tokaido-responsive.css" />
     <script src="../js/performance-monitor.js" defer></script>
+    <script src="../js/responsive-debug.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/logo-visibility.js" defer></script>
   </head>
-  <body>
+  <body class="debug-responsive">
     <header>
       <nav>
-        <div class="logo">堂島フロント企画</div>
+        <a href="../index.html" class="logo">
+          <img src="../images/doujima-logo.webp" alt="堂島フロント企画" />
+          <span class="logo-text">堂島フロント企画</span>
+        </a>
         <ul class="nav-links">
           <li>
-            <a href="#home">東海道ウォーク</a>
+            <a href="index.html">街道ウォーク</a>
           </li>
           <li>
             <a href="stations.html">宿場町のご案内</a>
             <div class="dropdown">
-              <a href="stations.html#edo-kanagawa">江戸〜神奈川</a>
-              <a href="stations.html#shizuoka">静岡</a>
-              <a href="stations.html#aichi">愛知</a>
-              <a href="stations.html#mie">三重</a>
-              <a href="stations.html#shiga-kyoto">滋賀〜京都</a>
+              <a href="stations.html#yamashiro-area">山城国</a>
+              <a href="stations.html#oumi-area">近江国</a>
+              <a href="stations.html#ise-area">伊勢国</a>
+              <a href="stations.html#owari-area">尾張国</a>
+              <a href="stations.html#mikawa-area">三河国</a>
+              <a href="stations.html#totomi-area">遠江国</a>
+              <a href="stations.html#suruga-area">駿河国</a>
+              <a href="stations.html#izu-area">伊豆国</a>
+              <a href="stations.html#sagami-area">相模国</a>
+              <a href="stations.html#musashi-area">武蔵国</a>
             </div>
           </li>
           <li>
             <a href="guide.html">歩き方ガイド</a>
           </li>
           <li>
-            <a href="../Ohenro/index.html">四国お遍路</a>
+            <a href="../Ohenro/index.html">巡礼</a>
+          </li>
+          <li>
+            <a href="https://doujimafront.stores.jp/" target="_blank"
+              >オンラインショップ</a
+            >
           </li>
           <li>
             <a href="../index.html">企業トップページ</a>
@@ -75,6 +98,18 @@
       </nav>
     </header>
 
+    <!-- 固定フローティング言語切り替えボタン -->
+    <div class="language-switcher">
+      <button
+        id="languageToggle"
+        class="language-btn"
+        aria-label="言語切り替え / Switch Language"
+      >
+        <i class="fas fa-globe"></i>
+        <span class="lang-text">English</span>
+      </button>
+    </div>
+
     <!-- モバイル用メニューオーバーレイ -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
@@ -91,13 +126,20 @@
         </button>
       </div>
       <nav class="mobile-menu-nav">
-        <a href="#home" class="mobile-menu-link">東海道ウォーク</a>
-        <a href="#about" class="mobile-menu-link">東海道とは</a>
+        <a href="#home" class="mobile-menu-link">街道ウォーク</a>
         <a href="stations.html" class="mobile-menu-link">宿場町のご案内</a>
-        <a href="#journey" class="mobile-menu-link">ウォーキング体験</a>
-        <a href="#contact" class="mobile-menu-link">お問い合わせ</a>
-        <a href="../Ohenro/index.html" class="mobile-menu-link">四国お遍路</a>
+        <a href="guide.html" class="mobile-menu-link">歩き方ガイド</a>
+        <a href="../Ohenro/index.html" class="mobile-menu-link">巡礼</a>
+        <a
+          href="https://doujimafront.stores.jp/"
+          target="_blank"
+          class="mobile-menu-link"
+          >オンラインショップ</a
+        >
         <a href="../index.html" class="mobile-menu-link">企業トップページ</a>
+        <a href="#" id="mobileLangToggle" class="mobile-menu-link">
+          <i class="fas fa-globe"></i> English
+        </a>
       </nav>
     </div>
 
@@ -122,31 +164,31 @@
         <div
           class="hero-slide"
           data-info="街道風景"
-          style="background-image: url('../images/tokaido/road2.jpg')"
+          style="background-image: url('../images/tokaido/suzuka-pass-3.jpg')"
         ></div>
         <div
           class="hero-slide"
           data-info="歴史の道"
           style="background-image: url('../images/tokaido/road3.jpg')"
         ></div>
+        <div
+          class="hero-slide"
+          data-info="中山の茶畑"
+          style="
+            background-image: url('../images/tokaido/nakayama-tea-fields.jpg');
+          "
+        ></div>
       </div>
 
       <!-- 水平進行バー -->
-      <div class="horizontal-progress">
-        <div class="progress-line-container">
-          <div class="progress-line-bg"></div>
-          <div class="progress-line-fill"></div>
-          <div class="progress-center-point"></div>
-        </div>
-      </div>
 
       <div class="hero-content">
-        <div class="hero-subtitle">東海道五十三次の旅</div>
-        <h1>東海道ウォーク</h1>
+        <h1>街道ウォーク</h1>
         <p class="hero-description">
-          江戸と京都を結ぶ<br />
-          歴史街道を歩む<br />
-          文化と自然の体験路
+          東海道五十三次<br />
+          中山道六十九次<br />
+          伊勢街道<br />
+          etc.
         </p>
       </div>
 
@@ -158,6 +200,7 @@
         <div class="slide-dot" data-slide="2"></div>
         <div class="slide-dot" data-slide="3"></div>
         <div class="slide-dot" data-slide="4"></div>
+        <div class="slide-dot" data-slide="5"></div>
       </div>
     </section>
 
@@ -177,13 +220,13 @@
               <h3>🏛️ 東海道の誕生</h3>
               <div class="timeline-image">
                 <img
-                  src="../images/tokaido/map.jpg"
+                  src="../images/tokaido/five-highways.jpg"
                   alt="東海道五十三次の整備"
                   loading="lazy"
                 />
               </div>
               <p>
-                徳川家康により東海道が整備され、江戸と京都を結ぶ五十三の宿場町が設置されました。
+                徳川家康により東海道が再整備され、江戸と京都を結ぶ五十三の宿場町が設置されました。
                 参勤交代制度により大名行列が通行し、商人や旅人で賑わう日本最重要街道となりました。
               </p>
             </div>
@@ -197,13 +240,13 @@
               <h3>🎨 広重の東海道五十三次</h3>
               <div class="timeline-image">
                 <img
-                  src="../images/tokaido/Tokaido-gojusan-tsugi/1-Nihonbashi.webp"
+                  src="../images/tokaido/hiroshige-ukiyoe.jpg"
                   alt="広重の浮世絵の風景"
                   loading="lazy"
                 />
               </div>
               <p>
-                歌川広重が「東海道五十三次」を発表。由比宿からの富士山、箱根の山道など、
+                歌川広重が「東海道五十三次」を発表。薩埵峠からの富士山、箱根の山道など、
                 東海道の美しい風景が浮世絵に描かれ、庶民にも街道の魅力が広まりました。
               </p>
             </div>
@@ -217,7 +260,7 @@
               <h3>🚂 鉄道時代の始まり</h3>
               <div class="timeline-image">
                 <img
-                  src="../images/tokaido/road2.jpg"
+                  src="../images/tokaido/suzuka-pass-2.jpg"
                   alt="東海道本線の開通"
                   loading="lazy"
                 />
@@ -237,7 +280,7 @@
               <h3>🚶‍♂️ 歴史ウォーキングの復活</h3>
               <div class="timeline-image">
                 <img
-                  src="../images/tokaido/road.jpg"
+                  src="../images/tokaido/manninko-lantern.jpg"
                   alt="現代の東海道ウォーク"
                   loading="lazy"
                 />
@@ -250,42 +293,15 @@
             <div class="timeline-marker"></div>
           </div>
         </div>
-
-        <!-- 現代の楽しみ方セクション -->
-        <div class="modern-experience">
-          <h3>現代だからこそ楽しめる東海道</h3>
-          <div class="experience-grid">
-            <div class="experience-card">
-              <i class="fas fa-camera"></i>
-              <h4>SNS映えスポット</h4>
-              <p>広重の浮世絵と同じアングルで写真撮影</p>
-            </div>
-            <div class="experience-card">
-              <i class="fas fa-train"></i>
-              <h4>電車でアクセス</h4>
-              <p>好きな区間だけ歩いて電車で移動</p>
-            </div>
-            <div class="experience-card">
-              <i class="fas fa-hot-tub"></i>
-              <h4>温泉でリフレッシュ</h4>
-              <p>箱根や熱海の名湯で疲れを癒す</p>
-            </div>
-            <div class="experience-card">
-              <i class="fas fa-utensils"></i>
-              <h4>名物グルメ</h4>
-              <p>各宿場町の伝統料理と地酒を堪能</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- 代表宿場町紹介セクション -->
     <section class="featured-stations-section">
       <div class="section-content">
-        <h2 class="section-title">歴史を体験できる代表宿場町</h2>
+        <h2 class="section-title">東海道を代表する宿場や景観</h2>
         <p class="section-intro">
-          東海道の魅力を凝縮した4つの宿場町をご紹介。それぞれ異なる歴史と文化を体験できます。
+          東海道の魅力を凝縮した4つのポイントをご紹介。江戸時代から現代へと受け継がれる歴史を体験することができます。
         </p>
 
         <div class="stations-grid">
@@ -293,23 +309,17 @@
           <div class="station-highlight">
             <div class="station-image">
               <img
-                src="../images/tokaido/road.jpg"
+                src="../images/tokaido/nihonbashi.jpg"
                 alt="日本橋 - 東海道の出発点"
                 loading="lazy"
               />
-              <div class="station-number">1</div>
             </div>
             <div class="station-info">
               <h3>日本橋</h3>
               <div class="station-subtitle">東海道の出発点</div>
               <p>
-                すべての街道の起点となる歴史ある橋。現在でも「道路元標」が残り、
-                江戸の賑わいを感じられる都心の宿場町です。
+                五街道の起点となる歴史ある橋。明治政府によって設置された街道の起点を表す「道路元標」が今も残る。
               </p>
-              <div class="station-features">
-                <span class="feature-tag">🏛️ 歴史</span>
-                <span class="feature-tag">🏙️ 都市体験</span>
-              </div>
             </div>
           </div>
 
@@ -317,11 +327,10 @@
           <div class="station-highlight">
             <div class="station-image">
               <img
-                src="../images/tokaido/road3.jpg"
+                src="../images/tokaido/hakone-checkpoint.jpg"
                 alt="箱根宿 - 関所と温泉"
                 loading="lazy"
               />
-              <div class="station-number">10</div>
             </div>
             <div class="station-info">
               <h3>箱根宿</h3>
@@ -330,10 +339,6 @@
                 江戸時代の関所跡と現代の温泉リゾートが共存する特別な場所。
                 厳しい山道を越えた先の温泉は格別の癒しを提供します。
               </p>
-              <div class="station-features">
-                <span class="feature-tag">♨️ 温泉</span>
-                <span class="feature-tag">⛩️ 関所</span>
-              </div>
             </div>
           </div>
 
@@ -345,43 +350,33 @@
                 alt="由比宿 - 富士山絶景"
                 loading="lazy"
               />
-              <div class="station-number">16</div>
             </div>
             <div class="station-info">
-              <h3>由比宿</h3>
-              <div class="station-subtitle">富士山絶景の宿場</div>
+              <h3>薩埵峠</h3>
+              <div class="station-subtitle">由比宿と興津宿の間</div>
               <p>
                 歌川広重の浮世絵で最も有名な富士山ビュースポット。
                 薩埵峠からの眺望は現代でも変わらず感動を与えてくれます。
               </p>
-              <div class="station-features">
-                <span class="feature-tag">🗻 絶景</span>
-                <span class="feature-tag">🎨 浮世絵</span>
-              </div>
             </div>
           </div>
 
-          <!-- 三条大橋 -->
+          <!-- 草津宿 -->
           <div class="station-highlight">
             <div class="station-image">
               <img
-                src="../images/tokaido/road2.jpg"
-                alt="三条大橋 - 東海道の終点"
+                src="../images/tokaido/kusatsu-honjin.jpg"
+                alt="草津宿 - 本陣"
                 loading="lazy"
               />
-              <div class="station-number">53</div>
             </div>
             <div class="station-info">
-              <h3>三条大橋</h3>
-              <div class="station-subtitle">京都到着の感動</div>
+              <h3>草津宿</h3>
+              <div class="station-subtitle">東海道と中山道の分岐点</div>
               <p>
-                長い旅路の終着点となる京都の三条大橋。
-                鴨川の流れとともに、完歩の達成感を味わえる特別な場所です。
+                江戸時代の交通の要衡として栄えた草津宿。
+                本陣の遺構が残り、往時の繁栄を今に伝える重要な宿場町です。
               </p>
-              <div class="station-features">
-                <span class="feature-tag">🏛️ 古都</span>
-                <span class="feature-tag">🎊 完歩</span>
-              </div>
             </div>
           </div>
         </div>
@@ -389,168 +384,20 @@
         <!-- 導線ボタン -->
         <div class="stations-navigation">
           <a href="stations.html" class="nav-button primary">
-            <span>全53宿場町を探索する</span>
+            <span>東海道全53宿場を探索する</span>
             <i class="fas fa-map-marked-alt"></i>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- 予約するならセクション -->
-    <section class="booking-section">
-      <div class="booking-content">
-        <div class="booking-header">
-          <h2 class="booking-title">東海道ウォークツアーのご案内</h2>
-          <p class="booking-subtitle">阪神交通社で歴史街道を歩く感動の旅を</p>
-        </div>
-
-        <div class="booking-features">
-          <div class="feature-item">
-            <i class="fas fa-map-signs"></i>
-            <span>歴史解説付きガイド</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-mountain"></i>
-            <span>富士山撮影スポット</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-bowl-rice"></i>
-            <span>名物料理を堪能</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-hot-tub"></i>
-            <span>温泉でリフレッシュ</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-train"></i>
-            <span>電車で楽々移動</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-camera"></i>
-            <span>写真撮影サポート</span>
-          </div>
-        </div>
-
-        <!-- 東海道の楽しみ方 -->
-        <div class="enjoyment-ways" style="margin: 1rem 0">
-          <h3
-            style="
-              color: var(--primary-gold);
-              margin-bottom: 1rem;
-              text-align: center;
-              font-size: 1.2rem;
-            "
-          >
-            あなたの興味に合わせた東海道の楽しみ方
-          </h3>
-          <div
-            class="enjoyment-compact-grid"
-            style="
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-              gap: 0.8rem;
-              margin-bottom: 1rem;
-            "
-          >
-            <!-- 歴史入門 -->
-            <div
-              class="enjoyment-compact-card"
-              style="
-                background: rgba(212, 175, 55, 0.1);
-                border: 1px solid rgba(212, 175, 55, 0.3);
-                border-radius: 8px;
-                padding: 1rem;
-                text-align: center;
-              "
-            >
-              <div style="font-size: 2rem; margin-bottom: 0.5rem">📜</div>
-              <h4 style="color: var(--primary-gold); margin-bottom: 0.5rem">
-                歴史入門
-              </h4>
-              <p
-                style="
-                  color: rgba(60, 60, 60, 0.8);
-                  font-size: 0.9rem;
-                  line-height: 1.4;
-                "
-              >
-                江戸時代の街道制度や宿場町の仕組みを学びながら、本陣跡・脇本陣跡を見学
-              </p>
-            </div>
-
-            <!-- 絶景を巡る -->
-            <div
-              class="enjoyment-compact-card"
-              style="
-                background: rgba(212, 175, 55, 0.1);
-                border: 1px solid rgba(212, 175, 55, 0.3);
-                border-radius: 8px;
-                padding: 1rem;
-                text-align: center;
-              "
-            >
-              <div style="font-size: 2rem; margin-bottom: 0.5rem">📷</div>
-              <h4 style="color: var(--primary-gold); margin-bottom: 0.5rem">
-                絶景を巡る
-              </h4>
-              <p
-                style="
-                  color: rgba(60, 60, 60, 0.8);
-                  font-size: 0.9rem;
-                  line-height: 1.4;
-                "
-              >
-                富士山の絶景、相模湾の海岸線、四季の花々など写真映えするスポットを満喫
-              </p>
-            </div>
-
-            <!-- 温泉を楽しむ -->
-            <div
-              class="enjoyment-compact-card"
-              style="
-                background: rgba(212, 175, 55, 0.1);
-                border: 1px solid rgba(212, 175, 55, 0.3);
-                border-radius: 8px;
-                padding: 1rem;
-                text-align: center;
-              "
-            >
-              <div style="font-size: 2rem; margin-bottom: 0.5rem">♨️</div>
-              <h4 style="color: var(--primary-gold); margin-bottom: 0.5rem">
-                温泉を楽しむ
-              </h4>
-              <p
-                style="
-                  color: rgba(60, 60, 60, 0.8);
-                  font-size: 0.9rem;
-                  line-height: 1.4;
-                "
-              >
-                箱根温泉郷、熱海温泉、湯河原温泉など歴史ある温泉街でリラックス
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <a
-          href="https://www.hankyu-travel.com/"
-          class="booking-cta-button"
-          target="_blank"
-          rel="noopener"
-        >
-          ツアー詳細を見る
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </section>
-
-    <!-- 東海道について -->
-    <section class="tokaido-about-section" id="about">
+    <!-- 東海道について・予約統合セクション -->
+    <section class="tokaido-booking-combined-section" id="about">
       <div class="section-content">
         <h2 class="section-title tokaido-main-title">東海道ウォークとは</h2>
         <p class="section-intro">
           江戸時代から明治時代にかけて、日本の大動脈として機能した東海道。
-          徳川家康が整備したこの街道は、単なる移動路ではなく文化と歴史が息づく特別な道のりです。
+          徳川家康が再整備したこの街道は、単なる移動路ではなく文化と歴史が息づく特別な道のりです。
         </p>
 
         <div class="tokaido-detailed-info">
@@ -558,7 +405,7 @@
             <div class="info-block">
               <h3>🏛️ 歴史的意義</h3>
               <p>
-                慶長6年（1601年）に徳川幕府によって整備された東海道は、江戸（現在の東京）と京都を結ぶ約500kmの街道です。
+                慶長6年（1601年）に徳川幕府によって再整備された東海道は、江戸（現在の東京）と京都を結ぶ約500kmの街道です。
                 参勤交代で使用された大名行列、商人や旅人で賑わう宿場町、そして庶民の生活が色濃く残る歴史の舞台を歩くことで、
                 当時の人々の暮らしと文化を肌で感じることができます。
               </p>
@@ -592,122 +439,21 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- 東海道の魅力紹介セクション -->
-    <section class="tokaido-section" style="padding: 4rem 2rem">
-      <div class="section-content">
-        <!-- 東海道の魅力紹介 -->
-        <div class="tokaido-attractions">
-          <!-- 富士山の絶景 -->
-          <div class="attraction-block">
-            <div class="attraction-image">
-              <img
-                src="../images/tokaido/fujisan.jpg"
-                alt="富士山を望む東海道の絶景"
-                loading="lazy"
-              />
-            </div>
-            <div class="attraction-content">
-              <h3>🗻 富士山との絶景街道</h3>
-              <p>
-                由比宿から薩埵峠にかけて、富士山を正面に望む日本屈指の絶景ルート。
-                歌川広重の浮世絵「東海道五十三次」と同じ景色を現代に体験できます。
-              </p>
-              <div class="attraction-highlights">
-                <span>📸 インスタ映え抜群</span>
-                <span>🌅 朝焼けの富士山</span>
-                <span>🎨 浮世絵の世界</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 宿場町の文化体験 -->
-          <div class="attraction-block reverse">
-            <div class="attraction-image">
-              <img
-                src="../images/tokaido/road.jpg"
-                alt="歴史ある宿場町の街並み"
-                loading="lazy"
-              />
-            </div>
-            <div class="attraction-content">
-              <h3>🏮 江戸情緒あふれる宿場町</h3>
-              <p>
-                関宿、奈良井宿など、江戸時代の面影を色濃く残す宿場町。
-                本陣や脇本陣の跡地を巡り、大名行列の栄華を偲びながらタイムスリップ体験。
-              </p>
-              <div class="attraction-highlights">
-                <span>🏛️ 本陣跡見学</span>
-                <span>🍜 名物料理</span>
-                <span>🏺 伝統工芸</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 現代的な楽しみ方 -->
-          <div class="attraction-block">
-            <div class="attraction-image">
-              <img
-                src="../images/tokaido/road2.jpg"
-                alt="現代の東海道ウォーキング"
-                loading="lazy"
-              />
-            </div>
-            <div class="attraction-content">
-              <h3>🚶 自分のペースで歩く旅</h3>
-              <p>
-                JR東海道線と組み合わせて、体力や時間に合わせて自由にプランニング。
-                1日5kmからでも楽しめる、無理のない現代版東海道の旅です。
-              </p>
-              <div class="attraction-highlights">
-                <span>🚃 電車でアクセス良好</span>
-                <span>♨️ 温泉でリフレッシュ</span>
-                <span>📱 GPSガイド対応</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ギャラリーセクション -->
-    <section class="section">
-      <div class="section-content">
-        <h2 class="section-title">街道歩きの風景</h2>
-        <p class="section-intro">
-          富士山を望む絶景と歴史ある宿場町の数々をご覧ください
-        </p>
-
-        <div class="gallery-grid">
-          <div
-            class="gallery-item"
-            style="background-image: url('../images/tokaido/fujisan2.jpg')"
+        <!-- CTAボタン -->
+        <div
+          class="booking-cta-container"
+          style="text-align: center; margin-top: 3rem"
+        >
+          <a
+            href="https://www.hankyu-travel.com/kokunai/tokaido53/"
+            class="booking-cta-button"
+            target="_blank"
+            rel="noopener"
           >
-            <div class="gallery-overlay">
-              <h4>富士山の絶景</h4>
-              <p>薩埵峠から望む日本一の聖峰</p>
-            </div>
-          </div>
-          <div
-            class="gallery-item"
-            style="background-image: url('../images/tokaido/tour/tour5.jpg')"
-          >
-            <div class="gallery-overlay">
-              <h4>宿場町の情緒</h4>
-              <p>本陣跡と脇本陣が語る往時の賑わい</p>
-            </div>
-          </div>
-          <div
-            class="gallery-item"
-            style="background-image: url('../images/tokaido/tour/tour7.jpg')"
-          >
-            <div class="gallery-overlay">
-              <h4>石畳の古道</h4>
-              <p>大名行列が歩いた歴史の道を体感</p>
-            </div>
-          </div>
+            当社同行ガイドツアーを見る
+            <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -717,7 +463,7 @@
       style="
         background: rgba(250, 248, 245, 0.95);
         border-radius: 15px;
-        padding: 3rem;
+        padding: 1rem;
         margin-top: 4rem;
         border: 2px solid rgba(212, 175, 55, 0.3);
         text-align: center;
@@ -783,7 +529,7 @@
     <footer id="contact">
       <div class="contact-info">
         <p><i class="fas fa-phone"></i> お問い合わせ: 0774-46-8762</p>
-        <p><i class="fas fa-envelope"></i> info@doujima-front.com</p>
+        <p><i class="fas fa-envelope"></i> info@doujimafront.com</p>
         <p>
           <i class="fab fa-youtube"></i>
           <a href="https://www.youtube.com/channel/UCmLtrxU3JuwrOPaIniVAOfQ"
