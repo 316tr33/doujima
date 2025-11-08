@@ -216,6 +216,7 @@ async function verifyTurnstile(token, secretKey, clientIP) {
     );
 
     const result = await response.json();
+    console.log('[Turnstile検証] レスポンス:', result);
     return result.success === true;
   } catch (error) {
     console.error('[Turnstile検証] エラー:', error);
