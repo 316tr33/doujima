@@ -44,18 +44,24 @@ export async function onRequest(context) {
   }
 
   try {
-    // リクエストボディの取得
-    const formData = await request.json();
+    // リクエストボディの取得（FormData形式）
+    const formData = await request.formData();
     const clientIP = request.headers.get('CF-Connecting-IP') || 'unknown';
+
+    // FormDataをオブジェクトに変換
+    const data = {};
+    for (const [key, value] of data.entries()) {
+      data[key] = value;
+    }
 
     console.log('[お問い合わせフォーム] 送信リクエスト受信:', {
       ip: clientIP,
-      service: formData.service,
+      service: data.service,
       timestamp: new Date().toISOString(),
     });
 
     // ハニーポット検証（スパムボット対策）
-    if (formData.website && formData.website.trim() !== '') {
+    if (data.website && data.website.trim() !== '') {
       console.log('[お問い合わせフォーム] スパム検出（ハニーポット）:', clientIP);
       return new Response(
         JSON.stringify({
@@ -70,7 +76,7 @@ export async function onRequest(context) {
     }
 
     // Turnstile検証
-    const turnstileToken = formData['cf-turnstile-response'];
+    const turnstileToken = data['cf-turnstile-response'];
     if (!turnstileToken) {
       return new Response(
         JSON.stringify({
@@ -160,8 +166,8 @@ export async function onRequest(context) {
 
     console.log('[お問い合わせフォーム] 送信成功:', {
       ip: clientIP,
-      email: formData.email,
-      service: formData.service,
+      email: data.email,
+      service: data.service,
     });
 
     return new Response(
