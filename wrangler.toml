@@ -1,0 +1,53 @@
+# Cloudflare Pages + Functions 設定ファイル
+# wrangler CLI でローカル開発とデプロイに使用
+
+# プロジェクト名（Cloudflare Pagesのプロジェクト名と一致させる）
+name = "doujima"
+
+# デプロイ先（Cloudflare Pages）
+compatibility_date = "2025-01-01"
+
+# Pages Functions の設定
+[build]
+command = ""  # 静的サイトなので不要
+cwd = ""      # ルートディレクトリ
+watch_dirs = ["functions", "js", "css"]  # 監視するディレクトリ
+
+# 環境変数（開発環境）
+[env.development.vars]
+ENVIRONMENT = "development"
+RECIPIENT_EMAIL = "316tr33@protonmail.com"  # テスト用メールアドレス
+FROM_EMAIL = "noreply@doujimafront.com"
+TURNSTILE_SECRET_KEY = "0x4AAAAAAB_1ya3SKxlzd7HV3dbnIFgKRdM"  # Cloudflare Turnstile から取得
+
+# 環境変数（本番環境）
+[env.production.vars]
+ENVIRONMENT = "production"
+RECIPIENT_EMAIL = "info@doujimafront.com"  # 本番用メールアドレス
+FROM_EMAIL = "noreply@doujimafront.com"
+TURNSTILE_SECRET_KEY = ""  # Cloudflare Turnstile から取得（本番用）
+
+# Workers KV（レート制限用）
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = ""  # Cloudflare ダッシュボードで KV Namespace を作成後、ID をここに記入
+preview_id = ""  # プレビュー環境用 KV Namespace ID
+
+# ローカル開発設定
+[dev]
+ip = "0.0.0.0"
+port = 8788
+local_protocol = "http"
+
+# デプロイ設定
+[site]
+bucket = "."  # プロジェクトルートディレクトリ
+
+# ルーティング設定（Pages Functions は自動的に /functions/* にマップされる）
+# submit-contact.js -> /submit-contact
+# submit-recruit.js -> /submit-recruit
+
+# ログレベル
+[observability]
+enabled = true
+head_sampling_rate = 1

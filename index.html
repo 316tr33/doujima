@@ -20,6 +20,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="js/responsive-debug.js" defer></script>
     <script src="js/logo-visibility.js" defer></script>
   </head>
@@ -352,7 +353,7 @@
 
             <div class="contact-form">
               <h3>お問い合わせフォーム</h3>
-              <form>
+              <form id="contactForm">
                 <div class="form-group">
                   <label for="company">会社名 *</label>
                   <input type="text" id="company" name="company" required />
@@ -415,8 +416,33 @@
                   <label class="checkbox-label">
                     <input type="checkbox" name="privacy" required />
                     <span class="checkmark"></span>
-                    個人情報の取り扱いに同意する *
+                    <a href="privacy-policy.html" target="_blank">個人情報の取り扱い</a>に同意する *
                   </label>
+                </div>
+
+                <!-- スパム対策：ハニーポット（人間には見えない） -->
+                <input
+                  type="text"
+                  name="website"
+                  id="website"
+                  style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+                  tabindex="-1"
+                  autocomplete="off"
+                  aria-hidden="true"
+                />
+
+                <!--
+                  TODO: Turnstileサイトキーを設定
+                  1. Cloudflareダッシュボード → Turnstile
+                  2. サイト追加（doujimafront.com）
+                  3. サイトキーを取得
+                  4. data-sitekey="YOUR_SITE_KEY" を実際のキーに置き換え
+                -->
+                <div class="form-group turnstile-container">
+                  <div class="cf-turnstile"
+                       data-sitekey="0x4AAAAAAB_1yaGfdV_epdP4"
+                       data-theme="dark"
+                       data-language="ja"></div>
                 </div>
 
                 <button type="submit" class="submit-btn">
@@ -451,6 +477,7 @@
           <a href="#company">会社概要</a>
           <a href="#results">実績</a>
           <a href="#contact">お問い合わせ</a>
+          <a href="privacy-policy.html">プライバシーポリシー</a>
         </div>
       </div>
       <p class="copyright">
@@ -459,5 +486,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/form-handler.js"></script>
   </body>
 </html>

@@ -1,6 +1,9 @@
 /* 採用情報ページ専用CSS - 堂島フロント企画 */
 /* style.cssの後に読み込まれる採用ページ専用スタイル */
 
+/* フォームメッセージCSSをインポート */
+@import url('css/components/form-message.css');
+
 :root {
   /* カラーパレット - 企業サイトと統一 */
   --primary-gold: #b8860b;

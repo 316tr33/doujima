@@ -10,4 +10,6 @@
 @import url('components/navigation.css');
 @import url('components/slideshow.css');
 @import url('components/footer.css');
+@import url('components/form-message.css');
 @import url('pages/home.css');
+@import url('pages/privacy-policy.css');

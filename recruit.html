@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="recruit.css" />
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="js/responsive-debug.js" defer></script>
     <script src="js/logo-visibility.js" defer></script>
   </head>
@@ -435,10 +436,35 @@
               <label class="checkbox-item">
                 <input type="checkbox" id="privacy" name="privacy" required />
                 <span
-                  >個人情報の取扱いに同意します
+                  ><a href="privacy-policy.html" target="_blank">個人情報の取り扱い</a>に同意します
                   <span class="required">*</span></span
                 >
               </label>
+            </div>
+
+            <!-- スパム対策：ハニーポット（人間には見えない） -->
+            <input
+              type="text"
+              name="website"
+              id="website"
+              style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+
+            <!--
+              TODO: Turnstileサイトキーを設定
+              1. Cloudflareダッシュボード → Turnstile
+              2. サイト追加（doujimafront.com）
+              3. サイトキーを取得
+              4. data-sitekey="YOUR_SITE_KEY" を実際のキーに置き換え
+            -->
+            <div class="form-group turnstile-container">
+              <div class="cf-turnstile"
+                   data-sitekey="0x4AAAAAAB_1yaGfdV_epdP4"
+                   data-theme="dark"
+                   data-language="ja"></div>
             </div>
 
             <div class="form-submit">
@@ -461,6 +487,7 @@
             <a href="index.html">ホーム</a>
             <a href="Ohenro/index.html">巡礼事業</a>
             <a href="Tokaido/index.html">街道ウォーク事業</a>
+            <a href="privacy-policy.html">プライバシーポリシー</a>
           </div>
         </div>
         <div class="copyright">
@@ -471,5 +498,6 @@
 
     <script src="js/script.js"></script>
     <script src="recruit.js"></script>
+    <script src="js/form-handler.js"></script>
   </body>
 </html>
