@@ -242,6 +242,12 @@ async function checkRateLimit(context, clientIP) {
   const windowSeconds = 300; // 5分
 
   try {
+    // KV Namespaceが設定されていない場合はスキップ
+    if (!env.RATE_LIMIT) {
+      console.log('[レート制限] KV未設定のため、レート制限をスキップ');
+      return { allowed: true, count: 0 };
+    }
+
     // KVからカウント取得
     const currentCount = await env.RATE_LIMIT.get(rateLimitKey);
     const count = currentCount ? parseInt(currentCount, 10) : 0;
