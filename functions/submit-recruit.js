@@ -140,8 +140,9 @@ export async function onRequest(context) {
     }
 
     // データバリデーション
-    const validation = validateRecruitForm(formData);
+    const validation = validateRecruitForm(data);
     if (!validation.valid) {
+      console.log('[採用応募フォーム] バリデーションエラー:', validation.error);
       return new Response(
         JSON.stringify({
           success: false,
@@ -155,7 +156,7 @@ export async function onRequest(context) {
     }
 
     // メール送信
-    const emailResult = await sendRecruitEmail(formData, env, clientIP);
+    const emailResult = await sendRecruitEmail(data, env, clientIP);
 
     if (!emailResult.success) {
       console.error('[採用応募フォーム] メール送信失敗:', emailResult.error);

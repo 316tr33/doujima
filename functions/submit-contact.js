@@ -133,8 +133,9 @@ export async function onRequest(context) {
     }
 
     // データバリデーション
-    const validation = validateContactForm(formData);
+    const validation = validateContactForm(data);
     if (!validation.valid) {
+      console.log('[お問い合わせフォーム] バリデーションエラー:', validation.error);
       return new Response(
         JSON.stringify({
           success: false,
@@ -148,7 +149,7 @@ export async function onRequest(context) {
     }
 
     // メール送信
-    const emailResult = await sendContactEmail(formData, env, clientIP);
+    const emailResult = await sendContactEmail(data, env, clientIP);
 
     if (!emailResult.success) {
       console.error('[お問い合わせフォーム] メール送信失敗:', emailResult.error);
