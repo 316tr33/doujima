@@ -109,6 +109,14 @@ async function handleContactSubmit(form) {
 
     showMessage(errorMessage, 'error');
 
+    // エラー時もTurnstileリセット（トークン再生成のため）
+    if (window.turnstile) {
+      const turnstileWidget = form.querySelector('.cf-turnstile');
+      if (turnstileWidget) {
+        window.turnstile.reset(turnstileWidget);
+      }
+    }
+
   } finally {
     // ボタン復元
     submitBtn.disabled = false;
@@ -151,32 +159,14 @@ async function handleRecruitSubmit(form) {
     submitBtn.setAttribute('aria-busy', 'true');
     submitBtn.textContent = '送信中...';
 
-    // FormData作成（複数選択対応）
+    // FormData作成
     const formData = new FormData(form);
-    const positions = formData.getAll('position'); // チェックボックス配列取得
-
-    // FormDataをJSONに変換
-    const jsonData = {
-      name: formData.get('name'),
-      kana: formData.get('kana'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      age: formData.get('age'),
-      address: formData.get('address'),
-      position: positions, // 配列
-      experience: formData.get('experience'),
-      motivation: formData.get('motivation'),
-      message: formData.get('message'),
-      'cf-turnstile-response': turnstileResponse
-    };
+    formData.append('cf-turnstile-response', turnstileResponse);
 
     // API送信
     const response = await fetch('/submit-recruit', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(jsonData)
+      body: formData
     });
 
     if (!response.ok) {
@@ -208,6 +198,14 @@ async function handleRecruitSubmit(form) {
     }
 
     showMessage(errorMessage, 'error');
+
+    // エラー時もTurnstileリセット（トークン再生成のため）
+    if (window.turnstile) {
+      const turnstileWidget = form.querySelector('.cf-turnstile');
+      if (turnstileWidget) {
+        window.turnstile.reset(turnstileWidget);
+      }
+    }
 
   } finally {
     // ボタン復元
