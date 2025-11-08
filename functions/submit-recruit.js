@@ -50,7 +50,7 @@ export async function onRequest(context) {
 
     // FormDataをオブジェクトに変換（複数選択対応）
     const data = {};
-    for (const [key, value] of data.entries()) {
+    for (const [key, value] of formData.entries()) {
       if (key === 'position') {
         // 希望職種は複数選択可能
         if (!data[key]) data[key] = [];

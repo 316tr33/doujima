@@ -50,7 +50,7 @@ export async function onRequest(context) {
 
     // FormDataをオブジェクトに変換
     const data = {};
-    for (const [key, value] of data.entries()) {
+    for (const [key, value] of formData.entries()) {
       data[key] = value;
     }
 
