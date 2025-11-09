@@ -422,6 +422,10 @@ ${data.message || '未入力'}
 `;
 
   try {
+    const fromEmail = env.FROM_EMAIL || 'noreply@doujimafront.com';
+    console.log('[メール送信] FROM_EMAIL:', fromEmail);
+    console.log('[メール送信] RECIPIENT_EMAIL:', env.RECIPIENT_EMAIL);
+
     const response = await fetch('https://api.mailchannels.net/tx/v1/send', {
       method: 'POST',
       headers: {
@@ -434,7 +438,7 @@ ${data.message || '未入力'}
           },
         ],
         from: {
-          email: env.FROM_EMAIL || 'noreply@doujimafront.com',
+          email: fromEmail,
           name: '堂島フロント企画 採用応募フォーム',
         },
         subject: subject,
