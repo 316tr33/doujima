@@ -1,0 +1,46 @@
+/**
+ * フォームメッセージコンポーネント
+ * 送信成功・エラーメッセージのスタイル
+ */
+
+.form-message {
+  display: none;
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.6;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.form-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .form-message {
+    font-size: 14px;
+    padding: 12px 15px;
+    margin: 15px 0;
+  }
+}

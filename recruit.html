@@ -17,8 +17,15 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="recruit.css" />
+    <link rel="stylesheet" href="css/components/form-message.css" />
     <script src="js/responsive-debug.js" defer></script>
     <script src="js/logo-visibility.js" defer></script>
+    <!-- Cloudflare Turnstile -->
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
   </head>
   <body class="debug-responsive">
     <!-- ヘッダー -->
@@ -339,7 +346,11 @@
       <section class="application-form">
         <div class="container">
           <h2>応募フォーム</h2>
-          <form id="recruitForm">
+
+          <!-- フォーム送信メッセージ表示エリア -->
+          <div id="recruit-message" class="form-message"></div>
+
+          <form id="recruit-form">
             <div class="form-grid">
               <div class="form-group">
                 <label for="name">お名前 <span class="required">*</span></label>
@@ -431,14 +442,41 @@
               ></textarea>
             </div>
 
+            <!-- ハニーポット（スパムボット対策） -->
+            <div class="form-group" style="display: none;">
+              <label for="website">Website</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
             <div class="form-group privacy-policy">
               <label class="checkbox-item">
-                <input type="checkbox" id="privacy" name="privacy" required />
-                <span
-                  >個人情報の取扱いに同意します
-                  <span class="required">*</span></span
-                >
+                <input
+                  type="checkbox"
+                  id="privacy"
+                  name="privacy"
+                  value="true"
+                  required
+                />
+                <span>
+                  <a href="privacy-policy.html" target="_blank">プライバシーポリシー</a>に同意します
+                  <span class="required">*</span>
+                </span>
               </label>
+            </div>
+
+            <!-- Cloudflare Turnstile -->
+            <div class="form-group">
+              <div
+                class="cf-turnstile"
+                data-sitekey="0x4AAAAAAB_1yaGfdV_epdP4"
+                data-theme="light"
+              ></div>
             </div>
 
             <div class="form-submit">
@@ -470,6 +508,6 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script src="recruit.js"></script>
+    <script src="js/form-handler.js"></script>
   </body>
 </html>

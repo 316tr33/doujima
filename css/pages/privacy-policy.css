@@ -1,0 +1,160 @@
+/**
+ * プライバシーポリシーページ専用スタイル
+ */
+
+.privacy-policy-page {
+  padding: 100px 20px 60px;
+  background-color: #f5f5f5;
+  min-height: calc(100vh - 80px);
+}
+
+.privacy-policy-page .container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-policy-page h1 {
+  font-size: 32px;
+  color: #b8860b;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.last-updated {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+.policy-section {
+  margin-bottom: 35px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.policy-section:last-of-type {
+  border-bottom: none;
+}
+
+.policy-section h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+  padding-left: 15px;
+  border-left: 4px solid #b8860b;
+}
+
+.policy-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.policy-section ul {
+  list-style-type: disc;
+  padding-left: 30px;
+  margin-bottom: 15px;
+}
+
+.policy-section ul li {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.contact-info .contact-details {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 4px;
+  border-left: 4px solid #b8860b;
+  margin-top: 15px;
+}
+
+.contact-info .contact-details p {
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.contact-info .contact-details strong {
+  color: #b8860b;
+  font-weight: 600;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.back-link a {
+  color: #b8860b;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.back-link a:hover {
+  color: #d4af37;
+  text-decoration: underline;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .privacy-policy-page {
+    padding: 80px 15px 40px;
+  }
+
+  .privacy-policy-page .container {
+    padding: 25px;
+  }
+
+  .privacy-policy-page h1 {
+    font-size: 26px;
+  }
+
+  .policy-section h2 {
+    font-size: 19px;
+  }
+
+  .policy-section p,
+  .policy-section ul li {
+    font-size: 15px;
+  }
+
+  .contact-info .contact-details {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-policy-page .container {
+    padding: 20px;
+  }
+
+  .privacy-policy-page h1 {
+    font-size: 22px;
+  }
+
+  .policy-section h2 {
+    font-size: 17px;
+  }
+
+  .policy-section p,
+  .policy-section ul li {
+    font-size: 14px;
+  }
+}
