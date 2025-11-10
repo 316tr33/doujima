@@ -1,0 +1,19 @@
+# 堂島フロント企画 - Cloudflare Pages Functions 設定
+
+name = "doujima"
+compatibility_date = "2025-01-10"
+
+# Pages Functions の設定
+pages_build_output_dir = "."
+
+# KV Namespace バインディング（レート制限用）
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "b17668227fe14cd28bf6ff52f1f81ba1"
+
+# 本番環境の環境変数は Cloudflare Dashboard で設定
+# 必要な環境変数:
+# - RESEND_API_KEY
+# - FROM_EMAIL
+# - RECIPIENT_EMAIL
+# - TURNSTILE_SECRET_KEY

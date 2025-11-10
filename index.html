@@ -20,8 +20,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components/form-message.css" />
     <script src="js/responsive-debug.js" defer></script>
     <script src="js/logo-visibility.js" defer></script>
+    <!-- Cloudflare Turnstile -->
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
   </head>
   <body class="debug-responsive">
     <header>
@@ -352,7 +359,11 @@
 
             <div class="contact-form">
               <h3>お問い合わせフォーム</h3>
-              <form>
+
+              <!-- フォーム送信メッセージ表示エリア -->
+              <div id="contact-message" class="form-message"></div>
+
+              <form id="contact-form">
                 <div class="form-group">
                   <label for="company">会社名 *</label>
                   <input type="text" id="company" name="company" required />
@@ -411,12 +422,38 @@
                   ></textarea>
                 </div>
 
+                <!-- ハニーポット（スパムボット対策） -->
+                <div class="form-group" style="display: none;">
+                  <label for="website">Website</label>
+                  <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    tabindex="-1"
+                    autocomplete="off"
+                  />
+                </div>
+
                 <div class="form-group">
                   <label class="checkbox-label">
-                    <input type="checkbox" name="privacy" required />
+                    <input
+                      type="checkbox"
+                      name="privacy"
+                      value="true"
+                      required
+                    />
                     <span class="checkmark"></span>
-                    個人情報の取り扱いに同意する *
+                    <a href="privacy-policy.html" target="_blank">プライバシーポリシー</a>に同意する *
                   </label>
+                </div>
+
+                <!-- Cloudflare Turnstile -->
+                <div class="form-group">
+                  <div
+                    class="cf-turnstile"
+                    data-sitekey="0x4AAAAAAB_1yaGfdV_epdP4"
+                    data-theme="light"
+                  ></div>
                 </div>
 
                 <button type="submit" class="submit-btn">
@@ -459,5 +496,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/form-handler.js"></script>
   </body>
 </html>
