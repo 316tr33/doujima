@@ -225,6 +225,12 @@ async function verifyTurnstile(token, secretKey, clientIP) {
     );
 
     const result = await response.json();
+    console.log('[Turnstile検証] APIレスポンス:', {
+      success: result.success,
+      error_codes: result['error-codes'],
+      hostname: result.hostname,
+      challenge_ts: result.challenge_ts
+    });
     return result.success === true;
   } catch (error) {
     console.error('[Turnstile検証] エラー:', error);
