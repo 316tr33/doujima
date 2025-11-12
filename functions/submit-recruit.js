@@ -378,7 +378,7 @@ async function sendRecruitEmailViaResend(data, env, clientIP) {
     };
   }
 
-  const fromEmail = env.FROM_EMAIL || 'noreply@doujimafront.com';
+  const fromEmail = env.FROM_EMAIL || 'noreply@send.doujimafront.com';
   const recipientEmail = env.RECIPIENT_EMAIL || 'info@doujimafront.com';
 
   // 応募職種の整形(配列を文字列に変換)
