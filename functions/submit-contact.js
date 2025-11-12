@@ -354,7 +354,7 @@ async function sendContactEmailViaResend(data, env, clientIP) {
     };
   }
 
-  const fromEmail = env.FROM_EMAIL || 'noreply@doujimafront.com';
+  const fromEmail = env.FROM_EMAIL || 'noreply@send.doujimafront.com';
   const recipientEmail = env.RECIPIENT_EMAIL || 'info@doujimafront.com';
 
   // メール件名
