@@ -7,9 +7,10 @@ compatibility_date = "2025-01-10"
 pages_build_output_dir = "."
 
 # KV Namespace バインディング（レート制限用）
-[[kv_namespaces]]
-binding = "RATE_LIMIT"
-id = "b17668227fe14cd28bf6ff52f1f81ba1"
+# 注: KV namespaceは後で追加可能。なしでもフォームは動作します。
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "クライアント環境のKV namespace IDをここに設定"
 
 # 本番環境の環境変数は Cloudflare Dashboard で設定
 # 必要な環境変数:
